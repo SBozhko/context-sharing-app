@@ -46,6 +46,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="0.47680393206391991" blue="0.94515905037228842" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="n1s-z7-65v" firstAttribute="top" secondItem="One-ni-c6g" secondAttribute="top" id="2t5-nI-0q1"/>
                                             <constraint firstItem="n1s-z7-65v" firstAttribute="leading" secondItem="One-ni-c6g" secondAttribute="leading" id="KFr-ne-8ju"/>
@@ -86,6 +87,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="profile" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="collectionView" destination="VL2-il-ddX" id="2cf-WC-cmg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,7 +151,7 @@
                             <constraint firstItem="Dbq-gQ-ExF" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="fe5-i8-r4I"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="tableView" destination="Dbq-gQ-ExF" id="kFI-LK-dLr"/>
                     </connections>
@@ -169,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" id="jp6-nU-tZH"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history" id="jp6-nU-tZH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eya-pH-nEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,8 +201,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="feed" width="32" height="32"/>
+        <image name="history" width="26" height="32"/>
         <image name="profile" width="22" height="32"/>
-        <image name="second" width="30" height="30"/>
         <image name="share" width="36" height="37"/>
     </resources>
 </document>

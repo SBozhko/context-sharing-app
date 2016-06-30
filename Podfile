@@ -5,16 +5,18 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'AllAboutMe' do
-    pod 'RxSwift',    '~> 2.0'
+  pod 'Alamofire', '~> 3.4'
+  pod 'SwiftyJSON'
+  pod 'RxSwift',    '~> 2.0'
 #    pod 'RxCocoa',    '~> 2.0'
-    pod 'RxBlocking', '~> 2.0'
-    pod 'TransitionKit', '~> 2.0.0'
-    pod 'QuadratTouch', '>= 1.0'
-    pod 'ReachabilitySwift'
-    pod 'DeviceGuru'
-    pod 'AWSCore'
-    pod 'AWSCognito'
-    pod 'AWSS3'
+  pod 'RxBlocking', '~> 2.0'
+  pod 'TransitionKit', '~> 2.0.0'
+  pod 'QuadratTouch', '>= 1.0'
+  pod 'ReachabilitySwift'
+  pod 'DeviceGuru'
+  pod 'AWSCore'
+  pod 'AWSCognito'
+  pod 'AWSS3'
 end
 
 

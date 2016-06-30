@@ -21,6 +21,10 @@
 		387DE6A61D255092006543D4 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A31D255092006543D4 /* Logging.swift */; };
 		387DE6A71D255092006543D4 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A41D255092006543D4 /* String+Ext.swift */; };
 		387DE6A91D255209006543D4 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A81D255209006543D4 /* FeedTableViewCell.swift */; };
+		387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AA1D255FB5006543D4 /* ContextInfo.swift */; };
+		387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */; };
+		387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */; };
+		387DE6B11D25B4CA006543D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6B01D25B4CA006543D4 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +58,10 @@
 		387DE6A31D255092006543D4 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		387DE6A41D255092006543D4 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		387DE6A81D255209006543D4 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		387DE6AA1D255FB5006543D4 /* ContextInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextInfo.swift; sourceTree = "<group>"; };
+		387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+		387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		387DE6B01D25B4CA006543D4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllAboutMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24507E2A89CC48A886DC4D3 /* Pods-AllAboutMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllAboutMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllAboutMe/Pods-AllAboutMe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +113,10 @@
 				387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */,
 				387DE6931D2545BD006543D4 /* Info.plist */,
 				387DE6A81D255209006543D4 /* FeedTableViewCell.swift */,
+				387DE6AA1D255FB5006543D4 /* ContextInfo.swift */,
+				387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */,
+				387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */,
+				387DE6B01D25B4CA006543D4 /* Common.swift */,
 			);
 			path = AllAboutMe;
 			sourceTree = "<group>";
@@ -249,13 +261,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */,
 				387DE68A1D2545BD006543D4 /* FeedViewController.swift in Sources */,
+				387DE6B11D25B4CA006543D4 /* Common.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
+				387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */,
 				387DE6A61D255092006543D4 /* Logging.swift in Sources */,
 				387DE6A51D255092006543D4 /* AWS.swift in Sources */,
 				387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */,
 				387DE6A71D255092006543D4 /* String+Ext.swift in Sources */,
+				387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */,
 				387DE6A91D255209006543D4 /* FeedTableViewCell.swift in Sources */,
 				387DE69F1D254722006543D4 /* HistoryViewController.swift in Sources */,
 			);

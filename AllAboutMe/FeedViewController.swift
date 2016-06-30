@@ -10,10 +10,7 @@ import UIKit
 import RxSwift
 import NEContextSDK
 
-class FeedViewController: UIViewController {
-  var disposables : [Disposable] = []
-  var contexts : [String] = []
-  
+class FeedViewController: UIViewController {  
   @IBOutlet weak var tableView: UITableView!
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,15 +21,6 @@ class FeedViewController: UIViewController {
     tableView.estimatedRowHeight = 160.0
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    disposables.append(NEContextManager.sharedInstance.subscribe { context in
-      print("\(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
-      self.contexts.append("\(context.group.name) : \(context.name.name)")
-      self.tableView.reloadData()
-    })
-  }
-
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -41,17 +29,11 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController : UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return contexts.count
+    return 1
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    return feedTableViewCellAtIndexPath(indexPath)
-  }
-  
-  func feedTableViewCellAtIndexPath(indexPath : NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("FeedTableViewCell") as! FeedTableViewCell
-    cell.shareLabel.text = contexts[indexPath.row]
-    return cell
-  }
+    return UITableViewCell()
+  }  
 }
 
