@@ -1,0 +1,10 @@
+framework module NEContextSDK {
+  umbrella header "NEContextSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module NEContextSDK.Swift {
+    header "NEContextSDK-Swift.h"
+}
