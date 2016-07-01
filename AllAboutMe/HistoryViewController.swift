@@ -7,29 +7,55 @@
 //
 
 import UIKit
+import Charts
+import Alamofire
+import SwiftyJSON
 
 class HistoryViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  @IBOutlet weak var pieChartView: PieChartView!
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    Alamofire.request(.GET, getContextHistoryEndpoint, encoding: .JSON)
+      .responseJSON { response in
+        
+        if let unwrappedResult = response.data {
+          let json = JSON(data: unwrappedResult)
+          let contextTypes = json["userStats"]
+          for (_, subJson):(String, JSON) in contextTypes {
+            if subJson["ctxType"] == "Situation" {
+              var dataEntries: [ChartDataEntry] = []
+              var dataPoints : [String] = []
+              for (innerIndex, contextJson):(String, JSON) in subJson["values"] {
+                let dataEntry = ChartDataEntry(value: contextJson["percentage"].doubleValue, xIndex: Int(innerIndex)!)
+                dataPoints.append(contextJson["ctxValue"].stringValue)
+                dataEntries.append(dataEntry)
+              }
+              let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Situations")
+              let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
+              self.pieChartView.data = pieChartData
+              var colors: [UIColor] = []
+              
+              for _ in 0..<dataPoints.count {
+                let red = Double(arc4random_uniform(256))
+                let green = Double(arc4random_uniform(256))
+                let blue = Double(arc4random_uniform(256))
+                
+                let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+                colors.append(color)
+              }
+              
+              pieChartDataSet.colors = colors
+              break
+            }
+          }
+        }
     }
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+  }
 
 }

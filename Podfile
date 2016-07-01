@@ -7,6 +7,7 @@ use_frameworks!
 target 'AllAboutMe' do
   pod 'Alamofire', '~> 3.4'
   pod 'SwiftyJSON'
+  pod 'Charts'
   pod 'RxSwift',    '~> 2.0'
 #    pod 'RxCocoa',    '~> 2.0'
   pod 'RxBlocking', '~> 2.0'

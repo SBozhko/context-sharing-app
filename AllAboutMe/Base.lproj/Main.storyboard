@@ -40,7 +40,7 @@
                                                     <rect key="frame" x="0.0" y="65" width="80" height="15"/>
                                                     <color key="backgroundColor" red="0.81660615731192876" green="0.74473168896243702" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -121,7 +121,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T02-8k-Ip3">
                                                     <rect key="frame" x="8" y="8" width="544" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -171,9 +171,24 @@
                     <view key="view" contentMode="scaleToFill" id="8nN-X6-XvQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDi-tk-AFR" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="28" width="560" height="523"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kDi-tk-AFR" firstAttribute="top" secondItem="m9a-78-o75" secondAttribute="bottom" constant="8" id="Hyd-Kj-Ghn"/>
+                            <constraint firstItem="kDi-tk-AFR" firstAttribute="leading" secondItem="8nN-X6-XvQ" secondAttribute="leading" constant="20" id="NGY-H4-7QS"/>
+                            <constraint firstItem="KUi-ky-9Gw" firstAttribute="top" secondItem="kDi-tk-AFR" secondAttribute="bottom" id="ODo-fk-oDj"/>
+                            <constraint firstAttribute="trailing" secondItem="kDi-tk-AFR" secondAttribute="trailing" constant="20" id="ZnT-eS-Or3"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="history" id="jp6-nU-tZH"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="kDi-tk-AFR" id="Qbx-aJ-bzW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eya-pH-nEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
