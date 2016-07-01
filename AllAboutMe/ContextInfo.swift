@@ -15,6 +15,15 @@ class ContextInfo {
     return _sharedContextInfoInstance
   }
   
+  func getValidCurrentContext(group : NEContextGroup) -> NEContext? {
+    let contextInfo = getCurrentContext(group)
+    if contextInfo.0 && contextInfo.1!.name != NEContextName.Unknown {
+      return contextInfo.1
+    } else {
+      return nil
+    }
+  }
+  
   func getCurrentContext(group : NEContextGroup) -> (Bool, NEContext?) {
     switch (group) {
     case .Activity:

@@ -48,9 +48,8 @@ class MeViewController: UIViewController {
   func initializeContexts() {
     var contextsToPost : [NEContext] = []
     for contextGroup in contextGroupCells {
-      let contextInfo = ContextInfo.sharedInstance.getCurrentContext(contextGroup)
-      if contextInfo.0 && contextInfo.1!.name != NEContextName.Unknown {
-        contextsToPost.append(contextInfo.1!)
+      if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
+        contextsToPost.append(validContext)
       }
     }
     if !contextsToPost.isEmpty {
@@ -95,15 +94,15 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     
     // Use the outlet in our custom class to get a reference to the UILabel in the cell
     let contextGroup = contextGroupCells[indexPath.row]
-    cell.contextLabel.text = contextGroup.name
-    if ContextInfo.sharedInstance.getCurrentContext(contextGroup).0 {
-//      Send request for image
+    if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
+      //      Send request for image
       cell.imageView.image = UIImage(named: "relaxing")
+      cell.contextLabel.text = validContext.name.name
     } else {
-//      Show loading image
-      cell.imageView.image = UIImage(named: "loading")      
+      //      Show loading image
+      cell.imageView.image = UIImage(named: "loading")
+      cell.contextLabel.text = contextGroup.name
     }
-    
     return cell
   }
   
