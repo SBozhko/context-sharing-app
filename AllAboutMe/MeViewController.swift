@@ -71,10 +71,10 @@ class MeViewController: UIViewController {
     ]
     Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
       .responseJSON { response in
-        print(JSON(data: (response.request?.HTTPBody)!))
-        print(response.request)  // original URL request
-        print(response.response) // URL response
-        print(response.result)   // result of response serialization
+//        print(JSON(data: (response.request?.HTTPBody)!))
+//        print(response.request)  // original URL request
+//        print(response.response) // URL response
+//        print(response.result)   // result of response serialization
         if let JSON = response.result.value {
           print("JSON: \(JSON)")
         }
@@ -109,5 +109,12 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return contextGroupCells.count
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+  {
+    let scale = UIScreen.mainScreen().scale as CGFloat
+    let cellSize = (collectionViewLayout as! UICollectionViewFlowLayout).itemSize
+    return CGSizeMake(cellSize.width * scale/2, cellSize.height * scale/2)
   }
 }
