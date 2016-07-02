@@ -100,7 +100,7 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
       cell.imageView.frame.size.height = UIScreen.mainScreen().bounds.size.width
       if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(NEContextGroup.Situation) {
         //      Send request for image
-        cell.imageView.image = UIImage(named: "relaxing")
+        cell.imageView.image = UIImage(named: "\(ContextInfo.sharedInstance.getContextImage(NEContextGroup.Situation))")
         cell.contextLabel.text = validContext.name.name
       } else {
         //      Show loading image

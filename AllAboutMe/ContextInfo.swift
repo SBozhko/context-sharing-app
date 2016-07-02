@@ -123,24 +123,24 @@ class ContextInfo {
 //      } else {
 //        return (false, nil)
 //      }
-//    case .Situation:
-//      if let value = NESituation.get() {
-//        return (true, value)
-//      } else {
-//        return (false, nil)
-//      }
+    case .Situation:
+      if let value = NESituation.get() {
+        return (true, value.name.name.lowercaseString)
+      } else {
+        return (false, "")
+      }
 //    case .TimeOfDay:
 //      if let value = NETimeOfDay.get() {
 //        return (true, value)
 //      } else {
 //        return (false, nil)
 //      }
-//    case .Weather:
-//      if let value = NEWeather.get() {
-//        return (true, value)
-//      } else {
-//        return (false, nil)
-//      }
+    case .Weather:
+      if let value = NEWeather.get() {
+        return (true, value.name.name.lowercaseString)
+      } else {
+        return (false, "")
+      }
     default:
       return (false, "")
     }
