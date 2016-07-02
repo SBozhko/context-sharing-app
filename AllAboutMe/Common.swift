@@ -10,4 +10,4 @@ import Foundation
 
 /* Server Endpoints */
 let postContextEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/contexts"
-let getContextHistoryEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/contexts/userId/verndorId?ctx=TimeOfDay,DayOfWeek,IndoorOutdoor,Activity,Situation,Brightness,Mood,Weather,Place"
+let getContextHistoryEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/contexts/user/verndorId?ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"

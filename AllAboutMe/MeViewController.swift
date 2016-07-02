@@ -11,6 +11,7 @@ import RxSwift
 import NEContextSDK
 import Alamofire
 import SwiftyJSON
+import AdSupport
 
 class MeViewController: UIViewController {
   @IBOutlet weak var situationCollectionView: UICollectionView!
@@ -66,12 +67,14 @@ class MeViewController: UIViewController {
     var contextDataParameters : [[String : String]] = [[:]]
     contextDataParameters.removeLast()
     for context in contextsToPost {
-      contextDataParameters.append(["ctxType" : context.group.name, "ctxValue" : context.name.name])
+      contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name])
     }
+    print(ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString)
     let parameters : [String : AnyObject] = [
       "userId": "Abhishek123",
       "vendorId": Logging.sharedInstance.getVendorIdentifer,
-      "contextData": contextDataParameters
+      "contextData": contextDataParameters,
+      "idfa": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
     ]
     Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
       .responseJSON { response in
@@ -97,16 +100,18 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     // get a reference to our storyboard cell
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
     if collectionView == situationCollectionView {
-      cell.imageView.frame.size.width = UIScreen.mainScreen().bounds.width
-      cell.imageView.frame.size.height = cell.imageView.frame.size.width
-      if let _ = ContextInfo.sharedInstance.getValidCurrentContext(NEContextGroup.Situation) {
+//      let imgFactor = cell.frame.size.height / cell.frame.size.width
+      cell.imageView.frame.size.width = UIScreen.mainScreen().bounds.size.width
+      cell.imageView.frame.size.height = UIScreen.mainScreen().bounds.size.width
+      print("situation width: \(cell.imageView.frame.size.width) height:\(cell.imageView.frame.size.height)")
+      if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(NEContextGroup.Situation) {
         //      Send request for image
         cell.imageView.image = UIImage(named: "relaxing")
-        //      cell.contextLabel.text = validContext.name.name
+        cell.contextLabel.text = validContext.name.name
       } else {
         //      Show loading image
         cell.imageView.image = UIImage(named: "loading")
-        //      cell.contextLabel.text = contextGroup.name
+        cell.contextLabel.text = NEContextGroup.Situation.name
       }
     } else {
       // Use the outlet in our custom class to get a reference to the UILabel in the cell
@@ -114,14 +119,15 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
       let imgFactor = cell.frame.size.height / cell.frame.size.width
       cell.imageView.frame.size.width = cell.frame.size.width
       cell.imageView.frame.size.height = cell.imageView.frame.size.width * imgFactor
-      if let _ = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
+      print("context width:\(cell.imageView.frame.size.width)")
+      if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
         //      Send request for image
         cell.imageView.image = UIImage(named: "relaxing")
-        //      cell.contextLabel.text = validContext.name.name
+        cell.contextLabel.text = validContext.name.name
       } else {
         //      Show loading image
         cell.imageView.image = UIImage(named: "loading")
-        //      cell.contextLabel.text = contextGroup.name
+        cell.contextLabel.text = contextGroup.name
       }
     }
     return cell
@@ -140,7 +146,7 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     let scale = UIScreen.mainScreen().scale as CGFloat
     let cellSize = (collectionViewLayout as! UICollectionViewFlowLayout).itemSize
     if collectionView == situationCollectionView {
-      return CGSizeMake(cellSize.width * scale, cellSize.height * scale)
+      return CGSizeMake(UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.width)
     } else {
       return CGSizeMake(cellSize.width * scale/4, cellSize.height * scale/4)
     }

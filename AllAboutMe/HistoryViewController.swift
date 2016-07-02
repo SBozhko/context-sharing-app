@@ -23,12 +23,12 @@ class HistoryViewController: UIViewController {
           let json = JSON(data: unwrappedResult)
           let contextTypes = json["userStats"]
           for (_, subJson):(String, JSON) in contextTypes {
-            if subJson["ctxType"] == "Situation" {
+            if subJson["ctxGroup"] == "Situation" {
               var dataEntries: [ChartDataEntry] = []
               var dataPoints : [String] = []
               for (innerIndex, contextJson):(String, JSON) in subJson["values"] {
                 let dataEntry = ChartDataEntry(value: contextJson["percentage"].doubleValue, xIndex: Int(innerIndex)!)
-                dataPoints.append(contextJson["ctxValue"].stringValue)
+                dataPoints.append(contextJson["ctxName"].stringValue)
                 dataEntries.append(dataEntry)
               }
               let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Situations")
