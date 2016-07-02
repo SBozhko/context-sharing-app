@@ -87,11 +87,6 @@ class MeViewController: UIViewController {
 
 extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//    if collectionView == situationCollectionView {
-//
-//    } else {
-//      
-//    }
     print("Selected cell #\(indexPath.row)")
   }
   
@@ -100,10 +95,8 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     // get a reference to our storyboard cell
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
     if collectionView == situationCollectionView {
-//      let imgFactor = cell.frame.size.height / cell.frame.size.width
       cell.imageView.frame.size.width = UIScreen.mainScreen().bounds.size.width
       cell.imageView.frame.size.height = UIScreen.mainScreen().bounds.size.width
-      print("situation width: \(cell.imageView.frame.size.width) height:\(cell.imageView.frame.size.height)")
       if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(NEContextGroup.Situation) {
         //      Send request for image
         cell.imageView.image = UIImage(named: "relaxing")
@@ -115,14 +108,18 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
       }
     } else {
       // Use the outlet in our custom class to get a reference to the UILabel in the cell
-      let contextGroup = contextGroupCells[indexPath.row]
+      let contextGroup = contextGroupCells[indexPath.row+1]
       let imgFactor = cell.frame.size.height / cell.frame.size.width
       cell.imageView.frame.size.width = cell.frame.size.width
       cell.imageView.frame.size.height = cell.imageView.frame.size.width * imgFactor
-      print("context width:\(cell.imageView.frame.size.width)")
       if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
         //      Send request for image
-        cell.imageView.image = UIImage(named: "relaxing")
+        let contextImage = ContextInfo.sharedInstance.getContextImage(contextGroup)
+        if contextImage.0 {
+          cell.imageView.image = UIImage(named: contextImage.1)
+        } else {
+          cell.imageView.image = UIImage(named: "relaxing")
+        }
         cell.contextLabel.text = validContext.name.name
       } else {
         //      Show loading image
