@@ -87,12 +87,12 @@ class ContextInfo {
   
   func getContextImage(group : NEContextGroup) -> (Bool, String) {
     switch (group) {
-//    case .Activity:
-//      if let value = NEActivity.get() {
-//        return (true, value)
-//      } else {
-//        return (false, nil)
-//      }
+    case .Activity:
+      if let value = NEActivity.get() {
+        return (true, value.name.name.lowercaseString)
+      } else {
+        return (false, "")
+      }
 //    case .DayCategory:
 //      if let value = NEDayCategory.get() {
 //        return (true, value)

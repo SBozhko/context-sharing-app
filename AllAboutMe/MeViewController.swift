@@ -94,6 +94,7 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     // get a reference to our storyboard cell
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
+    cell.imageView.contentMode = UIViewContentMode.ScaleAspectFit
     if collectionView == situationCollectionView {
       cell.imageView.frame.size.width = UIScreen.mainScreen().bounds.size.width
       cell.imageView.frame.size.height = UIScreen.mainScreen().bounds.size.width
@@ -109,9 +110,9 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     } else {
       // Use the outlet in our custom class to get a reference to the UILabel in the cell
       let contextGroup = contextGroupCells[indexPath.row+1]
-      let imgFactor = cell.frame.size.height / cell.frame.size.width
-      cell.imageView.frame.size.width = cell.frame.size.width
-      cell.imageView.frame.size.height = cell.imageView.frame.size.width * imgFactor
+//      let imgFactor = cell.imageView.frame.size.width / cell.frame.size.width
+//      cell.imageView.frame.size.width = cell.frame.size.width
+//      cell.imageView.frame.size.height = cell.imageView.frame.size.width * imgFactor
       if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
         //      Send request for image
         let contextImage = ContextInfo.sharedInstance.getContextImage(contextGroup)
