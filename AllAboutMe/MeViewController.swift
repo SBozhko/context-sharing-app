@@ -13,7 +13,8 @@ import Alamofire
 import SwiftyJSON
 
 class MeViewController: UIViewController {
-  @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var situationCollectionView: UICollectionView!
+  @IBOutlet weak var otherContextCollectionView: UICollectionView!
   
   let reuseIdentifier = "Cell"
   let contextGroupCells : [NEContextGroup] = [NEContextGroup.Situation, NEContextGroup.Mood, NEContextGroup.Place, NEContextGroup.Weather, NEContextGroup.Activity, NEContextGroup.Lightness, NEContextGroup.TimeOfDay, NEContextGroup.DayCategory, NEContextGroup.IndoorOutdoor]
@@ -23,7 +24,6 @@ class MeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    initializeContexts()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -32,11 +32,16 @@ class MeViewController: UIViewController {
       disposables.append(NEContextManager.sharedInstance.subscribe { context in
         print("\(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
         dispatch_async(dispatch_get_main_queue(), {
-          self.collectionView.reloadData()
+          if context.group == NEContextGroup.Situation {
+            self.situationCollectionView.reloadData()
+          } else {
+            self.otherContextCollectionView.reloadData()
+          }
         })
 //        self.collectionView.reloadItemsAtIndexPaths(self.collectionViewIndexPaths)
         self.postContextInfo([context])
       })
+      initializeContexts()
     }
   }
   
@@ -70,10 +75,6 @@ class MeViewController: UIViewController {
     ]
     Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
       .responseJSON { response in
-//        print(JSON(data: (response.request?.HTTPBody)!))
-//        print(response.request)  // original URL request
-//        print(response.response) // URL response
-//        print(response.result)   // result of response serialization
         if let JSON = response.result.value {
           print("JSON: \(JSON)")
         }
@@ -83,37 +84,65 @@ class MeViewController: UIViewController {
 
 extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//    if collectionView == situationCollectionView {
+//
+//    } else {
+//      
+//    }
     print("Selected cell #\(indexPath.row)")
   }
   
   // make a cell for each cell index path
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    
     // get a reference to our storyboard cell
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
-    
-    // Use the outlet in our custom class to get a reference to the UILabel in the cell
-    let contextGroup = contextGroupCells[indexPath.row]
-    if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
-      //      Send request for image
-      cell.imageView.image = UIImage(named: "relaxing")
-      cell.contextLabel.text = validContext.name.name
+    if collectionView == situationCollectionView {
+      cell.imageView.frame.size.width = UIScreen.mainScreen().bounds.width
+      cell.imageView.frame.size.height = cell.imageView.frame.size.width
+      if let _ = ContextInfo.sharedInstance.getValidCurrentContext(NEContextGroup.Situation) {
+        //      Send request for image
+        cell.imageView.image = UIImage(named: "relaxing")
+        //      cell.contextLabel.text = validContext.name.name
+      } else {
+        //      Show loading image
+        cell.imageView.image = UIImage(named: "loading")
+        //      cell.contextLabel.text = contextGroup.name
+      }
     } else {
-      //      Show loading image
-      cell.imageView.image = UIImage(named: "loading")
-      cell.contextLabel.text = contextGroup.name
+      // Use the outlet in our custom class to get a reference to the UILabel in the cell
+      let contextGroup = contextGroupCells[indexPath.row]
+      let imgFactor = cell.frame.size.height / cell.frame.size.width
+      cell.imageView.frame.size.width = cell.frame.size.width
+      cell.imageView.frame.size.height = cell.imageView.frame.size.width * imgFactor
+      if let _ = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
+        //      Send request for image
+        cell.imageView.image = UIImage(named: "relaxing")
+        //      cell.contextLabel.text = validContext.name.name
+      } else {
+        //      Show loading image
+        cell.imageView.image = UIImage(named: "loading")
+        //      cell.contextLabel.text = contextGroup.name
+      }
     }
     return cell
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return contextGroupCells.count
+    if collectionView == situationCollectionView {
+      return 1
+    } else {
+      return (contextGroupCells.count - 1)
+    }
   }
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
   {
     let scale = UIScreen.mainScreen().scale as CGFloat
     let cellSize = (collectionViewLayout as! UICollectionViewFlowLayout).itemSize
-    return CGSizeMake(cellSize.width * scale/2, cellSize.height * scale/2)
+    if collectionView == situationCollectionView {
+      return CGSizeMake(cellSize.width * scale, cellSize.height * scale)
+    } else {
+      return CGSizeMake(cellSize.width * scale/4, cellSize.height * scale/4)
+    }
   }
 }
