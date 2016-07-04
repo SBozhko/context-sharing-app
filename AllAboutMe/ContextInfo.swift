@@ -105,12 +105,12 @@ class ContextInfo {
       } else {
         return (false, "")
       }
-//    case .Lightness:
-//      if let value = NELightness.get() {
-//        return (true, value)
-//      } else {
-//        return (false, nil)
-//      }
+    case .Lightness:
+      if let value = NELightness.get() {
+        return (true, value.name.name.lowercaseString)
+      } else {
+        return (false, "")
+      }
     case .Mood:
       if let value = NEMood.get() {
         return (true, value.name.name.lowercaseString)

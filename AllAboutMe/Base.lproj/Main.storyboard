@@ -99,7 +99,7 @@
                                                         <constraint firstAttribute="width" secondItem="ac7-K4-ADa" secondAttribute="height" multiplier="1:1" id="xPU-Du-3At"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibt-oG-WDr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibt-oG-WDr">
                                                     <rect key="frame" x="0.0" y="120" width="120" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="DSv-I7-uEE"/>
@@ -167,16 +167,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDi-tk-AFR" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <rect key="frame" x="8" y="28" width="584" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kDi-tk-AFR" firstAttribute="top" secondItem="m9a-78-o75" secondAttribute="bottom" id="Hyd-Kj-Ghn"/>
-                            <constraint firstItem="kDi-tk-AFR" firstAttribute="leading" secondItem="8nN-X6-XvQ" secondAttribute="leading" id="NGY-H4-7QS"/>
-                            <constraint firstItem="KUi-ky-9Gw" firstAttribute="top" secondItem="kDi-tk-AFR" secondAttribute="bottom" id="ODo-fk-oDj"/>
-                            <constraint firstAttribute="trailing" secondItem="kDi-tk-AFR" secondAttribute="trailing" id="ZnT-eS-Or3"/>
+                            <constraint firstItem="kDi-tk-AFR" firstAttribute="top" secondItem="m9a-78-o75" secondAttribute="bottom" constant="8" id="Hyd-Kj-Ghn"/>
+                            <constraint firstItem="kDi-tk-AFR" firstAttribute="leading" secondItem="8nN-X6-XvQ" secondAttribute="leading" constant="8" id="NGY-H4-7QS"/>
+                            <constraint firstItem="KUi-ky-9Gw" firstAttribute="top" secondItem="kDi-tk-AFR" secondAttribute="bottom" constant="8" id="ODo-fk-oDj"/>
+                            <constraint firstAttribute="trailing" secondItem="kDi-tk-AFR" secondAttribute="trailing" constant="8" id="ZnT-eS-Or3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="History" image="history" id="jp6-nU-tZH"/>
