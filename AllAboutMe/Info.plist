@@ -46,7 +46,7 @@
 		<true/>
 	</dict>
 	<key>CFBundleDisplayName</key>
-	<string>Me</string>
+	<string>Ambience</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
