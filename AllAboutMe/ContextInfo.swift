@@ -93,12 +93,12 @@ class ContextInfo {
       } else {
         return (false, "")
       }
-//    case .DayCategory:
-//      if let value = NEDayCategory.get() {
-//        return (true, value)
-//      } else {
-//        return (false, nil)
-//      }
+    case .DayCategory:
+      if let value = NEDayCategory.get() {
+        return (true, value.name.name.lowercaseString)
+      } else {
+        return (false, "")
+      }
     case .IndoorOutdoor:
       if let value = NEIndoorOutdoor.get() {
         return (true, value.name.name.lowercaseString)
@@ -117,24 +117,24 @@ class ContextInfo {
       } else {
         return (false, "")
       }
-//    case .Place:
-//      if let value = NEPlace.get() {
-//        return (true, value)
-//      } else {
-//        return (false, nil)
-//      }
+    case .Place:
+      if let value = NEPlace.get() {
+        return (true, value.name.name.lowercaseString)
+      } else {
+        return (false, "")
+      }
     case .Situation:
       if let value = NESituation.get() {
         return (true, value.name.name.lowercaseString)
       } else {
         return (false, "")
       }
-//    case .TimeOfDay:
-//      if let value = NETimeOfDay.get() {
-//        return (true, value)
-//      } else {
-//        return (false, nil)
-//      }
+    case .TimeOfDay:
+      if let value = NETimeOfDay.get() {
+        return (true, value.name.name.lowercaseString)
+      } else {
+        return (false, "")
+      }
     case .Weather:
       if let value = NEWeather.get() {
         return (true, value.name.name.lowercaseString)
