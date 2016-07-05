@@ -188,6 +188,11 @@
 					387DE6811D2545BD006543D4 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = JTSFFH6DL8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
