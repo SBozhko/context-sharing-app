@@ -1,5 +1,5 @@
 //
-//  SituationPopoverViewController.swift
+//  OtherContextPopoverViewController.swift
 //  AllAboutMe
 //
 //  Created by Abhishek Sen on 7/5/16.
@@ -9,25 +9,25 @@
 import UIKit
 import NEContextSDK
 
-class SituationPopoverViewController: UIViewController {
-  var situation : NEContext?
+class OtherContextPopoverViewController: UIViewController {
+  var context : NEContext?
   
-  @IBOutlet weak var situationLabel: UILabel!
+  @IBOutlet weak var contextLabel: UILabel!
   @IBOutlet weak var confidenceLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     // Do any additional setup after loading the view.
-    if let _situation = situation {
-      print("Situation Confidence: \(_situation.confidence)")
+    if let _context = context {
+      print("Other context Confidence: \(_context.confidence)")
       dispatch_async(dispatch_get_main_queue(), {
-        self.situationLabel.text = "\(_situation.name.name)"
-        self.confidenceLabel.text = "\((_situation.confidence*100.0).roundTo(2))%"
+        self.contextLabel.text = "\(_context.name.name)"
+        self.confidenceLabel.text = "\((_context.confidence*100.0).roundTo(2))%"
       })
     }
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -36,7 +36,8 @@ class SituationPopoverViewController: UIViewController {
   @IBAction func closePopover(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
+  
 }
 
-extension SituationPopoverViewController : UIPopoverPresentationControllerDelegate {
+extension OtherContextPopoverViewController : UIPopoverPresentationControllerDelegate {
 }

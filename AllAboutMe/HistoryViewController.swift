@@ -46,6 +46,8 @@ class HistoryViewController: UIViewController {
               }
               
               pieChartDataSet.colors = colors
+              self.pieChartView.usePercentValuesEnabled = true
+              
               break
             }
           }

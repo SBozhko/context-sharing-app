@@ -87,31 +87,33 @@ class MeViewController: UIViewController {
 
 extension MeViewController : UIPopoverPresentationControllerDelegate {
   func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-    return UIModalPresentationStyle.FormSheet
-  }
-  
-  func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
-    let navigationController = UINavigationController(rootViewController: controller.presentedViewController)
-    let btnDone = UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(MeViewController.dismiss))
-    navigationController.topViewController!.navigationItem.rightBarButtonItem = btnDone
-    return navigationController
-  }
-  
-  func dismiss() {
-    self.dismissViewControllerAnimated(true, completion: nil)
+    return UIModalPresentationStyle.None
   }
 }
 
 extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    print("Selected cell #\(indexPath.row)")
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let vc = storyboard.instantiateViewControllerWithIdentifier("SituationPopoverViewController")
-    vc.modalPresentationStyle = .Popover
-    let popover = vc.popoverPresentationController!
-    popover.delegate = self
-    presentViewController(vc, animated: true, completion: nil)
-    
+    if collectionView == situationCollectionView {
+      if let vc = storyboard.instantiateViewControllerWithIdentifier("SituationPopoverViewController") as? SituationPopoverViewController {
+        vc.modalPresentationStyle = .Popover
+        vc.situation = ContextInfo.sharedInstance.getValidCurrentContext(contextGroupCells[indexPath.row])
+        let popover = vc.popoverPresentationController!
+        popover.delegate = self
+        popover.sourceView = self.view
+        presentViewController(vc, animated: true, completion: nil)
+      }
+    } else {
+      // Use the outlet in our custom class to get a reference to the UILabel in the cell
+      if let vc = storyboard.instantiateViewControllerWithIdentifier("OtherContextPopoverViewController") as? OtherContextPopoverViewController {
+        vc.modalPresentationStyle = .Popover
+        vc.context = ContextInfo.sharedInstance.getValidCurrentContext(contextGroupCells[indexPath.row+1])
+        let popover = vc.popoverPresentationController!
+        popover.delegate = self
+        popover.sourceView = self.view
+        presentViewController(vc, animated: true, completion: nil)
+      }
+    }
   }
   
   // make a cell for each cell index path
