@@ -113,7 +113,7 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
         if contextImage.0 {
           cell.imageView.image = UIImage(named: contextImage.1)
         } else {
-          cell.imageView.image = UIImage(named: "relaxing")
+          cell.imageView.image = UIImage(named: "loading")
         }
         cell.contextLabel.text = validContext.name.name
       } else {
