@@ -116,14 +116,12 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     }
   }
   
-  // make a cell for each cell index path
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    // get a reference to our storyboard cell
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
     if collectionView == situationCollectionView {
       if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(NEContextGroup.Situation) {
-        //      Send request for image
-        cell.imageView.image = UIImage(named: "\(ContextInfo.sharedInstance.getContextImage(NEContextGroup.Situation))")
+      //        Send request for image
+        cell.imageView.image = UIImage(named: "\(ContextInfo.sharedInstance.getContextImage(NEContextGroup.Situation).imageName)")
         cell.contextLabel.text = validContext.name.name
       } else {
         //      Show loading image
@@ -161,12 +159,12 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
   {
-    let scale = UIScreen.mainScreen().scale as CGFloat
-    let cellSize = (collectionViewLayout as! UICollectionViewFlowLayout).itemSize
     if collectionView == situationCollectionView {
-      return CGSizeMake(cellSize.width * scale, cellSize.height * scale)
+      let size : CGSize = CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.width+27)
+      return size
     } else {
-      return CGSizeMake(cellSize.width * scale/4, cellSize.height * scale/4)
+      let size : CGSize  = CGSizeMake(collectionView.frame.size.width/4-5, collectionView.frame.size.width/4 + 30-5)
+      return size
     }
   }
 }

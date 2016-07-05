@@ -85,7 +85,7 @@ class ContextInfo {
     }
   }
   
-  func getContextImage(group : NEContextGroup) -> (Bool, String) {
+  func getContextImage(group : NEContextGroup) -> (flag : Bool,imageName : String) {
     switch (group) {
     case .Activity:
       if let value = NEActivity.get() {

@@ -27,6 +27,7 @@
 		38DAE3601D2B3ECC005F26B0 /* SituationPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */; };
 		38DAE3621D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */; };
 		38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */; };
+		38DAE3661D2C1850005F26B0 /* ContextFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */; };
 		38FA3ED81D27E617005110D2 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FA3ED71D27E616005110D2 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SituationPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherContextPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
+		38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextFeedbackViewController.swift; sourceTree = "<group>"; };
 		38FA3ED71D27E616005110D2 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllAboutMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24507E2A89CC48A886DC4D3 /* Pods-AllAboutMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllAboutMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllAboutMe/Pods-AllAboutMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */,
 				387DE6B01D25B4CA006543D4 /* Common.swift */,
 				38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */,
+				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
 			);
 			path = AllAboutMe;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				387DE6A91D255209006543D4 /* FeedTableViewCell.swift in Sources */,
 				387DE69F1D254722006543D4 /* HistoryViewController.swift in Sources */,
 				38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */,
+				38DAE3661D2C1850005F26B0 /* ContextFeedbackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
