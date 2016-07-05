@@ -85,9 +85,33 @@ class MeViewController: UIViewController {
   }
 }
 
+extension MeViewController : UIPopoverPresentationControllerDelegate {
+  func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+    return UIModalPresentationStyle.FormSheet
+  }
+  
+  func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+    let navigationController = UINavigationController(rootViewController: controller.presentedViewController)
+    let btnDone = UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(MeViewController.dismiss))
+    navigationController.topViewController!.navigationItem.rightBarButtonItem = btnDone
+    return navigationController
+  }
+  
+  func dismiss() {
+    self.dismissViewControllerAnimated(true, completion: nil)
+  }
+}
+
 extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     print("Selected cell #\(indexPath.row)")
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewControllerWithIdentifier("SituationPopoverViewController")
+    vc.modalPresentationStyle = .Popover
+    let popover = vc.popoverPresentationController!
+    popover.delegate = self
+    presentViewController(vc, animated: true, completion: nil)
+    
   }
   
   // make a cell for each cell index path
