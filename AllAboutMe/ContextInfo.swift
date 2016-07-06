@@ -86,4 +86,29 @@ class ContextInfo {
       return (false, nil, nil)
     }
   }
+  
+  func getContextListForContextGroup(group : NEContextGroup) -> [NEContextName] {
+    switch (group) {
+    case .Activity:
+      return NEActivity.contexts
+    case .DayCategory:
+      return NEDayCategory.contexts
+    case .IndoorOutdoor:
+      return NEIndoorOutdoor.contexts
+    case .Lightness:
+      return NELightness.contexts
+    case .Mood:
+      return NEMood.contexts
+    case .Place:
+      return NEPlace.contexts
+    case .Situation:
+      return NESituation.contexts
+    case .TimeOfDay:
+      return NETimeOfDay.contexts
+    case .Weather:
+      return NEWeather.contexts
+    default:
+      return []
+    }
+  }
 }

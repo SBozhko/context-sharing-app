@@ -37,6 +37,19 @@ class OtherContextPopoverViewController: UIViewController {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let identifier = segue.identifier {
+      switch identifier {
+      case "otherContextsFeedbackSegue":
+        if let
+          destController = segue.destinationViewController as? ContextFeedbackViewController {
+          destController.context = context
+        }
+      default:
+        break
+      }
+    }
+  }
 }
 
 extension OtherContextPopoverViewController : UIPopoverPresentationControllerDelegate {

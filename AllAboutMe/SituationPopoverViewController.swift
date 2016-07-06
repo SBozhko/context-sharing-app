@@ -36,6 +36,20 @@ class SituationPopoverViewController: UIViewController {
   @IBAction func closePopover(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let identifier = segue.identifier {
+      switch identifier {
+      case "situationFeedbackSegue":
+        if let
+          destController = segue.destinationViewController as? ContextFeedbackViewController {
+          destController.context = situation
+      }
+      default:
+        break
+      }
+    }
+  }
 }
 
 extension SituationPopoverViewController : UIPopoverPresentationControllerDelegate {
