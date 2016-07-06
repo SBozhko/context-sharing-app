@@ -10,8 +10,8 @@ import UIKit
 import RxSwift
 import NEContextSDK
 import Alamofire
-import SwiftyJSON
 import AdSupport
+import Social
 
 class MeViewController: UIViewController {
   @IBOutlet weak var situationCollectionView: UICollectionView!
@@ -135,7 +135,63 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
       cell.imageView.image = UIImage(named: "unknown")
       cell.contextLabel.text = contextGroup.name
     }
+    if collectionView == situationCollectionView {
+      cell.shareButton.addTarget(self, action: #selector(MeViewController.shareButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+    }
     return cell
+  }
+  
+  @IBAction func shareButtonPressed(sender: AnyObject) {
+    let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+    let twitterAction = UIAlertAction(title: "Twitter", style: .Default, handler: {
+      (alert: UIAlertAction!) -> Void in
+      self.socialMediaSharing(SLServiceTypeTwitter)
+    })
+    let facebookAction = UIAlertAction(title: "Facebook", style: .Default, handler: {
+      (alert: UIAlertAction!) -> Void in
+      self.socialMediaSharing(SLServiceTypeFacebook)
+    })
+    let whatsappAction = UIAlertAction(title: "WhatsApp", style: .Default, handler: {
+      (alert: UIAlertAction!) -> Void in
+      self.shareOnWhatsApp()
+    })
+    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+      (alert: UIAlertAction!) -> Void in
+      print("Cancelled")
+    })
+    optionMenu.addAction(twitterAction)
+    optionMenu.addAction(facebookAction)
+    optionMenu.addAction(whatsappAction)
+    optionMenu.addAction(cancelAction)
+    self.presentViewController(optionMenu, animated: true, completion: nil)
+  }
+  
+  func socialMediaSharing(serviceType : String) {
+    if SLComposeViewController.isAvailableForServiceType(serviceType) {
+      let composeController = SLComposeViewController(forServiceType: serviceType)
+      if !composeController.setInitialText("Shared via NumberEight's Ambience App.") {
+        print("did not set initial text")
+      }
+      
+      composeController.completionHandler = {result -> Void in
+        if (result as SLComposeViewControllerResult) == SLComposeViewControllerResult.Done {
+        }
+      }
+      self.presentViewController(composeController, animated: true, completion: nil)
+    } else {
+      let alert = UIAlertController(title: "Accounts", message: String("Please login to a %@ account to share.", serviceType.capitalizedString), preferredStyle: UIAlertControllerStyle.Alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+      self.presentViewController(alert, animated: true, completion: nil)
+    }
+  }
+  
+  func shareOnWhatsApp() {
+    let urlString = "Shared via NumberEight's Ambience App."
+    let urlStringEncoded = urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+    let url = NSURL(string: "whatsapp://send?text=\(urlStringEncoded!)")
+    if UIApplication.sharedApplication().canOpenURL(url!) {
+      UIApplication.sharedApplication().openURL(url!)
+    }
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
