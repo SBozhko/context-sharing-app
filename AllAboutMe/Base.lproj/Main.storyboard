@@ -450,6 +450,12 @@
                                                         <constraint firstAttribute="width" constant="120" id="2We-dl-Eu8"/>
                                                         <constraint firstAttribute="height" constant="120" id="kpv-pt-bvx"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="2We-dl-Eu8"/>
+                                                            <exclude reference="kpv-pt-bvx"/>
+                                                        </mask>
+                                                    </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaE-NG-gQB">
                                                     <rect key="frame" x="0.0" y="120" width="120" height="30"/>

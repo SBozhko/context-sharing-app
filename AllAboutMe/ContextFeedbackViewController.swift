@@ -37,9 +37,7 @@ extension ContextFeedbackViewController : UICollectionViewDelegate, UICollection
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MeCollectionViewCell
     if !listOfContextNames.isEmpty {
       //      Send request for image
-      let contextName = listOfContextNames[indexPath.row]
-      print(contextName.name)
-      cell.imageView.image = UIImage(named: contextName.name.lowercaseString)
+      cell.imageView.image = UIImage(named: listOfContextNames[indexPath.row].name.lowercaseString)
       cell.contextLabel.text = listOfContextNames[indexPath.row].name
     }
     return cell
