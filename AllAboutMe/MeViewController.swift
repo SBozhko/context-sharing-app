@@ -54,7 +54,7 @@ class MeViewController: UIViewController {
   func initializeContexts() {
     var contextsToPost : [NEContext] = []
     for contextGroup in contextGroupCells {
-      if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
+      if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup).context {
         contextsToPost.append(validContext)
       }
     }
@@ -97,7 +97,7 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     if collectionView == situationCollectionView {
       if let vc = storyboard.instantiateViewControllerWithIdentifier("SituationPopoverViewController") as? SituationPopoverViewController {
         vc.modalPresentationStyle = .Popover
-        vc.situation = ContextInfo.sharedInstance.getValidCurrentContext(contextGroupCells[indexPath.row])
+        vc.situation = ContextInfo.sharedInstance.getValidCurrentContext(contextGroupCells[indexPath.row]).context!
         let popover = vc.popoverPresentationController!
         popover.delegate = self
         popover.sourceView = self.view
@@ -107,7 +107,7 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
       // Use the outlet in our custom class to get a reference to the UILabel in the cell
       if let vc = storyboard.instantiateViewControllerWithIdentifier("OtherContextPopoverViewController") as? OtherContextPopoverViewController {
         vc.modalPresentationStyle = .Popover
-        vc.context = ContextInfo.sharedInstance.getValidCurrentContext(contextGroupCells[indexPath.row+1])
+        vc.context = ContextInfo.sharedInstance.getValidCurrentContext(contextGroupCells[indexPath.row+1]).context!
         let popover = vc.popoverPresentationController!
         popover.delegate = self
         popover.sourceView = self.view
@@ -120,18 +120,16 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
     let contextGroupCellIndex = collectionView == otherContextCollectionView ? indexPath.row+1 : 0
     let contextGroup = contextGroupCellIndex == 0 ? NEContextGroup.Situation : contextGroupCells[contextGroupCellIndex]
-    if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
+    let currentContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup)
+    if let
+      validContextName = currentContext.context,
+      validContextImageName = currentContext.imageName {
       //      Send request for image
-      let contextImage = ContextInfo.sharedInstance.getContextImage(contextGroup)
-      if contextImage.flag {
-        cell.imageView.image = UIImage(named: contextImage.imageName)
-      } else {
-        cell.imageView.image = UIImage(named: "unknown")
-      }
-      cell.contextLabel.text = validContext.name.name
+      cell.imageView.image = UIImage(named: validContextImageName)
+      cell.contextLabel.text = validContextName.name.name
     } else {
       //      Show loading image
-      cell.imageView.image = UIImage(named: "loading")
+      cell.imageView.image = UIImage(named: "unknown")
       cell.contextLabel.text = contextGroup.name
     }
     return cell

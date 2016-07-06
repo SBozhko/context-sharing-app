@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		hVZAYbpWJtzjhEZRd0dXeJ6pkag=
+		</data>
 		<key>CMakeLists.txt</key>
 		<data>
 		J1prvhnlYy8CUTEag6JHOuMp/AQ=
@@ -106,19 +110,19 @@
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		gCnGQHT8Wtw5YnpwedfFkJWDqxI=
+		8tjHKG3gGDw+YqToXxY8ZINUCC8=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		rNsiMNa+mLmgeebioNYXVMSNT2g=
+		tyDoxa9DlKTX0xglMbjCy+CBpR4=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		c/i4FP8rRHVitgVR9iPiCbSjH5s=
+		acScLXEjwzFnh/afeDWzLH4OKXM=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		GGN2yDf+jmcLbVlDROVqU7+kceY=
+		7i0uqj9r574GuJnajg+8aWQlGf4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -427,44 +431,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gCnGQHT8Wtw5YnpwedfFkJWDqxI=
+			8tjHKG3gGDw+YqToXxY8ZINUCC8=
 			</data>
 			<key>hash2</key>
 			<data>
-			yYoL5TrIbxdXcmEZRucRPj0jOmzr/G7CzRzrFl7+mS0=
+			6YgkW+D3Meq97uq+tzf3sXWEYkCp1dX5uWGe7lY+4Z4=
 			</data>
 		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rNsiMNa+mLmgeebioNYXVMSNT2g=
+			tyDoxa9DlKTX0xglMbjCy+CBpR4=
 			</data>
 			<key>hash2</key>
 			<data>
-			f3OIJ1ynXe4vpjpoaSq67XSxf4LSKnCpozMXtrbQ9ys=
+			Fhn/tWOfc4/2+R5ImgLpCJP6ElOF2KtghS2J3DRiJk4=
 			</data>
 		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			c/i4FP8rRHVitgVR9iPiCbSjH5s=
+			acScLXEjwzFnh/afeDWzLH4OKXM=
 			</data>
 			<key>hash2</key>
 			<data>
-			bMwe1B17VbEqGjASlqIiA7VElvp287yJcOHiBRy4/y8=
+			hdabD0JP7mf1QW6yFJv9+OaXyV5AAEi/adfKrtK9umg=
 			</data>
 		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GGN2yDf+jmcLbVlDROVqU7+kceY=
+			7i0uqj9r574GuJnajg+8aWQlGf4=
 			</data>
 			<key>hash2</key>
 			<data>
-			pXpLt35sMc5CyOaZKbx2JlXL+v9BtQeEEuKRYr7JOHA=
+			QiNMI15F3Ci/WbZVAIwC4x+xPWHMTF8n0RAKh44Fag8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
