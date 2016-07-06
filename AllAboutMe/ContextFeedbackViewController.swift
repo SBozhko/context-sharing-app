@@ -15,6 +15,7 @@ class ContextFeedbackViewController: UIViewController {
   
   var context : NEContext?
   var listOfContextNames : [NEContextName] = []
+  var selectedContext : [NEContextName : NSIndexPath] = [:]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,7 +31,33 @@ class ContextFeedbackViewController: UIViewController {
 
 extension ContextFeedbackViewController : UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    let cell = collectionView.cellForItemAtIndexPath(indexPath) as? MeCollectionViewCell
+    if let
+      savedIndexPath = selectedContext[listOfContextNames[indexPath.row]]
+        where savedIndexPath == indexPath {
+      selectedContext.removeValueForKey(listOfContextNames[savedIndexPath.row])
+      cell!.imageView.layer.borderWidth = 0.0
+      cell!.imageView.layer.borderColor = UIColor.clearColor().CGColor
+    } else {
+      selectedContext[listOfContextNames[indexPath.row]] = indexPath
+      cell!.imageView.layer.borderWidth = 3.0
+      cell!.imageView.layer.borderColor = UIColor.blueColor().CGColor
+    }
+  }
   
+  func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    let cell = collectionView.cellForItemAtIndexPath(indexPath) as? MeCollectionViewCell
+    if let
+      savedIndexPath = selectedContext[listOfContextNames[indexPath.row]]
+      where savedIndexPath == indexPath {
+      selectedContext.removeValueForKey(listOfContextNames[savedIndexPath.row])
+      cell!.imageView.layer.borderWidth = 0.0
+      cell!.imageView.layer.borderColor = UIColor.clearColor().CGColor
+    } else {
+      selectedContext[listOfContextNames[indexPath.row]] = indexPath
+      cell!.imageView.layer.borderWidth = 3.0
+      cell!.imageView.layer.borderColor = UIColor.blueColor().CGColor
+    }
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
