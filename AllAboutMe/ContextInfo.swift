@@ -24,7 +24,7 @@ class ContextInfo {
     }
   }
   
-  func getCurrentContext(group : NEContextGroup) -> (Bool, NEContext?) {
+  func getCurrentContext(group : NEContextGroup) -> (flag : Bool, context : NEContext?) {
     switch (group) {
     case .Activity:
       if let value = NEActivity.get() {

@@ -118,33 +118,21 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
-    if collectionView == situationCollectionView {
-      if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(NEContextGroup.Situation) {
-      //        Send request for image
-        cell.imageView.image = UIImage(named: "\(ContextInfo.sharedInstance.getContextImage(NEContextGroup.Situation).imageName)")
-        cell.contextLabel.text = validContext.name.name
+    let contextGroupCellIndex = collectionView == otherContextCollectionView ? indexPath.row+1 : 0
+    let contextGroup = contextGroupCellIndex == 0 ? NEContextGroup.Situation : contextGroupCells[contextGroupCellIndex]
+    if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
+      //      Send request for image
+      let contextImage = ContextInfo.sharedInstance.getContextImage(contextGroup)
+      if contextImage.flag {
+        cell.imageView.image = UIImage(named: contextImage.imageName)
       } else {
-        //      Show loading image
-        cell.imageView.image = UIImage(named: "loading")
-        cell.contextLabel.text = NEContextGroup.Situation.name
+        cell.imageView.image = UIImage(named: "unknown")
       }
+      cell.contextLabel.text = validContext.name.name
     } else {
-      // Use the outlet in our custom class to get a reference to the UILabel in the cell
-      let contextGroup = contextGroupCells[indexPath.row+1]
-      if let validContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup) {
-        //      Send request for image
-        let contextImage = ContextInfo.sharedInstance.getContextImage(contextGroup)
-        if contextImage.0 {
-          cell.imageView.image = UIImage(named: contextImage.1)
-        } else {
-          cell.imageView.image = UIImage(named: "loading")
-        }
-        cell.contextLabel.text = validContext.name.name
-      } else {
-        //      Show loading image
-        cell.imageView.image = UIImage(named: "loading")
-        cell.contextLabel.text = contextGroup.name
-      }
+      //      Show loading image
+      cell.imageView.image = UIImage(named: "loading")
+      cell.contextLabel.text = contextGroup.name
     }
     return cell
   }

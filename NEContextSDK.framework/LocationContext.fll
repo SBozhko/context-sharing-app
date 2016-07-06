@@ -1,0 +1,78 @@
+Engine: LocationContext
+InputVariable: VisitDuration
+  enabled: true
+  range: 0.000 24.000
+  term: Short Trapezoid 0.000 0.000 2.000 4.000
+  term: Medium Triangle 2.000 4.000 6.000
+  term: Long Trapezoid 4.000 7.000 24.000 24.000
+InputVariable: ArrivalTime
+  enabled: true
+  range: -1.000 24.000
+  term: Morning Trapezoid 0.000 5.000 9.000 14.000
+  term: Afternoon Triangle 9.000 14.000 19.000
+  term: Evening Triangle 15.000 19.000 23.000
+  term: Night Trapezoid 19.000 23.000 24.000 24.000
+  term: DistantPast Triangle -1.000 -1.000 0.000
+InputVariable: DepartureTime
+  enabled: true
+  range: 0.000 25.000
+  term: Morning Trapezoid 0.000 5.000 9.000 14.000
+  term: Afternoon Triangle 9.000 14.000 19.000
+  term: Evening Triangle 15.000 19.000 23.000
+  term: Night Trapezoid 19.000 23.000 24.000 24.000
+  term: DistantFuture Triangle 24.000 25.000 25.000
+InputVariable: DayOfWeek
+  enabled: true
+  range: 0.000 168.000
+  term: Weekday PiShape 0.000 8.000 108.000 115.000
+  term: Weekend PiShape 108.000 115.000 162.000 168.000
+InputVariable: DeviceReachability
+  enabled: true
+  range: 0.000 1.000
+  term: Unreachable Triangle 0.000 0.200 0.400
+  term: CellularOnly Triangle 0.200 0.400 0.600
+  term: WifiOnly Triangle 0.400 0.600 0.800
+  term: WifiAndCellular Triangle 0.600 0.800 1.000
+OutputVariable: Location
+  enabled: true
+  range: 0.000 1.000
+  accumulation: Maximum
+  defuzzifier: Centroid 200
+  default: 0.833
+  lock-previous: false
+  lock-range: false
+  term: Home Triangle 0.000 0.167 0.330
+  term: Office Triangle 0.167 0.330 0.500
+  term: Library Triangle 0.330 0.500 0.667
+  term: Gym Triangle 0.500 0.667 0.833
+  term: Other Triangle 0.667 0.833 1.000
+RuleBlock: 
+  enabled: true
+  conjunction: Minimum
+  disjunction: Maximum
+  activation: Minimum
+  rule: if VisitDuration is Short and ArrivalTime is DistantPast and DepartureTime is Morning and DayOfWeek is Weekday then Location is Home
+  rule: if VisitDuration is Short and ArrivalTime is Night and DepartureTime is DistantFuture and DayOfWeek is Weekday then Location is Home
+  rule: if VisitDuration is Short and ArrivalTime is DistantPast and DepartureTime is Evening and DayOfWeek is Weekday then Location is Home with 0.5
+  rule: if VisitDuration is Long and ArrivalTime is Evening and DepartureTime is Morning and DayOfWeek is Weekday then Location is Home
+  rule: if VisitDuration is Medium and ArrivalTime is Evening and DepartureTime is Evening and DayOfWeek is Weekday then Location is Home with 0.5
+  rule: if VisitDuration is Long and ArrivalTime is Night and DepartureTime is Morning and DayOfWeek is Weekday then Location is Home
+  rule: if VisitDuration is Short and ArrivalTime is DistantPast and DepartureTime is not DistantFuture and DayOfWeek is Weekend then Location is Home
+  rule: if VisitDuration is Short and ArrivalTime is Morning and DepartureTime is DistantFuture and DayOfWeek is Weekend then Location is Home
+  rule: if VisitDuration is Medium and ArrivalTime is Morning and DepartureTime is Afternoon and DayOfWeek is Weekend then Location is Home with 0.5
+  rule: if VisitDuration is Medium and ArrivalTime is Night and DepartureTime is Morning and DayOfWeek is Weekend then Location is Home with 0.5
+  rule: if VisitDuration is Long and ArrivalTime is Night and DepartureTime is Morning and DayOfWeek is Weekend then Location is Home
+  rule: if VisitDuration is Long and ArrivalTime is Evening and DepartureTime is Morning and DayOfWeek is Weekend then Location is Home
+  rule: if VisitDuration is Long and ArrivalTime is Evening and DepartureTime is Afternoon and DayOfWeek is Weekend then Location is Home
+  rule: if VisitDuration is Long and ArrivalTime is Afternoon and DepartureTime is Morning and DayOfWeek is Weekend then Location is Home with 0.5
+  rule: if VisitDuration is Long and ArrivalTime is Morning and DepartureTime is Afternoon and DayOfWeek is Weekend then Location is Home
+  rule: if VisitDuration is Long and ArrivalTime is Night and DepartureTime is Afternoon and DayOfWeek is Weekend then Location is Home
+  rule: if VisitDuration is Short and ArrivalTime is Morning and DepartureTime is Afternoon and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly then Location is Office
+  rule: if VisitDuration is Short and ArrivalTime is Morning and DepartureTime is DistantFuture and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly then Location is Office with 0.5
+  rule: if VisitDuration is Short and ArrivalTime is Afternoon and DepartureTime is Evening and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly then Location is Office
+  rule: if VisitDuration is Short and ArrivalTime is Afternoon and DepartureTime is DistantFuture and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly  then Location is Office with 0.5
+  rule: if VisitDuration is Short and ArrivalTime is DistantPast and DepartureTime is Afternoon and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly  then Location is Office
+  rule: if VisitDuration is Medium and (ArrivalTime is Afternoon or ArrivalTime is Morning) and (DepartureTime is Evening or DepartureTime is Afternoon) and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly  then Location is Office
+  rule: if VisitDuration is Long and ArrivalTime is Morning and (DepartureTime is Evening or DepartureTime is Night) and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly  then Location is Office with 0.5
+  rule: if VisitDuration is Long and ArrivalTime is Morning and DepartureTime is Afternoon and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly  then Location is Office
+  rule: if VisitDuration is Long and ArrivalTime is Afternoon and DepartureTime is Evening and DayOfWeek is Weekday and DeviceReachability is not Unreachable and DeviceReachability is not CellularOnly  then Location is Office

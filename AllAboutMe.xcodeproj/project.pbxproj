@@ -13,7 +13,6 @@
 		387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68B1D2545BD006543D4 /* Main.storyboard */; };
 		387DE68F1D2545BD006543D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68E1D2545BD006543D4 /* Assets.xcassets */; };
 		387DE6921D2545BD006543D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */; };
-		387DE69C1D254611006543D4 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 387DE6991D254608006543D4 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		387DE69F1D254722006543D4 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE69E1D254722006543D4 /* HistoryViewController.swift */; };
 		387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */; };
 		387DE6A51D255092006543D4 /* AWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A21D255092006543D4 /* AWS.swift */; };
@@ -24,6 +23,7 @@
 		387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */; };
 		387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */; };
 		387DE6B11D25B4CA006543D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6B01D25B4CA006543D4 /* Common.swift */; };
+		38C913191D2CE21D0037A7B9 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C913161D2CE2180037A7B9 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38DAE3601D2B3ECC005F26B0 /* SituationPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */; };
 		38DAE3621D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */; };
 		38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */; };
@@ -32,13 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		387DE69D1D254611006543D4 /* Embed Frameworks */ = {
+		38C9131A1D2CE21E0037A7B9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				387DE69C1D254611006543D4 /* NEContextSDK.framework in Embed Frameworks */,
+				38C913191D2CE21D0037A7B9 /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +54,6 @@
 		387DE68E1D2545BD006543D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		387DE6911D2545BD006543D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		387DE6931D2545BD006543D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		387DE6991D254608006543D4 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		387DE69E1D254722006543D4 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCollectionViewCell.swift; sourceTree = "<group>"; };
 		387DE6A21D255092006543D4 /* AWS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWS.swift; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		387DE6B01D25B4CA006543D4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		38C913161D2CE2180037A7B9 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SituationPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherContextPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 			children = (
 				387DE6841D2545BD006543D4 /* AllAboutMe */,
 				387DE6831D2545BD006543D4 /* Products */,
-				387DE6991D254608006543D4 /* NEContextSDK.framework */,
 				817FC35F85FB8106C14E79F4 /* Pods */,
 				DF1B6159D0D86E83ACB75FBA /* Frameworks */,
 			);
@@ -145,6 +144,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38C913161D2CE2180037A7B9 /* NEContextSDK.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
 				87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */,
 			);
@@ -162,9 +162,9 @@
 				387DE67E1D2545BD006543D4 /* Sources */,
 				387DE67F1D2545BD006543D4 /* Frameworks */,
 				387DE6801D2545BD006543D4 /* Resources */,
-				387DE69D1D254611006543D4 /* Embed Frameworks */,
 				78A643866B945C1B403E4878 /* Embed Pods Frameworks */,
 				37B912C171C97FA1CB350A14 /* Copy Pods Resources */,
+				38C9131A1D2CE21E0037A7B9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

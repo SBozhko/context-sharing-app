@@ -1,0 +1,81 @@
+Engine: Sensor-Context
+InputVariable: Temperature
+  enabled: true
+  range: -40.000 40.000
+  term: COLD Trapezoid -40.000 -40.000 5.000 15.000
+  term: NORMAL Trapezoid 10.000 12.500 17.500 20.000
+  term: WARM Triangle 17.500 22.500 30.000
+  term: HOT Trapezoid 25.000 30.000 40.000 40.000
+InputVariable: Humidity
+  enabled: true
+  range: 0.000 1.000
+  term: Low Trapezoid 0.000 0.000 0.200 0.350
+  term: Medium Trapezoid 0.250 0.350 0.550 0.650
+  term: High Trapezoid 0.550 0.700 1.000 1.000
+InputVariable: Time
+  enabled: true
+  range: 0.000 24.000
+  term: MORNING Trapezoid 4.000 6.000 10.000 12.000
+  term: AFTERNOON Trapezoid 11.000 12.000 15.000 17.000
+  term: EVENING Trapezoid 16.000 17.000 19.000 21.000
+  term: EARLYNIGHT Trapezoid 20.000 22.000 24.000 24.000
+  term: MIDNIGHT Trapezoid 0.000 0.000 4.000 6.000
+InputVariable: SeasonNH
+  enabled: true
+  range: -0.020 12.000
+  term: MIDWINTER Trapezoid 0.000 0.000 2.000 4.000
+  term: SPRING Trapezoid 2.500 4.000 5.000 6.000
+  term: SUMMER Trapezoid 5.000 6.000 8.000 9.000
+  term: FALL Trapezoid 8.500 9.500 10.000 11.000
+  term: EARLYWINTER Trapezoid 10.500 11.000 12.000 12.000
+InputVariable: DayOfWeek
+  enabled: true
+  range: 1.000 7.000
+  term: WEEKDAY Rectangle 1.000 5.000
+  term: WEEKEND Rectangle 5.000 7.000
+InputVariable: Activity
+  enabled: true
+  range: 0.000 6.000
+  term: NONE Triangle 0.000 0.500 1.000
+  term: STATIONARY Triangle 1.000 1.500 2.000
+  term: WALKING Triangle 2.000 2.500 3.000
+  term: RUNNING Triangle 3.000 3.500 4.000
+  term: CYCLING Triangle 4.000 4.500 5.000
+  term: DRIVING Triangle 5.000 5.500 6.000
+InputVariable: HeartRate
+  enabled: true
+  range: 0.000 220.000
+  term: REST PiShape 45.000 60.000 75.000 90.000
+  term: LOW Trapezoid 0.000 0.000 41.250 55.000
+  term: ACTIVITY PiShape 75.000 110.000 170.000 220.000
+InputVariable: SoundLevel
+  enabled: true
+  range: 0.000 200.000
+  term: FAINT Trapezoid 0.000 0.000 25.000 40.000
+  term: QUIET Trapezoid 30.000 40.000 50.000 60.000
+  term: NORMAL Trapezoid 50.000 60.000 80.000 100.000
+  term: LOUD Trapezoid 80.000 100.000 120.000 130.000
+  term: PAINFUL Trapezoid 120.000 130.000 140.000 160.000
+  term: INTOLERABLE Trapezoid 150.000 165.000 200.000 200.000
+OutputVariable: MoodTags
+  enabled: true
+  range: 0.000 1.000
+  accumulation: Maximum
+  defuzzifier: Centroid 200
+  default: nan
+  lock-previous: false
+  lock-range: false
+  term: Happy Triangle 0.000 0.330 0.660
+  term: Sad Triangle 0.330 0.660 1.000
+RuleBlock: WeatherMoodTags
+  enabled: true
+  conjunction: Minimum
+  disjunction: Maximum
+  activation: Minimum
+  rule: if Temperature is HOT and Humidity is Low then MoodTags is Happy
+  rule: if Temperature is WARM and Humidity is Low then MoodTags is Happy
+  rule: if Temperature is HOT and Humidity is High then MoodTags is Sad
+  rule: if Temperature is WARM and Humidity is High then MoodTags is Sad
+  rule: if Temperature is HOT and Humidity is High then MoodTags is Sad
+  rule: if Temperature is COLD and Humidity is High then MoodTags is Sad
+  rule: if Temperature is COLD and (Humidity is High or Humidity is Medium) then MoodTags is Sad

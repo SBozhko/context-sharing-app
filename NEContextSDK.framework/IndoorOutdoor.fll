@@ -1,0 +1,76 @@
+Engine: IndoorOutdoor
+InputVariable: Brightness
+  enabled: true
+  range: 0.000 1.000
+  term: Dark Triangle 0.000 0.000 0.200
+  term: Medium Triangle 0.025 0.300 0.600
+  term: Bright Trapezoid 0.300 0.750 1.000 1.000
+InputVariable: TimeOfDay
+  enabled: true
+  range: 0.000 1.000
+  term: Daytime Triangle 0.000 0.250 0.500
+  term: NightTime Triangle 0.500 0.750 1.000
+InputVariable: MagneticVariance
+  enabled: true
+  range: 0.000 1.000
+  term: High Trapezoid 0.150 0.250 1.000 1.000
+  term: Low Trapezoid 0.000 0.000 0.050 0.100
+  term: Medium Triangle 0.050 0.150 0.250
+InputVariable: DeviceMovement
+  enabled: true
+  range: 0.000 1.000
+  term: Unknown Triangle 0.000 0.250 0.500
+  term: Moving Triangle 0.250 0.500 0.750
+  term: NotMoving Triangle 0.500 0.750 1.000
+InputVariable: DeviceReachability
+  enabled: true
+  range: 0.000 1.000
+  term: Unreachable Triangle 0.000 0.200 0.400
+  term: CellularOnly Triangle 0.200 0.400 0.600
+  term: WifiOnly Triangle 0.400 0.600 0.800
+  term: WifiAndCellular Triangle 0.600 0.800 1.000
+InputVariable: DeviceLockStatus
+  enabled: true
+  range: 0.000 1.000
+  term: Unlocked Triangle 0.000 0.250 0.500
+  term: Locked Triangle 0.500 0.750 1.000
+OutputVariable: BrightnessIndoorOutdoor
+  enabled: true
+  range: 0.000 1.000
+  accumulation: Maximum
+  defuzzifier: Centroid 200
+  default: 0.500
+  lock-previous: false
+  lock-range: false
+  term: Unknown Triangle 0.000 0.250 0.500
+  term: Indoor Triangle 0.250 0.500 0.750
+  term: Outdoor Triangle 0.500 0.750 1.000
+OutputVariable: MagneticIndoorOutdoor
+  enabled: true
+  range: 0.000 1.000
+  accumulation: Maximum
+  defuzzifier: Centroid 200
+  default: 0.500
+  lock-previous: false
+  lock-range: false
+  term: Unknown Triangle 0.000 0.250 0.500
+  term: Indoor Triangle 0.250 0.500 0.750
+  term: Outdoor Triangle 0.500 0.750 1.000
+RuleBlock: BrightnessIndoorOutdoorRB
+  enabled: true
+  conjunction: Minimum
+  disjunction: Maximum
+  activation: Minimum
+  rule: if (Brightness is Dark or Brightness is Medium) and TimeOfDay is Daytime and DeviceLockStatus is Unlocked then BrightnessIndoorOutdoor is Indoor
+  rule: if Brightness is Dark and TimeOfDay is NightTime and DeviceLockStatus is Unlocked then BrightnessIndoorOutdoor is Outdoor with 0.75
+  rule: if Brightness is Dark and TimeOfDay is NightTime and DeviceLockStatus is Unlocked and DeviceMovement is NotMoving then BrightnessIndoorOutdoor is Indoor with 0.75
+  rule: if Brightness is Medium and TimeOfDay is NightTime and DeviceLockStatus is Unlocked then BrightnessIndoorOutdoor is Indoor with 0.75
+  rule: if Brightness is Bright and TimeOfDay is Daytime and DeviceLockStatus is Unlocked then BrightnessIndoorOutdoor is Outdoor
+RuleBlock: MagneticIndoorOutdoorRB
+  enabled: true
+  conjunction: Minimum
+  disjunction: Maximum
+  activation: Minimum
+  rule: if MagneticVariance is Low and DeviceMovement is Moving and DeviceReachability is CellularOnly then MagneticIndoorOutdoor is Outdoor with 0.75
+  rule: if MagneticVariance is High and DeviceMovement is Moving then MagneticIndoorOutdoor is Indoor with 0.5
+  rule: if MagneticVariance is very High and DeviceMovement is Moving then MagneticIndoorOutdoor is Indoor

@@ -8,6 +8,18 @@
 		<data>
 		J1prvhnlYy8CUTEag6JHOuMp/AQ=
 		</data>
+		<key>ContextTags.fll</key>
+		<data>
+		1ezcn3I/CurvCxqzrNj2BiNSRtc=
+		</data>
+		<key>DayCategory.fll</key>
+		<data>
+		O0JytWaVXIXRhyMTWApFwnVNZf0=
+		</data>
+		<key>DayCategorySpecial.fll</key>
+		<data>
+		yDugLJ2WDYaBGSyb/enHO/2JYt4=
+		</data>
 		<key>FL_HEADERS</key>
 		<data>
 		LGRokHDKKlOCXiVzRZZbHi4e60c=
@@ -18,51 +30,51 @@
 		</data>
 		<key>Frameworks/libswiftContacts.dylib</key>
 		<data>
-		U/lR7L4S5qcoVRSBnlOoEvfA92g=
+		KhdnstX5lgi/0A3tZL8uVRC+lKM=
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
-		KlR5LDyDrWO0n+z5/inpuM8EtFM=
+		wgpJa7uGk7Z0j/YJmyCxziT8xO8=
 		</data>
 		<key>Frameworks/libswiftCoreAudio.dylib</key>
 		<data>
-		jF9rR6TEw4/dqW8eVdzuZJY1iy8=
+		2WkdncgU6nJVcdtGule++kbHUVI=
 		</data>
 		<key>Frameworks/libswiftCoreData.dylib</key>
 		<data>
-		wpFuOzajL2sKedC/Ne7yNmHbgLg=
+		eHz51bCLGFZg6uvrVGu/vhkOS58=
 		</data>
 		<key>Frameworks/libswiftCoreGraphics.dylib</key>
 		<data>
-		91Mfc6OmCAkuVm3q6SJ5QMWN90Q=
+		WY7oJQZdAgDkqlHmsfgqjyMgB00=
 		</data>
 		<key>Frameworks/libswiftCoreImage.dylib</key>
 		<data>
-		xceP78nOuHZDKQuIJrEpGCjDKpY=
+		r5BVK0dM4oFAfEpcd0UnA3U1ETs=
 		</data>
 		<key>Frameworks/libswiftCoreLocation.dylib</key>
 		<data>
-		ck47c53JKa3iBWhX2btAHchXwYY=
+		+WistKA+BFSpG6dHNfms0VHnCG0=
 		</data>
 		<key>Frameworks/libswiftDarwin.dylib</key>
 		<data>
-		ikUJTfOTSIGbIGUwACx5+HLd7Hg=
+		O9o2tJFHu9nTqdDlAP9GgKKF8SU=
 		</data>
 		<key>Frameworks/libswiftDispatch.dylib</key>
 		<data>
-		Txf1kaW5qgDNrNJfACZferVYO+M=
+		KoKx1xV9ZB2ettW/wyYNE2UpRYg=
 		</data>
 		<key>Frameworks/libswiftFoundation.dylib</key>
 		<data>
-		/eSX3ULbHTu4gdrnDNijwSDfgl0=
+		0S+CDXVgbd0tohX+osWUZNpltQc=
 		</data>
 		<key>Frameworks/libswiftObjectiveC.dylib</key>
 		<data>
-		eIth3bmVTkr3bsOsNME2d2lDJPc=
+		TK5zgTOwqaWB3NZ4NHYGekx95jw=
 		</data>
 		<key>Frameworks/libswiftUIKit.dylib</key>
 		<data>
-		Narf5uD97upYUq2rTU8DWWwOVGg=
+		FZUp5IWPH+BZ5DKHtGjP/XDMFro=
 		</data>
 		<key>Headers/CPlusPlusLinkage.h</key>
 		<data>
@@ -74,15 +86,23 @@
 		</data>
 		<key>Headers/NEContextSDK-Swift.h</key>
 		<data>
-		H6hYyxl1ktkrn3N6N9QC+xU58ZI=
+		l+cxvFrWBM773S0MN6wjrEq+BQo=
 		</data>
 		<key>Headers/NEContextSDK.h</key>
 		<data>
 		lgPD7RagKwH1qRe4Fh0dDS5yiAw=
 		</data>
+		<key>IndoorOutdoor.fll</key>
+		<data>
+		mFNpK9s9Wa7ywNlP/i/TKtbOfsg=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		VybAKE7DiLZl0gp393i/PIOj/Cw=
+		FmWU+C0quQrev6gfYLQgLnsc/JE=
+		</data>
+		<key>LocationContext.fll</key>
+		<data>
+		PymR3iptQaoCj3zwNd/1P60yaNs=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -90,7 +110,7 @@
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		7dziNlN8K2RJqH6HqA/EWhrbykg=
+		rNsiMNa+mLmgeebioNYXVMSNT2g=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -98,11 +118,35 @@
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		ldGSNI/dPwgnZZsBvHK0TsmRgwY=
+		GGN2yDf+jmcLbVlDROVqU7+kceY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		yvDOp6VC3KtRKS7ibIb1XG6j5e8=
+		</data>
+		<key>Sensor-Context.fll</key>
+		<data>
+		ii+OaQiTqQ3tOkVGTby2rb3A2/c=
+		</data>
+		<key>WeatherToArousal.fll</key>
+		<data>
+		/1LIdtjcaPvS56cI5dd/m5Nq6vE=
+		</data>
+		<key>WeatherToMood.fll</key>
+		<data>
+		VGXK6cTT5MFjpoxgFSbXi6GFOXw=
+		</data>
+		<key>WeatherToValence.fll</key>
+		<data>
+		lg3+hcETPmmv19HOFBZ7xOcUhxQ=
+		</data>
+		<key>WeekdayContextTags.fll</key>
+		<data>
+		0lBeLTsbcDS7SthQs+rk5MdATm0=
+		</data>
+		<key>WeekendContextTags.fll</key>
+		<data>
+		Lo8lOjmxTwnoiKSdCwegt9f5qdk=
 		</data>
 		<key>build.sh</key>
 		<data>
@@ -124,6 +168,39 @@
 			<key>hash2</key>
 			<data>
 			H4zFJtsp5o1cIB7T1SMyUOJ8qvTfVmKIc5xxf147Ka0=
+			</data>
+		</dict>
+		<key>ContextTags.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1ezcn3I/CurvCxqzrNj2BiNSRtc=
+			</data>
+			<key>hash2</key>
+			<data>
+			lpQ7vK+hex5B6b+5/NIsHveAqEzG6h7OrTMEJqeIQdI=
+			</data>
+		</dict>
+		<key>DayCategory.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			O0JytWaVXIXRhyMTWApFwnVNZf0=
+			</data>
+			<key>hash2</key>
+			<data>
+			wV2/PdxI4gnFralqJTkLdlnIJ2BmlhYByUxEo1sgXpI=
+			</data>
+		</dict>
+		<key>DayCategorySpecial.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yDugLJ2WDYaBGSyb/enHO/2JYt4=
+			</data>
+			<key>hash2</key>
+			<data>
+			hH47tbg7hUSHfChhO4m8zjkVhstaBnZvpgIGuGAagtA=
 			</data>
 		</dict>
 		<key>FL_HEADERS</key>
@@ -152,132 +229,132 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			U/lR7L4S5qcoVRSBnlOoEvfA92g=
+			KhdnstX5lgi/0A3tZL8uVRC+lKM=
 			</data>
 			<key>hash2</key>
 			<data>
-			2jkvLUCppwIfEMvYHX1JSKtb7X/+ERK9WYI00WkwlI8=
+			5bP33Wk/5lwyGzICWVSFLXBpszk9CoRTn3H7djLyXdY=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KlR5LDyDrWO0n+z5/inpuM8EtFM=
+			wgpJa7uGk7Z0j/YJmyCxziT8xO8=
 			</data>
 			<key>hash2</key>
 			<data>
-			M9KYwXyo14jrATeivZCFCc0eh5U8pwjGEAS+OZcAXhA=
+			co6NVGospYqhlVFwP35kZLDkEbdNrJkSURl5sw4DBpk=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreAudio.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jF9rR6TEw4/dqW8eVdzuZJY1iy8=
+			2WkdncgU6nJVcdtGule++kbHUVI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Lok/a3ETQmE91My1SlSHNFYdn/hYJ4hqpk5ircAKeCg=
+			HC/3ToUPMg0iJSwu6rzZOpxJGjjj9EY/C+M+IiCOTrM=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreData.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wpFuOzajL2sKedC/Ne7yNmHbgLg=
+			eHz51bCLGFZg6uvrVGu/vhkOS58=
 			</data>
 			<key>hash2</key>
 			<data>
-			a53FIqfq9upa2KapRI8mpkhHHWKeuB09Q8w34mIJzPI=
+			GstyNTWXFrgwTwkDKGRFdehNDRNg5HeZpbRZX1d5sBY=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreGraphics.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			91Mfc6OmCAkuVm3q6SJ5QMWN90Q=
+			WY7oJQZdAgDkqlHmsfgqjyMgB00=
 			</data>
 			<key>hash2</key>
 			<data>
-			7XJ6jUY07C41n9OIryVyD3dAvzGux2KWF5bwyXiDBas=
+			2nAEOcKX+P793l3iG13rJ/tE8bc25tqBLX0q6/5SMlg=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreImage.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xceP78nOuHZDKQuIJrEpGCjDKpY=
+			r5BVK0dM4oFAfEpcd0UnA3U1ETs=
 			</data>
 			<key>hash2</key>
 			<data>
-			ieaJFeNxinJPg4FPeWLyD1g5ZkSHo7EPWRlPcLH2AxE=
+			2fauxXvsAxs7Cs77htx+6X90ATB3uohOs0cZNmXgzhk=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreLocation.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ck47c53JKa3iBWhX2btAHchXwYY=
+			+WistKA+BFSpG6dHNfms0VHnCG0=
 			</data>
 			<key>hash2</key>
 			<data>
-			pze8jwLmD2voLhjqzYXZwzyaGeFh9H/l3CLdnyiSY04=
+			DqAlRI07Y23nfIXqO4uWGugo71bg80NV+ZE86o5+DCQ=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftDarwin.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ikUJTfOTSIGbIGUwACx5+HLd7Hg=
+			O9o2tJFHu9nTqdDlAP9GgKKF8SU=
 			</data>
 			<key>hash2</key>
 			<data>
-			1KRrW/88rs3waSn52jt4QKwuOKdstZlVgb+vqFRV1Yw=
+			YebqFjHJUHtts75iq2AxP4PIjspTxUmL38bH8CDTn/M=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftDispatch.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Txf1kaW5qgDNrNJfACZferVYO+M=
+			KoKx1xV9ZB2ettW/wyYNE2UpRYg=
 			</data>
 			<key>hash2</key>
 			<data>
-			+u6/hFFiicPV0+5KVH86vcrSdfFCmB6O3TCB7Xrv7HE=
+			8PxNGbxBcPLu0zGK6xJ7YAx4EGsvAOV1Kd4sMn4GdWE=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftFoundation.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/eSX3ULbHTu4gdrnDNijwSDfgl0=
+			0S+CDXVgbd0tohX+osWUZNpltQc=
 			</data>
 			<key>hash2</key>
 			<data>
-			XqbaLcYvK5RvRdLKNIu/LnAhzmFxuPiNaWAyum51QSs=
+			/YQhpJh896Fjgu8F/brx0fP3YjDABL6cWRDxX3YjvaE=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftObjectiveC.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eIth3bmVTkr3bsOsNME2d2lDJPc=
+			TK5zgTOwqaWB3NZ4NHYGekx95jw=
 			</data>
 			<key>hash2</key>
 			<data>
-			T9h/GSNtv/LkQopYqCgK2JjlutWpU39kM23B7vrx0GQ=
+			GfMTD+wmrLtmbat7s+GMFEIqlvGPgeYsDyac6t0eUBY=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftUIKit.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Narf5uD97upYUq2rTU8DWWwOVGg=
+			FZUp5IWPH+BZ5DKHtGjP/XDMFro=
 			</data>
 			<key>hash2</key>
 			<data>
-			owTXBLf5Rjm/3Ze8I8qw5GRgWHyb7fSJ0k3OLUiPXC8=
+			3F01sl40rh7TiqIOH/Jzs2vfXZPJ8zsVX3bgWPValxY=
 			</data>
 		</dict>
 		<key>Headers/CPlusPlusLinkage.h</key>
@@ -306,11 +383,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			H6hYyxl1ktkrn3N6N9QC+xU58ZI=
+			l+cxvFrWBM773S0MN6wjrEq+BQo=
 			</data>
 			<key>hash2</key>
 			<data>
-			k8wbrFEmpsKP+LZJEdV0SYR/wapw5J92erKpGBR/zEc=
+			+1EISH7ocu6x/0IxvQI6svtH3iBY7082j31hX0ewiR8=
 			</data>
 		</dict>
 		<key>Headers/NEContextSDK.h</key>
@@ -322,6 +399,28 @@
 			<key>hash2</key>
 			<data>
 			VYt+v1KB0FZOa61EGAYpJ58YN307snLXWYuzyOpwm/k=
+			</data>
+		</dict>
+		<key>IndoorOutdoor.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mFNpK9s9Wa7ywNlP/i/TKtbOfsg=
+			</data>
+			<key>hash2</key>
+			<data>
+			AsvAMM0LfzJx3pzHO0jPiBSQQGcPbB58MOo3Z/byeJg=
+			</data>
+		</dict>
+		<key>LocationContext.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PymR3iptQaoCj3zwNd/1P60yaNs=
+			</data>
+			<key>hash2</key>
+			<data>
+			wiJTDXm8l3xt8rWlGUGqSUWeyJsmbCVNw9nKZZh6IQk=
 			</data>
 		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftdoc</key>
@@ -339,11 +438,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7dziNlN8K2RJqH6HqA/EWhrbykg=
+			rNsiMNa+mLmgeebioNYXVMSNT2g=
 			</data>
 			<key>hash2</key>
 			<data>
-			F28sou4kHOGdD4KXDBiKAiY6VDx4X+fbyByk0qQmmzo=
+			f3OIJ1ynXe4vpjpoaSq67XSxf4LSKnCpozMXtrbQ9ys=
 			</data>
 		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
@@ -361,11 +460,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ldGSNI/dPwgnZZsBvHK0TsmRgwY=
+			GGN2yDf+jmcLbVlDROVqU7+kceY=
 			</data>
 			<key>hash2</key>
 			<data>
-			p+O9IAD15ue/KtmHh91E2faw1sw9XlRttH9hnO7H4hk=
+			pXpLt35sMc5CyOaZKbx2JlXL+v9BtQeEEuKRYr7JOHA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -377,6 +476,72 @@
 			<key>hash2</key>
 			<data>
 			jeNl/mwJdb7e5p4OdGXdLxrcwZaTFjGvzKM1u4jcFGQ=
+			</data>
+		</dict>
+		<key>Sensor-Context.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ii+OaQiTqQ3tOkVGTby2rb3A2/c=
+			</data>
+			<key>hash2</key>
+			<data>
+			fSzwg4gVfJvKePGUk7C6R0FtWiUlMhJEMyB0sPYf5DM=
+			</data>
+		</dict>
+		<key>WeatherToArousal.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/1LIdtjcaPvS56cI5dd/m5Nq6vE=
+			</data>
+			<key>hash2</key>
+			<data>
+			pB/uiiYKR9MY23KN2q6K2uUhq/88RObCHe1jLvKSbd4=
+			</data>
+		</dict>
+		<key>WeatherToMood.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VGXK6cTT5MFjpoxgFSbXi6GFOXw=
+			</data>
+			<key>hash2</key>
+			<data>
+			4ENG+3UieUsvUQr6roPGceIm3368Wu+th3nJh0tYeKE=
+			</data>
+		</dict>
+		<key>WeatherToValence.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lg3+hcETPmmv19HOFBZ7xOcUhxQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			bg0k7e47LR8T02LM4otBSP6oMHkX5SRd+t1xZTEGihg=
+			</data>
+		</dict>
+		<key>WeekdayContextTags.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0lBeLTsbcDS7SthQs+rk5MdATm0=
+			</data>
+			<key>hash2</key>
+			<data>
+			/fvzc7MyybXYgl474kx2Bwz7IpmLNw7suJo+piRtORg=
+			</data>
+		</dict>
+		<key>WeekendContextTags.fll</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Lo8lOjmxTwnoiKSdCwegt9f5qdk=
+			</data>
+			<key>hash2</key>
+			<data>
+			lC9P3aSc7GVeUZ+JlycP4RjXc/70sjBSj+34aKPZ1jQ=
 			</data>
 		</dict>
 		<key>build.sh</key>
