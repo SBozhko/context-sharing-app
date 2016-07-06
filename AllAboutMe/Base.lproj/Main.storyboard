@@ -451,16 +451,30 @@
                                                         <constraint firstAttribute="height" constant="120" id="kpv-pt-bvx"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaE-NG-gQB">
+                                                    <rect key="frame" x="0.0" y="120" width="120" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="lvt-0S-3tN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="eaE-NG-gQB" secondAttribute="trailing" id="MS1-mb-wQQ"/>
                                             <constraint firstAttribute="trailing" secondItem="gKU-0r-TcA" secondAttribute="trailing" id="MeK-cB-H5z"/>
                                             <constraint firstItem="gKU-0r-TcA" firstAttribute="top" secondItem="8dB-D8-lh8" secondAttribute="top" id="goy-3g-asZ"/>
+                                            <constraint firstItem="eaE-NG-gQB" firstAttribute="top" secondItem="gKU-0r-TcA" secondAttribute="bottom" id="lfl-W3-nHr"/>
+                                            <constraint firstAttribute="bottom" secondItem="eaE-NG-gQB" secondAttribute="bottom" id="noi-pY-Epw"/>
                                             <constraint firstItem="gKU-0r-TcA" firstAttribute="leading" secondItem="8dB-D8-lh8" secondAttribute="leading" id="sD2-j6-dbw"/>
+                                            <constraint firstItem="eaE-NG-gQB" firstAttribute="leading" secondItem="8dB-D8-lh8" secondAttribute="leading" id="uYT-9n-5fg"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="contextLabel" destination="eaE-NG-gQB" id="J8l-Iq-SSs"/>
                                             <outlet property="imageView" destination="gKU-0r-TcA" id="glO-Nd-YYd"/>
                                         </connections>
                                     </collectionViewCell>
@@ -565,6 +579,6 @@
         <image name="share" width="36" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Czk-dI-7ms"/>
+        <segue reference="A1h-dU-E1F"/>
     </inferredMetricsTieBreakers>
 </document>
