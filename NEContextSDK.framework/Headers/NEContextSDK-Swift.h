@@ -95,6 +95,7 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 @import CoreMotion;
 @import ObjectiveC;
 @import Foundation;
+@import SystemConfiguration;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -118,6 +119,26 @@ SWIFT_CLASS("_TtC12NEContextSDK16NEContextManager")
 
 
 @interface NSNotificationCenter (SWIFT_EXTENSION(NEContextSDK))
+@end
+
+
+SWIFT_CLASS("_TtC12NEContextSDK12Reachability")
+@interface Reachability : NSObject
+@property (nonatomic, copy) void (^ _Nullable whenReachable)(Reachability * _Nonnull);
+@property (nonatomic, copy) void (^ _Nullable whenUnreachable)(Reachability * _Nonnull);
+@property (nonatomic) BOOL reachableOnWWAN;
+@property (nonatomic, strong) NSNotificationCenter * _Nonnull notificationCenter;
+@property (nonatomic, readonly, copy) NSString * _Nonnull currentReachabilityString;
+- (nonnull instancetype)initWithReachabilityRef:(SCNetworkReachabilityRef _Nonnull)reachabilityRef OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithHostname:(NSString * _Nonnull)hostname error:(NSError * _Nullable * _Null_unspecified)error;
++ (Reachability * _Nullable)reachabilityForInternetConnectionAndReturnError:(NSError * _Nullable * _Null_unspecified)error;
++ (Reachability * _Nullable)reachabilityForLocalWiFiAndReturnError:(NSError * _Nullable * _Null_unspecified)error;
+- (BOOL)startNotifierAndReturnError:(NSError * _Nullable * _Null_unspecified)error;
+- (void)stopNotifier;
+- (BOOL)isReachable;
+- (BOOL)isReachableViaWWAN;
+- (BOOL)isReachableViaWiFi;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 @end
 
 #pragma clang diagnostic pop

@@ -23,8 +23,8 @@
 		387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */; };
 		387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */; };
 		387DE6B11D25B4CA006543D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6B01D25B4CA006543D4 /* Common.swift */; };
+		3891C6721D2E6EB2002D3F83 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3891C66F1D2E6EA3002D3F83 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C913271D2D2C2B0037A7B9 /* Social.framework */; };
-		38C9132C1D2D3FF70037A7B9 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38C913291D2D3FF00037A7B9 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38DAE3601D2B3ECC005F26B0 /* SituationPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */; };
 		38DAE3621D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */; };
 		38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */; };
@@ -33,13 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		38C9132D1D2D3FF70037A7B9 /* Embed Frameworks */ = {
+		3891C6731D2E6EB2002D3F83 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38C9132C1D2D3FF70037A7B9 /* NEContextSDK.framework in Embed Frameworks */,
+				3891C6721D2E6EB2002D3F83 /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,8 +65,8 @@
 		387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		387DE6B01D25B4CA006543D4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		3891C66F1D2E6EA3002D3F83 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		38C913271D2D2C2B0037A7B9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		38C913291D2D3FF00037A7B9 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SituationPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherContextPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				38C913291D2D3FF00037A7B9 /* NEContextSDK.framework */,
+				3891C66F1D2E6EA3002D3F83 /* NEContextSDK.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
 				87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */,
@@ -168,7 +168,7 @@
 				387DE6801D2545BD006543D4 /* Resources */,
 				78A643866B945C1B403E4878 /* Embed Pods Frameworks */,
 				37B912C171C97FA1CB350A14 /* Copy Pods Resources */,
-				38C9132D1D2D3FF70037A7B9 /* Embed Frameworks */,
+				3891C6731D2E6EB2002D3F83 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

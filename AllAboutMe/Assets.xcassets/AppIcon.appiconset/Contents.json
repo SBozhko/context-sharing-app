@@ -18,13 +18,13 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "80 - Spotlight.png",
+      "filename" : "80 - Spotlight Copy.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "80 - Spotlight@2x.png",
+      "filename" : "120 - iPhone Copy-1.png",
       "scale" : "3x"
     },
     {
@@ -40,14 +40,19 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "120 - iPhone.png",
+      "filename" : "120 - iPhone Copy.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "120 - iPhone@2x.png",
+      "filename" : "180 - iPhone 6 Plus Copy.png",
       "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "size" : "40x40",
+      "scale" : "1x"
     },
     {
       "idiom" : "ipad",

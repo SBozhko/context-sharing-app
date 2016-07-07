@@ -1,0 +1,38 @@
+PODS:
+  - Alamofire (3.4.1)
+  - AWSCognito (2.4.5):
+    - AWSCore (= 2.4.5)
+  - AWSCore (2.4.5)
+  - AWSS3 (2.4.5):
+    - AWSCore (= 2.4.5)
+  - Charts (2.2.5):
+    - Charts/Core (= 2.2.5)
+  - Charts/Core (2.2.5)
+  - QuadratTouch (1.1.1)
+  - RxSwift (2.6.0)
+  - SwiftyJSON (2.3.2)
+  - TransitionKit (2.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.4)
+  - AWSCognito
+  - AWSCore
+  - AWSS3
+  - Charts
+  - QuadratTouch (>= 1.0)
+  - RxSwift (~> 2.0)
+  - SwiftyJSON
+  - TransitionKit (~> 2.0.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  AWSCognito: 96e1762404831ffb87f67c87a5ee68fde543bb69
+  AWSCore: 2f356385bcea9b81ea47f9be0228c71697d9597d
+  AWSS3: 8f73b439f12c4aaaea39fbec87f67a1f1e15bd42
+  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  QuadratTouch: 296d83c63a4328f6f40af9fc728fe24f0e3b00d4
+  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  TransitionKit: c150629869b0eab9d270f914aad2d1a088a8c19d
+
+COCOAPODS: 0.39.0
