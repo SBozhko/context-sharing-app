@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import NEContextSDK
 import Alamofire
 import SwiftyJSON
 
@@ -16,9 +17,10 @@ class HistoryViewController: UIViewController {
   @IBOutlet weak var pieChartView: PieChartView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    Alamofire.request(.GET, getContextHistoryEndpoint, encoding: .JSON)
+    let historyEndpoint = "\(getContextHistoryEndpoint)/\(Logging.sharedInstance.getVendorIdentifer)/\(Logging.sharedInstance.getVendorIdentifer)?ctx=\(NEContextGroup.Situation.name)"
+//    ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"
+    Alamofire.request(.GET, historyEndpoint, encoding: .JSON)
       .responseJSON { response in
-        
         if let unwrappedResult = response.data {
           let json = JSON(data: unwrappedResult)
           let contextTypes = json["userStats"]

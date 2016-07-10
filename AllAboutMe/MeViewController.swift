@@ -69,9 +69,8 @@ class MeViewController: UIViewController {
     for context in contextsToPost {
       contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name])
     }
-    print(ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString)
     let parameters : [String : AnyObject] = [
-      "userId": "Abhishek123",
+      "userId": Logging.sharedInstance.getVendorIdentifer,
       "vendorId": Logging.sharedInstance.getVendorIdentifer,
       "contextData": contextDataParameters,
       "idfa": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
