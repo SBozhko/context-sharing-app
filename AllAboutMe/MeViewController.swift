@@ -69,12 +69,14 @@ class MeViewController: UIViewController {
     for context in contextsToPost {
       contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name])
     }
+    
     let parameters : [String : AnyObject] = [
       "userId": Logging.sharedInstance.getVendorIdentifer,
       "vendorId": Logging.sharedInstance.getVendorIdentifer,
       "contextData": contextDataParameters,
       "idfa": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
     ]
+    
     Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
       .responseJSON { response in
         if let JSON = response.result.value {

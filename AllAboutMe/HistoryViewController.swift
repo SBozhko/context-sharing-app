@@ -19,6 +19,7 @@ class HistoryViewController: UIViewController {
     super.viewDidLoad()
     let historyEndpoint = "\(getContextHistoryEndpoint)/\(Logging.sharedInstance.getVendorIdentifer)/\(Logging.sharedInstance.getVendorIdentifer)?ctx=\(NEContextGroup.Situation.name)"
 //    ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"
+    
     Alamofire.request(.GET, historyEndpoint, encoding: .JSON)
       .responseJSON { response in
         if let unwrappedResult = response.data {
