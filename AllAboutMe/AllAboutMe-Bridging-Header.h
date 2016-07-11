@@ -10,5 +10,6 @@
 #define AllAboutMe_Bridging_Header_h
 
 #import "Mixpanel/Mixpanel.h"
+#import "Toast/UIView+Toast.h"
 
 #endif /* AllAboutMe_Bridging_Header_h */

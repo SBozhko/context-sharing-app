@@ -24,6 +24,7 @@
 		387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */; };
 		387DE6B11D25B4CA006543D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6B01D25B4CA006543D4 /* Common.swift */; };
 		38ADA10A1D2F084100599E61 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA1071D2F083A00599E61 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA10C1D33D4F700599E61 /* MessageUI.framework */; };
 		38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C913271D2D2C2B0037A7B9 /* Social.framework */; };
 		38DAE3601D2B3ECC005F26B0 /* SituationPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */; };
 		38DAE3621D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */; };
@@ -67,6 +68,7 @@
 		387DE6B01D25B4CA006543D4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		38ADA1071D2F083A00599E61 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		38ADA10B1D2F193C00599E61 /* AllAboutMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllAboutMe-Bridging-Header.h"; sourceTree = "<group>"; };
+		38ADA10C1D33D4F700599E61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		38C913271D2D2C2B0037A7B9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SituationPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherContextPopoverViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */,
 				38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */,
 				38FA3ED81D27E617005110D2 /* AdSupport.framework in Frameworks */,
 				143E381810AF452EDB333944 /* Pods_AllAboutMe.framework in Frameworks */,
@@ -149,6 +152,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38ADA1071D2F083A00599E61 /* NEContextSDK.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,

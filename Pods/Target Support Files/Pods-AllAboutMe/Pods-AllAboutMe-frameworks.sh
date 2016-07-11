@@ -93,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-AllAboutMe/QuadratTouch.framework"
   install_framework "Pods-AllAboutMe/RxSwift.framework"
   install_framework "Pods-AllAboutMe/SwiftyJSON.framework"
+  install_framework "Pods-AllAboutMe/Toast.framework"
   install_framework "Pods-AllAboutMe/TransitionKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -105,5 +106,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-AllAboutMe/QuadratTouch.framework"
   install_framework "Pods-AllAboutMe/RxSwift.framework"
   install_framework "Pods-AllAboutMe/SwiftyJSON.framework"
+  install_framework "Pods-AllAboutMe/Toast.framework"
   install_framework "Pods-AllAboutMe/TransitionKit.framework"
 fi

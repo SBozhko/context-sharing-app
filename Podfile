@@ -10,6 +10,7 @@ target 'AllAboutMe' do
   pod 'Charts'
   pod 'RxSwift',    '~> 2.0'
   pod 'Mixpanel'
+  pod 'Toast', '~> 3.0'
 #    pod 'RxCocoa',    '~> 2.0'
 #  pod 'RxBlocking', '~> 2.0'
   pod 'TransitionKit', '~> 2.0.0'

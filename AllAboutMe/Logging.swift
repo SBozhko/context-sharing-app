@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CoreFoundation
+import UIKit
 import DeviceGuru
 
 class Logging {
@@ -27,6 +29,7 @@ class Logging {
     NSSearchPathDirectory.LibraryDirectory,
     NSSearchPathDomainMask.UserDomainMask,
     true)
+  let temporaryLogFileDirectory = "\(NSTemporaryDirectory())/"
   let fileManager = NSFileManager.defaultManager()
   var logFileHandle: NSFileHandle?
   var logFileDirectoryName = ""
@@ -39,7 +42,7 @@ class Logging {
       return logFileDirectoryName
     }
   }
-  var getVendorIdentifer : String {
+  var getUniqueDeviceIdentifier : String {
     get {
       if uniqueDeviceId == "" {
         let identifier = UIDevice.currentDevice().identifierForVendor!.description
@@ -53,7 +56,7 @@ class Logging {
   var getLogFileName : String {
     get {
       logFileNameFormatter.dateFormat = logFileNameDateFormatString
-      return String(format: "NEContextSDK_%@.txt", logFileNameFormatter.stringFromDate(NSDate()))
+      return String(format: "NumberEight_Ambience_%@.txt", logFileNameFormatter.stringFromDate(NSDate()))
     }
   }
   var getLogFileFullPathName : String {
@@ -92,7 +95,7 @@ class Logging {
       logFileHandle = NSFileHandle(forWritingAtPath: logFilePath)
       writeData(logFileInitialString, skipTimeStamp: true)
     } else {
-      logFileInitialString = "Device ID: \(getVendorIdentifer)\nDate/Time Created: \(logTimeStampFormatter.stringFromDate(NSDate()))\n"
+      logFileInitialString = "Device ID: \(getUniqueDeviceIdentifier)\nDate/Time Created: \(logTimeStampFormatter.stringFromDate(NSDate()))\n"
       logFileInitialString += "iOS \(UIDevice.currentDevice().systemVersion) / \(DeviceGuru.hardwareDescription()!)\n\n"
       do {
         try logFileInitialString.writeToFile(logFilePath, atomically: true, encoding: NSUTF8StringEncoding)
@@ -103,12 +106,32 @@ class Logging {
     }
   }
   
+  func getUserDumpLogFileName(randomMessageHash : String) -> String {
+    logFileNameFormatter.dateFormat = logFileNameDateFormatString
+    return String(format: "User_Dump_NumberEight_Ambience_%@_%@.txt", tempLogFileNameFormatter.stringFromDate(NSDate()), randomMessageHash)
+  }
+  
+  func getUserDumpFileFullPathName(randomMessageHash : String) -> String {
+    return temporaryLogFileDirectory.stringByAppendingPathComponent(getUserDumpLogFileName(randomMessageHash))
+  }
+  
   func uploadLogFiles(directory : String) {
     let files = fileManager.enumeratorAtPath(directory)
     while let fileName = files?.nextObject() as? String{
       if fileName.hasSuffix("txt") && fileName != getLogFileName {
-        AWS.sharedInstance.handleUploadRequest(fileName, uniqueDeviceIdentifier: getVendorIdentifer, fullFilePath: directory.stringByAppendingPathComponent(fileName))
+        AWS.sharedInstance.handleUploadRequest(fileName, uniqueDeviceIdentifier: getUniqueDeviceIdentifier, fullFilePath: directory.stringByAppendingPathComponent(fileName))
       }
+    }
+  }
+  
+  func userInitiatedLogDump(dumpMessage : String) {
+    Logging.sharedInstance.writeData("User Initiated Dump: \(dumpMessage)\n")
+    do {
+      let userDumpFileFullPathName = getUserDumpFileFullPathName(dumpMessage)
+      try fileManager.copyItemAtPath(getLogFileFullPathName, toPath: userDumpFileFullPathName)
+      AWS.sharedInstance.handleUploadRequest(getUserDumpLogFileName(dumpMessage), uniqueDeviceIdentifier: getUniqueDeviceIdentifier, fullFilePath: userDumpFileFullPathName, userInitiatedDump:  true)
+    } catch {
+      
     }
   }
   
@@ -121,6 +144,13 @@ class Logging {
       print("balls")
     }
     print("\(getLogTimeStamp)\(dataString)")
+  }
+  
+  func writeData(data: NSData) {
+    if let unwrappedFileHandle = logFileHandle {
+      unwrappedFileHandle.seekToEndOfFile()
+      unwrappedFileHandle.writeData(data)
+    }
   }
   
   func removeFile(fullFilePath : String) {

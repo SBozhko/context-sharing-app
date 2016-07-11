@@ -14,6 +14,7 @@ PODS:
   - QuadratTouch (1.1.1)
   - RxSwift (2.6.0)
   - SwiftyJSON (2.3.2)
+  - Toast (3.0)
   - TransitionKit (2.0.0)
 
 DEPENDENCIES:
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - QuadratTouch (>= 1.0)
   - RxSwift (~> 2.0)
   - SwiftyJSON
+  - Toast (~> 3.0)
   - TransitionKit (~> 2.0.0)
 
 SPEC CHECKSUMS:
@@ -38,6 +40,7 @@ SPEC CHECKSUMS:
   QuadratTouch: 296d83c63a4328f6f40af9fc728fe24f0e3b00d4
   RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
   TransitionKit: c150629869b0eab9d270f914aad2d1a088a8c19d
 
 COCOAPODS: 0.39.0

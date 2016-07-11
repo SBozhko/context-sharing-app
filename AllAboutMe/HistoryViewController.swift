@@ -17,7 +17,7 @@ class HistoryViewController: UIViewController {
   @IBOutlet weak var pieChartView: PieChartView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    let historyEndpoint = "\(getContextHistoryEndpoint)/\(Logging.sharedInstance.getVendorIdentifer)/\(Logging.sharedInstance.getVendorIdentifer)?ctx=\(NEContextGroup.Situation.name)"
+    let historyEndpoint = "\(getContextHistoryEndpoint)/\(Logging.sharedInstance.getUniqueDeviceIdentifier)/\(Logging.sharedInstance.getUniqueDeviceIdentifier)?ctx=\(NEContextGroup.Situation.name)"
 //    ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"
     
     Alamofire.request(.GET, historyEndpoint, encoding: .JSON)
