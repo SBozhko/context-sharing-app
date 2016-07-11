@@ -47,6 +47,9 @@ class MeViewController: UIViewController {
         self.postContextInfo([context])
       })
       initializeContexts()
+    } else {
+      self.situationCollectionView.reloadData()
+      self.otherContextCollectionView.reloadData()
     }
   }
   
