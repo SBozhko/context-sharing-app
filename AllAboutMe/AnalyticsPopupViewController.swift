@@ -58,22 +58,26 @@ class AnalyticsPopupViewController : UIViewController {
               dataPoints.append(contextJson["ctxName"].stringValue)
               dataEntries.append(dataEntry)
             }
-            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "\(self.contextGroup!.name)")
-            let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-            self.pieChartView.data = pieChartData
             var colors: [UIColor] = []
 
             for _ in 0..<dataPoints.count {
               let red = Double(arc4random_uniform(256))
               let green = Double(arc4random_uniform(256))
               let blue = Double(arc4random_uniform(256))
-
               let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
               colors.append(color)
             }
 
+            let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "\(self.contextGroup!.name)")
+            let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
             pieChartDataSet.colors = colors
+            self.pieChartView.data = pieChartData
+            self.pieChartView.rotationEnabled = false
+            self.pieChartView.drawSliceTextEnabled = false
             self.pieChartView.usePercentValuesEnabled = true
+            let legend:ChartLegend = self.pieChartView.legend
+            legend.position = ChartLegend.Position.AboveChartCenter
+            self.pieChartView.animate(xAxisDuration: NSTimeInterval(1.0))
             break
           }
         }
