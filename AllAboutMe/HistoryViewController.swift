@@ -13,54 +13,65 @@ import Alamofire
 import SwiftyJSON
 
 class HistoryViewController: UIViewController {
-
-  @IBOutlet weak var pieChartView: PieChartView!
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    let historyEndpoint = "\(getContextHistoryEndpoint)/\(Logging.sharedInstance.getUniqueDeviceIdentifier)/\(Logging.sharedInstance.getUniqueDeviceIdentifier)?ctx=\(NEContextGroup.Situation.name)"
-//    ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"
-    
-    Alamofire.request(.GET, historyEndpoint, encoding: .JSON)
-      .responseJSON { response in
-        if let unwrappedResult = response.data {
-          let json = JSON(data: unwrappedResult)
-          let contextTypes = json["userStats"]
-          for (_, subJson):(String, JSON) in contextTypes {
-            if subJson["ctxGroup"] == "Situation" {
-              var dataEntries: [ChartDataEntry] = []
-              var dataPoints : [String] = []
-              for (innerIndex, contextJson):(String, JSON) in subJson["values"] {
-                let dataEntry = ChartDataEntry(value: contextJson["percentage"].doubleValue, xIndex: Int(innerIndex)!)
-                dataPoints.append(contextJson["ctxName"].stringValue)
-                dataEntries.append(dataEntry)
-              }
-              let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Situations")
-              let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
-              self.pieChartView.data = pieChartData
-              var colors: [UIColor] = []
-              
-              for _ in 0..<dataPoints.count {
-                let red = Double(arc4random_uniform(256))
-                let green = Double(arc4random_uniform(256))
-                let blue = Double(arc4random_uniform(256))
-                
-                let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-                colors.append(color)
-              }
-              
-              pieChartDataSet.colors = colors
-              self.pieChartView.usePercentValuesEnabled = true
-              
-              break
-            }
-          }
-        }
-    }
-  }
+  
+  var plotsToShow = [NEContextGroup.Situation, NEContextGroup.Place, NEContextGroup.Activity, NEContextGroup.IndoorOutdoor]
+  let reuseIdentifier = "Cell"
 
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
   }
+}
 
+extension HistoryViewController : UIPopoverPresentationControllerDelegate {
+  func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+    return UIModalPresentationStyle.None
+  }
+}
+
+extension HistoryViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    let contextGroup = plotsToShow[indexPath.row]
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    if let vc = storyboard.instantiateViewControllerWithIdentifier("AnalyticsPopupViewController") as? AnalyticsPopupViewController {
+      vc.modalPresentationStyle = .Popover
+      vc.contextGroup = contextGroup
+      let popover = vc.popoverPresentationController!
+      popover.delegate = self
+      popover.sourceView = self.view
+      presentViewController(vc, animated: true, completion: nil)
+    }
+  }
+  
+  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
+    let contextGroup = plotsToShow[indexPath.row]
+    switch (contextGroup) {
+    case .Situation:
+      cell.imageView.image = UIImage(named: "party")
+      cell.contextLabel.text = "Situations"
+    case .Activity:
+      cell.imageView.image = UIImage(named: "activity")
+      cell.contextLabel.text = "Activities"
+    case .Place:
+      cell.imageView.image = UIImage(named: "places")
+      cell.contextLabel.text = "Places"
+    case .IndoorOutdoor:
+      cell.imageView.image = UIImage(named: "io")
+      cell.contextLabel.text = "Indoor/Outdoor"
+    default:
+      cell.imageView.image = UIImage(named: "unknown")
+    }
+    return cell
+  }
+  
+  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return plotsToShow.count
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+  {
+    let size : CGSize  = CGSizeMake(collectionView.frame.size.width/2-5, collectionView.frame.size.width/2 + 30-5)
+    return size
+  }
 }

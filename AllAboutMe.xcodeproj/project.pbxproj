@@ -23,8 +23,10 @@
 		387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */; };
 		387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */; };
 		387DE6B11D25B4CA006543D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6B01D25B4CA006543D4 /* Common.swift */; };
-		38ADA10A1D2F084100599E61 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA1071D2F083A00599E61 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA10C1D33D4F700599E61 /* MessageUI.framework */; };
+		38ADA1111D34217F00599E61 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA10E1D3420DB00599E61 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		38ADA1131D3443E200599E61 /* AnalyticsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */; };
+		38ADA1151D344F7600599E61 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38ADA1141D344F7600599E61 /* Analytics.storyboard */; };
 		38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C913271D2D2C2B0037A7B9 /* Social.framework */; };
 		38DAE3601D2B3ECC005F26B0 /* SituationPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */; };
 		38DAE3621D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */; };
@@ -40,7 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38ADA10A1D2F084100599E61 /* NEContextSDK.framework in Embed Frameworks */,
+				38ADA1111D34217F00599E61 /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,9 +68,11 @@
 		387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		387DE6B01D25B4CA006543D4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		38ADA1071D2F083A00599E61 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		38ADA10B1D2F193C00599E61 /* AllAboutMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllAboutMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		38ADA10C1D33D4F700599E61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		38ADA10E1D3420DB00599E61 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
+		38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsPopupViewController.swift; sourceTree = "<group>"; };
+		38ADA1141D344F7600599E61 /* Analytics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
 		38C913271D2D2C2B0037A7B9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SituationPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherContextPopoverViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */,
 				387DE69E1D254722006543D4 /* HistoryViewController.swift */,
 				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
+				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
 				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
 				387DE68B1D2545BD006543D4 /* Main.storyboard */,
 				387DE68E1D2545BD006543D4 /* Assets.xcassets */,
@@ -136,6 +141,7 @@
 				387DE6B01D25B4CA006543D4 /* Common.swift */,
 				38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */,
 				38ADA10B1D2F193C00599E61 /* AllAboutMe-Bridging-Header.h */,
+				38ADA1141D344F7600599E61 /* Analytics.storyboard */,
 			);
 			path = AllAboutMe;
 			sourceTree = "<group>";
@@ -152,8 +158,8 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38ADA10E1D3420DB00599E61 /* NEContextSDK.framework */,
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
-				38ADA1071D2F083A00599E61 /* NEContextSDK.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
 				87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */,
@@ -232,6 +238,7 @@
 				387DE6921D2545BD006543D4 /* LaunchScreen.storyboard in Resources */,
 				387DE68F1D2545BD006543D4 /* Assets.xcassets in Resources */,
 				387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */,
+				38ADA1151D344F7600599E61 /* Analytics.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +310,7 @@
 				387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */,
 				38DAE3621D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift in Sources */,
 				387DE6A91D255209006543D4 /* FeedTableViewCell.swift in Sources */,
+				38ADA1131D3443E200599E61 /* AnalyticsPopupViewController.swift in Sources */,
 				387DE69F1D254722006543D4 /* HistoryViewController.swift in Sources */,
 				38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */,
 				38DAE3661D2C1850005F26B0 /* ContextFeedbackViewController.swift in Sources */,

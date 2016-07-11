@@ -120,12 +120,6 @@ class MeViewController: UIViewController {
   func reportBug() {
     if MFMailComposeViewController.canSendMail() {
       let mail = MFMailComposeViewController()
-//      mail.navigationBar.tintColor = UIColor.whiteColor()
-//      mail.navigationBar.barTintColor = UIColor.whiteColor()
-//      mail.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(),
-//                                                NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 16.0)!]
-//      mail.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 14.0)!], forState: UIControlState.Normal)
-//      mail.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 14.0)!], forState: UIControlState.Normal)
       mail.navigationItem.title = "File Bug"
       mail.mailComposeDelegate = self
       mail.setToRecipients(["hi@numbereight.me"])
