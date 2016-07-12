@@ -76,7 +76,7 @@ extension ContextFeedbackViewController : UICollectionViewDelegate, UICollection
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
   {
-    let size : CGSize  = CGSizeMake(collectionView.frame.size.width/4-5, collectionView.frame.size.width/4 + 30-5)
+    let size : CGSize = CGSizeMake(collectionView.frame.size.width/4-5, collectionView.frame.size.width/4 + 25-5)
     return size
   }
 }

@@ -18,7 +18,6 @@
 		387DE6A51D255092006543D4 /* AWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A21D255092006543D4 /* AWS.swift */; };
 		387DE6A61D255092006543D4 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A31D255092006543D4 /* Logging.swift */; };
 		387DE6A71D255092006543D4 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A41D255092006543D4 /* String+Ext.swift */; };
-		387DE6A91D255209006543D4 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A81D255209006543D4 /* FeedTableViewCell.swift */; };
 		387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AA1D255FB5006543D4 /* ContextInfo.swift */; };
 		387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */; };
 		387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */; };
@@ -63,7 +62,6 @@
 		387DE6A21D255092006543D4 /* AWS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWS.swift; sourceTree = "<group>"; };
 		387DE6A31D255092006543D4 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		387DE6A41D255092006543D4 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		387DE6A81D255209006543D4 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		387DE6AA1D255FB5006543D4 /* ContextInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextInfo.swift; sourceTree = "<group>"; };
 		387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
@@ -130,12 +128,11 @@
 				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
 				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
 				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
+				387DE6AA1D255FB5006543D4 /* ContextInfo.swift */,
 				387DE68B1D2545BD006543D4 /* Main.storyboard */,
 				387DE68E1D2545BD006543D4 /* Assets.xcassets */,
 				387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */,
 				387DE6931D2545BD006543D4 /* Info.plist */,
-				387DE6A81D255209006543D4 /* FeedTableViewCell.swift */,
-				387DE6AA1D255FB5006543D4 /* ContextInfo.swift */,
 				387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */,
 				387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */,
 				387DE6B01D25B4CA006543D4 /* Common.swift */,
@@ -309,7 +306,6 @@
 				387DE6A71D255092006543D4 /* String+Ext.swift in Sources */,
 				387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */,
 				38DAE3621D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift in Sources */,
-				387DE6A91D255209006543D4 /* FeedTableViewCell.swift in Sources */,
 				38ADA1131D3443E200599E61 /* AnalyticsPopupViewController.swift in Sources */,
 				387DE69F1D254722006543D4 /* HistoryViewController.swift in Sources */,
 				38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */,
