@@ -25,7 +25,7 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController : UIPopoverPresentationControllerDelegate {
   func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-    return UIModalPresentationStyle.None
+    return UIModalPresentationStyle.OverFullScreen
   }
 }
 

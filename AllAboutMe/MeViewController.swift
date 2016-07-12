@@ -148,7 +148,7 @@ extension MeViewController : MFMailComposeViewControllerDelegate {
 
 extension MeViewController : UIPopoverPresentationControllerDelegate {
   func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-    return UIModalPresentationStyle.None
+    return UIModalPresentationStyle.OverFullScreen
   }
 }
 

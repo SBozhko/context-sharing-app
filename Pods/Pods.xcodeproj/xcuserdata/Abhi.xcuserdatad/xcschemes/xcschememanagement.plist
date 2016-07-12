@@ -29,17 +29,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DeviceGuru-DeviceGuru.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DeviceGuru.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Mixpanel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-AllAboutMe.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>QuadratTouch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,17 +72,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>054B97DB62944D831F4BFC7307ACBEAB</key>
+		<key>1BC46DD3D9D10CD936F6BBF5423EFAF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2860FC62BF93F25B3FD40A400A3C4F80</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>327C0D103EF8E7E8C77D3D4E19315546</key>
+		<key>39299645023B468B2FB8E75FB8CB09C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,17 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CDFBCC6CFCE8D5F69F83DA7C4186D31</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>8EFE724FDDAA2478F44F082C05BA272C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99DDE4A670E3B3A5D7523450AF4AC81D</key>
+		<key>900DA5C9B16FEC5135BFF0FE4028D300</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>93FD525501A9FDFEA0725F3D81FBB9B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB159DBDB7AF5A0B32B215FAF83CC849</key>
+		<key>D8BE0AD446F8A48DB1B9C574D840F012</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC8F50F19C36A24851BC1ACD22016F28</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4194C3F78A0B5607D998ED21E9571B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
