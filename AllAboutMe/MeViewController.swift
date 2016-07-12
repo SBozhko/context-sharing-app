@@ -156,11 +156,11 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     let contextGroupCellIndex = collectionView == otherContextCollectionView ? indexPath.row+1 : 0
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    if let validCurrentContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroupCells[contextGroupCellIndex]).context {
+    if let currentContext = ContextInfo.sharedInstance.getCurrentContext(contextGroupCells[contextGroupCellIndex]).context {
       if collectionView == situationCollectionView {
         if let vc = storyboard.instantiateViewControllerWithIdentifier("SituationPopoverViewController") as? SituationPopoverViewController {
           vc.modalPresentationStyle = .Popover
-          vc.situation = validCurrentContext
+          vc.situation = currentContext
           let popover = vc.popoverPresentationController!
           popover.delegate = self
           popover.sourceView = self.view
@@ -170,7 +170,7 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         if let vc = storyboard.instantiateViewControllerWithIdentifier("OtherContextPopoverViewController") as? OtherContextPopoverViewController {
           vc.modalPresentationStyle = .Popover
-          vc.context = validCurrentContext
+          vc.context = currentContext
           let popover = vc.popoverPresentationController!
           popover.delegate = self
           popover.sourceView = self.view
