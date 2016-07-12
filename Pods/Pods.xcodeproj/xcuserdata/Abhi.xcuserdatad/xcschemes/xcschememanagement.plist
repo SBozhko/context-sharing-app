@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>QuadratTouch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RxSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,17 +77,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1BC46DD3D9D10CD936F6BBF5423EFAF7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>39299645023B468B2FB8E75FB8CB09C9</key>
+		<key>17F7045B070917EC893F5FF7B3220345</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3B41A9B1D49827D58E203AF61D34F608</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A8AF690288811A1BB68917C9CC3DB54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54ED04A88BE6E07E1D74F4662335C1F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>652F8B5D5221885B81A89CD690B4F2B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>900DA5C9B16FEC5135BFF0FE4028D300</key>
+		<key>93FD525501A9FDFEA0725F3D81FBB9B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>93FD525501A9FDFEA0725F3D81FBB9B6</key>
+		<key>9D836F4654686B702206D8718FB2F174</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B8FED8D9AC6F043DEAA903905E724D14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -123,16 +143,6 @@
 			<true/>
 		</dict>
 		<key>D8BE0AD446F8A48DB1B9C574D840F012</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DC8F50F19C36A24851BC1ACD22016F28</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F4194C3F78A0B5607D998ED21E9571B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,7 +14,7 @@ target 'AllAboutMe' do
 #    pod 'RxCocoa',    '~> 2.0'
 #  pod 'RxBlocking', '~> 2.0'
   pod 'TransitionKit', '~> 2.0.0'
-#  pod 'QuadratTouch', '>= 1.0'
+  pod 'QuadratTouch', '>= 1.0'
 #  pod 'ReachabilitySwift'
   pod 'DeviceGuru'
   pod 'AWSCore'
