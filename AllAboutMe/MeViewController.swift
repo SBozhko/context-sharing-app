@@ -190,7 +190,9 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
       validContextImageName = currentContext.imageName {
       //      Send request for image
       cell.imageView.image = UIImage(named: validContextImageName)
-      cell.contextLabel.text = validContextName.name.name
+      cell.contextLabel.text = contextGroup == NEContextGroup.Situation ?
+                                ContextInfo.sharedInstance.getSituationDisplayMessage(validContextName.name) :
+                                validContextName.name.name
     } else {
       //      Show loading image
       cell.imageView.image = UIImage(named: "unknown")
@@ -243,10 +245,10 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
   {
     if collectionView == situationCollectionView {
-      let size : CGSize = CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.width+27)
+      let size : CGSize = CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.width)
       return size
     } else {
-      let size : CGSize  = CGSizeMake(collectionView.frame.size.width/4-5, collectionView.frame.size.width/4 + 30-5)
+      let size : CGSize  = CGSizeMake(collectionView.frame.size.width/4-15, collectionView.frame.size.width/4+20-15)
       return size
     }
   }

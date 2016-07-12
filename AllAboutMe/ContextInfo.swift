@@ -111,4 +111,27 @@ class ContextInfo {
       return []
     }
   }
+  
+  func getSituationDisplayMessage(situation : NEContextName) -> String {
+    switch (situation) {
+    case .WakeUp:
+      return "Good morning!"
+    case .Working:
+      return "Focus and work well"
+    case .Workout:
+      return "Have a kick-ass workout!"
+    case .Party:
+      return "Party time!"
+    case .Housework:
+      return "Time to clean up"
+    case .Relaxing:
+      return "Chill time"
+    case .OnTheGo:
+      return "Don't sweat the commute"
+    case .Bedtime:
+      return "Good night"
+    default:
+      return ""
+    }
+  }
 }
