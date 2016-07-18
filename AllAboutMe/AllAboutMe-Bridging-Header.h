@@ -9,6 +9,9 @@
 #ifndef AllAboutMe_Bridging_Header_h
 #define AllAboutMe_Bridging_Header_h
 
+#import <AWSCore/AWSCore.h>
+#import <AWSCognito/AWSCognito.h>
+#import <AWSS3/AWSS3.h>
 #import "Mixpanel/Mixpanel.h"
 #import "Toast/UIView+Toast.h"
 

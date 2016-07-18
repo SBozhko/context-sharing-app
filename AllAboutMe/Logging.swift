@@ -2,13 +2,12 @@
 //  Logging.swift
 //  Context
 //
-//  Created by Abhishek Sen on 6/29/16.
+//  Created by Abhishek Sen on 7/16/16.
 //  Copyright © 2016 NE. All rights reserved.
 //
 
 import Foundation
 import CoreFoundation
-import UIKit
 import DeviceGuru
 
 class Logging {
@@ -16,20 +15,26 @@ class Logging {
   class var sharedInstance: Logging {
     return _loggingInstance
   }
-  var uniqueDeviceId = ""
+  
+  let ClassName = String(Logging)
+  let log = Logger(loggerName: String(Logging))
+  static let DebugLevel = "DEBUG"
+  static let InfoLevel = "INFO"
+  static let WarnLevel = "WARN"
+  static let ErrorLevel = "ERROR"
   
   let logTimeStampFormatter = NSDateFormatter()
   let logFileNameFormatter = NSDateFormatter()
   let tempLogFileNameFormatter = NSDateFormatter()
+  let temporaryLogFileDirectory = "\(NSTemporaryDirectory())/"
   let logTimeStampDateFormatString = "yyyy-MM-dd HH:mm:ssZZZZ"
   let tempLogFileNameDateFormatString = "yyyy-MM-dd_HH:mm:ss"
   let logFileNameDateFormatString = "yyyy-MM-dd"
-  let logFileDirectoryPrefix = "/UserLogs/"
+  let logFileDirectoryPrefix = "/JarvisLogs/"
   let applicationSupportDirectories: [String]? = NSSearchPathForDirectoriesInDomains(
     NSSearchPathDirectory.LibraryDirectory,
     NSSearchPathDomainMask.UserDomainMask,
     true)
-  let temporaryLogFileDirectory = "\(NSTemporaryDirectory())/"
   let fileManager = NSFileManager.defaultManager()
   var logFileHandle: NSFileHandle?
   var logFileDirectoryName = ""
@@ -42,21 +47,11 @@ class Logging {
       return logFileDirectoryName
     }
   }
-  var getUniqueDeviceIdentifier : String {
-    get {
-      if uniqueDeviceId == "" {
-        let identifier = UIDevice.currentDevice().identifierForVendor!.description
-        let identifierArray = identifier.componentsSeparatedByString(">")
-        let identifierString = identifierArray[1] as String
-        uniqueDeviceId = identifierString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-      }
-      return uniqueDeviceId
-    }
-  }
+  
   var getLogFileName : String {
     get {
       logFileNameFormatter.dateFormat = logFileNameDateFormatString
-      return String(format: "NumberEight_Ambience_%@.txt", logFileNameFormatter.stringFromDate(NSDate()))
+      return String(format: "Jarvis_%@.txt", logFileNameFormatter.stringFromDate(NSDate()))
     }
   }
   var getLogFileFullPathName : String {
@@ -66,11 +61,6 @@ class Logging {
       }
       return logFileFullPath
       
-    }
-  }
-  var getLogTimeStamp : String {
-    get {
-      return String(format: "%@|", logTimeStampFormatter.stringFromDate(NSDate()))
     }
   }
   
@@ -93,9 +83,9 @@ class Logging {
     if fileManager.fileExistsAtPath(logFilePath) {
       logFileInitialString = "\n\n"
       logFileHandle = NSFileHandle(forWritingAtPath: logFilePath)
-      writeData(logFileInitialString, skipTimeStamp: true)
+      writeData("", loggerName: "", dataString: logFileInitialString, skipTimeStamp: true)
     } else {
-      logFileInitialString = "Device ID: \(getUniqueDeviceIdentifier)\nDate/Time Created: \(logTimeStampFormatter.stringFromDate(NSDate()))\n"
+      logFileInitialString = "Device ID: \(VendorInfo.getId())\nDate/Time Created: \(logTimeStampFormatter.stringFromDate(NSDate()))\n"
       logFileInitialString += "iOS \(UIDevice.currentDevice().systemVersion) / \(DeviceGuru.hardwareDescription()!)\n\n"
       do {
         try logFileInitialString.writeToFile(logFilePath, atomically: true, encoding: NSUTF8StringEncoding)
@@ -108,57 +98,57 @@ class Logging {
   
   func getUserDumpLogFileName(randomMessageHash : String) -> String {
     logFileNameFormatter.dateFormat = logFileNameDateFormatString
-    return String(format: "User_Dump_NumberEight_Ambience_%@_%@.txt", tempLogFileNameFormatter.stringFromDate(NSDate()), randomMessageHash)
+    return String(format: "User_Dump_Jarvis_%@_%@.txt", tempLogFileNameFormatter.stringFromDate(NSDate()), randomMessageHash)
   }
   
   func getUserDumpFileFullPathName(randomMessageHash : String) -> String {
     return temporaryLogFileDirectory.stringByAppendingPathComponent(getUserDumpLogFileName(randomMessageHash))
   }
   
-  func uploadLogFiles(directory : String) {
+  func uploadLogFiles(directory: String) {
     let files = fileManager.enumeratorAtPath(directory)
-    while let fileName = files?.nextObject() as? String{
-      if fileName.hasSuffix("txt") && fileName != getLogFileName {
-        AWS.sharedInstance.handleUploadRequest(fileName, uniqueDeviceIdentifier: getUniqueDeviceIdentifier, fullFilePath: directory.stringByAppendingPathComponent(fileName))
+    let currentLogName = getLogFileName
+    while let fileName = files?.nextObject() as? String {
+      if fileName.hasSuffix("txt") && fileName != currentLogName {
+        AWS.sharedInstance.handleUploadRequest(
+          fileName,
+          uniqueDeviceIdentifier: VendorInfo.getId(),
+          fullFilePath: directory.stringByAppendingPathComponent(fileName)
+        )
       }
     }
   }
   
   func userInitiatedLogDump(dumpMessage : String) {
-    Logging.sharedInstance.writeData("User Initiated Dump: \(dumpMessage)\n")
+    self.log.debug("User Initiated Dump: \(dumpMessage)\n")
     do {
       let userDumpFileFullPathName = getUserDumpFileFullPathName(dumpMessage)
       try fileManager.copyItemAtPath(getLogFileFullPathName, toPath: userDumpFileFullPathName)
-      AWS.sharedInstance.handleUploadRequest(getUserDumpLogFileName(dumpMessage), uniqueDeviceIdentifier: getUniqueDeviceIdentifier, fullFilePath: userDumpFileFullPathName, userInitiatedDump:  true)
+      AWS.sharedInstance.handleUploadRequest(getUserDumpLogFileName(dumpMessage), uniqueDeviceIdentifier: VendorInfo.getId(), fullFilePath: userDumpFileFullPathName, userInitiatedDump:  true)
     } catch {
-      
+      print(error)
     }
   }
   
-  func writeData(dataString: String, skipTimeStamp : Bool = false) {
-    let logString = skipTimeStamp ? dataString : String(format: "%@%@\n", getLogTimeStamp, dataString)
+  func writeData(level: String, loggerName: String, dataString: String, skipTimeStamp : Bool = false) {
+    let timestamp = String(logTimeStampFormatter.stringFromDate(NSDate()))
+    let fullLogString = String(format: "[%@] [%@] [%@] - [%@]", timestamp, level, loggerName, dataString)
+    let logString = skipTimeStamp ? dataString : fullLogString
     if let unwrappedFileHandle = logFileHandle {
       unwrappedFileHandle.seekToEndOfFile()
-      unwrappedFileHandle.writeData(logString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
+      unwrappedFileHandle.writeData("\(logString)\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
     } else {
       print("balls")
     }
-    print("\(getLogTimeStamp)\(dataString)")
-  }
-  
-  func writeData(data: NSData) {
-    if let unwrappedFileHandle = logFileHandle {
-      unwrappedFileHandle.seekToEndOfFile()
-      unwrappedFileHandle.writeData(data)
-    }
+    print(fullLogString)
   }
   
   func removeFile(fullFilePath : String) {
     do {
       try fileManager.removeItemAtPath(fullFilePath)
-      writeData("Removed file: \(fullFilePath)")
+      writeData(Logging.InfoLevel, loggerName: ClassName, dataString: "Removed file: \(fullFilePath)")
     } catch let error as NSError {
-      writeData("Remove failed for \(fullFilePath): \(error.localizedDescription)")
+      writeData(Logging.ErrorLevel, loggerName: ClassName, dataString: "Remove failed for \(fullFilePath): \(error.localizedDescription)")
     }
   }
   
@@ -175,13 +165,13 @@ class Logging {
       try fileManager.createDirectoryAtPath(getLogFileDirectory, withIntermediateDirectories: true, attributes: nil)
       return true
     } catch let error as NSError {
-      writeData("Failed to create logs directory: \(error.localizedDescription)")
+      writeData(Logging.ErrorLevel, loggerName: ClassName, dataString: "Failed to create logs directory: \(error.localizedDescription)")
       return false
     }
   }
   
   deinit {
-    writeData("Closing log file: \(getLogFileFullPathName)")
+    writeData(Logging.InfoLevel, loggerName: ClassName, dataString: "Closing log file: \(getLogFileFullPathName)")
     logFileHandle?.closeFile()
   }
 }

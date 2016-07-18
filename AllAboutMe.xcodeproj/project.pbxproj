@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		143E381810AF452EDB333944 /* Pods_AllAboutMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */; };
+		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
+		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
+		3853FEC71D3C59C4006B894C /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3853FEC41D3C59BD006B894C /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6851D2545BD006543D4 /* AppDelegate.swift */; };
 		387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6871D2545BD006543D4 /* MeViewController.swift */; };
 		387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68B1D2545BD006543D4 /* Main.storyboard */; };
@@ -23,7 +26,6 @@
 		387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */; };
 		387DE6B11D25B4CA006543D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6B01D25B4CA006543D4 /* Common.swift */; };
 		38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA10C1D33D4F700599E61 /* MessageUI.framework */; };
-		38ADA1111D34217F00599E61 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA10E1D3420DB00599E61 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38ADA1131D3443E200599E61 /* AnalyticsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */; };
 		38ADA1151D344F7600599E61 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38ADA1141D344F7600599E61 /* Analytics.storyboard */; };
 		38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C913271D2D2C2B0037A7B9 /* Social.framework */; };
@@ -35,13 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3891C6731D2E6EB2002D3F83 /* Embed Frameworks */ = {
+		3853FEC31D3BE755006B894C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38ADA1111D34217F00599E61 /* NEContextSDK.framework in Embed Frameworks */,
+				3853FEC71D3C59C4006B894C /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		2EC23CD7496DF7CFE622A3AC /* Pods-AllAboutMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllAboutMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllAboutMe/Pods-AllAboutMe.debug.xcconfig"; sourceTree = "<group>"; };
+		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
+		3853FEC41D3C59BD006B894C /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		387DE6821D2545BD006543D4 /* AllAboutMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllAboutMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387DE6851D2545BD006543D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387DE6871D2545BD006543D4 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +73,6 @@
 		387DE6B01D25B4CA006543D4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		38ADA10B1D2F193C00599E61 /* AllAboutMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllAboutMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		38ADA10C1D33D4F700599E61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		38ADA10E1D3420DB00599E61 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsPopupViewController.swift; sourceTree = "<group>"; };
 		38ADA1141D344F7600599E61 /* Analytics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
 		38C913271D2D2C2B0037A7B9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -96,6 +100,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3853FEB71D3BA384006B894C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				387DE6A21D255092006543D4 /* AWS.swift */,
+				387DE6A31D255092006543D4 /* Logging.swift */,
+				387DE6AA1D255FB5006543D4 /* ContextInfo.swift */,
+				387DE6B01D25B4CA006543D4 /* Common.swift */,
+				3853FEBB1D3BB1B9006B894C /* Logger.swift */,
+				3853FEBD1D3BB226006B894C /* VendorInfo.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		3853FEB81D3BA38A006B894C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				387DE6A41D255092006543D4 /* String+Ext.swift */,
+				387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */,
+				387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */,
+				38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		3853FEB91D3BA3B5006B894C /* Views & View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				387DE6871D2545BD006543D4 /* MeViewController.swift */,
+				38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */,
+				38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */,
+				387DE69E1D254722006543D4 /* HistoryViewController.swift */,
+				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
+				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
+				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
+			);
+			name = "Views & View Controllers";
+			sourceTree = "<group>";
+		};
+		3853FEBA1D3BA3EF006B894C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				387DE68B1D2545BD006543D4 /* Main.storyboard */,
+				38ADA1141D344F7600599E61 /* Analytics.storyboard */,
+				387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		387DE6791D2545BD006543D4 = {
 			isa = PBXGroup;
 			children = (
@@ -117,28 +169,14 @@
 		387DE6841D2545BD006543D4 /* AllAboutMe */ = {
 			isa = PBXGroup;
 			children = (
-				387DE6A21D255092006543D4 /* AWS.swift */,
-				387DE6A31D255092006543D4 /* Logging.swift */,
-				387DE6A41D255092006543D4 /* String+Ext.swift */,
-				387DE6851D2545BD006543D4 /* AppDelegate.swift */,
-				387DE6871D2545BD006543D4 /* MeViewController.swift */,
-				38DAE35F1D2B3ECC005F26B0 /* SituationPopoverViewController.swift */,
-				38DAE3611D2BEEA1005F26B0 /* OtherContextPopoverViewController.swift */,
-				387DE69E1D254722006543D4 /* HistoryViewController.swift */,
-				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
-				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
-				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
-				387DE6AA1D255FB5006543D4 /* ContextInfo.swift */,
-				387DE68B1D2545BD006543D4 /* Main.storyboard */,
-				387DE68E1D2545BD006543D4 /* Assets.xcassets */,
-				387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */,
-				387DE6931D2545BD006543D4 /* Info.plist */,
-				387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */,
-				387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */,
-				387DE6B01D25B4CA006543D4 /* Common.swift */,
-				38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */,
+				3853FEBA1D3BA3EF006B894C /* Storyboards */,
 				38ADA10B1D2F193C00599E61 /* AllAboutMe-Bridging-Header.h */,
-				38ADA1141D344F7600599E61 /* Analytics.storyboard */,
+				387DE6851D2545BD006543D4 /* AppDelegate.swift */,
+				3853FEB91D3BA3B5006B894C /* Views & View Controllers */,
+				3853FEB81D3BA38A006B894C /* Extensions */,
+				3853FEB71D3BA384006B894C /* Utilities */,
+				387DE68E1D2545BD006543D4 /* Assets.xcassets */,
+				387DE6931D2545BD006543D4 /* Info.plist */,
 			);
 			path = AllAboutMe;
 			sourceTree = "<group>";
@@ -155,7 +193,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				38ADA10E1D3420DB00599E61 /* NEContextSDK.framework */,
+				3853FEC41D3C59BD006B894C /* NEContextSDK.framework */,
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
@@ -177,7 +215,7 @@
 				387DE6801D2545BD006543D4 /* Resources */,
 				78A643866B945C1B403E4878 /* Embed Pods Frameworks */,
 				37B912C171C97FA1CB350A14 /* Copy Pods Resources */,
-				3891C6731D2E6EB2002D3F83 /* Embed Frameworks */,
+				3853FEC31D3BE755006B894C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -299,9 +337,11 @@
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
 				387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */,
+				3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */,
 				387DE6A61D255092006543D4 /* Logging.swift in Sources */,
 				387DE6A51D255092006543D4 /* AWS.swift in Sources */,
 				38DAE3601D2B3ECC005F26B0 /* SituationPopoverViewController.swift in Sources */,
+				3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */,
 				387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */,
 				387DE6A71D255092006543D4 /* String+Ext.swift in Sources */,
 				387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */,

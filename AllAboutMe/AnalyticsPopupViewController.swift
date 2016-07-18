@@ -42,7 +42,7 @@ class AnalyticsPopupViewController : UIViewController {
   }
     
   func loadCharts() {
-    let historyEndpoint = "\(getContextHistoryEndpoint)/\(Logging.sharedInstance.getUniqueDeviceIdentifier)/\(Logging.sharedInstance.getUniqueDeviceIdentifier)?ctx=\(contextGroup!.name)"
+    let historyEndpoint = "\(getContextHistoryEndpoint)/\(VendorInfo.getId())/\(VendorInfo.getId())?ctx=\(contextGroup!.name)"
     //    ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"
 
     Alamofire.request(.GET, historyEndpoint, encoding: .JSON)

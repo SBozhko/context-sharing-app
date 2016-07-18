@@ -78,8 +78,8 @@ class MeViewController: UIViewController {
     }
     
     let parameters : [String : AnyObject] = [
-      "userId": Logging.sharedInstance.getUniqueDeviceIdentifier,
-      "vendorId": Logging.sharedInstance.getUniqueDeviceIdentifier,
+      "userId": VendorInfo.getId(),
+      "vendorId": VendorInfo.getId(),
       "contextData": contextDataParameters,
       "idfa": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
     ]
@@ -95,7 +95,7 @@ class MeViewController: UIViewController {
   func socialMediaSharing(serviceType : String) {
     if SLComposeViewController.isAvailableForServiceType(serviceType) {
       let composeController = SLComposeViewController(forServiceType: serviceType)
-      if !composeController.setInitialText("Shared via NumberEight's Ambience App.") {
+      if !composeController.setInitialText("Shared via Jarvis") {
         print("did not set initial text")
       }
       
@@ -112,7 +112,7 @@ class MeViewController: UIViewController {
   }
   
   func shareOnWhatsApp() {
-    let urlString = "Shared via NumberEight's Ambience App."
+    let urlString = "Shared via Jarvis"
     let urlStringEncoded = urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
     let url = NSURL(string: "whatsapp://send?text=\(urlStringEncoded!)")
     if UIApplication.sharedApplication().canOpenURL(url!) {
@@ -127,8 +127,8 @@ class MeViewController: UIViewController {
       mail.mailComposeDelegate = self
       mail.setToRecipients(["hi@numbereight.me"])
       uniqueMessageCode = randomStringWithLength(messageSubjectCodeLength)
-      mail.setSubject("NumberEight Ambience Beta \(getAppVersionString()) Feedback: ")
-      mail.setMessageBody("\n\n--------------------\niOS \(UIDevice.currentDevice().systemVersion) / \(DeviceGuru.hardwareDescription()!)\nIdentifier: \(Logging.sharedInstance.getUniqueDeviceIdentifier)|\(uniqueMessageCode)\n", isHTML: false)
+      mail.setSubject("Jarvis Beta \(getAppVersionString()) Feedback: ")
+      mail.setMessageBody("\n\n--------------------\niOS \(UIDevice.currentDevice().systemVersion) / \(DeviceGuru.hardwareDescription()!)\nIdentifier: \(VendorInfo.getId())|\(uniqueMessageCode)\n", isHTML: false)
       presentViewController(mail, animated: true, completion: nil)
     }
   }
