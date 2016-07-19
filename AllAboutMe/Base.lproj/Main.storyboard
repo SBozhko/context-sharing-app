@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PmQ-nt-1m4">
-                                <rect key="frame" x="0.0" y="20" width="375" height="428"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="418"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="T5J-OS-f36">
                                     <size key="itemSize" width="300" height="300"/>
@@ -98,10 +98,10 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9RJ-eI-aE5">
-                                <rect key="frame" x="8" y="448" width="359" height="170"/>
+                                <rect key="frame" x="8" y="438" width="359" height="180"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="170" id="llo-pX-rsH"/>
+                                    <constraint firstAttribute="height" constant="180" id="llo-pX-rsH"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="IEs-Tt-ghv">
                                     <size key="itemSize" width="100" height="120"/>
