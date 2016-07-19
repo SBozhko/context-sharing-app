@@ -14,6 +14,19 @@ class ContextInfo {
   class var sharedInstance : ContextInfo {
     return _sharedContextInfoInstance
   }
+  var temporarilyOverriddenContexts : [NEContextGroup : (NEContextName, String)] = [:]
+  var contextTimers : [String : NSTimer] = [:]
+  let overrideContextTimerValue = 60.0
+  
+  func getOverriddenContext(group : NEContextGroup) -> (flag : Bool, contextName : NEContextName?, userContextString : String?) {
+    if let
+      overridenContext = temporarilyOverriddenContexts[group],
+      _ = contextTimers[group.name] {
+      return (true, overridenContext.0, overridenContext.1)
+    } else {
+      return (false, nil, nil)
+    }
+  }
   
   func getValidCurrentContext(group : NEContextGroup) -> (context : NEContext?, imageName : String?) {
     let contextInfo = getCurrentContext(group)
@@ -119,7 +132,7 @@ class ContextInfo {
     case .Working:
       return "Focus and work well"
     case .Workout:
-      return "Have a kick-ass workout!"
+      return "Have a super workout!"
     case .Party:
       return "Party time!"
     case .Housework:
@@ -133,5 +146,56 @@ class ContextInfo {
     default:
       return ""
     }
+  }
+  
+  // MARK: - Timers
+  
+  func stopOverrideTimer(contextGroupName : String) {
+    if let overriddenTimer = contextTimers[contextGroupName] {
+      print("Override timer stopped for \(contextGroupName)")
+      overriddenTimer.invalidate()
+      contextTimers.removeValueForKey(contextGroupName)
+      // Post notification to reload contexts
+      NSNotificationCenter.defaultCenter().postNotificationName(contextOverrideTimerExpiredNotification, object: nil)
+    }
+  }
+  
+  func startOverrideTimer(contextGroup : NEContextGroup) {
+    print("Override timer started for \(contextGroup.name)")
+    stopOverrideTimer(contextGroup.name)
+    contextTimers[contextGroup.name] = NSTimer.scheduledTimerWithTimeInterval(
+                                    overrideContextTimerValue,
+                                    target: self,
+                                    selector: #selector(ContextInfo.overrideTimerExpired(_:)),
+                                    userInfo: contextGroup.name,
+                                    repeats: false)
+  }
+  
+  @objc func overrideTimerExpired(timer : NSTimer) {
+    if let contextGroupName = timer.userInfo as? String {
+      print("Override timer expired for \(contextGroupName)")
+      stopOverrideTimer(contextGroupName)
+    }
+  }
+  
+  func overrideCurrentContextSettings(contextGroup : NEContextGroup, userSelectedContextName : NEContextName, userEnteredContextString : String = "") -> Bool {
+    // If we're already in the same context as what the user wants to override it to, nothing to do
+    if let currentContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup).context where currentContext.name == userSelectedContextName {
+      stopOverrideTimer(contextGroup.name)
+      return false
+    }
+    // Else we'll override the values
+    if !userEnteredContextString.isEmpty {
+      // Add to temporary overridden list of contexts
+      temporarilyOverriddenContexts[contextGroup] = (NEContextName.Other, userEnteredContextString)
+      // Start timer for this context group
+      startOverrideTimer(contextGroup)
+    } else {
+      // Add to temporary overridden list of contexts
+      temporarilyOverriddenContexts[contextGroup] = (userSelectedContextName, "")
+      // Start timer for this context group
+      startOverrideTimer(contextGroup)
+    }
+    return true
   }
 }

@@ -29,6 +29,10 @@ class MeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    NSNotificationCenter.defaultCenter().addObserver(self,
+                                                     selector: #selector(MeViewController.handleUserContextOverrideTimerExpired(_:)),
+                                                     name: contextOverrideTimerExpiredNotification,
+                                                     object: nil)
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -43,7 +47,6 @@ class MeViewController: UIViewController {
             self.otherContextCollectionView.reloadData()
           }
         })
-//        self.collectionView.reloadItemsAtIndexPaths(self.collectionViewIndexPaths)
         self.postContextInfo([context])
       })
       initializeContexts()
@@ -56,6 +59,13 @@ class MeViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  func handleUserContextOverrideTimerExpired(notification : NSNotification) {
+    if self.isViewVisible() && UIApplication.sharedApplication().applicationState == .Active {
+      self.situationCollectionView.reloadData()
+      self.otherContextCollectionView.reloadData()
+    }
   }
   
   func initializeContexts() {
@@ -132,6 +142,60 @@ class MeViewController: UIViewController {
       presentViewController(mail, animated: true, completion: nil)
     }
   }
+  
+  @IBAction func unwindToMeVC(segue : UIStoryboardSegue) {
+    if let identifier = segue.identifier {
+      switch identifier {
+      case "unwindToMeVCSegue":
+        if let
+          sourceController = segue.sourceViewController as? ContextPopoverViewController {
+            if let
+              _context = sourceController.context {
+              var contextName = NEContextName.Other
+              var userEnteredContextString = ""
+              if let _userSelectedContextName = sourceController.selectedContextName {
+                contextName = _userSelectedContextName
+              }
+              if let _userEnteredContext = sourceController.otherSelectedContextName {
+                userEnteredContextString = _userEnteredContext
+              }
+              if contextName != NEContextName.Other || userEnteredContextString != "" {
+                ContextInfo.sharedInstance.overrideCurrentContextSettings(_context.group, userSelectedContextName: contextName, userEnteredContextString: userEnteredContextString)
+              }
+              dispatch_async(dispatch_get_main_queue(), {
+                if _context.group == NEContextGroup.Situation {
+                  self.situationCollectionView.reloadData()
+                } else {
+                  self.otherContextCollectionView.reloadData()
+                }
+              })
+            } else if let
+              _contextGroup = sourceController.overriddenContextGroup {
+              var contextName = NEContextName.Other
+              var userEnteredContextString = ""
+              if let _userSelectedContextName = sourceController.selectedContextName {
+                contextName = _userSelectedContextName
+              }
+              if let _userEnteredContext = sourceController.otherSelectedContextName {
+                userEnteredContextString = _userEnteredContext
+              }
+              if contextName != NEContextName.Other || userEnteredContextString != "" {
+                ContextInfo.sharedInstance.overrideCurrentContextSettings(_contextGroup, userSelectedContextName: contextName, userEnteredContextString: userEnteredContextString)
+              }
+              dispatch_async(dispatch_get_main_queue(), {
+                if _contextGroup == NEContextGroup.Situation {
+                  self.situationCollectionView.reloadData()
+                } else {
+                  self.otherContextCollectionView.reloadData()
+                }
+              })
+          }
+        }
+      default:
+        break
+      }
+    }
+  }
 }
 
 extension MeViewController : MFMailComposeViewControllerDelegate {
@@ -150,33 +214,33 @@ extension MeViewController : UIPopoverPresentationControllerDelegate {
   func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
     return UIModalPresentationStyle.OverFullScreen
   }
+  
+  func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool {
+    return true
+  }
 }
 
 extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     let contextGroupCellIndex = collectionView == otherContextCollectionView ? indexPath.row+1 : 0
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    if let currentContext = ContextInfo.sharedInstance.getCurrentContext(contextGroupCells[contextGroupCellIndex]).context {
-      if collectionView == situationCollectionView {
-        if let vc = storyboard.instantiateViewControllerWithIdentifier("SituationPopoverViewController") as? SituationPopoverViewController {
-          vc.modalPresentationStyle = .Popover
-          vc.situation = currentContext
-          let popover = vc.popoverPresentationController!
-          popover.delegate = self
-          popover.sourceView = self.view
-          presentViewController(vc, animated: true, completion: nil)
+    let overriddenContext = ContextInfo.sharedInstance.getOverriddenContext(contextGroupCells[contextGroupCellIndex])
+    if let vc = storyboard.instantiateViewControllerWithIdentifier("ContextPopoverViewController") as? ContextPopoverViewController {
+      vc.modalPresentationStyle = .Popover
+      let popover = vc.popoverPresentationController!
+      popover.delegate = self
+      popover.sourceView = self.view
+      if overriddenContext.flag {
+        vc.overriddenContextGroup = contextGroupCells[contextGroupCellIndex]
+        if let _contextName = overriddenContext.contextName {
+          vc.overriddenContextName = _contextName
+        } else if let _userEnteredContextString = overriddenContext.userContextString {
+          vc.overriddenUserEnteredContextString = _userEnteredContextString
         }
-      } else {
-        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        if let vc = storyboard.instantiateViewControllerWithIdentifier("OtherContextPopoverViewController") as? OtherContextPopoverViewController {
-          vc.modalPresentationStyle = .Popover
-          vc.context = currentContext
-          let popover = vc.popoverPresentationController!
-          popover.delegate = self
-          popover.sourceView = self.view
-          presentViewController(vc, animated: true, completion: nil)
-        }
+      } else if let currentContext = ContextInfo.sharedInstance.getCurrentContext(contextGroupCells[contextGroupCellIndex]).context {
+        vc.context = currentContext
       }
+      presentViewController(vc, animated: true, completion: nil)
     }
   }
   
@@ -184,19 +248,36 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MeCollectionViewCell
     let contextGroupCellIndex = collectionView == otherContextCollectionView ? indexPath.row+1 : 0
     let contextGroup = contextGroupCellIndex == 0 ? NEContextGroup.Situation : contextGroupCells[contextGroupCellIndex]
-    let currentContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup)
-    if let
-      validContextName = currentContext.context,
-      validContextImageName = currentContext.imageName {
-      //      Send request for image
-      cell.imageView.image = UIImage(named: validContextImageName)
-      cell.contextLabel.text = contextGroup == NEContextGroup.Situation ?
-                                ContextInfo.sharedInstance.getSituationDisplayMessage(validContextName.name) :
-                                validContextName.name.name
+    let overriddenContext = ContextInfo.sharedInstance.getOverriddenContext(contextGroup)
+    if overriddenContext.flag {
+      if let contextName = overriddenContext.contextName {
+        cell.imageView.image = UIImage(named: contextName.name.lowercaseString)
+        cell.contextLabel.text = contextGroup == NEContextGroup.Situation ?
+          ContextInfo.sharedInstance.getSituationDisplayMessage(contextName) :
+          contextName.name
+      } else if let userContextString = overriddenContext.userContextString {
+        cell.contextLabel.text = userContextString
+        cell.imageView.image = UIImage(named: "unknown")
+      } else {
+        //      Show loading image
+        cell.imageView.image = UIImage(named: "unknown")
+        cell.contextLabel.text = contextGroup.name
+      }
     } else {
-      //      Show loading image
-      cell.imageView.image = UIImage(named: "unknown")
-      cell.contextLabel.text = contextGroup.name
+      let currentContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup)
+      if let
+        validContextName = currentContext.context,
+        validContextImageName = currentContext.imageName {
+        //      Send request for image
+        cell.imageView.image = UIImage(named: validContextImageName)
+        cell.contextLabel.text = contextGroup == NEContextGroup.Situation ?
+          ContextInfo.sharedInstance.getSituationDisplayMessage(validContextName.name) :
+          validContextName.name.name
+      } else {
+        //      Show loading image
+        cell.imageView.image = UIImage(named: "unknown")
+        cell.contextLabel.text = contextGroup.name
+      }
     }
     if collectionView == situationCollectionView {
       cell.shareButton.addTarget(self, action: #selector(MeViewController.shareButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)

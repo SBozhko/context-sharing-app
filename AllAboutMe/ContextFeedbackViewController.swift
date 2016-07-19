@@ -11,22 +11,78 @@ import NEContextSDK
 
 class ContextFeedbackViewController: UIViewController {
 
-  @IBOutlet weak var contextOptionsCollectionView: UICollectionView!
+  @IBOutlet weak var contextOptionsCollectionView: UICollectionView!  
+  @IBOutlet weak var otherOptionLabel: UILabel!
+  @IBOutlet weak var updateButton: UIButton!
   
   var context : NEContext?
+  var overriddenContextGroup : NEContextGroup?
+  
   var listOfContextNames : [NEContextName] = []
   var selectedContext : [NEContextName : NSIndexPath] = [:]
+  var selectedOtherContext : String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     if let _context = context {
       listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(_context.group)
+    } else if let _overriddenContextGroup = overriddenContextGroup {
+      listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(_overriddenContextGroup)
     }
+    listOfContextNames.removeObject(NEContextName.Unknown)
+    listOfContextNames.removeObject(NEContextName.Other)
+    self.contextOptionsCollectionView.allowsMultipleSelection = false
   }
   
-  @IBAction func updateButtonPressed(sender: AnyObject) {
+  func showOtherOptionsAlert() {
+    let alertController = UIAlertController(title: "Add your option", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+    let saveAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: {
+      alert -> Void in
+      dispatch_async(dispatch_get_main_queue(), {
+        let textField = alertController.textFields![0] as UITextField
+        self.otherOptionLabel.text = textField.text
+        self.selectedOtherContext = textField.text
+        if let _userEnteredText = textField.text where !_userEnteredText.isEmpty {
+          if let selectedIndexPaths = self.contextOptionsCollectionView.indexPathsForSelectedItems() {
+            for indexPath in selectedIndexPaths {
+              let cell = self.contextOptionsCollectionView.cellForItemAtIndexPath(indexPath) as? MeCollectionViewCell
+              cell!.imageView.layer.borderWidth = 0.0
+              cell!.imageView.layer.borderColor = UIColor.clearColor().CGColor
+            }
+          }
+          self.selectedContext.removeAll()
+        }
+      })
+    })
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {
+      (action : UIAlertAction!) -> Void in
+      self.otherOptionLabel.text = ""
+    })
+    
+    alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
+      textField.placeholder = "Enter your option"
+      textField.delegate = self
+      textField.autocapitalizationType = UITextAutocapitalizationType.Words
+    }
+    
+    alertController.addAction(saveAction)
+    alertController.addAction(cancelAction)    
+    self.presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  @IBAction func otherOptionButtonPressed(sender: AnyObject) {
+    showOtherOptionsAlert()
+  }
+  
+  @IBAction func closeButtonPressed(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
+  
+}
+
+extension ContextFeedbackViewController : UITextFieldDelegate {
+  
 }
 
 extension ContextFeedbackViewController : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -38,10 +94,12 @@ extension ContextFeedbackViewController : UICollectionViewDelegate, UICollection
       selectedContext.removeValueForKey(listOfContextNames[savedIndexPath.row])
       cell!.imageView.layer.borderWidth = 0.0
       cell!.imageView.layer.borderColor = UIColor.clearColor().CGColor
+      self.otherOptionLabel.text = ""
     } else {
       selectedContext[listOfContextNames[indexPath.row]] = indexPath
       cell!.imageView.layer.borderWidth = 3.0
       cell!.imageView.layer.borderColor = UIColor.blueColor().CGColor
+      self.otherOptionLabel.text = ""
     }
   }
   
@@ -51,13 +109,9 @@ extension ContextFeedbackViewController : UICollectionViewDelegate, UICollection
       savedIndexPath = selectedContext[listOfContextNames[indexPath.row]]
       where savedIndexPath == indexPath {
       selectedContext.removeValueForKey(listOfContextNames[savedIndexPath.row])
-      cell!.imageView.layer.borderWidth = 0.0
-      cell!.imageView.layer.borderColor = UIColor.clearColor().CGColor
-    } else {
-      selectedContext[listOfContextNames[indexPath.row]] = indexPath
-      cell!.imageView.layer.borderWidth = 3.0
-      cell!.imageView.layer.borderColor = UIColor.blueColor().CGColor
     }
+    cell!.imageView.layer.borderWidth = 0.0
+    cell!.imageView.layer.borderColor = UIColor.clearColor().CGColor
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
