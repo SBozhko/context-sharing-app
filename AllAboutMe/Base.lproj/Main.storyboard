@@ -98,10 +98,10 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9RJ-eI-aE5">
-                                <rect key="frame" x="8" y="438" width="359" height="180"/>
+                                <rect key="frame" x="8" y="438" width="359" height="170"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="llo-pX-rsH"/>
+                                    <constraint firstAttribute="height" constant="170" id="llo-pX-rsH"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="IEs-Tt-ghv">
                                     <size key="itemSize" width="100" height="120"/>
@@ -165,7 +165,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9RJ-eI-aE5" secondAttribute="trailing" constant="8" id="71Y-Ps-et5"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="9RJ-eI-aE5" secondAttribute="bottom" id="Vx6-LJ-xlT"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="9RJ-eI-aE5" secondAttribute="bottom" constant="10" id="Vx6-LJ-xlT"/>
                             <constraint firstItem="9RJ-eI-aE5" firstAttribute="top" secondItem="PmQ-nt-1m4" secondAttribute="bottom" id="WfN-H9-vxQ"/>
                             <constraint firstItem="PmQ-nt-1m4" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="cJs-Ze-TcU"/>
                             <constraint firstItem="9RJ-eI-aE5" firstAttribute="top" secondItem="PmQ-nt-1m4" secondAttribute="bottom" id="cma-AL-PJb"/>
