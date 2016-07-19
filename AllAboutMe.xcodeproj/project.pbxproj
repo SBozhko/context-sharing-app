@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		143E381810AF452EDB333944 /* Pods_AllAboutMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */; };
+		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		2EC23CD7496DF7CFE622A3AC /* Pods-AllAboutMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllAboutMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllAboutMe/Pods-AllAboutMe.debug.xcconfig"; sourceTree = "<group>"; };
+		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
 		3853FEC81D3CD5F2006B894C /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				387DE6B01D25B4CA006543D4 /* Common.swift */,
 				3853FEBB1D3BB1B9006B894C /* Logger.swift */,
 				3853FEBD1D3BB226006B894C /* VendorInfo.swift */,
+				380D26881D3EA8B1006518A6 /* Credentials.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				3853FECB1D3D73CF006B894C /* UIViewController+Ext.swift in Sources */,
 				387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */,
+				380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */,
 				387DE6B11D25B4CA006543D4 /* Common.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,

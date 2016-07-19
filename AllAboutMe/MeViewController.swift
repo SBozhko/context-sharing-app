@@ -33,6 +33,10 @@ class MeViewController: UIViewController {
                                                      selector: #selector(MeViewController.handleUserContextOverrideTimerExpired(_:)),
                                                      name: contextOverrideTimerExpiredNotification,
                                                      object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self,
+                                                     selector: #selector(MeViewController.handleProfileIdReceivedNotification(_:)),
+                                                     name: profileIdReceivedNotification,
+                                                     object: nil)
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -68,6 +72,10 @@ class MeViewController: UIViewController {
     }
   }
   
+  func handleProfileIdReceivedNotification(notification : NSNotification) {
+    initializeContexts()
+  }
+  
   func initializeContexts() {
     var contextsToPost : [NEContext] = []
     for contextGroup in contextGroupCells {
@@ -81,25 +89,25 @@ class MeViewController: UIViewController {
   }
   
   func postContextInfo(contextsToPost : [NEContext]) {
-    var contextDataParameters : [[String : String]] = [[:]]
-    contextDataParameters.removeLast()
-    for context in contextsToPost {
-      contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name])
-    }
-    
-    let parameters : [String : AnyObject] = [
-      "userId": VendorInfo.getId(),
-      "vendorId": VendorInfo.getId(),
-      "contextData": contextDataParameters,
-      "idfa": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
-    ]
-    
-    Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
-      .responseJSON { response in
-        if let JSON = response.result.value {
-          print("JSON: \(JSON)")
-        }
+    if let _profileId = Credentials.sharedInstance.profileId {
+      var contextDataParameters : [[String : String]] = [[:]]
+      contextDataParameters.removeLast()
+      for context in contextsToPost {
+        contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name])
       }
+      
+      let parameters : [String : AnyObject] = [
+        "contextData": contextDataParameters,
+        "profileId": _profileId
+      ]
+      
+      Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
+        .responseJSON { response in
+          if let JSON = response.result.value {
+            print("JSON: \(JSON)")
+          }
+      }
+    }
   }
   
   func socialMediaSharing(serviceType : String) {

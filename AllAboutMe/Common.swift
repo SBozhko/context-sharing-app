@@ -10,8 +10,10 @@ import Foundation
 
 /* Notifications */
 let contextOverrideTimerExpiredNotification = "overrideTimerExpired"
+let profileIdReceivedNotification = "profileIdReceivedNotification"
 
 /* Server Endpoints */
+let postUserInfoInitEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/users"
 let postContextEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/contexts"
 let getContextHistoryEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/contexts"
 

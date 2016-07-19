@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     _ = AWS.sharedInstance
     _ = Logging.sharedInstance
+    _ = Credentials.sharedInstance
     // Override point for customization after application launch.
     let token = "ec6becbf23c050609a90b6c227413bed"
     Mixpanel.sharedInstanceWithToken(token)
