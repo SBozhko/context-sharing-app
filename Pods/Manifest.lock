@@ -12,7 +12,6 @@ PODS:
   - Mixpanel (3.0.0):
     - Mixpanel/Mixpanel (= 3.0.0)
   - Mixpanel/Mixpanel (3.0.0)
-  - QuadratTouch (1.1.1)
   - RxSwift (2.6.0)
   - SwiftyJSON (2.3.2)
   - Toast (3.0)
@@ -26,7 +25,6 @@ DEPENDENCIES:
   - Charts
   - DeviceGuru
   - Mixpanel
-  - QuadratTouch (>= 1.0)
   - RxSwift (~> 2.0)
   - SwiftyJSON
   - Toast (~> 3.0)
@@ -40,7 +38,6 @@ SPEC CHECKSUMS:
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   DeviceGuru: f847629dc0da0145ba48a9fc314e613ca4aa9caf
   Mixpanel: ac92056ee35a961362513ba11049e67cffcaa1f1
-  QuadratTouch: 296d83c63a4328f6f40af9fc728fe24f0e3b00d4
   RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
