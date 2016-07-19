@@ -16,11 +16,12 @@ class AnalyticsPopupViewController : UIViewController {
 
   @IBOutlet weak var pieChartView: PieChartView!
   @IBOutlet weak var analyticsPopupTitleLabel: UILabel!
+  @IBOutlet weak var segmentedControl: UISegmentedControl!
   
   var contextGroup : NEContextGroup?
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
+  override func viewDidLoad() {
+    super.viewDidLoad()
     switch (contextGroup!) {
     case .Situation:
       analyticsPopupTitleLabel.text = "Your Situations History"
@@ -33,16 +34,20 @@ class AnalyticsPopupViewController : UIViewController {
     default:
       analyticsPopupTitleLabel.text = "Your History"
     }
-    loadCharts()
+    loadCharts(AnalyticsPeriod.Day)
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
   }
 
   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
   }
     
-  func loadCharts() {
-    let historyEndpoint = "\(getContextHistoryEndpoint)/\(VendorInfo.getId())/\(VendorInfo.getId())?ctx=\(contextGroup!.name)"
+  func loadCharts(analyticsPeriod : AnalyticsPeriod) {
+    let historyEndpoint = "\(getContextHistoryEndpoint)/\(VendorInfo.getId())/\(VendorInfo.getId())?ctx=\(contextGroup!.name)&period=\(analyticsPeriod.name)"
     //    ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"
 
     Alamofire.request(.GET, historyEndpoint, encoding: .JSON)
@@ -81,6 +86,17 @@ class AnalyticsPopupViewController : UIViewController {
             break
           }
         }
+    }
+  }
+  
+  @IBAction func segmentSelected(sender: AnyObject) {
+    switch segmentedControl.selectedSegmentIndex {
+    case 0:
+      loadCharts(AnalyticsPeriod.Day)
+    case 1:
+      loadCharts(AnalyticsPeriod.Week)
+    default:
+      loadCharts(AnalyticsPeriod.Month)
     }
   }
   

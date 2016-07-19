@@ -17,6 +17,19 @@ let getContextHistoryEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:
 
 let uniqueStringCollection : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
+enum AnalyticsPeriod : Int {
+  case Day = 0, Week, Month
+  var name : String {
+    switch self {
+    case .Day:
+      return "day"
+    case .Week:
+      return "week"
+    default:
+      return "month"
+    }
+  }
+}
 
 func randomStringWithLength (len : Int) -> NSString {
   let randomString : NSMutableString = NSMutableString(capacity: len)
