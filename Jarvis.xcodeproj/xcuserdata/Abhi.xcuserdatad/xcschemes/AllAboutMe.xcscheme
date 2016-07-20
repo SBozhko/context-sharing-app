@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "387DE6811D2545BD006543D4"
-               BuildableName = "AllAboutMe.app"
-               BlueprintName = "AllAboutMe"
-               ReferencedContainer = "container:AllAboutMe.xcodeproj">
+               BuildableName = "Jarvis.app"
+               BlueprintName = "Jarvis"
+               ReferencedContainer = "container:Jarvis.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387DE6811D2545BD006543D4"
-            BuildableName = "AllAboutMe.app"
-            BlueprintName = "AllAboutMe"
-            ReferencedContainer = "container:AllAboutMe.xcodeproj">
+            BuildableName = "Jarvis.app"
+            BlueprintName = "Jarvis"
+            ReferencedContainer = "container:Jarvis.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387DE6811D2545BD006543D4"
-            BuildableName = "AllAboutMe.app"
-            BlueprintName = "AllAboutMe"
-            ReferencedContainer = "container:AllAboutMe.xcodeproj">
+            BuildableName = "Jarvis.app"
+            BlueprintName = "Jarvis"
+            ReferencedContainer = "container:Jarvis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "387DE6811D2545BD006543D4"
-            BuildableName = "AllAboutMe.app"
-            BlueprintName = "AllAboutMe"
-            ReferencedContainer = "container:AllAboutMe.xcodeproj">
+            BuildableName = "Jarvis.app"
+            BlueprintName = "Jarvis"
+            ReferencedContainer = "container:Jarvis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
