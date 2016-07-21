@@ -1,13 +1,13 @@
 //
-//  AllAboutMe-Bridging-Header.h
-//  AllAboutMe
+//  Jarvis-Bridging-Header.h
+//  Jarvis
 //
 //  Created by Abhishek Sen on 7/8/16.
 //  Copyright © 2016 NE. All rights reserved.
 //
 
-#ifndef AllAboutMe_Bridging_Header_h
-#define AllAboutMe_Bridging_Header_h
+#ifndef Jarvis_Bridging_Header_h
+#define Jarvis_Bridging_Header_h
 
 #import <AWSCore/AWSCore.h>
 #import <AWSCognito/AWSCognito.h>
@@ -15,4 +15,4 @@
 #import "Mixpanel/Mixpanel.h"
 #import "Toast/UIView+Toast.h"
 
-#endif /* AllAboutMe_Bridging_Header_h */
+#endif /* Jarvis_Bridging_Header_h */

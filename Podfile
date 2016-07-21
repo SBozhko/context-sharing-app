@@ -4,7 +4,7 @@ platform :ios, '9.0'
 
 use_frameworks!
 
-target 'AllAboutMe' do
+target 'Jarvis' do
   pod 'Alamofire', '~> 3.4'
   pod 'SwiftyJSON'
   pod 'Charts'

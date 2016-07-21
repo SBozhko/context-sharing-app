@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AllAboutMe
+//  Jarvis
 //
 //  Created by Abhishek Sen on 6/30/16.
 //  Copyright © 2016 NE. All rights reserved.

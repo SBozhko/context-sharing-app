@@ -82,10 +82,11 @@
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Release">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Jarvis"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

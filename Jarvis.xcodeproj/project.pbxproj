@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		143E381810AF452EDB333944 /* Pods_AllAboutMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */; };
+		17E3D7D0C0F87764E06A0138 /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC48FF0A068E1B671D545D57 /* Pods_Jarvis.framework */; };
 		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
 		380D268D1D3FAD58006518A6 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 380D268A1D3FAD47006518A6 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
@@ -56,6 +56,7 @@
 		2EC23CD7496DF7CFE622A3AC /* Pods-AllAboutMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllAboutMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllAboutMe/Pods-AllAboutMe.debug.xcconfig"; sourceTree = "<group>"; };
 		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		380D268A1D3FAD47006518A6 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
+		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
 		3853FEC81D3CD5F2006B894C /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -76,7 +77,7 @@
 		387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		387DE6B01D25B4CA006543D4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		38ADA10B1D2F193C00599E61 /* AllAboutMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllAboutMe-Bridging-Header.h"; sourceTree = "<group>"; };
+		38ADA10B1D2F193C00599E61 /* Jarvis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jarvis-Bridging-Header.h"; sourceTree = "<group>"; };
 		38ADA10C1D33D4F700599E61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsPopupViewController.swift; sourceTree = "<group>"; };
 		38ADA1141D344F7600599E61 /* Analytics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
@@ -85,7 +86,8 @@
 		38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextFeedbackViewController.swift; sourceTree = "<group>"; };
 		38FA3ED71D27E616005110D2 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllAboutMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE9516F584B94CEAE8F47C1 /* Pods-Jarvis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.release.xcconfig"; sourceTree = "<group>"; };
+		BC48FF0A068E1B671D545D57 /* Pods_Jarvis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jarvis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24507E2A89CC48A886DC4D3 /* Pods-AllAboutMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllAboutMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllAboutMe/Pods-AllAboutMe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +99,7 @@
 				38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */,
 				38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */,
 				38FA3ED81D27E617005110D2 /* AdSupport.framework in Frameworks */,
-				143E381810AF452EDB333944 /* Pods_AllAboutMe.framework in Frameworks */,
+				17E3D7D0C0F87764E06A0138 /* Pods_Jarvis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				3853FEBA1D3BA3EF006B894C /* Storyboards */,
-				38ADA10B1D2F193C00599E61 /* AllAboutMe-Bridging-Header.h */,
+				38ADA10B1D2F193C00599E61 /* Jarvis-Bridging-Header.h */,
 				387DE6851D2545BD006543D4 /* AppDelegate.swift */,
 				3853FEB91D3BA3B5006B894C /* Views & View Controllers */,
 				3853FEB81D3BA38A006B894C /* Extensions */,
@@ -192,6 +194,8 @@
 			children = (
 				2EC23CD7496DF7CFE622A3AC /* Pods-AllAboutMe.debug.xcconfig */,
 				F24507E2A89CC48A886DC4D3 /* Pods-AllAboutMe.release.xcconfig */,
+				383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */,
+				9EE9516F584B94CEAE8F47C1 /* Pods-Jarvis.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -203,7 +207,7 @@
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
-				87B41D75EDD7D42F02B2259D /* Pods_AllAboutMe.framework */,
+				BC48FF0A068E1B671D545D57 /* Pods_Jarvis.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -313,7 +317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AllAboutMe/Pods-AllAboutMe-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		78A643866B945C1B403E4878 /* Embed Pods Frameworks */ = {
@@ -328,7 +332,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AllAboutMe/Pods-AllAboutMe-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -404,6 +408,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -424,6 +429,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "9c093fbf-a4a4-4566-b300-0f58355ffd60";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -447,9 +453,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Abhishek Sen (JTSFFH6DL8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -463,6 +470,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "9c093fbf-a4a4-4566-b300-0f58355ffd60";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -470,7 +478,7 @@
 		};
 		387DE6971D2545BD006543D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EC23CD7496DF7CFE622A3AC /* Pods-AllAboutMe.debug.xcconfig */;
+			baseConfigurationReference = 383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -483,19 +491,19 @@
 				INFOPLIST_FILE = AllAboutMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.numbereight.AllAboutMe;
+				PRODUCT_BUNDLE_IDENTIFIER = me.numbereight.Jarvis;
 				PRODUCT_NAME = Jarvis;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9c093fbf-a4a4-4566-b300-0f58355ffd60";
 			};
 			name = Debug;
 		};
 		387DE6981D2545BD006543D4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F24507E2A89CC48A886DC4D3 /* Pods-AllAboutMe.release.xcconfig */;
+			baseConfigurationReference = 9EE9516F584B94CEAE8F47C1 /* Pods-Jarvis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Abhishek Sen (JTSFFH6DL8)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -504,9 +512,9 @@
 				INFOPLIST_FILE = AllAboutMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.numbereight.AllAboutMe;
+				PRODUCT_BUNDLE_IDENTIFIER = me.numbereight.Jarvis;
 				PRODUCT_NAME = Jarvis;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9c093fbf-a4a4-4566-b300-0f58355ffd60";
 			};
 			name = Release;
 		};

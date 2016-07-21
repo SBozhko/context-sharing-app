@@ -1,6 +1,6 @@
 //
 //  VendorInfo.swift
-//  AllAboutMe
+//  Jarvis
 //
 //  Created by Abhishek Sen on 7/17/16.
 //  Copyright © 2016 NE. All rights reserved.
