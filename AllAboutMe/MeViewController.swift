@@ -292,7 +292,9 @@ extension MeViewController : MFMailComposeViewControllerDelegate {
       dispatch_async(dispatch_get_main_queue(), { () -> Void in
         self.view.makeToast("Thanks for reporting!", duration: 3.0, position: CSToastPositionBottom, style: nil)
       })
-      Logging.sharedInstance.userInitiatedLogDump(uniqueMessageCode as String)
+      let logId = uniqueMessageCode as String
+      NELogging.dumpLogsForId(logId)
+      Logging.sharedInstance.userInitiatedLogDump(logId)
     }
   }
 }
