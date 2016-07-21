@@ -292,46 +292,84 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7g-A4-Byi">
-                                <rect key="frame" x="16" y="504" width="288" height="44"/>
-                                <color key="backgroundColor" red="0.98431372549019602" green="0.24705882352941178" blue="0.25882352941176473" alpha="1" colorSpace="calibratedRGB"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiI-01-lbc">
+                                <rect key="frame" x="16" y="485" width="288" height="63"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7g-A4-Byi">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="63"/>
+                                        <color key="backgroundColor" red="0.98431372549019602" green="0.24705882352941178" blue="0.25882352941176473" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="0Iu-aY-mE5"/>
+                                            <constraint firstAttribute="width" constant="85" id="Vou-gU-TbE"/>
+                                            <constraint firstAttribute="height" constant="44" id="gfP-ks-k7Z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" title="Incorrect">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="0Iu-aY-mE5"/>
+                                                <exclude reference="Vou-gU-TbE"/>
+                                                <exclude reference="gfP-ks-k7Z"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <segue destination="XcM-wA-acn" kind="popoverPresentation" identifier="contextFeedbackSegue" popoverAnchorView="S7g-A4-Byi" id="Ki9-Fy-e1x">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3m-k3-GaM">
+                                        <rect key="frame" x="144" y="0.0" width="144" height="63"/>
+                                        <color key="backgroundColor" red="0.2627450980392157" green="0.69411764705882351" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="Aoa-D5-JSb"/>
+                                            <constraint firstAttribute="height" constant="34" id="RfW-4P-vca"/>
+                                            <constraint firstAttribute="height" constant="44" id="Tr5-kD-mDE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                        <state key="normal" title="Correct">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="RfW-4P-vca"/>
+                                                <exclude reference="Aoa-D5-JSb"/>
+                                                <exclude reference="Tr5-kD-mDE"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="correctButtonPressed:" destination="lg5-lg-0ms" eventType="touchUpInside" id="sPc-SW-Bqo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="0Iu-aY-mE5"/>
-                                    <constraint firstAttribute="width" constant="85" id="Vou-gU-TbE"/>
-                                    <constraint firstAttribute="height" constant="44" id="gfP-ks-k7Z"/>
+                                    <constraint firstAttribute="width" secondItem="FiI-01-lbc" secondAttribute="height" multiplier="50:11" id="4pR-Xe-9qa"/>
+                                    <constraint firstItem="a3m-k3-GaM" firstAttribute="width" secondItem="S7g-A4-Byi" secondAttribute="width" id="YLn-4G-pqg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" title="Incorrect?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="0Iu-aY-mE5"/>
-                                        <exclude reference="Vou-gU-TbE"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="XcM-wA-acn" kind="popoverPresentation" identifier="contextFeedbackSegue" popoverAnchorView="S7g-A4-Byi" id="A1h-dU-E1F">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="S7g-A4-Byi" secondAttribute="trailing" id="GC1-cx-LBj"/>
-                            <constraint firstItem="nGb-Ma-5Xw" firstAttribute="top" secondItem="S7g-A4-Byi" secondAttribute="bottom" constant="20" id="KKn-Jn-UAW"/>
+                            <constraint firstItem="FiI-01-lbc" firstAttribute="leading" secondItem="zPi-eA-080" secondAttribute="leadingMargin" constant="20" id="Huy-yX-Np5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FiI-01-lbc" secondAttribute="trailing" id="Ppt-4q-KR1"/>
                             <constraint firstItem="ncw-EH-WNI" firstAttribute="centerX" secondItem="zPi-eA-080" secondAttribute="centerX" id="Uts-8f-NqF"/>
-                            <constraint firstItem="S7g-A4-Byi" firstAttribute="centerX" secondItem="zPi-eA-080" secondAttribute="centerX" id="eP4-OK-KDb"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="S7g-A4-Byi" secondAttribute="leading" id="hci-J1-FgX"/>
+                            <constraint firstItem="FiI-01-lbc" firstAttribute="leading" secondItem="zPi-eA-080" secondAttribute="leadingMargin" id="lPi-uX-P48"/>
                             <constraint firstItem="FM0-7S-ANP" firstAttribute="top" secondItem="3B1-yt-rjB" secondAttribute="bottom" constant="8" id="mnN-Vx-CMh"/>
+                            <constraint firstItem="FiI-01-lbc" firstAttribute="centerX" secondItem="zPi-eA-080" secondAttribute="centerX" id="oHH-gp-qU6"/>
+                            <constraint firstItem="nGb-Ma-5Xw" firstAttribute="top" secondItem="FiI-01-lbc" secondAttribute="bottom" constant="20" id="oSI-bo-ldr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FiI-01-lbc" secondAttribute="trailing" constant="20" id="sFF-4W-e5E"/>
                             <constraint firstAttribute="trailing" secondItem="FM0-7S-ANP" secondAttribute="trailing" constant="8" id="tba-ZB-UiF"/>
                             <constraint firstItem="ncw-EH-WNI" firstAttribute="top" secondItem="3B1-yt-rjB" secondAttribute="bottom" constant="75" id="vDa-hR-RrL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="eP4-OK-KDb"/>
+                                <exclude reference="Huy-yX-Np5"/>
+                                <exclude reference="oHH-gp-qU6"/>
+                                <exclude reference="sFF-4W-e5E"/>
                             </mask>
                         </variation>
                     </view>

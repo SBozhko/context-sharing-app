@@ -19,7 +19,8 @@ class ContextPopoverViewController: UIViewController {
   @IBOutlet weak var confidenceLabel: UILabel!
   var selectedContextName : NEContextName?
   var otherSelectedContextName : String?
-  
+  let log = Logger(loggerName: String(ContextPopoverViewController))
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -59,6 +60,7 @@ class ContextPopoverViewController: UIViewController {
         if let
           destController = segue.destinationViewController as? ContextFeedbackViewController {
           if let _context = context {
+            self.log.debug("Incorrect button pressed: \(_context.group.name) \(_context.name.name) \(_context.confidence)")
             destController.context = _context
           } else if let
             _overriddenContextGroup = overriddenContextGroup {
@@ -69,6 +71,10 @@ class ContextPopoverViewController: UIViewController {
         break
       }
     }
+  }
+  
+  @IBAction func correctButtonPressed(sender: AnyObject) {
+    self.log.debug("Correct button pressed: \(context?.group.name) \(context?.name.name) \(context?.confidence)")
   }
   
   @IBAction func unwindToContextPopoverVC(segue : UIStoryboardSegue) {
