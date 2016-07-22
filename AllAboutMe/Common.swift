@@ -31,6 +31,7 @@ enum AnalyticsPeriod : Int {
       return "month"
     }
   }
+  static let allValues = [Day, Week, Month]
 }
 
 func randomStringWithLength (len : Int) -> NSString {

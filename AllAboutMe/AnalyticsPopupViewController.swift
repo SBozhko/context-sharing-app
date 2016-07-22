@@ -91,6 +91,7 @@ class AnalyticsPopupViewController : UIViewController {
               self.pieChartView.rotationEnabled = false
               self.pieChartView.drawSliceTextEnabled = false
               self.pieChartView.usePercentValuesEnabled = true
+              self.pieChartView.descriptionText = ""
               let legend:ChartLegend = self.pieChartView.legend
               legend.position = ChartLegend.Position.AboveChartCenter
               self.pieChartView.animate(xAxisDuration: NSTimeInterval(1.0))
