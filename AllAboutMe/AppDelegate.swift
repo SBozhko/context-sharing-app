@@ -21,8 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ = Logging.sharedInstance
     _ = Credentials.sharedInstance
     // Override point for customization after application launch.
-    let token = "ec6becbf23c050609a90b6c227413bed"
-    Mixpanel.sharedInstanceWithToken(token)
+    let mixPanelToken = "5bfa0fac94b25659a07899a8c6d92fb8"
+    Mixpanel.sharedInstanceWithToken(mixPanelToken)
+    Mixpanel.sharedInstance().identify("\(VendorInfo.getId())")
+    Mixpanel.sharedInstance().track("AppLaunched")
+    
     Fabric.with([Crashlytics.self])
     return true
   }

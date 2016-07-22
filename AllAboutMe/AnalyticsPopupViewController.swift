@@ -11,6 +11,7 @@ import NEContextSDK
 import Alamofire
 import SwiftyJSON
 import Charts
+import Mixpanel
 
 class AnalyticsPopupViewController : UIViewController {
 
@@ -60,6 +61,7 @@ class AnalyticsPopupViewController : UIViewController {
     if let _profileId = Credentials.sharedInstance.profileId {
       let historyEndpoint = "\(getContextHistoryEndpoint)/\(_profileId)?ctx=\(contextGroup!.name)&period=\(analyticsPeriod.name)"
       //    ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"
+      Mixpanel.sharedInstance().track("LoadCharts", properties: ["ContextGroup" : contextGroup!.name, "Period" : analyticsPeriod.name])
       
       Alamofire.request(.GET, historyEndpoint, encoding: .JSON)
         .responseJSON { response in
