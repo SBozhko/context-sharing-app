@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		11068D3945AD10DD6D609B48 /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557CEF5628C0C79E68DC1074 /* Pods_Jarvis.framework */; };
 		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
-		382836281D423B1E006DBBFB /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 382836251D423B0E006DBBFB /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3828362C1D424474006DBBFB /* NEContextSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3828362A1D424310006DBBFB /* NEContextSDK.framework */; };
+		3828362D1D424474006DBBFB /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3828362A1D424310006DBBFB /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
@@ -39,13 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		382836291D423B1E006DBBFB /* Embed Frameworks */ = {
+		3828362E1D424474006DBBFB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				382836281D423B1E006DBBFB /* NEContextSDK.framework in Embed Frameworks */,
+				3828362D1D424474006DBBFB /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +55,7 @@
 
 /* Begin PBXFileReference section */
 		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		382836251D423B0E006DBBFB /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
+		3828362A1D424310006DBBFB /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */,
+				3828362C1D424474006DBBFB /* NEContextSDK.framework in Frameworks */,
 				38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */,
 				38FA3ED81D27E617005110D2 /* AdSupport.framework in Frameworks */,
 				11068D3945AD10DD6D609B48 /* Pods_Jarvis.framework in Frameworks */,
@@ -199,7 +201,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				382836251D423B0E006DBBFB /* NEContextSDK.framework */,
+				3828362A1D424310006DBBFB /* NEContextSDK.framework */,
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
@@ -222,7 +224,7 @@
 				78A643866B945C1B403E4878 /* Embed Pods Frameworks */,
 				37B912C171C97FA1CB350A14 /* Copy Pods Resources */,
 				382836191D41A92D006DBBFB /* ShellScript */,
-				382836291D423B1E006DBBFB /* Embed Frameworks */,
+				3828362E1D424474006DBBFB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
