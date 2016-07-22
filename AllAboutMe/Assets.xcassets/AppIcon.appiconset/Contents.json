@@ -1,20 +1,21 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "noun_526880_cc copy 12.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "noun_526880_cc copy 11.png",
+      "filename" : "noun_526880_cc copy 12@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "noun_526880_cc copy 11@2x.png",
+      "filename" : "noun_526880_cc copy 12@3x.png",
       "scale" : "3x"
     },
     {
