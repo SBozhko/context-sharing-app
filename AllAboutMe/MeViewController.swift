@@ -31,7 +31,6 @@ class MeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    NELogging.dumpLogs()
     // Do any additional setup after loading the view, typically from a nib.
     NSNotificationCenter.defaultCenter().addObserver(self,
                                                      selector: #selector(MeViewController.handleUserContextOverrideTimerExpired(_:)),
