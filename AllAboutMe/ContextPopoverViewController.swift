@@ -26,21 +26,18 @@ class ContextPopoverViewController: UIViewController {
 
     // Do any additional setup after loading the view.
     if let _context = context {
-      print("Context Confidence: \(_context.confidence)")
       dispatch_async(dispatch_get_main_queue(), {
         self.contextLabel.text = "\(_context.name.name)"
         self.confidenceLabel.text = "\((_context.confidence*100.0).roundTo(2))%"
       })
     } else if let
       _overriddenContextName = overriddenContextName {
-      print("Context Confidence: 100%")
       dispatch_async(dispatch_get_main_queue(), {
         self.contextLabel.text = "\(_overriddenContextName.name)"
         self.confidenceLabel.text = "100%"
       })
     } else if let
       _overriddenUserEnteredContextString = overriddenUserEnteredContextString {
-      print("Context Confidence: 100%")
       dispatch_async(dispatch_get_main_queue(), {
         self.contextLabel.text = "\(_overriddenUserEnteredContextString)"
         self.confidenceLabel.text = "100%"

@@ -126,7 +126,7 @@ class Logging {
       try fileManager.copyItemAtPath(getLogFileFullPathName, toPath: userDumpFileFullPathName)
       AWS.sharedInstance.handleUploadRequest(getUserDumpLogFileName(dumpMessage), uniqueDeviceIdentifier: VendorInfo.getId(), fullFilePath: userDumpFileFullPathName, userInitiatedDump:  true)
     } catch {
-      print(error)
+      log.error("\(error)")
     }
   }
   
@@ -138,7 +138,7 @@ class Logging {
       unwrappedFileHandle.seekToEndOfFile()
       unwrappedFileHandle.writeData("\(logString)\n".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!)
     } else {
-      print("balls")
+      self.log.error("Could not write log line to file: \(logString)")
     }
     print(fullLogString)
   }

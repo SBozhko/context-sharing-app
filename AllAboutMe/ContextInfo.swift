@@ -16,7 +16,8 @@ class ContextInfo {
   }
   var temporarilyOverriddenContexts : [NEContextGroup : (NEContextName, String)] = [:]
   var contextTimers : [String : NSTimer] = [:]
-  let overrideContextTimerValue = 60.0
+  let overrideContextTimerValue = 1800.0
+  let log = Logger(loggerName: String(ContextInfo))
   
   func getOverriddenContext(group : NEContextGroup) -> (flag : Bool, contextName : NEContextName?, userContextString : String?) {
     if let
@@ -152,7 +153,7 @@ class ContextInfo {
   
   func stopOverrideTimer(contextGroupName : String) {
     if let overriddenTimer = contextTimers[contextGroupName] {
-      print("Override timer stopped for \(contextGroupName)")
+      log.debug("Override timer stopped for \(contextGroupName)")
       overriddenTimer.invalidate()
       contextTimers.removeValueForKey(contextGroupName)
       // Post notification to reload contexts
@@ -161,7 +162,7 @@ class ContextInfo {
   }
   
   func startOverrideTimer(contextGroup : NEContextGroup) {
-    print("Override timer started for \(contextGroup.name)")
+    log.debug("Override timer started for \(contextGroup.name)")
     stopOverrideTimer(contextGroup.name)
     contextTimers[contextGroup.name] = NSTimer.scheduledTimerWithTimeInterval(
                                     overrideContextTimerValue,
@@ -173,7 +174,7 @@ class ContextInfo {
   
   @objc func overrideTimerExpired(timer : NSTimer) {
     if let contextGroupName = timer.userInfo as? String {
-      print("Override timer expired for \(contextGroupName)")
+      log.debug("Override timer expired for \(contextGroupName)")
       stopOverrideTimer(contextGroupName)
     }
   }

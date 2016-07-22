@@ -13,14 +13,12 @@ import Alamofire
 import AdSupport
 import Social
 import MessageUI
-import Toast
 
 class MeViewController: UIViewController {
   @IBOutlet weak var otherContextCollectionView: UICollectionView!
   @IBOutlet weak var situationView: UIView!
   @IBOutlet weak var situationImageView: UIImageView!
   @IBOutlet weak var situationLabel: UILabel!
-  
   
   var uniqueMessageCode : NSString = ""
   let messageSubjectCodeLength = 10
@@ -29,6 +27,7 @@ class MeViewController: UIViewController {
   let contextGroupCells : [NEContextGroup] = [NEContextGroup.Situation, NEContextGroup.Mood, NEContextGroup.Place, NEContextGroup.Weather, NEContextGroup.Activity, NEContextGroup.Lightness, NEContextGroup.TimeOfDay, NEContextGroup.DayCategory, NEContextGroup.IndoorOutdoor]
   var disposables : [Disposable] = []
   var collectionViewIndexPaths : [NSIndexPath] = []
+  let log = Logger(loggerName: String(MeViewController))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,7 +50,7 @@ class MeViewController: UIViewController {
     super.viewWillAppear(animated)
     if disposables.isEmpty {
       disposables.append(NEContextManager.sharedInstance.subscribe { context in
-        print("\(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
+        self.log.info("Received context update: \(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
         dispatch_async(dispatch_get_main_queue(), {
           if context.group == NEContextGroup.Situation {
             self.updateSituationView()
@@ -116,7 +115,7 @@ class MeViewController: UIViewController {
       Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
         .responseJSON { response in
           if let JSON = response.result.value {
-            print("JSON: \(JSON)")
+            self.log.info("Received JSON POST response: \(JSON)")
           }
       }
     }
@@ -141,7 +140,7 @@ class MeViewController: UIViewController {
     if SLComposeViewController.isAvailableForServiceType(serviceType) {
       let composeController = SLComposeViewController(forServiceType: serviceType)
       if !composeController.setInitialText("Shared via Jarvis") {
-        print("did not set initial text")
+//        print("did not set initial text")
       }
       
       composeController.completionHandler = {result -> Void in
@@ -274,7 +273,7 @@ class MeViewController: UIViewController {
     })
     let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
       (alert: UIAlertAction!) -> Void in
-      print("Cancelled")
+//      print("Cancelled")
     })
     optionMenu.addAction(twitterAction)
     optionMenu.addAction(facebookAction)
@@ -289,9 +288,6 @@ extension MeViewController : MFMailComposeViewControllerDelegate {
   func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
     controller.dismissViewControllerAnimated(true, completion: nil)
     if result == MFMailComposeResultSent {
-      dispatch_async(dispatch_get_main_queue(), { () -> Void in
-        self.view.makeToast("Thanks for reporting!", duration: 3.0, position: CSToastPositionBottom, style: nil)
-      })
       let logId = uniqueMessageCode as String
       NELogging.dumpLogsForId(logId)
       Logging.sharedInstance.userInitiatedLogDump(logId)
