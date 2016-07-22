@@ -8,6 +8,8 @@
 
 import UIKit
 import Mixpanel
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,8 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     let token = "ec6becbf23c050609a90b6c227413bed"
     Mixpanel.sharedInstanceWithToken(token)
+    Fabric.with([Crashlytics.self])
     return true
   }
+  
+  func logUser() {
+    // TODO: Use the current user's information
+    // You can call any combination of these three methods
+//    Crashlytics.sharedInstance().setUserEmail("user@fabric.io")
+    Crashlytics.sharedInstance().setUserIdentifier("\(VendorInfo.getId())")
+//    Crashlytics.sharedInstance().setUserName("Test User")
+  }
+
 
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

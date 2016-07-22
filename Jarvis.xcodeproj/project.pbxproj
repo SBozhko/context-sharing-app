@@ -222,6 +222,7 @@
 				78A643866B945C1B403E4878 /* Embed Pods Frameworks */,
 				37B912C171C97FA1CB350A14 /* Copy Pods Resources */,
 				3849961C1D414BBD00653524 /* Embed Frameworks */,
+				382836191D41A92D006DBBFB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -315,6 +316,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		382836191D41A92D006DBBFB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 45ee0dd2ab9b8f608dce6a71c8dd8a37c896e6a8 9aef5a2b721d47cc1b8a7ce9a0c8ed4af2a39cc5ae3725b52aef310214a838fa";
 		};
 		78A643866B945C1B403E4878 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
