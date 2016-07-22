@@ -14,6 +14,7 @@ import AdSupport
 import Social
 import MessageUI
 import Mixpanel
+import Toast
 
 class MeViewController: UIViewController {
   @IBOutlet weak var otherContextCollectionView: UICollectionView!
@@ -305,6 +306,7 @@ extension MeViewController : MFMailComposeViewControllerDelegate {
   func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
     controller.dismissViewControllerAnimated(true, completion: nil)
     if result == MFMailComposeResultSent {
+      self.view.makeToast("Thanks for your feedback!", duration: 3.0, position: CSToastPositionCenter)
       let logId = uniqueMessageCode as String
       Mixpanel.sharedInstance().track("FeedbackMailSent")
       NELogging.dumpLogsForId(logId)

@@ -17,10 +17,10 @@ class ContextFeedbackViewController: UIViewController {
   
   var context : NEContext?
   var overriddenContextGroup : NEContextGroup?
-  
   var listOfContextNames : [NEContextName] = []
   var selectedContext : [NEContextName : NSIndexPath] = [:]
   var selectedOtherContext : String?
+  weak var alertDoneAction : UIAlertAction?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,13 +36,13 @@ class ContextFeedbackViewController: UIViewController {
   
   func showOtherOptionsAlert() {
     let alertController = UIAlertController(title: "Add your option", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-    let saveAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: {
+    let doneAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: {
       alert -> Void in
       dispatch_async(dispatch_get_main_queue(), {
         let textField = alertController.textFields![0] as UITextField
-        self.otherOptionLabel.text = textField.text
-        self.selectedOtherContext = textField.text
         if let _userEnteredText = textField.text where !_userEnteredText.isEmpty {
+          self.otherOptionLabel.text = textField.text
+          self.selectedOtherContext = textField.text
           if let selectedIndexPaths = self.contextOptionsCollectionView.indexPathsForSelectedItems() {
             for indexPath in selectedIndexPaths {
               let cell = self.contextOptionsCollectionView.cellForItemAtIndexPath(indexPath) as? MeCollectionViewCell
@@ -54,6 +54,8 @@ class ContextFeedbackViewController: UIViewController {
         }
       })
     })
+    doneAction.enabled = false
+    alertDoneAction = doneAction
     
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: {
       (action : UIAlertAction!) -> Void in
@@ -62,13 +64,20 @@ class ContextFeedbackViewController: UIViewController {
     
     alertController.addTextFieldWithConfigurationHandler { (textField : UITextField!) -> Void in
       textField.placeholder = "Enter your option"
-      textField.delegate = self
+//      textField.delegate = self
       textField.autocapitalizationType = UITextAutocapitalizationType.Words
+      textField.addTarget(self, action: #selector(ContextFeedbackViewController.alertControllerTextFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
     }
     
-    alertController.addAction(saveAction)
-    alertController.addAction(cancelAction)    
+    alertController.addAction(doneAction)
+    alertController.addAction(cancelAction)
     self.presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  func alertControllerTextFieldDidChange(textField : UITextField) {
+    if let saveAction = alertDoneAction {
+      saveAction.enabled = textField.text?.characters.count >= 1
+    }
   }
   
   @IBAction func otherOptionButtonPressed(sender: AnyObject) {
@@ -78,11 +87,10 @@ class ContextFeedbackViewController: UIViewController {
   @IBAction func closeButtonPressed(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
-  
 }
 
 extension ContextFeedbackViewController : UITextFieldDelegate {
-  
+
 }
 
 extension ContextFeedbackViewController : UICollectionViewDelegate, UICollectionViewDataSource {

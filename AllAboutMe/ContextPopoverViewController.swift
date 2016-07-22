@@ -9,6 +9,7 @@
 import UIKit
 import NEContextSDK
 import Mixpanel
+import Toast
 
 class ContextPopoverViewController: UIViewController {
   var context : NEContext?
@@ -72,6 +73,7 @@ class ContextPopoverViewController: UIViewController {
   }
   
   @IBAction func correctButtonPressed(sender: AnyObject) {
+    self.view.makeToast("Thanks for confirming! We're improving every day.", duration: 2.0, position: CSToastPositionCenter)    
     Mixpanel.sharedInstance().track("CorrectButtonPressed", properties: [
       "ContextGroup" : context?.group.name ?? "Unknown",
       "ContextName" : context?.name.name ?? "Unknown"])

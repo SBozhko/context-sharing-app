@@ -10,6 +10,7 @@ import UIKit
 import Mixpanel
 import Fabric
 import Crashlytics
+import Toast
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ = AWS.sharedInstance
     _ = Logging.sharedInstance
     _ = Credentials.sharedInstance
+    CSToastManager.setTapToDismissEnabled(true)
+    CSToastManager.setQueueEnabled(true)
     // Override point for customization after application launch.
     let mixPanelToken = "5bfa0fac94b25659a07899a8c6d92fb8"
     Mixpanel.sharedInstanceWithToken(mixPanelToken)
