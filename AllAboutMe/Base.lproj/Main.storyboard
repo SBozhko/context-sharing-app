@@ -643,7 +643,7 @@
             </objects>
             <point key="canvasLocation" x="1837" y="-305"/>
         </scene>
-        <!--History-->
+        <!--Analytics-->
         <scene sceneID="C4V-9a-ABc">
             <objects>
                 <viewController id="Ez6-Ej-iAV" customClass="HistoryViewController" customModule="Jarvis" customModuleProvider="target" sceneMemberID="viewController">
@@ -726,7 +726,7 @@
                             <constraint firstItem="KUi-ky-9Gw" firstAttribute="top" secondItem="GSy-oK-KC5" secondAttribute="bottom" constant="8" id="qXU-j0-YBQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" image="history" id="jp6-nU-tZH"/>
+                    <tabBarItem key="tabBarItem" title="Analytics" image="history" id="jp6-nU-tZH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eya-pH-nEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -755,8 +755,8 @@
     </scenes>
     <resources>
         <image name="close" width="75" height="75"/>
-        <image name="history" width="26" height="32"/>
-        <image name="profile" width="22" height="32"/>
+        <image name="history" width="30" height="30"/>
+        <image name="profile" width="25" height="30"/>
         <image name="relaxing" width="749" height="749"/>
         <image name="share" width="36" height="37"/>
         <image name="unknown" width="50" height="99"/>
