@@ -72,7 +72,9 @@ class ContextPopoverViewController: UIViewController {
   }
   
   @IBAction func correctButtonPressed(sender: AnyObject) {
-    Mixpanel.sharedInstance().track("CorrectButtonPressed", properties: ["ContextGroup" : (context?.group.name)!, "ContextName" : (context?.name.name)!])
+    Mixpanel.sharedInstance().track("CorrectButtonPressed", properties: [
+      "ContextGroup" : context?.group.name ?? "Unknown",
+      "ContextName" : context?.name.name ?? "Unknown"])
     self.log.debug("Correct button pressed: \(context?.group.name) \(context?.name.name) \(context?.confidence)")
   }
   
@@ -86,14 +88,22 @@ class ContextPopoverViewController: UIViewController {
             if let _selectedContext = sourceController.selectedContext.first?.0 {
               self.log.info("Previous context info: \(self.context?.group.name), \(self.contextLabel.text)")
               self.log.info("Corrected context info: \(_selectedContext.name)")
-              Mixpanel.sharedInstance().track("IncorrectContextButtonPressed", properties: ["ContextGroup" : (self.context?.group.name)!, "ContextNameBefore" : self.contextLabel.text!, "ContextNameAfter" : _selectedContext.name])
+              Mixpanel.sharedInstance().track("IncorrectContextButtonPressed", properties: [
+                "ContextGroup" : self.context?.group.name ?? "Unknown",
+                "ContextNameBefore" : self.contextLabel.text ?? "Unknown",
+                "ContextNameAfter" : _selectedContext.name,
+                "ManuallyTyped" : false])
               self.contextLabel.text = _selectedContext.name
               self.selectedContextName = _selectedContext
               self.confidenceLabel.text = "100%"
             } else if let _otherOptionLabelText = sourceController.otherOptionLabel.text {
               self.log.info("Previous context info: \(self.context?.group.name), \(self.contextLabel.text)")
               self.log.info("Corrected context info: \(_otherOptionLabelText)")
-              Mixpanel.sharedInstance().track("IncorrectContextButtonPressed", properties: ["ContextGroup" : (self.context?.group.name)!, "ContextNameBefore" : self.contextLabel.text!, "ContextNameAfter" : _otherOptionLabelText])
+              Mixpanel.sharedInstance().track("IncorrectContextButtonPressed", properties: [
+                "ContextGroup" : self.context?.group.name ?? "Unknown",
+                "ContextNameBefore" : self.contextLabel.text ?? "Unknown",
+                "ContextNameAfter" : _otherOptionLabelText,
+                "ManuallyTyped" : true])
               self.contextLabel.text = _otherOptionLabelText
               self.otherSelectedContextName = _otherOptionLabelText
               self.confidenceLabel.text = "100%"
