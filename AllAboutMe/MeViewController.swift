@@ -122,17 +122,32 @@ class MeViewController: UIViewController {
   }
   
   func updateSituationView() {
-    let currentContext = ContextInfo.sharedInstance.getValidCurrentContext(NESituation.group)
-    if let
-      validContextName = currentContext.context,
-      validContextImageName = currentContext.imageName {
-      //      Send request for image
-      situationImageView.image = UIImage(named: validContextImageName)
-      situationLabel.text = ContextInfo.sharedInstance.getSituationDisplayMessage(validContextName.name)
+    let overriddenContext = ContextInfo.sharedInstance.getOverriddenContext(NESituation.group)
+    if overriddenContext.flag {
+      if let contextName = overriddenContext.contextName {
+        situationImageView.image = UIImage(named: contextName.name.lowercaseString)
+        situationLabel.text = ContextInfo.sharedInstance.getSituationDisplayMessage(contextName)
+      } else if let userContextString = overriddenContext.userContextString {
+        situationImageView.image = UIImage(named: "unknown")
+        situationLabel.text = userContextString
+      } else {
+        //      Show loading image
+        situationImageView.image = UIImage(named: "unknown")
+        situationLabel.text = NESituation.group.name
+      }
     } else {
-      //      Show loading image
-      situationImageView.image = UIImage(named: "unknown")
-      situationLabel.text = NESituation.group.name
+      let currentContext = ContextInfo.sharedInstance.getValidCurrentContext(NESituation.group)
+      if let
+        validContext = currentContext.context,
+        validContextImageName = currentContext.imageName {
+        //      Send request for image
+        situationImageView.image = UIImage(named: validContextImageName)
+        situationLabel.text = ContextInfo.sharedInstance.getSituationDisplayMessage(validContext.name)
+      } else {
+        //      Show loading image
+        situationImageView.image = UIImage(named: "unknown")
+        situationLabel.text = NESituation.group.name
+      }
     }
   }
   
