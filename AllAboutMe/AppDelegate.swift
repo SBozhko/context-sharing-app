@@ -21,8 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ = Logging.sharedInstance
     _ = Credentials.sharedInstance
     // Override point for customization after application launch.
-    let token = "ec6becbf23c050609a90b6c227413bed"
-    Mixpanel.sharedInstanceWithToken(token)
+    let mixPanelToken = "5bfa0fac94b25659a07899a8c6d92fb8"
+    Mixpanel.sharedInstanceWithToken(mixPanelToken)
+    Mixpanel.sharedInstance().identify("\(VendorInfo.getId())")
+    Mixpanel.sharedInstance().track("AppLaunched")
+    
     Fabric.with([Crashlytics.self])
     return true
   }
@@ -44,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidEnterBackground(application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    Mixpanel.sharedInstance().track("AppDidEnterBackground")
   }
 
   func applicationWillEnterForeground(application: UIApplication) {
@@ -52,10 +56,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    Mixpanel.sharedInstance().track("AppDidBecomeActive")
   }
 
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    Mixpanel.sharedInstance().track("AppWillTerminate")
   }
 
 

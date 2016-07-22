@@ -13,6 +13,7 @@ import Alamofire
 import AdSupport
 import Social
 import MessageUI
+import Mixpanel
 
 class MeViewController: UIViewController {
   @IBOutlet weak var otherContextCollectionView: UICollectionView!
@@ -246,6 +247,7 @@ class MeViewController: UIViewController {
   }
   
   func selectedContext(contextGroup : NEContextGroup) {
+    Mixpanel.sharedInstance().track("SelectContext", properties: ["ContextGroup" : contextGroup.name])
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let overriddenContext = ContextInfo.sharedInstance.getOverriddenContext(contextGroup)
     if let vc = storyboard.instantiateViewControllerWithIdentifier("ContextPopoverViewController") as? ContextPopoverViewController {
@@ -268,6 +270,7 @@ class MeViewController: UIViewController {
   }
   
   @IBAction func shareButtonPressed() {
+    Mixpanel.sharedInstance().track("ShareButtonPressed")
     let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
     let twitterAction = UIAlertAction(title: "Twitter", style: .Default, handler: {
       (alert: UIAlertAction!) -> Void in
@@ -303,6 +306,7 @@ extension MeViewController : MFMailComposeViewControllerDelegate {
     controller.dismissViewControllerAnimated(true, completion: nil)
     if result == MFMailComposeResultSent {
       let logId = uniqueMessageCode as String
+      Mixpanel.sharedInstance().track("FeedbackMailSent")
       NELogging.dumpLogsForId(logId)
       Logging.sharedInstance.userInitiatedLogDump(logId)
     }
