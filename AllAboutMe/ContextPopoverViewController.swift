@@ -82,10 +82,14 @@ class ContextPopoverViewController: UIViewController {
           sourceController = segue.sourceViewController as? ContextFeedbackViewController {
           dispatch_async(dispatch_get_main_queue(), {
             if let _selectedContext = sourceController.selectedContext.first?.0 {
+              self.log.info("Previous context info: \(self.context?.group.name), \(self.contextLabel.text)")
+              self.log.info("Corrected context info: \(_selectedContext.name)")
               self.contextLabel.text = _selectedContext.name
               self.selectedContextName = _selectedContext
               self.confidenceLabel.text = "100%"
             } else if let _otherOptionLabelText = sourceController.otherOptionLabel.text {
+              self.log.info("Previous context info: \(self.context?.group.name), \(self.contextLabel.text)")
+              self.log.info("Corrected context info: \(_otherOptionLabelText)")
               self.contextLabel.text = _otherOptionLabelText
               self.otherSelectedContextName = _otherOptionLabelText
               self.confidenceLabel.text = "100%"
