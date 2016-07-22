@@ -19,8 +19,7 @@ class AWS : NSObject {
   let log = Logger(loggerName: String(AWS))
   let cognitoPoolId = "us-east-1:17f95bbd-0f9c-44fc-875e-0b8d498ee93f"
   let bucketName = "context-sharing"
-  let userLogsFolderName = "user_logs/%@/%@"
-  let userFeedbackLogsFolderName = "user_feedback/%@/%@"
+  let userLogsFolderName = "logs/%@/%@"
   
   override init() {
     let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: cognitoPoolId)
@@ -32,11 +31,7 @@ class AWS : NSObject {
     let uploadRequest = AWSS3TransferManagerUploadRequest()
     let transferManager = AWSS3TransferManager.defaultS3TransferManager()
     uploadRequest.bucket = bucketName
-    if userInitiatedDump {
-      uploadRequest.key = String(format: userFeedbackLogsFolderName, uniqueDeviceIdentifier, keyFileName)
-    } else {
-      uploadRequest.key = String(format: userFeedbackLogsFolderName, uniqueDeviceIdentifier, keyFileName)
-    }
+    uploadRequest.key = String(format: userLogsFolderName, uniqueDeviceIdentifier, keyFileName)
     uploadRequest.body = NSURL(fileURLWithPath: fullFilePath)
     do {
       let attr : NSDictionary? = try NSFileManager.defaultManager().attributesOfItemAtPath(fullFilePath)
