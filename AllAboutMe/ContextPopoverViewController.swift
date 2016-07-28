@@ -95,10 +95,13 @@ class ContextPopoverViewController: UIViewController {
                 "ContextNameBefore" : self.contextLabel.text ?? "Unknown",
                 "ContextNameAfter" : _selectedContext.name,
                 "ManuallyTyped" : false])
-              self.contextLabel.text = _selectedContext.name
-              self.selectedContextName = _selectedContext
-              self.confidenceLabel.text = "100%"
-            } else if let _otherOptionLabelText = sourceController.otherOptionLabel.text {
+              if self.contextLabel.text != _selectedContext.name {
+                self.view.makeToast("Thanks for correcting! We're improving every day.", duration: 2.0, position: CSToastPositionCenter)
+                self.contextLabel.text = _selectedContext.name
+                self.selectedContextName = _selectedContext
+                self.confidenceLabel.text = "100%"
+              }
+            } else if let _otherOptionLabelText = sourceController.otherOptionLabel.text where !_otherOptionLabelText.isEmpty {
               self.log.info("Previous context info: \(self.context?.group.name), \(self.contextLabel.text)")
               self.log.info("Corrected context info: \(_otherOptionLabelText)")
               Mixpanel.sharedInstance().track("IncorrectContextButtonPressed", properties: [
@@ -109,6 +112,7 @@ class ContextPopoverViewController: UIViewController {
               self.contextLabel.text = _otherOptionLabelText
               self.otherSelectedContextName = _otherOptionLabelText
               self.confidenceLabel.text = "100%"
+              self.view.makeToast("Thanks for correcting! We're improving every day.", duration: 2.0, position: CSToastPositionCenter)
             }
           })
         }
