@@ -16,9 +16,17 @@
 		<data>
 		O0JytWaVXIXRhyMTWApFwnVNZf0=
 		</data>
+		<key>DayCategoryFLC.plist</key>
+		<data>
+		2gh4fSmu877VZ8jdDGYV9BY3uj8=
+		</data>
 		<key>DayCategorySpecial.fll</key>
 		<data>
 		yDugLJ2WDYaBGSyb/enHO/2JYt4=
+		</data>
+		<key>DayCategorySpecialFLC.plist</key>
+		<data>
+		1qbbEB3d/QT39aXlzZjlZScDXIk=
 		</data>
 		<key>DeviceList.plist</key>
 		<data>
@@ -34,11 +42,11 @@
 		</data>
 		<key>Headers/CPlusPlusLinkage.h</key>
 		<data>
-		MsbKogrmsSuihq6knPFxP0R5kSs=
+		HkgjnoL2IBK0bxIiPEY6bvFW0AM=
 		</data>
 		<key>Headers/FuzzyLogicDefinitions.h</key>
 		<data>
-		WIjqw6fuie28NxfxCDyDk5rra4I=
+		puaK4IEVL5in27duKqrtzZ9CEFY=
 		</data>
 		<key>Headers/NEContextSDK-Swift.h</key>
 		<data>
@@ -52,6 +60,10 @@
 		<data>
 		mFNpK9s9Wa7ywNlP/i/TKtbOfsg=
 		</data>
+		<key>IndoorOutdoorFLC.plist</key>
+		<data>
+		kIKIGfdTB0tOtwyi5talt+zffEY=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		aK3dkbO7t02uM7EfDJ78UPt1/Wg=
@@ -60,13 +72,17 @@
 		<data>
 		PymR3iptQaoCj3zwNd/1P60yaNs=
 		</data>
+		<key>LocationContextFLC.plist</key>
+		<data>
+		YTJyoS24q1Y0djDHPH0Vw+yFbA0=
+		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
 		O9VzTBucWJfr10+2YxmJl5wcGRE=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		jN82nv380ignqOrwzpb08WM5XGw=
+		kDDNtGm36PLCWrE24z3/DLBfwkQ=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -74,7 +90,7 @@
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		vL0FUoHASJcHEWXVCAdoLlnzgLg=
+		jdlwYuFWlz5SCNSEnigtH0zP1GM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -92,13 +108,25 @@
 		<data>
 		VGXK6cTT5MFjpoxgFSbXi6GFOXw=
 		</data>
+		<key>WeatherToMoodFLC.plist</key>
+		<data>
+		AStU7BTZgw7R2e5tDnLZcu62h4I=
+		</data>
 		<key>WeatherToValence.fll</key>
 		<data>
 		lg3+hcETPmmv19HOFBZ7xOcUhxQ=
 		</data>
+		<key>WeekdayContextModelingFLC.plist</key>
+		<data>
+		JA/x88GVJgbkDzY9B6SD4k8dBqA=
+		</data>
 		<key>WeekdayContextTags.fll</key>
 		<data>
 		0lBeLTsbcDS7SthQs+rk5MdATm0=
+		</data>
+		<key>WeekendContextModelingFLC.plist</key>
+		<data>
+		ciamOEs8PQv9biPLNkesKata0WE=
 		</data>
 		<key>WeekendContextTags.fll</key>
 		<data>
@@ -144,6 +172,17 @@
 			wV2/PdxI4gnFralqJTkLdlnIJ2BmlhYByUxEo1sgXpI=
 			</data>
 		</dict>
+		<key>DayCategoryFLC.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2gh4fSmu877VZ8jdDGYV9BY3uj8=
+			</data>
+			<key>hash2</key>
+			<data>
+			pA/jA5qYLop023/1hKiIQI4IBMU96SV5RixTHs0PJV4=
+			</data>
+		</dict>
 		<key>DayCategorySpecial.fll</key>
 		<dict>
 			<key>hash</key>
@@ -153,6 +192,17 @@
 			<key>hash2</key>
 			<data>
 			hH47tbg7hUSHfChhO4m8zjkVhstaBnZvpgIGuGAagtA=
+			</data>
+		</dict>
+		<key>DayCategorySpecialFLC.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1qbbEB3d/QT39aXlzZjlZScDXIk=
+			</data>
+			<key>hash2</key>
+			<data>
+			OsMj4Uce6fCFnVOINlkmUJVNXhatTsah6i9PvoSb088=
 			</data>
 		</dict>
 		<key>DeviceList.plist</key>
@@ -192,22 +242,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MsbKogrmsSuihq6knPFxP0R5kSs=
+			HkgjnoL2IBK0bxIiPEY6bvFW0AM=
 			</data>
 			<key>hash2</key>
 			<data>
-			SDQ9vFfyA9yF7z0sdw8am2oND11Ps2osgH4YYNqoGME=
+			iWmPi4WjTubXpc4I/LiRxwzhxUCQXGvSpPsGQ0fmTMU=
 			</data>
 		</dict>
 		<key>Headers/FuzzyLogicDefinitions.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WIjqw6fuie28NxfxCDyDk5rra4I=
+			puaK4IEVL5in27duKqrtzZ9CEFY=
 			</data>
 			<key>hash2</key>
 			<data>
-			mHSBJSpcEZFV/x89KBtDonQgeNkkYM+2bINpryInTzA=
+			w3J6XxPOIVkT2GF0e+caSWA8AvIsvH1FF79JpieWWVU=
 			</data>
 		</dict>
 		<key>Headers/NEContextSDK-Swift.h</key>
@@ -243,6 +293,17 @@
 			AsvAMM0LfzJx3pzHO0jPiBSQQGcPbB58MOo3Z/byeJg=
 			</data>
 		</dict>
+		<key>IndoorOutdoorFLC.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kIKIGfdTB0tOtwyi5talt+zffEY=
+			</data>
+			<key>hash2</key>
+			<data>
+			LciADWfP82Xx0CiQ/CFr163ZZrw+JQgkONs6RbuNjGY=
+			</data>
+		</dict>
 		<key>LocationContext.fll</key>
 		<dict>
 			<key>hash</key>
@@ -252,6 +313,17 @@
 			<key>hash2</key>
 			<data>
 			wiJTDXm8l3xt8rWlGUGqSUWeyJsmbCVNw9nKZZh6IQk=
+			</data>
+		</dict>
+		<key>LocationContextFLC.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YTJyoS24q1Y0djDHPH0Vw+yFbA0=
+			</data>
+			<key>hash2</key>
+			<data>
+			gdivZ8JDm2m8jGZWsLfgvUBRM+gHr4xAL9YzneDBKV4=
 			</data>
 		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm.swiftdoc</key>
@@ -269,11 +341,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jN82nv380ignqOrwzpb08WM5XGw=
+			kDDNtGm36PLCWrE24z3/DLBfwkQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			NUC3Ec0/vdQC4G/o4vlBRju0aPDtkI2cpiDWOZBz5Ls=
+			K8a6swqyKWbfZotvSZ8JGTBnwUUFt4Sv6b+5kr53Q6Y=
 			</data>
 		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
@@ -291,11 +363,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vL0FUoHASJcHEWXVCAdoLlnzgLg=
+			jdlwYuFWlz5SCNSEnigtH0zP1GM=
 			</data>
 			<key>hash2</key>
 			<data>
-			C0Hp1VMoZWktuxeZ8HflVp70QBA5mKkPfF0tiuMU/28=
+			3+zriZgv2RtfCe93eEhFbqqNG7yvut92w16DmjUgtQ8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -342,6 +414,17 @@
 			4ENG+3UieUsvUQr6roPGceIm3368Wu+th3nJh0tYeKE=
 			</data>
 		</dict>
+		<key>WeatherToMoodFLC.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			AStU7BTZgw7R2e5tDnLZcu62h4I=
+			</data>
+			<key>hash2</key>
+			<data>
+			/mO2IOpp1d8n54Q31+XwZVoW9XmV0776oMM6au9GuPc=
+			</data>
+		</dict>
 		<key>WeatherToValence.fll</key>
 		<dict>
 			<key>hash</key>
@@ -353,6 +436,17 @@
 			bg0k7e47LR8T02LM4otBSP6oMHkX5SRd+t1xZTEGihg=
 			</data>
 		</dict>
+		<key>WeekdayContextModelingFLC.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JA/x88GVJgbkDzY9B6SD4k8dBqA=
+			</data>
+			<key>hash2</key>
+			<data>
+			dA+N7iZ+VSdhaH7tLQvBm4NsYtL8AV/DL7HbhvCePtY=
+			</data>
+		</dict>
 		<key>WeekdayContextTags.fll</key>
 		<dict>
 			<key>hash</key>
@@ -362,6 +456,17 @@
 			<key>hash2</key>
 			<data>
 			/fvzc7MyybXYgl474kx2Bwz7IpmLNw7suJo+piRtORg=
+			</data>
+		</dict>
+		<key>WeekendContextModelingFLC.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ciamOEs8PQv9biPLNkesKata0WE=
+			</data>
+			<key>hash2</key>
+			<data>
+			t+dtzrje/l52pl+RSmI7/lbUkDNEniJJWyeu9vGZ464=
 			</data>
 		</dict>
 		<key>WeekendContextTags.fll</key>
