@@ -13,8 +13,10 @@
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
 		3853FECB1D3D73CF006B894C /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FECA1D3D73CF006B894C /* UIViewController+Ext.swift */; };
-		385D02471D4F97DF007C1C4A /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 385D02441D4F97D6007C1C4A /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		385D02491D4F99D7007C1C4A /* NEContextSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385D02481D4F99D7007C1C4A /* NEContextSDK.framework */; };
+		385D024B1D4FA186007C1C4A /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */; };
+		385D024D1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D024C1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift */; };
+		385D024F1D4FBDDC007C1C4A /* RecommendationWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */; };
+		385D02531D4FF4BB007C1C4A /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 385D02501D4FF496007C1C4A /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6851D2545BD006543D4 /* AppDelegate.swift */; };
 		387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6871D2545BD006543D4 /* MeViewController.swift */; };
 		387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68B1D2545BD006543D4 /* Main.storyboard */; };
@@ -40,13 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3828365E1D46C22B006DBBFB /* Embed Frameworks */ = {
+		385D02541D4FF4BC007C1C4A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				385D02471D4F97DF007C1C4A /* NEContextSDK.framework in Embed Frameworks */,
+				385D02531D4FF4BB007C1C4A /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,8 +62,10 @@
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
 		3853FEC81D3CD5F2006B894C /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		3853FECA1D3D73CF006B894C /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		385D02441D4F97D6007C1C4A /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NEContextSDK.framework; path = /Users/Abhi/Development/iOS/AllAboutMe/NEContextSDK.framework; sourceTree = "<absolute>"; };
-		385D02481D4F99D7007C1C4A /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
+		385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
+		385D024C1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsTableViewCell.swift; sourceTree = "<group>"; };
+		385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationWebViewController.swift; sourceTree = "<group>"; };
+		385D02501D4FF496007C1C4A /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		387DE6821D2545BD006543D4 /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387DE6851D2545BD006543D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387DE6871D2545BD006543D4 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +101,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */,
-				385D02491D4F99D7007C1C4A /* NEContextSDK.framework in Frameworks */,
 				38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */,
 				38FA3ED81D27E617005110D2 /* AdSupport.framework in Frameworks */,
 				11068D3945AD10DD6D609B48 /* Pods_Jarvis.framework in Frameworks */,
@@ -143,6 +146,9 @@
 				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
 				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
 				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
+				385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */,
+				385D024C1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift */,
+				385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */,
 			);
 			name = "Views & View Controllers";
 			sourceTree = "<group>";
@@ -202,7 +208,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				385D02481D4F99D7007C1C4A /* NEContextSDK.framework */,
+				385D02501D4FF496007C1C4A /* NEContextSDK.framework */,
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
@@ -225,7 +231,7 @@
 				78A643866B945C1B403E4878 /* Embed Pods Frameworks */,
 				37B912C171C97FA1CB350A14 /* Copy Pods Resources */,
 				382836191D41A92D006DBBFB /* ShellScript */,
-				3828365E1D46C22B006DBBFB /* Embed Frameworks */,
+				385D02541D4FF4BC007C1C4A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,9 +367,12 @@
 				387DE6B11D25B4CA006543D4 /* Common.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
+				385D024D1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift in Sources */,
 				387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */,
 				3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */,
+				385D024F1D4FBDDC007C1C4A /* RecommendationWebViewController.swift in Sources */,
 				387DE6A61D255092006543D4 /* Logging.swift in Sources */,
+				385D024B1D4FA186007C1C4A /* RecommendationsViewController.swift in Sources */,
 				387DE6A51D255092006543D4 /* AWS.swift in Sources */,
 				38DAE3601D2B3ECC005F26B0 /* ContextPopoverViewController.swift in Sources */,
 				3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */,

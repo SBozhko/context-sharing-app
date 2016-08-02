@@ -18,7 +18,6 @@ import Toast
 
 class MeViewController: UIViewController {
   @IBOutlet weak var otherContextCollectionView: UICollectionView!
-  @IBOutlet weak var situationView: UIView!
   @IBOutlet weak var situationImageView: UIImageView!
   @IBOutlet weak var situationLabel: UILabel!
   
