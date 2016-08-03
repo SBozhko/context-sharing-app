@@ -11,16 +11,21 @@ import Mixpanel
 import Fabric
 import Crashlytics
 import Toast
+import AdSupport
+
+let developmentDevices = ["8E3A29F4-56E3-463F-823A-2BBFC4213261", // Abhi, iPhone 5S
+                          "459D4163-B958-4470-9422-EDD762B4ECC9"] // Svetlana, iPhone 6S
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
   var window: UIWindow?
-
+  
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    let advertisingIdentifier = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
     Fabric.with([Crashlytics.self])
-    let mixPanelToken = "5bfa0fac94b25659a07899a8c6d92fb8"
-    Mixpanel.sharedInstanceWithToken(mixPanelToken)
+    let productionMixPanelToken = "5bfa0fac94b25659a07899a8c6d92fb8"
+    let developmentMixPanelToken = "8fec05b9adae253085f4cfc726db2115"
+    Mixpanel.sharedInstanceWithToken(developmentDevices.contains(advertisingIdentifier) ? developmentMixPanelToken : productionMixPanelToken)
     Mixpanel.sharedInstance().identify("\(VendorInfo.getId())")
     Mixpanel.sharedInstance().track("AppLaunched")
     _ = AWS.sharedInstance
