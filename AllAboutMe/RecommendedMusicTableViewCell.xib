@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecommendedMusicTableViewCell" rowHeight="93" id="fFu-fS-q7s" customClass="RecommendedMusicTableViewCell" customModule="Jarvis" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fFu-fS-q7s" id="hZC-Zs-ao1">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLn-px-WJ7">
+                        <rect key="frame" x="80" y="18" width="484" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music" translatesAutoresizingMaskIntoConstraints="NO" id="MHE-PA-h4B">
+                        <rect key="frame" x="572" y="18" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="2EJ-Fd-zcR"/>
+                            <constraint firstAttribute="height" constant="20" id="Lfw-rf-uto"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UTK-eX-XRZ">
+                        <rect key="frame" x="8" y="18" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="aQY-bs-l4I"/>
+                            <constraint firstAttribute="width" constant="64" id="ifD-7d-83M"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MHE-PA-h4B" firstAttribute="leading" secondItem="LLn-px-WJ7" secondAttribute="trailing" constant="8" id="7B7-Dj-HeZ"/>
+                    <constraint firstItem="LLn-px-WJ7" firstAttribute="leading" secondItem="UTK-eX-XRZ" secondAttribute="trailing" constant="8" id="LlQ-oW-0GI"/>
+                    <constraint firstItem="UTK-eX-XRZ" firstAttribute="leading" secondItem="hZC-Zs-ao1" secondAttribute="leading" constant="8" id="QQo-ss-iYn"/>
+                    <constraint firstItem="UTK-eX-XRZ" firstAttribute="top" secondItem="hZC-Zs-ao1" secondAttribute="top" constant="18" id="gmK-mW-Seq"/>
+                    <constraint firstItem="MHE-PA-h4B" firstAttribute="top" secondItem="hZC-Zs-ao1" secondAttribute="top" constant="18" id="i1G-fd-4z2"/>
+                    <constraint firstItem="MHE-PA-h4B" firstAttribute="leading" secondItem="LLn-px-WJ7" secondAttribute="trailing" constant="8" id="jou-Gj-e1K"/>
+                    <constraint firstItem="LLn-px-WJ7" firstAttribute="top" secondItem="UTK-eX-XRZ" secondAttribute="top" id="qD7-Eh-fyK"/>
+                    <constraint firstAttribute="trailing" secondItem="MHE-PA-h4B" secondAttribute="trailing" constant="8" id="r0N-en-aNi"/>
+                    <constraint firstAttribute="bottom" secondItem="UTK-eX-XRZ" secondAttribute="bottom" constant="17" id="r8A-NR-A9H"/>
+                    <constraint firstItem="MHE-PA-h4B" firstAttribute="width" secondItem="hZC-Zs-ao1" secondAttribute="height" multiplier="20:99" id="x18-7T-3uq"/>
+                    <constraint firstItem="LLn-px-WJ7" firstAttribute="top" secondItem="hZC-Zs-ao1" secondAttribute="top" constant="18" id="yX6-wF-pmL"/>
+                    <constraint firstItem="MHE-PA-h4B" firstAttribute="top" secondItem="UTK-eX-XRZ" secondAttribute="top" id="zGP-jf-TjR"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="qD7-Eh-fyK"/>
+                        <exclude reference="7B7-Dj-HeZ"/>
+                        <exclude reference="zGP-jf-TjR"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imageView" destination="UTK-eX-XRZ" id="2aD-Tg-xdM"/>
+                <outlet property="itemTypeImageView" destination="MHE-PA-h4B" id="nnw-Y1-9xj"/>
+                <outlet property="thumbnailImageView" destination="UTK-eX-XRZ" id="ifI-4Y-Mgh"/>
+                <outlet property="titleLabel" destination="LLn-px-WJ7" id="0Ew-Da-Ugj"/>
+            </connections>
+            <point key="canvasLocation" x="432" y="120"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="music" width="30" height="29"/>
+    </resources>
+</document>

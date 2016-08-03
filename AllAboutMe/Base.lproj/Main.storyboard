@@ -732,33 +732,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uWj-S8-5zz">
                                 <rect key="frame" x="20" y="69" width="560" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecommendationsTableViewCell" id="4UC-v1-rZl" customClass="RecommendationsTableViewCell" customModule="Jarvis" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4UC-v1-rZl" id="nC6-pf-jYB">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgG-Y6-0fj">
-                                                    <rect key="frame" x="8" y="11" width="544" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="VgG-Y6-0fj" secondAttribute="bottom" constant="11" id="4JC-pU-mnf"/>
-                                                <constraint firstAttribute="trailing" secondItem="VgG-Y6-0fj" secondAttribute="trailing" constant="8" id="4jd-ge-55j"/>
-                                                <constraint firstItem="VgG-Y6-0fj" firstAttribute="leading" secondItem="nC6-pf-jYB" secondAttribute="leading" constant="8" id="JSZ-3z-tJt"/>
-                                                <constraint firstItem="VgG-Y6-0fj" firstAttribute="top" secondItem="nC6-pf-jYB" secondAttribute="top" constant="11" id="gZx-XA-U2W"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="itemLabel" destination="VgG-Y6-0fj" id="alk-Op-2MK"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="JjK-z8-OGY" id="zFt-co-Sl7"/>
                                     <outlet property="delegate" destination="JjK-z8-OGY" id="xrj-aW-LRb"/>

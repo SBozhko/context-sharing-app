@@ -11,6 +11,9 @@ import Alamofire
 import AdSupport
 import SwiftyJSON
 
+let developmentDevices = ["8E3A29F4-56E3-463F-823A-2BBFC4213261", // Abhi, iPhone 5S
+                          "459D4163-B958-4470-9422-EDD762B4ECC9"] // Svetlana, iPhone 6S
+
 class Credentials {
   static let _credentialsInstance = Credentials()
   class var sharedInstance: Credentials {
@@ -18,6 +21,13 @@ class Credentials {
   }
   let log = Logger(loggerName: String(Credentials))
   var profileId : Int?
+  var isDevelopmentDevice : Bool {
+    get {
+      let devDevice = developmentDevices.contains(ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString)
+      (devDevice) ? log.debug("This is a development device.") : log.debug("This is a production device.")
+      return devDevice
+    }
+  }
   
   init() {
     if let _profileId = NSUserDefaults.standardUserDefaults().objectForKey("profileId") as? Int {

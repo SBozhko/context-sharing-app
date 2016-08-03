@@ -14,7 +14,6 @@
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
 		3853FECB1D3D73CF006B894C /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FECA1D3D73CF006B894C /* UIViewController+Ext.swift */; };
 		385D024B1D4FA186007C1C4A /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */; };
-		385D024D1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D024C1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift */; };
 		385D024F1D4FBDDC007C1C4A /* RecommendationWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */; };
 		385D02531D4FF4BB007C1C4A /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 385D02501D4FF496007C1C4A /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6851D2545BD006543D4 /* AppDelegate.swift */; };
@@ -33,7 +32,9 @@
 		387DE6B11D25B4CA006543D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6B01D25B4CA006543D4 /* Common.swift */; };
 		38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA10C1D33D4F700599E61 /* MessageUI.framework */; };
 		38ADA1131D3443E200599E61 /* AnalyticsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */; };
-		38ADA1151D344F7600599E61 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38ADA1141D344F7600599E61 /* Analytics.storyboard */; };
+		38B8A15C1D51601400F82A2B /* RecommendedMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */; };
+		38C1635C1D50AA9700561A50 /* RecommendedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1635B1D50AA9700561A50 /* RecommendedItem.swift */; };
+		38C1635E1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C1635D1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib */; };
 		38C913281D2D2C2B0037A7B9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C913271D2D2C2B0037A7B9 /* Social.framework */; };
 		38DAE3601D2B3ECC005F26B0 /* ContextPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE35F1D2B3ECC005F26B0 /* ContextPopoverViewController.swift */; };
 		38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */; };
@@ -63,7 +64,6 @@
 		3853FEC81D3CD5F2006B894C /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		3853FECA1D3D73CF006B894C /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
-		385D024C1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsTableViewCell.swift; sourceTree = "<group>"; };
 		385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationWebViewController.swift; sourceTree = "<group>"; };
 		385D02501D4FF496007C1C4A /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		387DE6821D2545BD006543D4 /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +85,9 @@
 		38ADA10B1D2F193C00599E61 /* Jarvis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jarvis-Bridging-Header.h"; sourceTree = "<group>"; };
 		38ADA10C1D33D4F700599E61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsPopupViewController.swift; sourceTree = "<group>"; };
-		38ADA1141D344F7600599E61 /* Analytics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
+		38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedMusicTableViewCell.swift; sourceTree = "<group>"; };
+		38C1635B1D50AA9700561A50 /* RecommendedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedItem.swift; sourceTree = "<group>"; };
+		38C1635D1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendedMusicTableViewCell.xib; sourceTree = "<group>"; };
 		38C913271D2D2C2B0037A7B9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		38DAE35F1D2B3ECC005F26B0 /* ContextPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextPopoverViewController.swift; sourceTree = "<group>"; };
 		38DAE3631D2BF8E0005F26B0 /* Double+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				3853FEBB1D3BB1B9006B894C /* Logger.swift */,
 				3853FEBD1D3BB226006B894C /* VendorInfo.swift */,
 				380D26881D3EA8B1006518A6 /* Credentials.swift */,
+				38C1635B1D50AA9700561A50 /* RecommendedItem.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -147,20 +150,20 @@
 				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
 				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
 				385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */,
-				385D024C1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift */,
 				385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */,
+				38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */,
 			);
 			name = "Views & View Controllers";
 			sourceTree = "<group>";
 		};
-		3853FEBA1D3BA3EF006B894C /* Storyboards */ = {
+		3853FEBA1D3BA3EF006B894C /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
 				387DE68B1D2545BD006543D4 /* Main.storyboard */,
-				38ADA1141D344F7600599E61 /* Analytics.storyboard */,
 				387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */,
+				38C1635D1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib */,
 			);
-			name = Storyboards;
+			name = "UI Elements";
 			sourceTree = "<group>";
 		};
 		387DE6791D2545BD006543D4 = {
@@ -184,7 +187,7 @@
 		387DE6841D2545BD006543D4 /* AllAboutMe */ = {
 			isa = PBXGroup;
 			children = (
-				3853FEBA1D3BA3EF006B894C /* Storyboards */,
+				3853FEBA1D3BA3EF006B894C /* UI Elements */,
 				38ADA10B1D2F193C00599E61 /* Jarvis-Bridging-Header.h */,
 				387DE6851D2545BD006543D4 /* AppDelegate.swift */,
 				3853FEB91D3BA3B5006B894C /* Views & View Controllers */,
@@ -286,10 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38C1635E1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib in Resources */,
 				387DE6921D2545BD006543D4 /* LaunchScreen.storyboard in Resources */,
 				387DE68F1D2545BD006543D4 /* Assets.xcassets in Resources */,
 				387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */,
-				38ADA1151D344F7600599E61 /* Analytics.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,11 +368,12 @@
 				387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */,
 				380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */,
 				387DE6B11D25B4CA006543D4 /* Common.swift in Sources */,
+				38C1635C1D50AA9700561A50 /* RecommendedItem.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
-				385D024D1D4FA3B8007C1C4A /* RecommendationsTableViewCell.swift in Sources */,
 				387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */,
 				3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */,
+				38B8A15C1D51601400F82A2B /* RecommendedMusicTableViewCell.swift in Sources */,
 				385D024F1D4FBDDC007C1C4A /* RecommendationWebViewController.swift in Sources */,
 				387DE6A61D255092006543D4 /* Logging.swift in Sources */,
 				385D024B1D4FA186007C1C4A /* RecommendationsViewController.swift in Sources */,
