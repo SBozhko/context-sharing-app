@@ -96,6 +96,8 @@ class ContextPopoverViewController: UIViewController {
                 "ContextNameAfter" : _selectedContext.name,
                 "ManuallyTyped" : false])
               if self.contextLabel.text != _selectedContext.name {
+                // Update NE SDK with user feedback
+                NEPlace.update(_selectedContext, placeContextString: nil)
                 self.view.makeToast("Thanks for correcting! We're improving every day.", duration: 2.0, position: CSToastPositionCenter)
                 self.contextLabel.text = _selectedContext.name
                 self.selectedContextName = _selectedContext
@@ -109,6 +111,8 @@ class ContextPopoverViewController: UIViewController {
                 "ContextNameBefore" : self.contextLabel.text ?? "Unknown",
                 "ContextNameAfter" : _otherOptionLabelText,
                 "ManuallyTyped" : true])
+              // Update NE SDK with user feedback
+              NEPlace.update(nil, placeContextString: _otherOptionLabelText)
               self.contextLabel.text = _otherOptionLabelText
               self.otherSelectedContextName = _otherOptionLabelText
               self.confidenceLabel.text = "100%"

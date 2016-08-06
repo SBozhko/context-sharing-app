@@ -180,11 +180,18 @@ class ContextInfo {
   }
   
   func overrideCurrentContextSettings(contextGroup : NEContextGroup, userSelectedContextName : NEContextName, userEnteredContextString : String = "") -> Bool {
-    // If we're already in the same context as what the user wants to override it to, nothing to do
-    if let currentContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup).context where currentContext.name == userSelectedContextName {
+    // We don't override / fake anything for Place.
+    if contextGroup == NEContextGroup.Place {
       stopOverrideTimer(contextGroup.name)
       return false
     }
+    
+    if let currentContext = ContextInfo.sharedInstance.getValidCurrentContext(contextGroup).context where currentContext.name == userSelectedContextName {
+      // If we're already in the same context as what the user wants to override it to, nothing to do
+      stopOverrideTimer(contextGroup.name)
+      return false
+    }
+
     // Else we'll override the values
     if !userEnteredContextString.isEmpty {
       // Add to temporary overridden list of contexts

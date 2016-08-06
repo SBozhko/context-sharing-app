@@ -132,7 +132,7 @@ class Logging {
   
   func writeData(level: String, loggerName: String, dataString: String, skipTimeStamp : Bool = false) {
     let timestamp = String(logTimeStampFormatter.stringFromDate(NSDate()))
-    let fullLogString = String(format: "[%@] [%@] [%@] - [%@]", timestamp, level, loggerName, dataString)
+    let fullLogString = "[\(timestamp)][\(level)][\(loggerName)][\(dataString)]"
     let logString = skipTimeStamp ? dataString : fullLogString
     if let unwrappedFileHandle = logFileHandle {
       unwrappedFileHandle.seekToEndOfFile()
