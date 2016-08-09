@@ -18,6 +18,7 @@ target 'Jarvis' do
   pod 'AWSS3'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Onboard'
 end
 
 

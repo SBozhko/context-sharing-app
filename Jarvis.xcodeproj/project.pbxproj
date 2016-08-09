@@ -10,6 +10,7 @@
 		11068D3945AD10DD6D609B48 /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557CEF5628C0C79E68DC1074 /* Pods_Jarvis.framework */; };
 		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
 		381001461D56315200D43A00 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 381001431D56313F00D43A00 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381001481D590C5E00D43A00 /* Onboarding.storyboard */; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		381001431D56313F00D43A00 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
+		381001481D590C5E00D43A00 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				387DE68B1D2545BD006543D4 /* Main.storyboard */,
 				387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */,
 				38C1635D1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib */,
+				381001481D590C5E00D43A00 /* Onboarding.storyboard */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38C1635E1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib in Resources */,
+				381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */,
 				387DE6921D2545BD006543D4 /* LaunchScreen.storyboard in Resources */,
 				387DE68F1D2545BD006543D4 /* Assets.xcassets in Resources */,
 				387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */,

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/* Settings Keys */
+let userHasOnboardedKey = "userHasOnboardedKey"
+
 /* Notifications */
 let contextOverrideTimerExpiredNotification = "overrideTimerExpired"
 let profileIdReceivedNotification = "profileIdReceivedNotification"

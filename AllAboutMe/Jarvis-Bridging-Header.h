@@ -14,5 +14,6 @@
 #import <AWSS3/AWSS3.h>
 #import "Mixpanel/Mixpanel.h"
 #import "Toast/UIView+Toast.h"
-
+#import "Onboard/OnboardingViewController.h"
+#import "Onboard/OnboardingContentViewController.h"
 #endif /* Jarvis_Bridging_Header_h */

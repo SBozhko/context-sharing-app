@@ -11,31 +11,94 @@ import Mixpanel
 import Fabric
 import Crashlytics
 import Toast
+import Onboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     Fabric.with([Crashlytics.self])
     let productionMixPanelToken = "5bfa0fac94b25659a07899a8c6d92fb8"
     let developmentMixPanelToken = "8fec05b9adae253085f4cfc726db2115"
     Mixpanel.sharedInstanceWithToken(Credentials.sharedInstance.isDevelopmentDevice ? developmentMixPanelToken : productionMixPanelToken)
     Mixpanel.sharedInstance().identify("\(VendorInfo.getId())")
     Mixpanel.sharedInstance().track("AppLaunched")
-    _ = AWS.sharedInstance
-    _ = Logging.sharedInstance
-    CSToastManager.setTapToDismissEnabled(true)
-    CSToastManager.setQueueEnabled(true)
+    let userHasOnboarded = NSUserDefaults.standardUserDefaults().boolForKey(userHasOnboardedKey)
+    if userHasOnboarded {
+      setupNormalRootViewController()
+    } else {
+      self.window?.rootViewController = generateOnboardingViewController()
+    }
+    self.window?.makeKeyAndVisible()
+    application.statusBarStyle = UIStatusBarStyle.LightContent
     return true
   }
   
-  func logUser() {
-    // TODO: Use the current user's information
-    // You can call any combination of these three methods
-//    Crashlytics.sharedInstance().setUserEmail("user@fabric.io")
-    Crashlytics.sharedInstance().setUserIdentifier("\(VendorInfo.getId())")
-//    Crashlytics.sharedInstance().setUserName("Test User")
+  func setupNormalRootViewController() {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    if let vc = storyboard.instantiateViewControllerWithIdentifier("MainTabBarController") as? UITabBarController {
+      self.window?.rootViewController = vc
+      _ = AWS.sharedInstance
+      _ = Logging.sharedInstance
+      CSToastManager.setTapToDismissEnabled(true)
+      CSToastManager.setQueueEnabled(true)
+    }
+  }
+  
+  func generateOnboardingViewController() -> OnboardingViewController {
+    let avenirNextRegular24 = UIFont(name: "AvenirNext-Regular", size: 24.0)
+    let avenirNextBold24 = UIFont(name: "AvenirNext-Bold", size: 24.0)
+    let avenirNextRegular36 = UIFont(name: "AvenirNext-Regular", size: 36.0)
+    
+    let firstPage = OnboardingContentViewController(title: "Hi there!\nI'm Jarvis.", body: "I can help you escape of your daily routine and recapture the serendipity in your life.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
+      // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
+    }
+    firstPage.titleLabel.font = avenirNextRegular36
+    firstPage.bodyLabel.font = avenirNextRegular24
+    firstPage.underTitlePadding = 40.0
+    
+    let secondPage = OnboardingContentViewController(title: "Want to know how you spend your time every day?", body: "I help monitor your daily activities and send fun and timely bits of information.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
+      // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
+    }
+    secondPage.titleLabel.font = avenirNextRegular24
+    secondPage.bodyLabel.font = avenirNextRegular24
+    secondPage.underTitlePadding = 40.0
+    
+    let thirdPage = OnboardingContentViewController(title: "Discover a song to help you workout?", body: "No problem.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
+      // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
+    }
+    thirdPage.titleLabel.font = avenirNextRegular24
+    thirdPage.bodyLabel.font = avenirNextRegular24
+    thirdPage.underTitlePadding = 40.0
+    
+    let fourthPage = OnboardingContentViewController(title: "Thinking of dinner while working late at the office?", body: "How about a meal deal?", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
+      // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
+    }
+    fourthPage.titleLabel.font = avenirNextRegular24
+    fourthPage.bodyLabel.font = avenirNextRegular24
+    fourthPage.underTitlePadding = 40.0
+    
+    let fifthPage = OnboardingContentViewController(title: "Or maybe a funny video to brighten your day?", body: "I understand your current situation to surprise you every time!", image: UIImage(named: "Jarvis"), buttonText: "CONTINUE") { () -> Void in
+      self.handleOnboardingCompletion()
+    }
+    fifthPage.titleLabel.font = avenirNextRegular24
+    fifthPage.bodyLabel.font = avenirNextRegular24
+    fifthPage.actionButton.titleLabel?.font = avenirNextBold24
+    fifthPage.underTitlePadding = 40.0
+    
+    let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "OnboardingBackground"), contents: [firstPage, secondPage, thirdPage, fourthPage, fifthPage])
+    onboardingVC.shouldMaskBackground = false
+    onboardingVC.shouldFadeTransitions = true
+    onboardingVC.fadePageControlOnLastPage = true
+    onboardingVC.fadeSkipButtonOnLastPage = true
+    return onboardingVC
+  }
+  
+  func handleOnboardingCompletion() {
+//    NSUserDefaults.standardUserDefaults().setBool(true, forKey: userHasOnboardedKey)
+    setupNormalRootViewController()
   }
 
 

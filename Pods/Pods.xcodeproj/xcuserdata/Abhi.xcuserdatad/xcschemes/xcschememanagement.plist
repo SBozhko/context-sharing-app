@@ -8,102 +8,86 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>AWSCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>AWSS3.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Charts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>DeviceGuru-DeviceGuru.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>DeviceGuru.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Mixpanel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
+		</dict>
+		<key>Onboard.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Jarvis.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>RxSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
 		</dict>
 		<key>Toast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>13</integer>
 		</dict>
 		<key>TransitionKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>14</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11E51582E5502AEC7687CD61C8279DA6</key>
+		<key>06449499EF3B42914D49EB36B68291BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2C85952C30ADEAC8CA15DEC1F3CE3757</key>
+		<key>123EC2DE0C8E0EF3C37163294D7FFABB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>160F9D65FAEC162A791B487AFAD2186D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -133,17 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F1F1005AE27153FA3D663F4373BCD04</key>
+		<key>B7CFF4D951ECB816AC9883F18C4505FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A83A0D4F6C2F33C660A8A76273E4984F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B2F5B280970BE36BB5207647BB38A3C2</key>
+		<key>B9F737401094FCFF654AE0D07A8BC600</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -154,6 +133,11 @@
 			<true/>
 		</dict>
 		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7FF48F3092783E4E42B336F0DEF2D1A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
