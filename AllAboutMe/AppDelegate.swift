@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Mixpanel.sharedInstanceWithToken(Credentials.sharedInstance.isDevelopmentDevice ? developmentMixPanelToken : productionMixPanelToken)
     Mixpanel.sharedInstance().identify("\(VendorInfo.getId())")
     Mixpanel.sharedInstance().track("AppLaunched")
+    self.window?.tintColor = globalTint
     let userHasOnboarded = NSUserDefaults.standardUserDefaults().boolForKey(userHasOnboardedKey)
     if userHasOnboarded {
       setupNormalRootViewController()
@@ -100,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fifthPage.titleLabel.font = avenirNextRegular24
     fifthPage.bodyLabel.font = avenirNextRegular24
     fifthPage.actionButton.titleLabel?.font = avenirNextBold24
-    fifthPage.actionButton.titleLabel?.textColor = UIColor(red:0.96, green:0.65, blue:0.14, alpha:1.0)
+    fifthPage.actionButton.titleLabel?.textColor = globalTint
     fifthPage.underTitlePadding = underTitlePaddingValue
     
     let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "OnboardingBackground"), contents: [firstPage, secondPage, thirdPage, fourthPage, fifthPage])

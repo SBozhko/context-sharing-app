@@ -14,6 +14,7 @@
 		381FEA7D1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */; };
 		381FEA7F1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */; };
 		381FEA811D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */; };
+		381FEA831D5B5D1000FBB7CF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
@@ -67,6 +68,7 @@
 		381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGetNameViewController.swift; sourceTree = "<group>"; };
 		381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsViewController.swift; sourceTree = "<group>"; };
 		381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionViewController.swift; sourceTree = "<group>"; };
+		381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */,
 				381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */,
 				381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */,
+				381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */,
 			);
 			name = "Views & View Controllers";
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
 				381FEA811D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift in Sources */,
 				387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */,
+				381FEA831D5B5D1000FBB7CF /* MainTabBarController.swift in Sources */,
 				3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */,
 				38B8A15C1D51601400F82A2B /* RecommendedMusicTableViewCell.swift in Sources */,
 				385D024F1D4FBDDC007C1C4A /* RecommendationWebViewController.swift in Sources */,

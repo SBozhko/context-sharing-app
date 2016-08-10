@@ -7,6 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+/* Colors */
+let globalTint = UIColor(red:0.96, green:0.65, blue:0.14, alpha:1.0)
 
 /* Settings Keys */
 let userHasOnboardedKey = "userHasOnboardedKey"
