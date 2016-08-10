@@ -21,6 +21,7 @@ class Credentials {
   }
   let log = Logger(loggerName: String(Credentials))
   var profileId : Int?
+  var name = ""
   var isDevelopmentDevice : Bool {
     get {
       let devDevice = developmentDevices.contains(ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString)
@@ -30,20 +31,36 @@ class Credentials {
   }
   
   init() {
-    if let _profileId = NSUserDefaults.standardUserDefaults().objectForKey("profileId") as? Int {
+    if let _name = NSUserDefaults.standardUserDefaults().objectForKey(nameKey) as? String {
+      name = _name
+    }
+    
+    if let
+      _profileId = NSUserDefaults.standardUserDefaults().objectForKey("profileId") as? Int {
       profileId = _profileId
-      self.log.info("Using profile id: \(_profileId)")
+      self.log.info("Using profile id: \(_profileId), name: \(name)")
     } else {
       let logTimeStampFormatter = NSDateFormatter()
       let logTimeStampDateFormatString = "ZZ"
       logTimeStampFormatter.dateFormat = logTimeStampDateFormatString
       let timestamp = String(logTimeStampFormatter.stringFromDate(NSDate()))
-      let parameters : [String : AnyObject] = [
-        "userId": VendorInfo.getId(),
-        "advertisingId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
-        "vendorId": VendorInfo.getId(),
-        "timezone": "UTC\(timestamp)"
-      ]
+      let parameters : [String : AnyObject]
+      if name.isEmpty {
+        parameters = [
+          "userId": VendorInfo.getId(),
+          "advertisingId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
+          "vendorId": VendorInfo.getId(),
+          "timezone": "UTC\(timestamp)"
+        ]
+      } else {
+        parameters = [
+          "userId": VendorInfo.getId(),
+          "advertisingId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
+          "vendorId": VendorInfo.getId(),
+          "timezone": "UTC\(timestamp)",
+          "name" : name
+        ]
+      }
       
       Alamofire.request(.POST, postUserInfoInitEndpoint, parameters: parameters, encoding: .JSON)
         .responseJSON { response in

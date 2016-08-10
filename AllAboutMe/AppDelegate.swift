@@ -16,7 +16,8 @@ import Onboard
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
-  
+  let log = Logger(loggerName: String(AppDelegate))
+
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     Fabric.with([Crashlytics.self])
@@ -29,64 +30,78 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if userHasOnboarded {
       setupNormalRootViewController()
     } else {
+      NSNotificationCenter.defaultCenter().addObserver(self,
+                                                       selector: #selector((UIApplication.sharedApplication().delegate as? AppDelegate)!.setupNormalRootViewController),
+                                                       name: onboardingCompleteNotification,
+                                                       object: nil)
       self.window?.rootViewController = generateOnboardingViewController()
     }
-    self.window?.makeKeyAndVisible()
     application.statusBarStyle = UIStatusBarStyle.LightContent
+    self.window?.makeKeyAndVisible()
     return true
+  }
+  
+  func handleOnboardingCompletion() {
+    NSUserDefaults.standardUserDefaults().setBool(true, forKey: userHasOnboardedKey)
+    setupNormalRootViewController()
   }
   
   func setupNormalRootViewController() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    if let vc = storyboard.instantiateViewControllerWithIdentifier("MainTabBarController") as? UITabBarController {
+    if let vc = storyboard.instantiateViewControllerWithIdentifier("MeViewController") as? MeViewController {
       self.window?.rootViewController = vc
       _ = AWS.sharedInstance
       _ = Logging.sharedInstance
       CSToastManager.setTapToDismissEnabled(true)
       CSToastManager.setQueueEnabled(true)
+      UIView.animateWithDuration(0.2, animations: {
+        vc.view.alpha = 1.0
+      })
     }
   }
   
   func generateOnboardingViewController() -> OnboardingViewController {
-    let avenirNextRegular24 = UIFont(name: "AvenirNext-Regular", size: 24.0)
-    let avenirNextBold24 = UIFont(name: "AvenirNext-Bold", size: 24.0)
-    let avenirNextRegular36 = UIFont(name: "AvenirNext-Regular", size: 36.0)
+    let avenirNextRegular24 = UIFont(name: "AvenirNext-Regular", size: 16.0)
+    let avenirNextBold24 = UIFont(name: "AvenirNext-Bold", size: 16.0)
+    let avenirNextRegular36 = UIFont(name: "AvenirNext-Regular", size: 16.0)
+    let underTitlePaddingValue : CGFloat = 40.0
     
     let firstPage = OnboardingContentViewController(title: "Hi there!\nI'm Jarvis.", body: "I can help you escape of your daily routine and recapture the serendipity in your life.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
       // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
     }
     firstPage.titleLabel.font = avenirNextRegular36
     firstPage.bodyLabel.font = avenirNextRegular24
-    firstPage.underTitlePadding = 40.0
+    firstPage.underTitlePadding = underTitlePaddingValue
     
     let secondPage = OnboardingContentViewController(title: "Want to know how you spend your time every day?", body: "I help monitor your daily activities and send fun and timely bits of information.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
       // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
     }
     secondPage.titleLabel.font = avenirNextRegular24
     secondPage.bodyLabel.font = avenirNextRegular24
-    secondPage.underTitlePadding = 40.0
+    secondPage.underTitlePadding = underTitlePaddingValue
     
     let thirdPage = OnboardingContentViewController(title: "Discover a song to help you workout?", body: "No problem.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
       // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
     }
     thirdPage.titleLabel.font = avenirNextRegular24
     thirdPage.bodyLabel.font = avenirNextRegular24
-    thirdPage.underTitlePadding = 40.0
+    thirdPage.underTitlePadding = underTitlePaddingValue
     
     let fourthPage = OnboardingContentViewController(title: "Thinking of dinner while working late at the office?", body: "How about a meal deal?", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
       // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
     }
     fourthPage.titleLabel.font = avenirNextRegular24
     fourthPage.bodyLabel.font = avenirNextRegular24
-    fourthPage.underTitlePadding = 40.0
+    fourthPage.underTitlePadding = underTitlePaddingValue
     
     let fifthPage = OnboardingContentViewController(title: "Or maybe a funny video to brighten your day?", body: "I understand your current situation to surprise you every time!", image: UIImage(named: "Jarvis"), buttonText: "CONTINUE") { () -> Void in
-      self.handleOnboardingCompletion()
+      self.handleOnboardingIntroCompletion()
     }
     fifthPage.titleLabel.font = avenirNextRegular24
     fifthPage.bodyLabel.font = avenirNextRegular24
     fifthPage.actionButton.titleLabel?.font = avenirNextBold24
-    fifthPage.underTitlePadding = 40.0
+    fifthPage.actionButton.titleLabel?.textColor = UIColor(red:0.96, green:0.65, blue:0.14, alpha:1.0)
+    fifthPage.underTitlePadding = underTitlePaddingValue
     
     let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "OnboardingBackground"), contents: [firstPage, secondPage, thirdPage, fourthPage, fifthPage])
     onboardingVC.shouldMaskBackground = false
@@ -96,9 +111,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return onboardingVC
   }
   
-  func handleOnboardingCompletion() {
-//    NSUserDefaults.standardUserDefaults().setBool(true, forKey: userHasOnboardedKey)
-    setupNormalRootViewController()
+  func handleOnboardingIntroCompletion() {
+    let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+    if let vc = storyboard.instantiateViewControllerWithIdentifier("OnboardingGetNameViewController") as? OnboardingGetNameViewController {
+      self.window?.rootViewController = vc
+      _ = AWS.sharedInstance
+      _ = Logging.sharedInstance
+      CSToastManager.setTapToDismissEnabled(true)
+      CSToastManager.setQueueEnabled(true)
+    }
   }
 
 

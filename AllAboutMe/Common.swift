@@ -10,10 +10,12 @@ import Foundation
 
 /* Settings Keys */
 let userHasOnboardedKey = "userHasOnboardedKey"
+let nameKey = "nameKey"
 
 /* Notifications */
 let contextOverrideTimerExpiredNotification = "overrideTimerExpired"
 let profileIdReceivedNotification = "profileIdReceivedNotification"
+let onboardingCompleteNotification = "onboardingCompleteNotification"
 
 /* Server Endpoints */
 let postUserInfoInitEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/users"

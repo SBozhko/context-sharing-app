@@ -11,6 +11,9 @@
 		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
 		381001461D56315200D43A00 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 381001431D56313F00D43A00 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381001481D590C5E00D43A00 /* Onboarding.storyboard */; };
+		381FEA7D1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */; };
+		381FEA7F1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */; };
+		381FEA811D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
@@ -61,6 +64,9 @@
 		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		381001431D56313F00D43A00 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		381001481D590C5E00D43A00 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGetNameViewController.swift; sourceTree = "<group>"; };
+		381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsViewController.swift; sourceTree = "<group>"; };
+		381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionViewController.swift; sourceTree = "<group>"; };
 		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
@@ -154,6 +160,9 @@
 				385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */,
 				385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */,
 				38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */,
+				381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */,
+				381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */,
+				381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */,
 			);
 			name = "Views & View Controllers";
 			sourceTree = "<group>";
@@ -368,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				381FEA7D1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift in Sources */,
 				3853FECB1D3D73CF006B894C /* UIViewController+Ext.swift in Sources */,
 				387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */,
 				380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */,
@@ -375,12 +385,14 @@
 				38C1635C1D50AA9700561A50 /* RecommendedItem.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
+				381FEA811D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift in Sources */,
 				387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */,
 				3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */,
 				38B8A15C1D51601400F82A2B /* RecommendedMusicTableViewCell.swift in Sources */,
 				385D024F1D4FBDDC007C1C4A /* RecommendationWebViewController.swift in Sources */,
 				387DE6A61D255092006543D4 /* Logging.swift in Sources */,
 				385D024B1D4FA186007C1C4A /* RecommendationsViewController.swift in Sources */,
+				381FEA7F1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift in Sources */,
 				387DE6A51D255092006543D4 /* AWS.swift in Sources */,
 				38DAE3601D2B3ECC005F26B0 /* ContextPopoverViewController.swift in Sources */,
 				3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */,
