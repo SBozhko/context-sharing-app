@@ -17,7 +17,7 @@ class OnboardingGetNameViewController: UIViewController {
     super.viewDidLoad()
     nameEnteredButton.hidden = true
     nameTextField.attributedPlaceholder = NSAttributedString(string:"What's your name?",
-                                                             attributes: [NSFontAttributeName : UIFont(name: "AvenirNext-Regular", size: 10.0)!,
+                                                             attributes: [NSFontAttributeName : UIFont(name: "AvenirNext-Regular", size: 14.0)!,
                                                                           NSForegroundColorAttributeName: UIColor.whiteColor()])
   }
 
@@ -44,11 +44,4 @@ extension OnboardingGetNameViewController : UITextFieldDelegate {
     }
     return true
   }
-  
-  func textFieldDidBeginEditing(textField: UITextField) {
-    nameTextField.placeholder = nil
-  }
-  
-  func textFieldDidEndEditing(textField: UITextField) {
-    nameTextField.attributedPlaceholder = NSAttributedString(string:"What's your name?", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])  }
 }
