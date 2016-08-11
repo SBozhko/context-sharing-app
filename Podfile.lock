@@ -1,20 +1,21 @@
 PODS:
   - Alamofire (3.4.1)
-  - AWSCognito (2.4.5):
-    - AWSCore (= 2.4.5)
-  - AWSCore (2.4.5)
-  - AWSS3 (2.4.5):
-    - AWSCore (= 2.4.5)
+  - AWSCognito (2.4.7):
+    - AWSCore (= 2.4.7)
+  - AWSCore (2.4.7)
+  - AWSS3 (2.4.7):
+    - AWSCore (= 2.4.7)
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
-  - Crashlytics (3.7.2):
+  - Crashlytics (3.7.3):
     - Fabric (~> 1.6.3)
   - DeviceGuru (1.3.7)
-  - Fabric (1.6.7)
-  - Mixpanel (3.0.0):
-    - Mixpanel/Mixpanel (= 3.0.0)
-  - Mixpanel/Mixpanel (3.0.0)
+  - Fabric (1.6.8)
+  - Mixpanel (3.0.2):
+    - Mixpanel/Mixpanel (= 3.0.2)
+  - Mixpanel/Mixpanel (3.0.2)
+  - Onboard (2.2.1)
   - RxSwift (2.6.0)
   - SwiftyJSON (2.3.2)
   - Toast (3.0)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - DeviceGuru
   - Fabric
   - Mixpanel
+  - Onboard
   - RxSwift (~> 2.0)
   - SwiftyJSON
   - Toast (~> 3.0)
@@ -37,14 +39,15 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  AWSCognito: 96e1762404831ffb87f67c87a5ee68fde543bb69
-  AWSCore: 2f356385bcea9b81ea47f9be0228c71697d9597d
-  AWSS3: 8f73b439f12c4aaaea39fbec87f67a1f1e15bd42
+  AWSCognito: 6aa404f15d1eb2b4b51f45322a409257b3248e79
+  AWSCore: 9a729a3c0050a51ece3547d546c327acdac7838a
+  AWSS3: 0f3c8ed11e04cd78cf86ed396c06330ab142db7a
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
-  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
+  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
   DeviceGuru: f847629dc0da0145ba48a9fc314e613ca4aa9caf
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  Mixpanel: ac92056ee35a961362513ba11049e67cffcaa1f1
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  Mixpanel: 0e4f1f9a2ac612b589b2894830038418c2587428
+  Onboard: 75731d0b265f5b5bab0b4bceff1778d7f6e839af
   RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toast: 32c59229abfcf41850162b83bb9259dc84372473

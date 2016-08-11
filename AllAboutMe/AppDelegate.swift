@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                        object: nil)
       self.window?.rootViewController = generateOnboardingViewController()
     }
-    application.statusBarStyle = UIStatusBarStyle.LightContent
     self.window?.makeKeyAndVisible()
     return true
   }

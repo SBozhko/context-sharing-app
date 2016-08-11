@@ -39,6 +39,11 @@ class OnboardingPermissionsViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  // make the status bar white (light content)
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
+  }
     
   @IBAction func useLocationButtonPressed(sender: AnyObject) {
 //    let locationManager = CLLocationManager()

@@ -25,6 +25,11 @@ class OnboardingGetNameViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  // make the status bar white (light content)
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
+  }
     
   @IBAction func nameEnteredButtonPressed(sender: AnyObject) {
     /* Get name from text field and save it */
@@ -43,5 +48,10 @@ extension OnboardingGetNameViewController : UITextFieldDelegate {
       nameEnteredButton.hidden = true
     }
     return true
+  }
+  
+  func textFieldShouldReturn(textField : UITextField) -> Bool {
+    self.view.endEditing(true)
+    return false
   }
 }

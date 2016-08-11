@@ -19,20 +19,15 @@ class OnboardingCompletionViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  // make the status bar white (light content)
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
+  }
     
   @IBAction func onboardingCompleteButtonPressed(sender: AnyObject) {
-//    NSNotificationCenter.defaultCenter().postNotificationName(onboardingCompleteNotification, object: nil)
+    NSNotificationCenter.defaultCenter().postNotificationName(onboardingCompleteNotification, object: nil)
     performSegueWithIdentifier("onboardingCompleteSegue", sender: self)
+//    self.dismissViewControllerAnimated(true, completion: nil)
   }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
