@@ -30,6 +30,12 @@ class Credentials {
     }
   }
   
+  static var userHasOnboarded : Bool {
+    get {
+      return NSUserDefaults.standardUserDefaults().boolForKey(userHasOnboardedKey)
+    }
+  }
+  
   init() {
     if let _name = NSUserDefaults.standardUserDefaults().objectForKey(nameKey) as? String {
       name = _name

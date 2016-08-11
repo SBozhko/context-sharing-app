@@ -27,8 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Mixpanel.sharedInstance().identify("\(VendorInfo.getId())")
     Mixpanel.sharedInstance().track("AppLaunched")
     self.window?.tintColor = globalTint
-    let userHasOnboarded = NSUserDefaults.standardUserDefaults().boolForKey(userHasOnboardedKey)
-    if userHasOnboarded {
+    if Credentials.userHasOnboarded {
       setupNormalRootViewController()
     } else {
       NSNotificationCenter.defaultCenter().addObserver(self,
@@ -65,35 +64,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let avenirNextRegular24 = UIFont(name: "AvenirNext-Regular", size: 16.0)
     let avenirNextBold24 = UIFont(name: "AvenirNext-Bold", size: 16.0)
     let avenirNextRegular36 = UIFont(name: "AvenirNext-Regular", size: 16.0)
-    let underTitlePaddingValue : CGFloat = 40.0
+    let underTitlePaddingValue : CGFloat = 60.0
     
-    let firstPage = OnboardingContentViewController(title: "Hi there!\nI'm Jarvis.", body: "I can help you escape of your daily routine and recapture the serendipity in your life.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
+    let firstPage = OnboardingContentViewController(title: "Recapture the serendipity \nin your life.", body: "", image: UIImage(named: "Icon"), buttonText: "") { () -> Void in
       // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
     }
     firstPage.titleLabel.font = avenirNextRegular36
     firstPage.bodyLabel.font = avenirNextRegular24
     firstPage.underTitlePadding = underTitlePaddingValue
     
-    let secondPage = OnboardingContentViewController(title: "Want to know how you spend your time every day?", body: "I help monitor your daily activities and send fun and timely bits of information.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
+    let secondPage = OnboardingContentViewController(title: "", body: "I can show how you spend your time", image: UIImage(named: "OnboardAnalytics"), buttonText: "") { () -> Void in
       // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
     }
     secondPage.titleLabel.font = avenirNextRegular24
     secondPage.bodyLabel.font = avenirNextRegular24
     secondPage.underTitlePadding = underTitlePaddingValue
     
-    let thirdPage = OnboardingContentViewController(title: "Discover a song to help you workout?", body: "No problem.", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
+    let thirdPage = OnboardingContentViewController(title: "", body: "Boost your workout with a new song", image: UIImage(named: "OnboardMusic"), buttonText: "") { () -> Void in
       // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
     }
     thirdPage.titleLabel.font = avenirNextRegular24
     thirdPage.bodyLabel.font = avenirNextRegular24
     thirdPage.underTitlePadding = underTitlePaddingValue
     
-    let fourthPage = OnboardingContentViewController(title: "Thinking of dinner while working late at the office?", body: "How about a meal deal?", image: UIImage(named: "Jarvis"), buttonText: "") { () -> Void in
+    let fourthPage = OnboardingContentViewController(title: "Hungry while working late?", body: "Based on your current situation, I will surprise you every time!", image: UIImage(named: "OnboardDinner"), buttonText: "CONTINUE") { () -> Void in
       // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
+      self.handleOnboardingIntroCompletion()
     }
     fourthPage.titleLabel.font = avenirNextRegular24
     fourthPage.bodyLabel.font = avenirNextRegular24
     fourthPage.underTitlePadding = underTitlePaddingValue
+    fourthPage.actionButton.titleLabel?.font = avenirNextBold24
+    fourthPage.actionButton.titleLabel?.textColor = globalTint
     
     let fifthPage = OnboardingContentViewController(title: "Or maybe a funny video to brighten your day?", body: "I understand your current situation to surprise you every time!", image: UIImage(named: "Jarvis"), buttonText: "CONTINUE") { () -> Void in
       self.handleOnboardingIntroCompletion()
@@ -104,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fifthPage.actionButton.titleLabel?.textColor = globalTint
     fifthPage.underTitlePadding = underTitlePaddingValue
     
-    let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "OnboardingBackground"), contents: [firstPage, secondPage, thirdPage, fourthPage, fifthPage])
+    let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "OnboardingBackground"), contents: [firstPage, secondPage, thirdPage, fourthPage])
     onboardingVC.shouldMaskBackground = false
     onboardingVC.shouldFadeTransitions = true
     onboardingVC.fadePageControlOnLastPage = true
