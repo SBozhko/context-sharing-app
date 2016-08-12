@@ -13,7 +13,6 @@
 		381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381001481D590C5E00D43A00 /* Onboarding.storyboard */; };
 		381FEA7D1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */; };
 		381FEA7F1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */; };
-		381FEA811D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */; };
 		381FEA831D5B5D1000FBB7CF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */; };
 		381FEA851D5BFBB900FBB7CF /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */; };
 		381FEA871D5BFE4500FBB7CF /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */; };
@@ -70,7 +69,6 @@
 		381001481D590C5E00D43A00 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGetNameViewController.swift; sourceTree = "<group>"; };
 		381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsViewController.swift; sourceTree = "<group>"; };
-		381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionViewController.swift; sourceTree = "<group>"; };
 		381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */,
 				381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */,
 				381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */,
-				381FEA801D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift */,
 				381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */,
 				381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */,
 				381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */,
@@ -398,7 +395,6 @@
 				38C1635C1D50AA9700561A50 /* RecommendedItem.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
-				381FEA811D5AA5BA00FBB7CF /* OnboardingCompletionViewController.swift in Sources */,
 				381FEA871D5BFE4500FBB7CF /* WalkthroughViewController.swift in Sources */,
 				381FEA851D5BFBB900FBB7CF /* OnboardPageViewController.swift in Sources */,
 				387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */,
