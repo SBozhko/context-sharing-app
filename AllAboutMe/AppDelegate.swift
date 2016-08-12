@@ -11,7 +11,6 @@ import Mixpanel
 import Fabric
 import Crashlytics
 import Toast
-import Onboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,10 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       setupNormalRootViewController()
     } else {
       NSNotificationCenter.defaultCenter().addObserver(self,
-                                                       selector: #selector((UIApplication.sharedApplication().delegate as? AppDelegate)!.setupNormalRootViewController),
+                                                       selector: #selector((UIApplication.sharedApplication().delegate as? AppDelegate)!.handleOnboardingCompletion),
                                                        name: onboardingCompleteNotification,
                                                        object: nil)
-      self.window?.rootViewController = OnboardPageViewController()
+      self.window?.rootViewController = OnboardPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
     }
     self.window?.makeKeyAndVisible()
     return true
@@ -58,72 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       })
     }
   }
-  
-  func generateOnboardingViewController() -> OnboardingViewController {
-    let avenirNextRegular24 = UIFont(name: "AvenirNext-Regular", size: 16.0)
-    let avenirNextBold24 = UIFont(name: "AvenirNext-Bold", size: 16.0)
-    let avenirNextRegular36 = UIFont(name: "AvenirNext-Regular", size: 16.0)
-    let underTitlePaddingValue : CGFloat = 60.0
-    
-    let firstPage = OnboardingContentViewController(title: "Recapture the serendipity \nin your life.", body: "", image: UIImage(named: "Icon"), buttonText: "") { () -> Void in
-      // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
-    }
-    firstPage.titleLabel.font = avenirNextRegular36
-    firstPage.bodyLabel.font = avenirNextRegular24
-    firstPage.underTitlePadding = underTitlePaddingValue
-    
-    let secondPage = OnboardingContentViewController(title: "", body: "I can show how you spend your time", image: UIImage(named: "OnboardAnalytics"), buttonText: "") { () -> Void in
-      // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
-    }
-    secondPage.titleLabel.font = avenirNextRegular24
-    secondPage.bodyLabel.font = avenirNextRegular24
-    secondPage.underTitlePadding = underTitlePaddingValue
-    
-    let thirdPage = OnboardingContentViewController(title: "", body: "Boost your workout with a new song", image: UIImage(named: "OnboardMusic"), buttonText: "") { () -> Void in
-      // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
-    }
-    thirdPage.titleLabel.font = avenirNextRegular24
-    thirdPage.bodyLabel.font = avenirNextRegular24
-    thirdPage.underTitlePadding = underTitlePaddingValue
-    
-    let fourthPage = OnboardingContentViewController(title: "Hungry while working late?", body: "Based on your current situation, I will surprise you every time!", image: UIImage(named: "OnboardDinner"), buttonText: "CONTINUE") { () -> Void in
-      // do something here when users press the button, like ask for location services permissions, register for push notifications, connect to social media, or finish the onboarding process
-      self.handleOnboardingIntroCompletion()
-    }
-    fourthPage.titleLabel.font = avenirNextRegular24
-    fourthPage.bodyLabel.font = avenirNextRegular24
-    fourthPage.underTitlePadding = underTitlePaddingValue
-    fourthPage.actionButton.titleLabel?.font = avenirNextBold24
-    fourthPage.actionButton.titleLabel?.textColor = globalTint
-    
-    let fifthPage = OnboardingContentViewController(title: "Or maybe a funny video to brighten your day?", body: "I understand your current situation to surprise you every time!", image: UIImage(named: "Jarvis"), buttonText: "CONTINUE") { () -> Void in
-      self.handleOnboardingIntroCompletion()
-    }
-    fifthPage.titleLabel.font = avenirNextRegular24
-    fifthPage.bodyLabel.font = avenirNextRegular24
-    fifthPage.actionButton.titleLabel?.font = avenirNextBold24
-    fifthPage.actionButton.titleLabel?.textColor = globalTint
-    fifthPage.underTitlePadding = underTitlePaddingValue
-    
-    let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "OnboardingBackground"), contents: [firstPage, secondPage, thirdPage, fourthPage])
-    onboardingVC.shouldMaskBackground = false
-    onboardingVC.shouldFadeTransitions = true
-    onboardingVC.fadePageControlOnLastPage = true
-    onboardingVC.fadeSkipButtonOnLastPage = true
-    return onboardingVC
-  }
-  
-  func handleOnboardingIntroCompletion() {
-    let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-    if let vc = storyboard.instantiateViewControllerWithIdentifier("OnboardingGetNameViewController") as? OnboardingGetNameViewController {
-      self.window?.rootViewController = vc
-      _ = AWS.sharedInstance
-      _ = Logging.sharedInstance
-      CSToastManager.setTapToDismissEnabled(true)
-      CSToastManager.setQueueEnabled(true)
-    }
-  }
-
 
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

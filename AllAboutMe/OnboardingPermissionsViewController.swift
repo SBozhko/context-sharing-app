@@ -34,13 +34,12 @@ class OnboardingPermissionsViewController: UIViewController {
     super.viewDidLoad()
     
     // If permissions have not yet been granted.
-    pscope.addPermission(LocationAlwaysPermission(), message: "I use your location info to you show you suprising contextual insights and content.")
-    pscope.addPermission(MotionPermission(), message: "I use your activity info to automatically visualize your daily activities.")
+    pscope.addPermission(LocationAlwaysPermission(), message: "I use location info to show you suprising contextual insights and content.")
+    pscope.addPermission(MotionPermission(), message: "I use activity info to automatically visualize your daily activities.")
     pscope.headerLabel.text = "Hey \(Credentials.name!)!"
-    pscope.bodyLabel.text = "I need some permissions to get started."
     pscope.buttonFont = UIFont(name: "AvenirNext-Regular", size: 14.0)!
     pscope.labelFont = pscope.buttonFont
-    self.messageLabel.text = "Nice to meet you \(Credentials.name!)! I need some device permissions from you."
+    self.messageLabel.text = "Nice to meet you \(Credentials.name!)! I need some device permissions before we get started."
     self.buttonLabel.text = "Give permissions"
   }
 
@@ -63,7 +62,7 @@ class OnboardingPermissionsViewController: UIViewController {
         })
         if self.permissionsGranted {
           dispatch_async(dispatch_get_main_queue(), {
-            self.buttonLabel.text = "Let's do this!"
+            self.buttonLabel.text = "Let's start!"
             self.imageView.image = UIImage(named: "cheers")
             self.messageLabel.text = "Thanks \(Credentials.name!) - cheers!"
           })

@@ -44,11 +44,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Onboard.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>PermissionScope.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,22 +77,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>005C9331CFAD366A08593435CDAD09F1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>07F70790880F0B3A28069783CB7DEE83</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3B41A9B1D49827D58E203AF61D34F608</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6090E89955AF696A806B9C6FFCA6C17C</key>
+		<key>4891FCE391AE2D30D3FF9A55510A76F6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4B36ACE532E5314C1027628A38B842F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7F4B63056397F63F7E1F34AF158685E</key>
+		<key>A5E6D70AFFB264379964C038DBD11E96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF953C4C94EA308761259FD66C2D07F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>BAA396C4D689A02A15029B49E076FAF0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BB65FBA3C020CEBCC293DD0576F4AE85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,12 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7FF48F3092783E4E42B336F0DEF2D1A</key>
+		<key>D8BE0AD446F8A48DB1B9C574D840F012</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8BE0AD446F8A48DB1B9C574D840F012</key>
+		<key>FB7530C3C288D22F75E80F35FD2A597B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
