@@ -13,22 +13,7 @@ import NEContextSDK
 
 class OnboardingPermissionsViewController: UIViewController {
   @IBOutlet weak var greetingLabel: UILabel!
-  @IBOutlet weak var useLocationButton: UIButton!
-  @IBOutlet weak var useActivityButton: UIButton!
   let log = Logger(loggerName: String(OnboardingPermissionsViewController))
-
-  var sensorPermissionsGranted : Bool {
-    get {
-      if let
-        _locationBackgroundColor = useLocationButton.backgroundColor,
-        _activityBackgroundColor = useActivityButton.backgroundColor {
-        if _locationBackgroundColor == UIColor.greenColor() && _activityBackgroundColor == UIColor.greenColor() {
-          return true
-        }
-      }
-      return false
-    }
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,32 +31,8 @@ class OnboardingPermissionsViewController: UIViewController {
   }
     
   @IBAction func useLocationButtonPressed(sender: AnyObject) {
-//    let locationManager = CLLocationManager()
-//    locationManager.requestAlwaysAuthorization()
-//    if sensorPermissionsGranted {
-//      performSegueWithIdentifier("finishIntroSegue", sender: self)
-//    }
-    performSegueWithIdentifier("finishIntroSegue", sender: self)
-  }
-    
-  @IBAction func useActivityButtonPressed(sender: AnyObject) {
-//    let motionActivityManager = CMMotionActivityManager()
-//    if CMMotionActivityManager.isActivityAvailable() {
-//      motionActivityManager.startActivityUpdatesToQueue(NSOperationQueue.mainQueue(), withHandler: { (activity) in
-//        motionActivityManager.stopActivityUpdates()
-//        dispatch_async(dispatch_get_main_queue(), {
-//          self.useActivityButton.backgroundColor = UIColor.greenColor()
-//          if self.sensorPermissionsGranted {
-//            self.performSegueWithIdentifier("finishIntroSegue", sender: self)
-//          }
-//        })
-//      })
-//    }
-//
-//    if sensorPermissionsGranted {
-//      performSegueWithIdentifier("finishIntroSegue", sender: self)
-//    }
-    performSegueWithIdentifier("finishIntroSegue", sender: self)
+    let locationManager = CLLocationManager()
+    locationManager.requestAlwaysAuthorization()
   }
 }
 
@@ -81,11 +42,9 @@ extension OnboardingPermissionsViewController : CLLocationManagerDelegate {
     log.info("Received location authorization status: \(status.rawValue)")
     switch status {
     case .AuthorizedAlways, .AuthorizedWhenInUse:
-      dispatch_async(dispatch_get_main_queue(), {
-        self.useLocationButton.backgroundColor = UIColor.greenColor()
-      })
+      performSegueWithIdentifier("finishIntroSegue", sender: self)
     default:
-      let alertController = UIAlertController(title: "Limited functionality", message: "We use background location to show you interesting insights based on your day-to-day life. Without it, the app's functionality will be limited.", preferredStyle: UIAlertControllerStyle.Alert)
+      let alertController = UIAlertController(title: "Limited functionality", message: "Without location permissions, the app's functionality will be limited.", preferredStyle: UIAlertControllerStyle.Alert)
       let doneAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil)
       alertController.addAction(doneAction)
       self.presentViewController(alertController, animated: true, completion: nil)

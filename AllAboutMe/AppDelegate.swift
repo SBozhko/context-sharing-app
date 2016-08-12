@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                        selector: #selector((UIApplication.sharedApplication().delegate as? AppDelegate)!.setupNormalRootViewController),
                                                        name: onboardingCompleteNotification,
                                                        object: nil)
-      self.window?.rootViewController = generateOnboardingViewController()
+      self.window?.rootViewController = OnboardPageViewController()
     }
     self.window?.makeKeyAndVisible()
     return true

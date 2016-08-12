@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PermissionScope.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Jarvis.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,22 +82,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06449499EF3B42914D49EB36B68291BB</key>
+		<key>005C9331CFAD366A08593435CDAD09F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>123EC2DE0C8E0EF3C37163294D7FFABB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>160F9D65FAEC162A791B487AFAD2186D</key>
+		<key>07F70790880F0B3A28069783CB7DEE83</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3B41A9B1D49827D58E203AF61D34F608</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6090E89955AF696A806B9C6FFCA6C17C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,17 +122,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7CFF4D951ECB816AC9883F18C4505FB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B9F737401094FCFF654AE0D07A8BC600</key>
+		<key>B7F4B63056397F63F7E1F34AF158685E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>BAA396C4D689A02A15029B49E076FAF0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BB65FBA3C020CEBCC293DD0576F4AE85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C55E46AC6A1E70A6AA25E306AE545375</key>
 		<dict>
 			<key>primary</key>
 			<true/>

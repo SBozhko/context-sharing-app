@@ -9,9 +9,11 @@
 import UIKit
 
 class OnboardingCompletionViewController: UIViewController {
+  @IBOutlet weak var thanksLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    thanksLabel.text = "Thanks for that \(Credentials.sharedInstance.name)!"
     // Do any additional setup after loading the view.
   }
 
@@ -27,7 +29,5 @@ class OnboardingCompletionViewController: UIViewController {
     
   @IBAction func onboardingCompleteButtonPressed(sender: AnyObject) {
     NSNotificationCenter.defaultCenter().postNotificationName(onboardingCompleteNotification, object: nil)
-    performSegueWithIdentifier("onboardingCompleteSegue", sender: self)
-//    self.dismissViewControllerAnimated(true, completion: nil)
   }
 }

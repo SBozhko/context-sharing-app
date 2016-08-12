@@ -11,11 +11,11 @@ import UIKit
 class OnboardingGetNameViewController: UIViewController {
 
   @IBOutlet weak var nameTextField: UITextField!
-  @IBOutlet weak var nameEnteredButton: UIButton!
 
+  @IBOutlet weak var nameEnteredView: UIView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    nameEnteredButton.hidden = true
+    nameEnteredView.hidden = true
     nameTextField.attributedPlaceholder = NSAttributedString(string:"What's your name?",
                                                              attributes: [NSFontAttributeName : UIFont(name: "AvenirNext-Regular", size: 14.0)!,
                                                                           NSForegroundColorAttributeName: UIColor.whiteColor()])
@@ -43,9 +43,9 @@ class OnboardingGetNameViewController: UIViewController {
 extension OnboardingGetNameViewController : UITextFieldDelegate {
   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
     if let _text = textField.text {
-      nameEnteredButton.hidden = _text.characters.count <= 0
+      nameEnteredView.hidden = _text.characters.count <= 0
     } else {
-      nameEnteredButton.hidden = true
+      nameEnteredView.hidden = true
     }
     return true
   }

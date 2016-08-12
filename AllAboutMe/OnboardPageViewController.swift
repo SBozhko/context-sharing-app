@@ -10,8 +10,8 @@ import UIKit
 
 class OnboardPageViewController : UIPageViewController {
   // Some hard-coded data for our walkthrough screens
-  var pageHeaders = ["Recapture the serendipity \nin your life.", "I can show how you spend your time", "Boost your workout with a new song", "Hungry while working late?"]
-  var pageImages = ["Icon", "OnboardAnalytics", "OnboardMusic", "OnboardDinner"]
+  var pageHeaders = ["Recapture the serendipity in your life through the sensors in your smartphone", "Jarvis helps visualize how you spend your time -- automatically.", "Boosts your workout with a new song", "Hungry while working late? Jarvis might just have a deal for you. And lots more ..."]
+  var pageImages = ["Jarvis", "OnboardAnalytics", "OnboardMusic", "OnboardDinner"]
 //  var pageDescriptions = ["Learn to design the world's most beautiful iOS apps without having to hire a designer.", "Validate your app idea by creating a prototype before implementation", "Delight your users with stunning animation and transition", "Connect people together!"]
   
   // make the status bar white (light content)
@@ -44,8 +44,9 @@ class OnboardPageViewController : UIPageViewController {
       return nil
     }
     
+    let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
     // create a new walkthrough view controller and assing appropriate date
-    if let walkthroughViewController = storyboard?.instantiateViewControllerWithIdentifier("WalkthroughViewController") as? WalkthroughViewController {
+    if let walkthroughViewController = storyboard.instantiateViewControllerWithIdentifier("WalkthroughViewController") as? WalkthroughViewController {
       walkthroughViewController.imageName = pageImages[index]
       walkthroughViewController.headerText = pageHeaders[index]
       walkthroughViewController.index = index
@@ -59,7 +60,7 @@ class OnboardPageViewController : UIPageViewController {
 
 extension OnboardPageViewController : UIPageViewControllerDataSource {
   func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-    var index = (viewController as! WalkthroughViewController).index + 1
+    var index = (viewController as! WalkthroughViewController).index
     index += 1
     return self.viewControllerAtIndex(index)
   }

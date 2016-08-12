@@ -16,6 +16,7 @@ PODS:
     - Mixpanel/Mixpanel (= 3.0.2)
   - Mixpanel/Mixpanel (3.0.2)
   - Onboard (2.2.1)
+  - PermissionScope (1.0.2)
   - RxSwift (2.6.0)
   - SwiftyJSON (2.3.2)
   - Toast (3.0)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - Fabric
   - Mixpanel
   - Onboard
+  - PermissionScope
   - RxSwift (~> 2.0)
   - SwiftyJSON
   - Toast (~> 3.0)
@@ -48,6 +50,7 @@ SPEC CHECKSUMS:
   Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   Mixpanel: 0e4f1f9a2ac612b589b2894830038418c2587428
   Onboard: 75731d0b265f5b5bab0b4bceff1778d7f6e839af
+  PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
   RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
