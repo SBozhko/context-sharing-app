@@ -21,7 +21,6 @@ class Credentials {
   }
   let log = Logger(loggerName: String(Credentials))
   var profileId : Int?
-  var name = ""
   var isDevelopmentDevice : Bool {
     get {
       let devDevice = developmentDevices.contains(ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString)
@@ -36,36 +35,37 @@ class Credentials {
     }
   }
   
-  init() {
-    if let _name = NSUserDefaults.standardUserDefaults().objectForKey(nameKey) as? String {
-      name = _name
+  static var name : String? {
+    get {
+      return NSUserDefaults.standardUserDefaults().stringForKey(nameKey)
     }
-    
+  }
+  
+  init() {
     if let
       _profileId = NSUserDefaults.standardUserDefaults().objectForKey("profileId") as? Int {
       profileId = _profileId
-      self.log.info("Using profile id: \(_profileId), name: \(name)")
+      self.log.info("Using profile id: \(_profileId)")
     } else {
       let logTimeStampFormatter = NSDateFormatter()
       let logTimeStampDateFormatString = "ZZ"
       logTimeStampFormatter.dateFormat = logTimeStampDateFormatString
       let timestamp = String(logTimeStampFormatter.stringFromDate(NSDate()))
       let parameters : [String : AnyObject]
-      if name.isEmpty {
+      if let _name = Credentials.name {
         parameters = [
           "userId": VendorInfo.getId(),
           "advertisingId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
           "vendorId": VendorInfo.getId(),
-          "timezone": "UTC\(timestamp)"
+          "timezone": "UTC\(timestamp)",
+          "name" : _name
         ]
       } else {
         parameters = [
           "userId": VendorInfo.getId(),
           "advertisingId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
           "vendorId": VendorInfo.getId(),
-          "timezone": "UTC\(timestamp)",
-          "name" : name
-        ]
+          "timezone": "UTC\(timestamp)"        ]
       }
       
       Alamofire.request(.POST, postUserInfoInitEndpoint, parameters: parameters, encoding: .JSON)

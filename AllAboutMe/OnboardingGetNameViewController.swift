@@ -16,7 +16,7 @@ class OnboardingGetNameViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     nameEnteredView.hidden = true
-    nameTextField.attributedPlaceholder = NSAttributedString(string:"What's your name?",
+    nameTextField.attributedPlaceholder = NSAttributedString(string:"What should I call you?",
                                                              attributes: [NSFontAttributeName : UIFont(name: "AvenirNext-Regular", size: 14.0)!,
                                                                           NSForegroundColorAttributeName: UIColor.whiteColor()])
   }

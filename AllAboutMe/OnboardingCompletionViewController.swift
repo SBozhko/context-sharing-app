@@ -13,7 +13,7 @@ class OnboardingCompletionViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    thanksLabel.text = "Thanks for that \(Credentials.sharedInstance.name)!"
+    thanksLabel.text = "Thanks for that \(Credentials.name)!"
     // Do any additional setup after loading the view.
   }
 

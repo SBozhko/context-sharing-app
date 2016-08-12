@@ -7,17 +7,41 @@
 //
 
 import UIKit
-import CoreLocation
-import CoreMotion
-import NEContextSDK
+import PermissionScope
 
 class OnboardingPermissionsViewController: UIViewController {
-  @IBOutlet weak var greetingLabel: UILabel!
+  @IBOutlet weak internal var imageView: UIImageView!
+  @IBOutlet weak var buttonLabel: UILabel!
+  @IBOutlet weak var messageLabel: UILabel!
   let log = Logger(loggerName: String(OnboardingPermissionsViewController))
+  let pscope = PermissionScope()
   
+  var permissionsGranted : Bool {
+    get {
+      if let
+        locationPermission = self.permissions[PermissionType.LocationAlways],
+        motionPermission = self.permissions[PermissionType.Motion] {
+        if locationPermission == .Authorized && motionPermission == .Authorized {
+          return true
+        }
+      }
+      return false
+    }
+  }
+  var permissions : [PermissionType : PermissionStatus] = [PermissionType.LocationAlways : PermissionStatus.Unknown, PermissionType.Motion : PermissionStatus.Unknown]
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    greetingLabel.text = "Nice to meet you \(Credentials.sharedInstance.name)!"
+    
+    // If permissions have not yet been granted.
+    pscope.addPermission(LocationAlwaysPermission(), message: "I use your location info to you show you suprising contextual insights and content.")
+    pscope.addPermission(MotionPermission(), message: "I use your activity info to automatically visualize your daily activities.")
+    pscope.headerLabel.text = "Hey \(Credentials.name!)!"
+    pscope.bodyLabel.text = "I need some permissions to get started."
+    pscope.buttonFont = UIFont(name: "AvenirNext-Regular", size: 14.0)!
+    pscope.labelFont = pscope.buttonFont
+    self.messageLabel.text = "Nice to meet you \(Credentials.name!)! I need some device permissions from you."
+    self.buttonLabel.text = "Give permissions"
   }
 
   override func didReceiveMemoryWarning() {
@@ -29,26 +53,31 @@ class OnboardingPermissionsViewController: UIViewController {
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return .LightContent
   }
-    
-  @IBAction func useLocationButtonPressed(sender: AnyObject) {
-    let locationManager = CLLocationManager()
-    locationManager.requestAlwaysAuthorization()
+  
+  func showPermissionsDialog() {
+    // Show dialog with callbacks
+    pscope.show({ finished, results in
+      self.log.info("Permissions: \(results)")
+        results.forEach({ (result) in
+          self.permissions[result.type] = result.status
+        })
+        if self.permissionsGranted {
+          dispatch_async(dispatch_get_main_queue(), {
+            self.buttonLabel.text = "Let's do this!"
+            self.imageView.image = UIImage(named: "cheers")
+            self.messageLabel.text = "Thanks \(Credentials.name!) - cheers!"
+          })
+        }
+      }, cancelled: { (results) -> Void in
+        print("thing was cancelled")
+    })
   }
-}
-
-extension OnboardingPermissionsViewController : CLLocationManagerDelegate {
-  func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-    // permission changed, do something with the buffer of questions asked
-    log.info("Received location authorization status: \(status.rawValue)")
-    switch status {
-    case .AuthorizedAlways, .AuthorizedWhenInUse:
-      performSegueWithIdentifier("finishIntroSegue", sender: self)
-    default:
-      let alertController = UIAlertController(title: "Limited functionality", message: "Without location permissions, the app's functionality will be limited.", preferredStyle: UIAlertControllerStyle.Alert)
-      let doneAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil)
-      alertController.addAction(doneAction)
-      self.presentViewController(alertController, animated: true, completion: nil)
-      break
+    
+  @IBAction func introCompletionButtonPressed(sender: AnyObject) {
+    if permissionsGranted {
+      NSNotificationCenter.defaultCenter().postNotificationName(onboardingCompleteNotification, object: nil)
+    } else {
+      showPermissionsDialog()
     }
   }
 }

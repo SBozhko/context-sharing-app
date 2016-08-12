@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func setupNormalRootViewController() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    if let vc = storyboard.instantiateViewControllerWithIdentifier("MeViewController") as? MeViewController {
+    if let vc = storyboard.instantiateViewControllerWithIdentifier("MainTabBarController") as? MainTabBarController {
       self.window?.rootViewController = vc
       _ = AWS.sharedInstance
       _ = Logging.sharedInstance
