@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func handleOnboardingCompletion() {
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: userHasOnboardedKey)
-    setupNormalRootViewController()
+    setupDashboardViewController()
   }
 
   func setupDashboardViewController() {

@@ -42,7 +42,7 @@ class Recommendations {
   
   private func populateRecommendedItemsList(json : JSON) {
     let orderedList = json["order"]
-    print(orderedList)
+    
     var musicItemList : [Int : RecommendedItem] = [:]
     if json[ItemType.Music.rawValue].count > 0 {
       musicItemList = _populateRecommendedItemsList(ItemType.Music, json: json[ItemType.Music.rawValue])
