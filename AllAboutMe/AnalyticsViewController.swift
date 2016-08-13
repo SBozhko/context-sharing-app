@@ -1,5 +1,5 @@
 //
-//  HistoryViewController.swift
+//  AnalyticsViewController.swift
 //  Jarvis
 //
 //  Created by Abhishek Sen on 6/30/16.
@@ -12,7 +12,7 @@ import NEContextSDK
 import Alamofire
 import SwiftyJSON
 
-class HistoryViewController: UIViewController {
+class AnalyticsViewController: UIViewController {
   
   var plotsToShow = [NEContextGroup.Situation, NEContextGroup.Place, NEContextGroup.Activity, NEContextGroup.IndoorOutdoor]
   let reuseIdentifier = "Cell"
@@ -23,13 +23,13 @@ class HistoryViewController: UIViewController {
   }
 }
 
-extension HistoryViewController : UIPopoverPresentationControllerDelegate {
+extension AnalyticsViewController : UIPopoverPresentationControllerDelegate {
   func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
     return UIModalPresentationStyle.OverFullScreen
   }
 }
 
-extension HistoryViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+extension AnalyticsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     let contextGroup = plotsToShow[indexPath.row]
     let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -43,25 +43,6 @@
             </objects>
             <point key="canvasLocation" x="233" y="652"/>
         </scene>
-        <!--Analytics-->
-        <scene sceneID="h7C-1W-iU4">
-            <objects>
-                <viewController id="u0u-mV-sPo" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4a9-tL-6SZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="jhD-EE-OPp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="drf-In-yUY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Analytics" image="history" id="3GK-4G-GiD"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YFd-2M-orp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1229" y="-104"/>
-        </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="Sm9-BT-N1Z">
             <objects>
@@ -271,6 +252,16 @@
             </objects>
             <point key="canvasLocation" x="811.5" y="-1158"/>
         </scene>
+        <!--AnalyticsViewController-->
+        <scene sceneID="egi-eG-gXQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="AnalyticsViewController" id="U4x-sI-xzu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="zUJ-xG-rKH"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gW8-ez-ync" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1086.5" y="-453"/>
+        </scene>
         <!--Artboard Tab Bar Controller-->
         <scene sceneID="51H-Io-26F">
             <objects>
@@ -282,6 +273,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="bBU-NE-x3B" kind="relationship" relationship="viewControllers" id="u2s-V0-Hv6"/>
+                        <segue destination="U4x-sI-xzu" kind="relationship" relationship="viewControllers" id="iDj-Zw-dSh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXZ-SS-Aq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -351,7 +343,6 @@
         <image name="cloudy" width="60" height="60"/>
         <image name="dashboard" width="30" height="30"/>
         <image name="happy" width="60" height="60"/>
-        <image name="history" width="30" height="30"/>
         <image name="lunch" width="60" height="60"/>
         <image name="outdoor" width="60" height="60"/>
         <image name="park" width="60" height="60"/>

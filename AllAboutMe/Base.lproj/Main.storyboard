@@ -603,7 +603,7 @@
         <!--Analytics-->
         <scene sceneID="C4V-9a-ABc">
             <objects>
-                <viewController id="Ez6-Ej-iAV" customClass="HistoryViewController" customModule="Jarvis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ez6-Ej-iAV" customClass="AnalyticsViewController" customModule="Jarvis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m9a-78-o75"/>
                         <viewControllerLayoutGuide type="bottom" id="KUi-ky-9Gw"/>

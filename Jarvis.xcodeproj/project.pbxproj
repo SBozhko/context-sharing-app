@@ -32,7 +32,7 @@
 		387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68B1D2545BD006543D4 /* Main.storyboard */; };
 		387DE68F1D2545BD006543D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68E1D2545BD006543D4 /* Assets.xcassets */; };
 		387DE6921D2545BD006543D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */; };
-		387DE69F1D254722006543D4 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE69E1D254722006543D4 /* HistoryViewController.swift */; };
+		387DE69F1D254722006543D4 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE69E1D254722006543D4 /* AnalyticsViewController.swift */; };
 		387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */; };
 		387DE6A51D255092006543D4 /* AWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A21D255092006543D4 /* AWS.swift */; };
 		387DE6A61D255092006543D4 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6A31D255092006543D4 /* Logging.swift */; };
@@ -95,7 +95,7 @@
 		387DE68E1D2545BD006543D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		387DE6911D2545BD006543D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		387DE6931D2545BD006543D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		387DE69E1D254722006543D4 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		387DE69E1D254722006543D4 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCollectionViewCell.swift; sourceTree = "<group>"; };
 		387DE6A21D255092006543D4 /* AWS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWS.swift; sourceTree = "<group>"; };
 		387DE6A31D255092006543D4 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 			children = (
 				387DE6871D2545BD006543D4 /* MeViewController.swift */,
 				38DAE35F1D2B3ECC005F26B0 /* ContextPopoverViewController.swift */,
-				387DE69E1D254722006543D4 /* HistoryViewController.swift */,
+				387DE69E1D254722006543D4 /* AnalyticsViewController.swift */,
 				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
 				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
 				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
@@ -429,7 +429,7 @@
 				38663DC91D5E702800F01E2C /* DashboardViewController.swift in Sources */,
 				387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */,
 				38ADA1131D3443E200599E61 /* AnalyticsPopupViewController.swift in Sources */,
-				387DE69F1D254722006543D4 /* HistoryViewController.swift in Sources */,
+				387DE69F1D254722006543D4 /* AnalyticsViewController.swift in Sources */,
 				38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */,
 				38DAE3661D2C1850005F26B0 /* ContextFeedbackViewController.swift in Sources */,
 			);
