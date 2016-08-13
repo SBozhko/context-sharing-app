@@ -27,6 +27,7 @@
 		38663DC91D5E702800F01E2C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DC81D5E702800F01E2C /* DashboardViewController.swift */; };
 		38663DCB1D5E70B600F01E2C /* ArtboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */; };
 		38663DCD1D5EACC200F01E2C /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DCC1D5EACC200F01E2C /* Recommendations.swift */; };
+		38663DED1D5F230B00F01E2C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DEC1D5F230B00F01E2C /* Images.swift */; };
 		387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6851D2545BD006543D4 /* AppDelegate.swift */; };
 		387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6871D2545BD006543D4 /* MeViewController.swift */; };
 		387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68B1D2545BD006543D4 /* Main.storyboard */; };
@@ -88,6 +89,7 @@
 		38663DC81D5E702800F01E2C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtboardTabBarController.swift; sourceTree = "<group>"; };
 		38663DCC1D5EACC200F01E2C /* Recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
+		38663DEC1D5F230B00F01E2C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		387DE6821D2545BD006543D4 /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387DE6851D2545BD006543D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387DE6871D2545BD006543D4 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				3853FEBD1D3BB226006B894C /* VendorInfo.swift */,
 				380D26881D3EA8B1006518A6 /* Credentials.swift */,
 				38C1635B1D50AA9700561A50 /* RecommendedItem.swift */,
+				38663DEC1D5F230B00F01E2C /* Images.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				381FEA891D5CA77400FBB7CF /* UIApplication+Ext.swift in Sources */,
 				381FEA7D1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift in Sources */,
 				3853FECB1D3D73CF006B894C /* UIViewController+Ext.swift in Sources */,
+				38663DED1D5F230B00F01E2C /* Images.swift in Sources */,
 				387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */,
 				380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */,
 				387DE6B11D25B4CA006543D4 /* Common.swift in Sources */,

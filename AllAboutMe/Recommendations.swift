@@ -51,7 +51,6 @@ class Recommendations {
     if json[ItemType.Video.rawValue].count > 0 {
       videoItemList = _populateRecommendedItemsList(ItemType.Video, json: json[ItemType.Video.rawValue])
     }
-    log.info("Received 10 new items")
     for (_, subJson) : (String, JSON) in orderedList {
       if let
         itemType = subJson["type"].string,

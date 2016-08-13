@@ -48,11 +48,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       disposables.append(NEContextManager.sharedInstance.subscribe { context in
         self.log.info("Received context update: \(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
         dispatch_async(dispatch_get_main_queue(), {
-//          if context.group == NEContextGroup.Situation {
-//            self.updateSituationView()
-//          } else {
-//            self.otherContextCollectionView.reloadData()
-//          }
+          self.updateDashboardImage(context)
         })
         self.postContextInfo([context])
         })
@@ -111,6 +107,19 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
+  }
+  
+  func updateDashboardImage(context : NEContext) {
+    switch context.group {
+    case .Activity:
+      activityImageView.image = UIImage(named: Images.getImageName(context))
+    case .IndoorOutdoor:
+      indoorOutdoorImageView.image = UIImage(named: Images.getImageName(context))
+    case .TimeOfDay:
+      timeImageView.image = UIImage(named: Images.getImageName(context))
+    default:
+      break
+    }
   }
   
   func handleImageTapGesture(gestureRecognizer: UITapGestureRecognizer) {
