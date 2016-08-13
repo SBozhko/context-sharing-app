@@ -48,6 +48,11 @@ enum ItemType : String {
   case Music = "musicItems", Video = "videoItems", News = "newsItems"
 }
 
+enum ContextType : Int {
+  case Place = 0, Mood, Time, SurpriseMe, Weather, IndoorOutdoor, Activity, Situation
+  static let allValues = [Place, Mood, Time, SurpriseMe, Weather, IndoorOutdoor, Activity, Situation]
+}
+
 func randomStringWithLength (len : Int) -> NSString {
   let randomString : NSMutableString = NSMutableString(capacity: len)
   for _ in 0 ..< len {

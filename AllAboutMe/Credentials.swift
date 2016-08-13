@@ -76,6 +76,7 @@ class Credentials {
               self.log.info("Received profile id: \(_profileId)")
               self.profileId = _profileId
               NSUserDefaults.standardUserDefaults().setInteger(_profileId, forKey: "profileId")
+              NSNotificationCenter.defaultCenter().postNotificationName(profileIdReceivedNotification, object: nil)
             }
           }
       }

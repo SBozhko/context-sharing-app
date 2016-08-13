@@ -25,9 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Mixpanel.sharedInstanceWithToken(Credentials.sharedInstance.isDevelopmentDevice ? developmentMixPanelToken : productionMixPanelToken)
     Mixpanel.sharedInstance().identify("\(VendorInfo.getId())")
     Mixpanel.sharedInstance().track("AppLaunched")
-    self.window?.tintColor = globalTint
     if Credentials.userHasOnboarded {
-      setupNormalRootViewController()
+      setupDashboardViewController()
     } else {
       NSNotificationCenter.defaultCenter().addObserver(self,
                                                        selector: #selector((UIApplication.sharedApplication().delegate as? AppDelegate)!.handleOnboardingCompletion),
@@ -36,12 +35,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.window?.rootViewController = OnboardPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
     }
     self.window?.makeKeyAndVisible()
+    self.window?.makeKeyAndVisible()
     return true
   }
   
   func handleOnboardingCompletion() {
     NSUserDefaults.standardUserDefaults().setBool(true, forKey: userHasOnboardedKey)
     setupNormalRootViewController()
+  }
+
+  func setupDashboardViewController() {
+    let storyboard = UIStoryboard(name: "Artboard", bundle: nil)
+    if let vc = storyboard.instantiateViewControllerWithIdentifier("ArtboardTabBarController") as? ArtboardTabBarController {
+      self.window?.rootViewController = vc
+      _ = AWS.sharedInstance
+      _ = Logging.sharedInstance
+    }
   }
   
   func setupNormalRootViewController() {
@@ -52,9 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       _ = Logging.sharedInstance
       CSToastManager.setTapToDismissEnabled(true)
       CSToastManager.setQueueEnabled(true)
-      UIView.animateWithDuration(0.2, animations: {
-        vc.view.alpha = 1.0
-      })
     }
   }
 

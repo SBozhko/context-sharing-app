@@ -23,6 +23,10 @@
 		3853FECB1D3D73CF006B894C /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FECA1D3D73CF006B894C /* UIViewController+Ext.swift */; };
 		385D024B1D4FA186007C1C4A /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */; };
 		385D024F1D4FBDDC007C1C4A /* RecommendationWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */; };
+		38663DC71D5E4C4600F01E2C /* Artboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38663DC61D5E4C4600F01E2C /* Artboard.storyboard */; };
+		38663DC91D5E702800F01E2C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DC81D5E702800F01E2C /* DashboardViewController.swift */; };
+		38663DCB1D5E70B600F01E2C /* ArtboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */; };
+		38663DCD1D5EACC200F01E2C /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DCC1D5EACC200F01E2C /* Recommendations.swift */; };
 		387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6851D2545BD006543D4 /* AppDelegate.swift */; };
 		387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6871D2545BD006543D4 /* MeViewController.swift */; };
 		387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68B1D2545BD006543D4 /* Main.storyboard */; };
@@ -80,6 +84,10 @@
 		3853FECA1D3D73CF006B894C /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
 		385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationWebViewController.swift; sourceTree = "<group>"; };
+		38663DC61D5E4C4600F01E2C /* Artboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Artboard.storyboard; sourceTree = "<group>"; };
+		38663DC81D5E702800F01E2C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtboardTabBarController.swift; sourceTree = "<group>"; };
+		38663DCC1D5EACC200F01E2C /* Recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
 		387DE6821D2545BD006543D4 /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387DE6851D2545BD006543D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387DE6871D2545BD006543D4 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 		3853FEB71D3BA384006B894C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				38663DCC1D5EACC200F01E2C /* Recommendations.swift */,
 				387DE6A21D255092006543D4 /* AWS.swift */,
 				387DE6A31D255092006543D4 /* Logging.swift */,
 				387DE6AA1D255FB5006543D4 /* ContextInfo.swift */,
@@ -172,6 +181,8 @@
 				381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */,
 				381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */,
 				381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */,
+				38663DC81D5E702800F01E2C /* DashboardViewController.swift */,
+				38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */,
 			);
 			name = "Views & View Controllers";
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 				387DE6901D2545BD006543D4 /* LaunchScreen.storyboard */,
 				38C1635D1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib */,
 				381001481D590C5E00D43A00 /* Onboarding.storyboard */,
+				38663DC61D5E4C4600F01E2C /* Artboard.storyboard */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -315,6 +327,7 @@
 				387DE6921D2545BD006543D4 /* LaunchScreen.storyboard in Resources */,
 				387DE68F1D2545BD006543D4 /* Assets.xcassets in Resources */,
 				387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */,
+				38663DC71D5E4C4600F01E2C /* Artboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +406,7 @@
 				380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */,
 				387DE6B11D25B4CA006543D4 /* Common.swift in Sources */,
 				38C1635C1D50AA9700561A50 /* RecommendedItem.swift in Sources */,
+				38663DCD1D5EACC200F01E2C /* Recommendations.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
 				381FEA871D5BFE4500FBB7CF /* WalkthroughViewController.swift in Sources */,
@@ -410,7 +424,9 @@
 				3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */,
 				387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */,
 				3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */,
+				38663DCB1D5E70B600F01E2C /* ArtboardTabBarController.swift in Sources */,
 				387DE6A71D255092006543D4 /* String+Ext.swift in Sources */,
+				38663DC91D5E702800F01E2C /* DashboardViewController.swift in Sources */,
 				387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */,
 				38ADA1131D3443E200599E61 /* AnalyticsPopupViewController.swift in Sources */,
 				387DE69F1D254722006543D4 /* HistoryViewController.swift in Sources */,
