@@ -40,6 +40,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
                                                      selector: #selector(DashboardViewController.handleProfileIdReceivedNotification(_:)),
                                                      name: profileIdReceivedNotification,
                                                      object: nil)
+    Recommendations.sharedInstance.reloadRecommendations()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -160,13 +161,13 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     if let _item = Recommendations.sharedInstance.getItem() {
       switch _item.type! {
       case ItemType.Music:
-        performSegueWithIdentifier("openWebViewSegue", sender: _item)
+        performSegueWithIdentifier("showWebContentSegue", sender: _item)
         break
       case ItemType.Video:
-        performSegueWithIdentifier("openWebViewSegue", sender: _item)
+        performSegueWithIdentifier("showWebContentSegue", sender: _item)
         break
       case ItemType.News:
-        performSegueWithIdentifier("openWebViewSegue", sender: _item)
+        performSegueWithIdentifier("showWebContentSegue", sender: _item)
         break
       }
     }
@@ -175,10 +176,13 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let identifier = segue.identifier {
       switch identifier {
-      case "openWebViewSegue":
+      case "showWebContentSegue":
         if let
-          destController = segue.destinationViewController as? RecommendationWebViewController {
-          destController.urlString = (sender as? RecommendedItem)?.url
+          navController = segue.destinationViewController as? UINavigationController,
+          destController = navController.topViewController as? WebViewController {
+          if let _object = sender as? RecommendedItem {
+            destController.urlString = _object.url
+          }
         }
         break
       default:

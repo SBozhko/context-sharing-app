@@ -28,6 +28,7 @@
 		38663DCB1D5E70B600F01E2C /* ArtboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */; };
 		38663DCD1D5EACC200F01E2C /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DCC1D5EACC200F01E2C /* Recommendations.swift */; };
 		38663DED1D5F230B00F01E2C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DEC1D5F230B00F01E2C /* Images.swift */; };
+		38663DEF1D5F89B200F01E2C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DEE1D5F89B200F01E2C /* WebViewController.swift */; };
 		387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6851D2545BD006543D4 /* AppDelegate.swift */; };
 		387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6871D2545BD006543D4 /* MeViewController.swift */; };
 		387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68B1D2545BD006543D4 /* Main.storyboard */; };
@@ -90,6 +91,7 @@
 		38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtboardTabBarController.swift; sourceTree = "<group>"; };
 		38663DCC1D5EACC200F01E2C /* Recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
 		38663DEC1D5F230B00F01E2C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		38663DEE1D5F89B200F01E2C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		387DE6821D2545BD006543D4 /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387DE6851D2545BD006543D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387DE6871D2545BD006543D4 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */,
 				38663DC81D5E702800F01E2C /* DashboardViewController.swift */,
 				38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */,
+				38663DEE1D5F89B200F01E2C /* WebViewController.swift */,
 			);
 			name = "Views & View Controllers";
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */,
 				38B8A15C1D51601400F82A2B /* RecommendedMusicTableViewCell.swift in Sources */,
 				385D024F1D4FBDDC007C1C4A /* RecommendationWebViewController.swift in Sources */,
+				38663DEF1D5F89B200F01E2C /* WebViewController.swift in Sources */,
 				387DE6A61D255092006543D4 /* Logging.swift in Sources */,
 				385D024B1D4FA186007C1C4A /* RecommendationsViewController.swift in Sources */,
 				381FEA7F1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift in Sources */,
