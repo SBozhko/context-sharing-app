@@ -600,7 +600,7 @@
             </objects>
             <point key="canvasLocation" x="2118" y="-322"/>
         </scene>
-        <!--Analytics-->
+        <!--Insights-->
         <scene sceneID="C4V-9a-ABc">
             <objects>
                 <viewController storyboardIdentifier="AnalyticsViewController" id="Ez6-Ej-iAV" customClass="AnalyticsViewController" customModule="Jarvis" customModuleProvider="target" sceneMemberID="viewController">
@@ -665,7 +665,7 @@
                                     <outlet property="delegate" destination="Ez6-Ej-iAV" id="gBR-Fd-nNM"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Analytics History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8d-7c-kfF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Insights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8d-7c-kfF">
                                 <rect key="frame" x="20" y="40" width="560" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.3453598806" blue="0.3258016131" alpha="1" colorSpace="calibratedRGB"/>
@@ -683,7 +683,7 @@
                             <constraint firstItem="KUi-ky-9Gw" firstAttribute="top" secondItem="GSy-oK-KC5" secondAttribute="bottom" constant="8" id="qXU-j0-YBQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Analytics" image="history" id="jp6-nU-tZH"/>
+                    <tabBarItem key="tabBarItem" title="Insights" image="history" id="jp6-nU-tZH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eya-pH-nEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

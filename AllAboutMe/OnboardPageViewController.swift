@@ -10,7 +10,7 @@ import UIKit
 
 class OnboardPageViewController : UIPageViewController {
   // Some hard-coded data for our walkthrough screens
-  var pageHeaders = ["Recapture the serendipity in your life through the sensors in your smartphone", "Jarvis helps visualize how you spend your time -- automatically.", "Boosts your workout with a new song", "Hungry while working late? Jarvis might just have a deal for you. And lots more ..."]
+  var pageHeaders = ["Recapture the serendipity in your life through the sensors in your smartphone", "Jarvis visualizes how you spend time automatically.", "Boosts your workout with a new song", "Hungry while working late? Jarvis might just have a deal for you. Prepare to be surprised!"]
   var pageImages = ["Jarvis", "OnboardAnalytics", "OnboardMusic", "OnboardDinner"]
 //  var pageDescriptions = ["Learn to design the world's most beautiful iOS apps without having to hire a designer.", "Validate your app idea by creating a prototype before implementation", "Delight your users with stunning animation and transition", "Connect people together!"]
   

@@ -216,7 +216,7 @@
                             <constraint firstItem="9XM-YA-Bxe" firstAttribute="centerY" secondItem="0Kj-FJ-fVO" secondAttribute="centerY" id="qHI-kZ-pJ9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Surprise" image="surprise" id="EYd-gJ-U5a"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="profile" id="EYd-gJ-U5a"/>
                     <navigationItem key="navigationItem" title="Jarvis" id="dal-MP-myE"/>
                     <connections>
                         <outlet property="activityImageView" destination="cX2-qg-ydt" id="nMF-5V-hzd"/>
@@ -355,9 +355,9 @@
         <image name="cloudy" width="68" height="68"/>
         <image name="happy" width="68" height="68"/>
         <image name="park" width="68" height="68"/>
+        <image name="profile" width="25" height="30"/>
         <image name="reading" width="68" height="68"/>
         <image name="relaxing" width="749" height="749"/>
         <image name="settings" width="32" height="31"/>
-        <image name="surprise" width="30" height="30"/>
     </resources>
 </document>

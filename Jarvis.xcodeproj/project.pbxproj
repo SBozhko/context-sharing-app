@@ -141,15 +141,10 @@
 		3853FEB71D3BA384006B894C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				38663DCC1D5EACC200F01E2C /* Recommendations.swift */,
 				387DE6A21D255092006543D4 /* AWS.swift */,
 				387DE6A31D255092006543D4 /* Logging.swift */,
-				387DE6AA1D255FB5006543D4 /* ContextInfo.swift */,
 				387DE6B01D25B4CA006543D4 /* Common.swift */,
 				3853FEBB1D3BB1B9006B894C /* Logger.swift */,
-				3853FEBD1D3BB226006B894C /* VendorInfo.swift */,
-				380D26881D3EA8B1006518A6 /* Credentials.swift */,
-				38C1635B1D50AA9700561A50 /* RecommendedItem.swift */,
 				38663DEC1D5F230B00F01E2C /* Images.swift */,
 			);
 			name = Utilities;
@@ -169,31 +164,7 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		3853FEB91D3BA3B5006B894C /* Views & View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				387DE6871D2545BD006543D4 /* MeViewController.swift */,
-				38DAE35F1D2B3ECC005F26B0 /* ContextPopoverViewController.swift */,
-				387DE69E1D254722006543D4 /* AnalyticsViewController.swift */,
-				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
-				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
-				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
-				385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */,
-				385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */,
-				38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */,
-				381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */,
-				381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */,
-				381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */,
-				381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */,
-				381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */,
-				38663DC81D5E702800F01E2C /* DashboardViewController.swift */,
-				38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */,
-				38663DEE1D5F89B200F01E2C /* WebViewController.swift */,
-			);
-			name = "Views & View Controllers";
-			sourceTree = "<group>";
-		};
-		3853FEBA1D3BA3EF006B894C /* UI Elements */ = {
+		3853FEB91D3BA3B5006B894C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				387DE68B1D2545BD006543D4 /* Main.storyboard */,
@@ -202,7 +173,90 @@
 				381001481D590C5E00D43A00 /* Onboarding.storyboard */,
 				38663DC61D5E4C4600F01E2C /* Artboard.storyboard */,
 			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3853FEBA1D3BA3EF006B894C /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+			);
 			name = "UI Elements";
+			sourceTree = "<group>";
+		};
+		38663E101D60C2DA00F01E2C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				38663DCC1D5EACC200F01E2C /* Recommendations.swift */,
+				387DE6AA1D255FB5006543D4 /* ContextInfo.swift */,
+				3853FEBD1D3BB226006B894C /* VendorInfo.swift */,
+				380D26881D3EA8B1006518A6 /* Credentials.swift */,
+				38C1635B1D50AA9700561A50 /* RecommendedItem.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		38663E111D60C2E900F01E2C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				38663E171D60C3A200F01E2C /* Settings */,
+				38663E161D60C39D00F01E2C /* Insights */,
+				38663E151D60C39600F01E2C /* Favorites */,
+				38663E141D60C38F00F01E2C /* Dashboard */,
+				38663E121D60C34700F01E2C /* Onboarding */,
+				381FEA821D5B5D1000FBB7CF /* MainTabBarController.swift */,
+				38663DCA1D5E70B600F01E2C /* ArtboardTabBarController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		38663E121D60C34700F01E2C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */,
+				381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */,
+				381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */,
+				381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		38663E141D60C38F00F01E2C /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				387DE6871D2545BD006543D4 /* MeViewController.swift */,
+				38DAE35F1D2B3ECC005F26B0 /* ContextPopoverViewController.swift */,
+				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
+				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
+				385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */,
+				385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */,
+				38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */,
+				38663DC81D5E702800F01E2C /* DashboardViewController.swift */,
+				38663DEE1D5F89B200F01E2C /* WebViewController.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		38663E151D60C39600F01E2C /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
+		38663E161D60C39D00F01E2C /* Insights */ = {
+			isa = PBXGroup;
+			children = (
+				387DE69E1D254722006543D4 /* AnalyticsViewController.swift */,
+				38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */,
+			);
+			name = Insights;
+			sourceTree = "<group>";
+		};
+		38663E171D60C3A200F01E2C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		387DE6791D2545BD006543D4 = {
@@ -226,10 +280,12 @@
 		387DE6841D2545BD006543D4 /* AllAboutMe */ = {
 			isa = PBXGroup;
 			children = (
+				38663E111D60C2E900F01E2C /* Controllers */,
+				38663E101D60C2DA00F01E2C /* Models */,
+				3853FEB91D3BA3B5006B894C /* Views */,
 				3853FEBA1D3BA3EF006B894C /* UI Elements */,
 				38ADA10B1D2F193C00599E61 /* Jarvis-Bridging-Header.h */,
 				387DE6851D2545BD006543D4 /* AppDelegate.swift */,
-				3853FEB91D3BA3B5006B894C /* Views & View Controllers */,
 				3853FEB81D3BA38A006B894C /* Extensions */,
 				3853FEB71D3BA384006B894C /* Utilities */,
 				387DE68E1D2545BD006543D4 /* Assets.xcassets */,

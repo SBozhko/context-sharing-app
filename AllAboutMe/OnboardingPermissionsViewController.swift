@@ -40,7 +40,7 @@ class OnboardingPermissionsViewController: UIViewController {
     pscope.buttonFont = UIFont(name: "AvenirNext-Regular", size: 14.0)!
     pscope.labelFont = pscope.buttonFont
     self.messageLabel.text = "Nice to meet you \(Credentials.name!)! I need some device permissions before we get started."
-    self.buttonLabel.text = "Give permissions"
+    self.buttonLabel.text = "Ok"
   }
 
   override func didReceiveMemoryWarning() {
