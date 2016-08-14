@@ -86,9 +86,6 @@ class Recommendations {
   }
   
   func getItem() -> RecommendedItem? {
-    let item = RecommendedItem(type: ItemType.Video)
-    item.url = "https://www.youtube.com/watch?v=hBedCdzCoWM"
-    return item
     if unwatchedItems.count > 0 {
       let index = Int(arc4random_uniform(UInt32(unwatchedItems.count)))
       let item = unwatchedItems[index]
