@@ -40,7 +40,9 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
                                                      selector: #selector(DashboardViewController.handleProfileIdReceivedNotification(_:)),
                                                      name: profileIdReceivedNotification,
                                                      object: nil)
-    Recommendations.sharedInstance.reloadRecommendations()
+    if Credentials.sharedInstance.profileId != nil {
+      Recommendations.sharedInstance.reloadRecommendations()
+    }
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -62,6 +64,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func handleProfileIdReceivedNotification(notification : NSNotification) {
     initializeContexts()
+    Recommendations.sharedInstance.reloadRecommendations()
   }
   
   func initializeContexts() {
@@ -89,6 +92,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
         "profileId": _profileId
       ]
       
+      log.debug("Sending parameters: \(contextDataParameters)")
       Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
         .responseJSON { response in
           if let JSON = response.result.value {
