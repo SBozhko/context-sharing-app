@@ -14,11 +14,7 @@ class MusicTableViewCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var artistLabel: UILabel!
   @IBOutlet weak var durationLabel: UILabel!
-  var item : RecommendedItem! {
-    didSet {
-      self.updateUI()
-    }
-  }
+  var item : RecommendedItem?
   var downloadTask: NSURLSessionDownloadTask?
 
   override func awakeFromNib() {
@@ -32,7 +28,8 @@ class MusicTableViewCell: UITableViewCell {
       // Configure the view for the selected state
   }
 
-  func updateUI() {
+  func configure(item : RecommendedItem, indexPath : NSIndexPath) {
+    self.item = item
     if let _title = item.title {
       self.titleLabel.text = _title
     }
@@ -45,7 +42,7 @@ class MusicTableViewCell: UITableViewCell {
       if let
         thumbnailUrl = item.thumbnailImageUrl,
         url = NSURL(string: thumbnailUrl) {
-        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item)
+        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item, indexPath: indexPath)
       }
     }
   }
