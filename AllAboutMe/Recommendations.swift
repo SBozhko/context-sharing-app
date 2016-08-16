@@ -43,7 +43,7 @@ class Recommendations {
           newItem.thumbnailImageUrl = itemImageURL
         }
         if let itemDuration = subJson["duration"].int {
-          newItem.duration = getDurationString(itemDuration)
+          newItem.duration = itemDuration/1000
         }
         items[itemId] = newItem
       }

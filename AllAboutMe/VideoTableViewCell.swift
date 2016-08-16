@@ -13,7 +13,11 @@ class VideoTableViewCell: UITableViewCell {
   @IBOutlet weak var artworkImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var durationLabel: UILabel!
-  var item : RecommendedItem?
+  var item : RecommendedItem! {
+    didSet {
+      self.updateUI()
+    }
+  }
   var downloadTask: NSURLSessionDownloadTask?
 
   override func awakeFromNib() {
@@ -22,16 +26,15 @@ class VideoTableViewCell: UITableViewCell {
   }
 
   override func setSelected(selected: Bool, animated: Bool) {
-
+    super.setSelected(selected, animated: animated)
   }
 
-  func configure(item : RecommendedItem) {
-    self.item = item
+  func updateUI() {
     if let _title = item.title {
       self.titleLabel.text = _title
     }
     if let _duration = item.duration {
-      self.durationLabel.text = _duration
+      self.durationLabel.text = getDurationString(_duration)
     }
     if let _cachedThumbnailImage = item.thumbnailImage {
       self.artworkImageView.image = _cachedThumbnailImage
@@ -39,7 +42,7 @@ class VideoTableViewCell: UITableViewCell {
       if let
         thumbnailUrl = item.thumbnailImageUrl,
         url = NSURL(string: thumbnailUrl) {
-        downloadTask = self.artworkImageView.loadImageWithURL(url, bounds: CGSize(width: self.frame.width, height: self.frame.height), item: item)
+        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item)
       }
     }
   }

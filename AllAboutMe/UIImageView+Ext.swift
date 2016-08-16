@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImageView {
-  func loadImageWithURL(url: NSURL, bounds: CGSize, item : RecommendedItem?) -> NSURLSessionDownloadTask {
+  func loadImageWithURL(url: NSURL, item : RecommendedItem?) -> NSURLSessionDownloadTask {
     let session = NSURLSession.sharedSession()
     
     let downloadTask = session.downloadTaskWithURL(url, completionHandler: {
@@ -22,6 +22,7 @@ extension UIImageView {
                 strongSelf.image = image
                 if let _item = item {
                   _item.thumbnailImage = strongSelf.image
+                  NSNotificationCenter.defaultCenter().postNotificationName(imageDownloadNotification, object: nil)
                 }
               }
             }

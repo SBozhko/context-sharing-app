@@ -41,6 +41,8 @@ class Credentials {
     }
   }
   
+  static let soundCloudClientId = "580e143e5540bfe1a6de0fcb4f9cf26e"
+  
   init() {
     if let
       _profileId = NSUserDefaults.standardUserDefaults().objectForKey("profileId") as? Int {

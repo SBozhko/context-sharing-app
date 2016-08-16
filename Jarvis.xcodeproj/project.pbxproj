@@ -17,6 +17,8 @@
 		381FEA871D5BFE4500FBB7CF /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */; };
 		381FEA891D5CA77400FBB7CF /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */; };
 		3851F4041D62673700DEFFD7 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3851F4011D62673400DEFFD7 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3851F4061D62AB4500DEFFD7 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */; };
+		3851F4081D62AC6400DEFFD7 /* AVPlayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
@@ -85,6 +87,8 @@
 		381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
 		3851F4011D62673400DEFFD7 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
+		3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ext.swift"; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
 		3853FEC81D3CD5F2006B894C /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				3853FEC81D3CD5F2006B894C /* Array+Ext.swift */,
 				3853FECA1D3D73CF006B894C /* UIViewController+Ext.swift */,
 				381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */,
+				3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -210,7 +215,6 @@
 		38663E111D60C2E900F01E2C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				38663E201D621A6D00F01E2C /* New Group */,
 				38663E171D60C3A200F01E2C /* Settings */,
 				38663E161D60C39D00F01E2C /* Insights */,
 				38663E151D60C39600F01E2C /* Favorites */,
@@ -248,6 +252,7 @@
 				38663E211D621B2D00F01E2C /* ItemListViewController.swift */,
 				38663E181D61F4E400F01E2C /* MusicTableViewCell.swift */,
 				38663E1E1D62199300F01E2C /* VideoTableViewCell.swift */,
+				3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -273,13 +278,6 @@
 			children = (
 			);
 			name = Settings;
-			sourceTree = "<group>";
-		};
-		38663E201D621A6D00F01E2C /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		387DE6791D2545BD006543D4 = {
@@ -495,6 +493,7 @@
 				387DE6B11D25B4CA006543D4 /* Common.swift in Sources */,
 				38C1635C1D50AA9700561A50 /* RecommendedItem.swift in Sources */,
 				38663DCD1D5EACC200F01E2C /* Recommendations.swift in Sources */,
+				3851F4061D62AB4500DEFFD7 /* MusicViewController.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
 				38663E221D621B2D00F01E2C /* ItemListViewController.swift in Sources */,
@@ -514,6 +513,7 @@
 				3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */,
 				387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */,
 				38663E1F1D62199300F01E2C /* VideoTableViewCell.swift in Sources */,
+				3851F4081D62AC6400DEFFD7 /* AVPlayer+Ext.swift in Sources */,
 				3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */,
 				38663DCB1D5E70B600F01E2C /* ArtboardTabBarController.swift in Sources */,
 				387DE6A71D255092006543D4 /* String+Ext.swift in Sources */,

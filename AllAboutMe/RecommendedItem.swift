@@ -15,7 +15,7 @@ class RecommendedItem : NSObject {
   var embedUrl : String?
   var streamUrl : String?
   var title : String?
-  var duration : String?
+  var duration : Int?
   var id : Int?
   var thumbnailImageUrl : String?
   var thumbnailImage : UIImage?
