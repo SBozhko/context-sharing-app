@@ -59,24 +59,18 @@ class ItemListViewController: UIViewController {
           }
         }
         break
-      case "showVideoVCSegue":
+      case "showWebViewVCSegue":
         if let
-          destController = segue.destinationViewController as? MusicViewController {
-          if let item = sender as? RecommendedItem {
-            destController.item = item
-          }
+          navController = segue.destinationViewController as? UINavigationController,
+          destController = navController.topViewController as? WebViewController {
+            if let item = sender as? RecommendedItem {
+              destController.item = item
+            }
         }
       default:
         break
       }
     }
-  }
-  
-  func showMusicViewController(item : RecommendedItem) {
-    let storyboard = UIStoryboard(name: "Artboard", bundle: nil)
-    let musicVC = storyboard.instantiateViewControllerWithIdentifier("MusicViewController") as! MusicViewController
-    musicVC.item = item
-    self.presentViewController(musicVC, animated: true, completion: nil)
   }
 }
 
@@ -89,10 +83,9 @@ extension ItemListViewController : UITableViewDelegate, UITableViewDataSource {
     if let _items = items {
       let _item = _items[indexPath.row]
       if _item.type! == .Music {
-//        showMusicViewController(_item)        
         performSegueWithIdentifier("showMusicVCSegue", sender: _item)
       } else {
-        performSegueWithIdentifier("showVideoVCSegue", sender: _item)
+        performSegueWithIdentifier("showWebViewVCSegue", sender: _item)
       }
     }
   }

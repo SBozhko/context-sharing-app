@@ -237,7 +237,6 @@
                         <outlet property="surpriseMeImageView" destination="YBB-1X-7t3" id="aWo-eN-Tiz"/>
                         <outlet property="timeImageView" destination="tfw-kD-xdC" id="J4z-n7-apC"/>
                         <outlet property="weatherImageView" destination="fJG-3W-WDX" id="cV8-xb-Gs6"/>
-                        <segue destination="OAS-AP-oRh" kind="presentation" identifier="showWebContentSegue" id="WO9-41-K4B"/>
                         <segue destination="MBN-VY-p5o" kind="presentation" identifier="hitMeSegue" id="hL2-AY-6zS"/>
                     </connections>
                 </viewController>
@@ -289,6 +288,7 @@
                     <connections>
                         <outlet property="tableView" destination="qgq-CE-aqE" id="2hC-1I-jlj"/>
                         <segue destination="otf-7D-eWT" kind="presentation" identifier="showMusicVCSegue" id="rfx-Jd-bIh"/>
+                        <segue destination="OAS-AP-oRh" kind="presentation" identifier="showWebViewVCSegue" id="odA-jO-lMW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5D0-x6-9AW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -307,12 +307,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BEQ-HP-fRN">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="0TQ-e5-pHF">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closeButtonPressed:" destination="CbO-rJ-N5m" id="tvG-in-IPM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="E10-LX-4Vg">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="handleShareWebContent:" destination="CbO-rJ-N5m" id="e2C-qM-j34"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

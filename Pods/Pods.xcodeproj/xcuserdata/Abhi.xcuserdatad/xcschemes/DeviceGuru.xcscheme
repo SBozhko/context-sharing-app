@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '89BA0C8C8C0BDADA1FC26E10'
+               BlueprintIdentifier = 'A573DCF14C787BDBAA5993FB'
                BlueprintName = 'DeviceGuru'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DeviceGuru.framework'>

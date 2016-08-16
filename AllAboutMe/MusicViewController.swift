@@ -183,7 +183,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
   func socialMediaSharing(serviceType : String) {
     if SLComposeViewController.isAvailableForServiceType(serviceType) {
       let composeController = SLComposeViewController(forServiceType: serviceType)
-      if !composeController.setInitialText("Shared from Jarvis! What do you think?") {
+      if !composeController.setInitialText("Shared from Jarvis - What do you think?") {
         print("did not set initial text")
       }
       if let image = item!.thumbnailImage {
@@ -205,7 +205,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   func shareOnWhatsApp() {
-    let urlString = "Just discovered this track via Number8 - \(item!.streamUrl)! Download the app @ https://goo.gl/tU4JJD!"
+    let urlString = "Shared from Jarvis - Check out this tune. \(item!.streamUrl)!"
     let urlStringEncoded = urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
     let url = NSURL(string: "whatsapp://send?text=\(urlStringEncoded!)")
     if UIApplication.sharedApplication().canOpenURL(url!) {
@@ -236,7 +236,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
     optionMenu.addAction(whatsappAction)
     optionMenu.addAction(cancelAction)
     
-    optionMenu.view.tintColor = globalTint
+    optionMenu.view.tintColor = UIColor.darkGrayColor()
     presentViewController(optionMenu, animated: true, completion: nil)
   }
   

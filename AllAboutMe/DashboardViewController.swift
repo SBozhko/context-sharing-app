@@ -89,12 +89,12 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  func postContextInfo(contextsToPost : [NEContext]) {
+  func postContextInfo(contextsToPost : [NEContext], manual : Bool = false) {
     if let _profileId = Credentials.sharedInstance.profileId {
-      var contextDataParameters : [[String : String]] = [[:]]
+      var contextDataParameters : [[String : AnyObject]] = [[:]]
       contextDataParameters.removeLast()
       for context in contextsToPost {
-        contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name])
+        contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name, "manual" : manual])
       }
       
       let parameters : [String : AnyObject] = [
@@ -183,17 +183,6 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       if let _items = Recommendations.sharedInstance.getItems(2) {
         userRequested = false
         performSegueWithIdentifier("hitMeSegue", sender: _items)
-        //      switch _item.type! {
-        //      case ItemType.Music:
-        //        performSegueWithIdentifier("showWebContentSegue", sender: _item)
-        //        break
-        //      case ItemType.Video:
-        //        performSegueWithIdentifier("showWebContentSegue", sender: _item)
-        //        break
-        //      case ItemType.News:
-        //        performSegueWithIdentifier("showWebContentSegue", sender: _item)
-        //        break
-        //      }
       }
     }
   }
@@ -201,15 +190,6 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let identifier = segue.identifier {
       switch identifier {
-      case "showWebContentSegue":
-        if let
-          navController = segue.destinationViewController as? UINavigationController,
-          destController = navController.topViewController as? WebViewController {
-          if let _object = sender as? RecommendedItem {
-            destController.urlString = _object.url
-          }
-        }
-        break
       case "hitMeSegue":
         if let
           destController = segue.destinationViewController as? ItemListViewController {
