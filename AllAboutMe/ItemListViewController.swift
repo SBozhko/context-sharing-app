@@ -32,7 +32,7 @@ class ItemListViewController: UIViewController {
 
   func handleImageDownloadNotification(notification : NSNotification) {
     if let indexPath: NSIndexPath = notification.object as? NSIndexPath {
-      tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+      tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     else {
       tableView.reloadData()
