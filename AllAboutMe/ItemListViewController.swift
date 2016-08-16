@@ -25,36 +25,9 @@ class ItemListViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-    
-
+  
   @IBAction func closeButtonPressed(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  // MARK: - Navigation
-
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let identifier = segue.identifier {
-      switch identifier {
-      case "showMusicVCSegue":
-        if let
-          destController = segue.destinationViewController as? MusicViewController {
-          if let _object = sender as? RecommendedItem {
-            destController.item = _object
-          }
-        }
-        break
-      case "showVideoSegue":
-        if let
-          destController = segue.destinationViewController as? MusicViewController {
-          if let _object = sender as? RecommendedItem {
-            destController.item = _object
-          }
-        }
-      default:
-        break
-      }
-    }
   }
 }
 
@@ -67,11 +40,18 @@ extension ItemListViewController : UITableViewDelegate, UITableViewDataSource {
     if let _items = items {
       let _item = _items[indexPath.row]
       if _item.type! == .Music {
-        performSegueWithIdentifier("showMusicVCSegue", sender: _item)
+        showMusicViewController(_item)
       } else {
         performSegueWithIdentifier("showVideoSegue", sender: _item)
       }
     }
+  }
+  
+  func showMusicViewController(item : RecommendedItem) {
+    let storyboard = UIStoryboard(name: "Artboard", bundle: nil)
+    let musicVC = storyboard.instantiateViewControllerWithIdentifier("MusicViewController") as! MusicViewController
+    musicVC.item = item
+    self.presentViewController(musicVC, animated: true, completion: nil)
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
