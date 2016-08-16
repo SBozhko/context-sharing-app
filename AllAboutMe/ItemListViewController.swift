@@ -47,6 +47,37 @@ class ItemListViewController: UIViewController {
   @IBAction func closeButtonPressed(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let identifier = segue.identifier {
+      switch identifier {
+      case "showMusicVCSegue":
+        if let
+          destController = segue.destinationViewController as? MusicViewController {
+          if let item = sender as? RecommendedItem {
+            destController.item = item
+          }
+        }
+        break
+      case "showVideoVCSegue":
+        if let
+          destController = segue.destinationViewController as? MusicViewController {
+          if let item = sender as? RecommendedItem {
+            destController.item = item
+          }
+        }
+      default:
+        break
+      }
+    }
+  }
+  
+  func showMusicViewController(item : RecommendedItem) {
+    let storyboard = UIStoryboard(name: "Artboard", bundle: nil)
+    let musicVC = storyboard.instantiateViewControllerWithIdentifier("MusicViewController") as! MusicViewController
+    musicVC.item = item
+    self.presentViewController(musicVC, animated: true, completion: nil)
+  }
 }
 
 extension ItemListViewController : UITableViewDelegate, UITableViewDataSource {
@@ -58,20 +89,12 @@ extension ItemListViewController : UITableViewDelegate, UITableViewDataSource {
     if let _items = items {
       let _item = _items[indexPath.row]
       if _item.type! == .Music {
-        showMusicViewController(_item)
+//        showMusicViewController(_item)        
+        performSegueWithIdentifier("showMusicVCSegue", sender: _item)
       } else {
-        performSegueWithIdentifier("showVideoSegue", sender: _item)
+        performSegueWithIdentifier("showVideoVCSegue", sender: _item)
       }
     }
-  }
-  
-  
-  
-  func showMusicViewController(item : RecommendedItem) {
-    let storyboard = UIStoryboard(name: "Artboard", bundle: nil)
-    let musicVC = storyboard.instantiateViewControllerWithIdentifier("MusicViewController") as! MusicViewController
-    musicVC.item = item
-    self.presentViewController(musicVC, animated: true, completion: nil)
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

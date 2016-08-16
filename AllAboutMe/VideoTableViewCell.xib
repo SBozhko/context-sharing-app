@@ -41,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2V-Ay-qUb">
-                        <rect key="frame" x="8" y="191" width="517" height="40"/>
+                        <rect key="frame" x="8" y="191" width="514" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="XGd-aI-5I7"/>
                         </constraints>
@@ -59,7 +59,7 @@
                     <constraint firstItem="zU7-Gh-e33" firstAttribute="top" secondItem="FKc-6X-WUm" secondAttribute="top" constant="8" id="Hzd-Q5-bNh"/>
                     <constraint firstAttribute="trailingMargin" secondItem="May-si-l9P" secondAttribute="trailing" constant="-8" id="ICb-2B-KVa"/>
                     <constraint firstAttribute="bottom" secondItem="6IP-MC-kuZ" secondAttribute="bottom" constant="8" id="IfF-xF-VsB"/>
-                    <constraint firstItem="6IP-MC-kuZ" firstAttribute="leading" secondItem="L2V-Ay-qUb" secondAttribute="trailing" constant="2" id="Lpa-Z7-wkB"/>
+                    <constraint firstItem="6IP-MC-kuZ" firstAttribute="leading" secondItem="L2V-Ay-qUb" secondAttribute="trailing" constant="5" id="Lpa-Z7-wkB"/>
                     <constraint firstAttribute="leadingMargin" secondItem="L2V-Ay-qUb" secondAttribute="leading" id="N45-k5-FUQ"/>
                     <constraint firstItem="May-si-l9P" firstAttribute="top" secondItem="FKc-6X-WUm" secondAttribute="topMargin" constant="-8" id="PDf-wm-G0i"/>
                     <constraint firstAttribute="leadingMargin" secondItem="L2V-Ay-qUb" secondAttribute="leading" id="PVP-Tl-Tjt"/>
@@ -91,6 +91,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="video" width="30" height="22"/>
+        <image name="video" width="35" height="35"/>
     </resources>
 </document>

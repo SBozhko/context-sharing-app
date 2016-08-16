@@ -17,7 +17,6 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
 
   @IBOutlet weak var artworkImageView: UIImageView!
   @IBOutlet weak var trackTitleLabel: UILabel!
-  @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var durationLabel: UILabel!
   @IBOutlet weak var timeElapsedLabel: UILabel!
   @IBOutlet weak var currentTimeSlider: UISlider!
@@ -72,6 +71,12 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
     addImageViewModifications(playImageView)
     addImageViewModifications(shareImageView)
     addImageViewModifications(closeImageView)
+    self.currentTimeSlider.setThumbImage(UIImage(named: "SliderThumb"), forState: UIControlState.Normal)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    /* Invalidate timer when view will disappear */
+    stopUISliderTimer()
   }
   
   func addImageViewModifications(imgView : UIImageView) {
@@ -99,11 +104,6 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
         break
       }
     }
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    /* Invalidate timer when view will disappear */
-    stopUISliderTimer()
   }
   
   override func prefersStatusBarHidden() -> Bool {
@@ -151,7 +151,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
     self.currentTimeSlider.value = Float(self.currentAudioTime)
     self.timeElapsedLabel.text = String(format: "%@", getDurationString(self.currentAudioTime.integerValue))
     self.durationLabel.text = String(format: "-%@", getDurationString(self.currentAudioDuration.integerValue - self.currentAudioTime.integerValue))
-    self.playImageView.image = UIImage(named: "pause")
+    startUISliderTimer(.None)
     playTrack()
   }
   
@@ -236,7 +236,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
     optionMenu.addAction(whatsappAction)
     optionMenu.addAction(cancelAction)
     
-    optionMenu.view.tintColor = UIColor(red: 0.6, green: 0.118, blue: 0.875, alpha: 1)
+    optionMenu.view.tintColor = globalTint
     presentViewController(optionMenu, animated: true, completion: nil)
   }
   
@@ -251,13 +251,26 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func handlePlayPausePressed() {
     if isPlaying {
-      self.playImageView.image = UIImage(named: "like")
+      handlePause()
     } else {
-      self.playImageView.image = UIImage(named: "liked")
+      handlePlay()
     }
-    isPlaying = !isPlaying
   }
-   
+  
+  func handlePlay(subType : UIEventSubtype = .RemoteControlPlay) {
+    self.playImageView.image = UIImage(named: "pause")
+    self.setOutputAudioPort()
+    self.avPlayer?.play()
+    self.isPlaying = true
+  }
+  
+  func handlePause(subType : UIEventSubtype = .RemoteControlPause) {
+    /* We will only come here if the headphone was removed - hence we pause the stream and update the UI accordingly */
+    self.playImageView.image = UIImage(named: "play")
+    self.avPlayer?.pause()
+    self.isPlaying = false
+  }
+  
   /* Play a new track or the same track */
   func playTrack() {
     if let player = avPlayer {
@@ -278,9 +291,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
         case .Unknown:
           break
         case .ReadyToPlay:
-          self.setOutputAudioPort()
-          self.avPlayer?.play()
-          self.isPlaying = true
+          handlePlay()
         }
       }
     }
