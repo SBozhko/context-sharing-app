@@ -67,6 +67,11 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
   func handleProfileIdReceivedNotification(notification : NSNotification) {
     initializeContexts()
     Recommendations.sharedInstance.reloadRecommendations()

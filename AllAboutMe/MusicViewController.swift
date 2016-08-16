@@ -341,4 +341,9 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
       }
     }
   }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+    self.avPlayer!.removeObserver(self, forKeyPath: "status")
+  }
 }

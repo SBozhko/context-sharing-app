@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.window?.rootViewController = OnboardPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
     }
     self.window?.makeKeyAndVisible()
-    self.window?.makeKeyAndVisible()
     return true
   }
   

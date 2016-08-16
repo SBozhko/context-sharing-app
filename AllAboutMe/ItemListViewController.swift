@@ -24,6 +24,11 @@ class ItemListViewController: UIViewController {
                                                      name: imageDownloadNotification,
                                                      object: nil)
   }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
 
   func handleImageDownloadNotification(notification : NSNotification) {
     if let indexPath: NSIndexPath = notification.object as? NSIndexPath {
