@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		11068D3945AD10DD6D609B48 /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557CEF5628C0C79E68DC1074 /* Pods_Jarvis.framework */; };
 		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
-		381001461D56315200D43A00 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 381001431D56313F00D43A00 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381001481D590C5E00D43A00 /* Onboarding.storyboard */; };
 		381FEA7D1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */; };
 		381FEA7F1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */; };
@@ -17,6 +16,7 @@
 		381FEA851D5BFBB900FBB7CF /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */; };
 		381FEA871D5BFE4500FBB7CF /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */; };
 		381FEA891D5CA77400FBB7CF /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */; };
+		3851F4041D62673700DEFFD7 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3851F4011D62673400DEFFD7 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
@@ -29,6 +29,11 @@
 		38663DCD1D5EACC200F01E2C /* Recommendations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DCC1D5EACC200F01E2C /* Recommendations.swift */; };
 		38663DED1D5F230B00F01E2C /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DEC1D5F230B00F01E2C /* Images.swift */; };
 		38663DEF1D5F89B200F01E2C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663DEE1D5F89B200F01E2C /* WebViewController.swift */; };
+		38663E191D61F4E400F01E2C /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663E181D61F4E400F01E2C /* MusicTableViewCell.swift */; };
+		38663E1B1D61F52000F01E2C /* MusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38663E1A1D61F52000F01E2C /* MusicTableViewCell.xib */; };
+		38663E1D1D62143B00F01E2C /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38663E1C1D62143B00F01E2C /* VideoTableViewCell.xib */; };
+		38663E1F1D62199300F01E2C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663E1E1D62199300F01E2C /* VideoTableViewCell.swift */; };
+		38663E221D621B2D00F01E2C /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38663E211D621B2D00F01E2C /* ItemListViewController.swift */; };
 		387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6851D2545BD006543D4 /* AppDelegate.swift */; };
 		387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6871D2545BD006543D4 /* MeViewController.swift */; };
 		387DE68D1D2545BD006543D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387DE68B1D2545BD006543D4 /* Main.storyboard */; };
@@ -62,7 +67,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				381001461D56315200D43A00 /* NEContextSDK.framework in Embed Frameworks */,
+				3851F4041D62673700DEFFD7 /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,7 +76,6 @@
 
 /* Begin PBXFileReference section */
 		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		381001431D56313F00D43A00 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		381001481D590C5E00D43A00 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGetNameViewController.swift; sourceTree = "<group>"; };
 		381FEA7E1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPermissionsViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
+		3851F4011D62673400DEFFD7 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
 		3853FEC81D3CD5F2006B894C /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -92,6 +97,11 @@
 		38663DCC1D5EACC200F01E2C /* Recommendations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recommendations.swift; sourceTree = "<group>"; };
 		38663DEC1D5F230B00F01E2C /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		38663DEE1D5F89B200F01E2C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		38663E181D61F4E400F01E2C /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
+		38663E1A1D61F52000F01E2C /* MusicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicTableViewCell.xib; sourceTree = "<group>"; };
+		38663E1C1D62143B00F01E2C /* VideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		38663E1E1D62199300F01E2C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		38663E211D621B2D00F01E2C /* ItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		387DE6821D2545BD006543D4 /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387DE6851D2545BD006543D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387DE6871D2545BD006543D4 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +182,8 @@
 				38C1635D1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib */,
 				381001481D590C5E00D43A00 /* Onboarding.storyboard */,
 				38663DC61D5E4C4600F01E2C /* Artboard.storyboard */,
+				38663E1A1D61F52000F01E2C /* MusicTableViewCell.xib */,
+				38663E1C1D62143B00F01E2C /* VideoTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -198,6 +210,7 @@
 		38663E111D60C2E900F01E2C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				38663E201D621A6D00F01E2C /* New Group */,
 				38663E171D60C3A200F01E2C /* Settings */,
 				38663E161D60C39D00F01E2C /* Insights */,
 				38663E151D60C39600F01E2C /* Favorites */,
@@ -232,6 +245,9 @@
 				38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */,
 				38663DC81D5E702800F01E2C /* DashboardViewController.swift */,
 				38663DEE1D5F89B200F01E2C /* WebViewController.swift */,
+				38663E211D621B2D00F01E2C /* ItemListViewController.swift */,
+				38663E181D61F4E400F01E2C /* MusicTableViewCell.swift */,
+				38663E1E1D62199300F01E2C /* VideoTableViewCell.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -257,6 +273,13 @@
 			children = (
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		38663E201D621A6D00F01E2C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		387DE6791D2545BD006543D4 = {
@@ -306,7 +329,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				381001431D56313F00D43A00 /* NEContextSDK.framework */,
+				3851F4011D62673400DEFFD7 /* NEContextSDK.framework */,
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
@@ -385,6 +408,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				38C1635E1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib in Resources */,
+				38663E1D1D62143B00F01E2C /* VideoTableViewCell.xib in Resources */,
+				38663E1B1D61F52000F01E2C /* MusicTableViewCell.xib in Resources */,
 				381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */,
 				387DE6921D2545BD006543D4 /* LaunchScreen.storyboard in Resources */,
 				387DE68F1D2545BD006543D4 /* Assets.xcassets in Resources */,
@@ -472,6 +497,7 @@
 				38663DCD1D5EACC200F01E2C /* Recommendations.swift in Sources */,
 				387DE6861D2545BD006543D4 /* AppDelegate.swift in Sources */,
 				387DE6A11D254918006543D4 /* MeCollectionViewCell.swift in Sources */,
+				38663E221D621B2D00F01E2C /* ItemListViewController.swift in Sources */,
 				381FEA871D5BFE4500FBB7CF /* WalkthroughViewController.swift in Sources */,
 				381FEA851D5BFBB900FBB7CF /* OnboardPageViewController.swift in Sources */,
 				387DE6AB1D255FB5006543D4 /* ContextInfo.swift in Sources */,
@@ -487,6 +513,7 @@
 				38DAE3601D2B3ECC005F26B0 /* ContextPopoverViewController.swift in Sources */,
 				3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */,
 				387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */,
+				38663E1F1D62199300F01E2C /* VideoTableViewCell.swift in Sources */,
 				3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */,
 				38663DCB1D5E70B600F01E2C /* ArtboardTabBarController.swift in Sources */,
 				387DE6A71D255092006543D4 /* String+Ext.swift in Sources */,
@@ -496,6 +523,7 @@
 				387DE69F1D254722006543D4 /* AnalyticsViewController.swift in Sources */,
 				38DAE3641D2BF8E0005F26B0 /* Double+Ext.swift in Sources */,
 				38DAE3661D2C1850005F26B0 /* ContextFeedbackViewController.swift in Sources */,
+				38663E191D61F4E400F01E2C /* MusicTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

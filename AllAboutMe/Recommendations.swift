@@ -18,9 +18,11 @@ class Recommendations {
   let log = Logger(loggerName: String(Recommendations))
   var unwatchedItems : [RecommendedItem] = []
   var watchedItems : [RecommendedItem] = []
-
+  let minNumberOfItems = 2
+  
   private func _populateRecommendedItemsList(itemType : ItemType, json : JSON) -> [Int : RecommendedItem] {
     var items : [Int : RecommendedItem] = [:]
+    print(json)
     for (_, subJson) : (String, JSON) in json {
       if let itemId = subJson["id"].int {
         let newItem = RecommendedItem(type: itemType)
@@ -31,8 +33,17 @@ class Recommendations {
         if let itemURL = subJson["url"].string {
           newItem.url = itemURL
         }
-        if let itemImageURL = subJson["imageUrl"].string {
+        if let itemEmbedURL = subJson["embedUrl"].string {
+          newItem.embedUrl = itemEmbedURL
+        }
+        if let itemStreamURL = subJson["streamUrl"].string {
+          newItem.streamUrl = itemStreamURL
+        }
+        if let itemImageURL = subJson["artwork"].string {
           newItem.thumbnailImageUrl = itemImageURL
+        }
+        if let itemDuration = subJson["duration"].int {
+          newItem.duration = getDurationString(itemDuration)
         }
         items[itemId] = newItem
       }
@@ -75,6 +86,7 @@ class Recommendations {
           if let unwrappedResult = response.data {
             self.clearItems()
             self.populateRecommendedItemsList(JSON(data: unwrappedResult))
+            NSNotificationCenter.defaultCenter().postNotificationName("itemsAvailableNotification", object: nil)
           }
       }
     }
@@ -85,16 +97,20 @@ class Recommendations {
     watchedItems.removeAll()
   }
   
-  func getItem() -> RecommendedItem? {
-    if unwatchedItems.count > 0 {
-      let index = Int(arc4random_uniform(UInt32(unwatchedItems.count)))
-      let item = unwatchedItems[index]
-      watchedItems.append(item)
-      unwatchedItems.removeAtIndex(index)
-      if unwatchedItems.isEmpty {
+  func getItems(numberOfItems : Int) -> [RecommendedItem]? {
+    if unwatchedItems.count >= minNumberOfItems {
+      var items : [RecommendedItem] = []
+      for index in 0..<minNumberOfItems {
+        let item = unwatchedItems[index]
+        watchedItems.append(item)
+        items.append(item)
+        unwatchedItems.removeAtIndex(index)
+      }
+      
+      if unwatchedItems.count <= minNumberOfItems {
         reloadRecommendations()
       }
-      return item
+      return items
     } else {
       reloadRecommendations()
     }

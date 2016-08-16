@@ -20,6 +20,8 @@ let nameKey = "nameKey"
 let contextOverrideTimerExpiredNotification = "overrideTimerExpired"
 let profileIdReceivedNotification = "profileIdReceivedNotification"
 let onboardingCompleteNotification = "onboardingCompleteNotification"
+let itemsAvailableNotification = "itemsAvailableNotification"
+let imageDownloadNotification = "imageDownloadNotification"
 
 /* Server Endpoints */
 let postUserInfoInitEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/users"
@@ -72,4 +74,30 @@ func getAppVersionString() -> String {
     appVersion += ".\(version)"
   }
   return appVersion
+}
+
+func getDurationString(durationInSeconds: Int) -> String {
+  var seconds = durationInSeconds
+  let hours = Int(floor(Double(seconds/3600)))
+  seconds -= (hours * 3600)
+  let minutes = Int(floor(Double(seconds/60)))
+  seconds -= (minutes * 60)
+  
+  var durationString = ""
+  var hoursString = ""
+  var minutesString = ""
+  var secondsString = ""
+  
+  if hours > 0 {
+    hoursString = String(hours)
+    minutesString = minutes > 9 ? String(minutes) : "0" + String(minutes)
+    secondsString = seconds > 9 ? String(seconds) : "0" + String(seconds)
+    durationString = "\(hoursString):\(minutesString):\(secondsString)"
+  } else {
+    minutesString = minutes > 0 ? String(minutes) : "0"
+    secondsString = seconds > 9 ? String(seconds) : "0" + String(seconds)
+    durationString = "\(minutesString):\(secondsString)"
+  }
+  
+  return durationString
 }

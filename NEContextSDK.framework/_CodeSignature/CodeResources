@@ -8,14 +8,6 @@
 		<data>
 		J1prvhnlYy8CUTEag6JHOuMp/AQ=
 		</data>
-		<key>DayCategoryFLC.plist</key>
-		<data>
-		2gh4fSmu877VZ8jdDGYV9BY3uj8=
-		</data>
-		<key>DayCategorySpecialFLC.plist</key>
-		<data>
-		1qbbEB3d/QT39aXlzZjlZScDXIk=
-		</data>
 		<key>DeviceList.plist</key>
 		<data>
 		4xI4vXSeNCevSMyLyMWphA5Cc1E=
@@ -44,17 +36,9 @@
 		<data>
 		lgPD7RagKwH1qRe4Fh0dDS5yiAw=
 		</data>
-		<key>IndoorOutdoorFLC.plist</key>
-		<data>
-		kIKIGfdTB0tOtwyi5talt+zffEY=
-		</data>
 		<key>Info.plist</key>
 		<data>
 		I8oa51AmfIyuon/qCX+1BJd2O+A=
-		</data>
-		<key>LocationContextFLC.plist</key>
-		<data>
-		YTJyoS24q1Y0djDHPH0Vw+yFbA0=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -62,23 +46,11 @@
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		P4dAhu7ettWpOxm2ThjJxjBp8sw=
+		eHrB2z1lZer63/jV2WPh8RT+KUM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		yvDOp6VC3KtRKS7ibIb1XG6j5e8=
-		</data>
-		<key>WeatherToMoodFLC.plist</key>
-		<data>
-		AStU7BTZgw7R2e5tDnLZcu62h4I=
-		</data>
-		<key>WeekdayContextModelingFLC.plist</key>
-		<data>
-		JA/x88GVJgbkDzY9B6SD4k8dBqA=
-		</data>
-		<key>WeekendContextModelingFLC.plist</key>
-		<data>
-		ciamOEs8PQv9biPLNkesKata0WE=
 		</data>
 		<key>fuzzylite.doxygen</key>
 		<data>
@@ -96,28 +68,6 @@
 			<key>hash2</key>
 			<data>
 			H4zFJtsp5o1cIB7T1SMyUOJ8qvTfVmKIc5xxf147Ka0=
-			</data>
-		</dict>
-		<key>DayCategoryFLC.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2gh4fSmu877VZ8jdDGYV9BY3uj8=
-			</data>
-			<key>hash2</key>
-			<data>
-			pA/jA5qYLop023/1hKiIQI4IBMU96SV5RixTHs0PJV4=
-			</data>
-		</dict>
-		<key>DayCategorySpecialFLC.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			1qbbEB3d/QT39aXlzZjlZScDXIk=
-			</data>
-			<key>hash2</key>
-			<data>
-			OsMj4Uce6fCFnVOINlkmUJVNXhatTsah6i9PvoSb088=
 			</data>
 		</dict>
 		<key>DeviceList.plist</key>
@@ -197,28 +147,6 @@
 			VYt+v1KB0FZOa61EGAYpJ58YN307snLXWYuzyOpwm/k=
 			</data>
 		</dict>
-		<key>IndoorOutdoorFLC.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			kIKIGfdTB0tOtwyi5talt+zffEY=
-			</data>
-			<key>hash2</key>
-			<data>
-			LciADWfP82Xx0CiQ/CFr163ZZrw+JQgkONs6RbuNjGY=
-			</data>
-		</dict>
-		<key>LocationContextFLC.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YTJyoS24q1Y0djDHPH0Vw+yFbA0=
-			</data>
-			<key>hash2</key>
-			<data>
-			gdivZ8JDm2m8jGZWsLfgvUBRM+gHr4xAL9YzneDBKV4=
-			</data>
-		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
@@ -234,11 +162,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			P4dAhu7ettWpOxm2ThjJxjBp8sw=
+			eHrB2z1lZer63/jV2WPh8RT+KUM=
 			</data>
 			<key>hash2</key>
 			<data>
-			N9ffH4N9ajDubMUynUiFdmCnMp1Gue5T1ysDSbdnm9E=
+			g/OFlccpGiYm9Q/XkmJ2F5EhsMHAR5IIc/SCZtmguhs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -250,39 +178,6 @@
 			<key>hash2</key>
 			<data>
 			jeNl/mwJdb7e5p4OdGXdLxrcwZaTFjGvzKM1u4jcFGQ=
-			</data>
-		</dict>
-		<key>WeatherToMoodFLC.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			AStU7BTZgw7R2e5tDnLZcu62h4I=
-			</data>
-			<key>hash2</key>
-			<data>
-			/mO2IOpp1d8n54Q31+XwZVoW9XmV0776oMM6au9GuPc=
-			</data>
-		</dict>
-		<key>WeekdayContextModelingFLC.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			JA/x88GVJgbkDzY9B6SD4k8dBqA=
-			</data>
-			<key>hash2</key>
-			<data>
-			dA+N7iZ+VSdhaH7tLQvBm4NsYtL8AV/DL7HbhvCePtY=
-			</data>
-		</dict>
-		<key>WeekendContextModelingFLC.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ciamOEs8PQv9biPLNkesKata0WE=
-			</data>
-			<key>hash2</key>
-			<data>
-			t+dtzrje/l52pl+RSmI7/lbUkDNEniJJWyeu9vGZ464=
 			</data>
 		</dict>
 		<key>fuzzylite.doxygen</key>

@@ -25,6 +25,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   var disposables : [Disposable] = []
   let log = Logger(loggerName: String(DashboardViewController))
   let contextGroups : [NEContextGroup] = [NEContextGroup.Situation, NEContextGroup.Mood, NEContextGroup.Place, NEContextGroup.Weather, NEContextGroup.Activity, NEContextGroup.Lightness, NEContextGroup.TimeOfDay, NEContextGroup.DayCategory, NEContextGroup.IndoorOutdoor]
+  var userRequested = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,6 +40,10 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     NSNotificationCenter.defaultCenter().addObserver(self,
                                                      selector: #selector(DashboardViewController.handleProfileIdReceivedNotification(_:)),
                                                      name: profileIdReceivedNotification,
+                                                     object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self,
+                                                     selector: #selector(DashboardViewController.handleItemsAvailableNotification(_:)),
+                                                     name: itemsAvailableNotification,
                                                      object: nil)
     if Credentials.sharedInstance.profileId != nil {
       Recommendations.sharedInstance.reloadRecommendations()
@@ -143,6 +148,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
         break
       case .SurpriseMe:
         /* Surprise Me image */
+        userRequested = true
         handleSurpriseMe()
         break
       case .Weather:
@@ -161,18 +167,28 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
+  func handleItemsAvailableNotification(notification : NSNotification) {
+    if userRequested {
+      handleSurpriseMe()
+    }
+  }
+  
   func handleSurpriseMe() {
-    if let _item = Recommendations.sharedInstance.getItem() {
-      switch _item.type! {
-      case ItemType.Music:
-        performSegueWithIdentifier("showWebContentSegue", sender: _item)
-        break
-      case ItemType.Video:
-        performSegueWithIdentifier("showWebContentSegue", sender: _item)
-        break
-      case ItemType.News:
-        performSegueWithIdentifier("showWebContentSegue", sender: _item)
-        break
+    if userRequested {
+      if let _items = Recommendations.sharedInstance.getItems(2) {
+        userRequested = false
+        performSegueWithIdentifier("hitMeSegue", sender: _items)
+        //      switch _item.type! {
+        //      case ItemType.Music:
+        //        performSegueWithIdentifier("showWebContentSegue", sender: _item)
+        //        break
+        //      case ItemType.Video:
+        //        performSegueWithIdentifier("showWebContentSegue", sender: _item)
+        //        break
+        //      case ItemType.News:
+        //        performSegueWithIdentifier("showWebContentSegue", sender: _item)
+        //        break
+        //      }
       }
     }
   }
@@ -189,6 +205,13 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
           }
         }
         break
+      case "hitMeSegue":
+        if let
+          destController = segue.destinationViewController as? ItemListViewController {
+          if let _items = sender as? [RecommendedItem] {
+            destController.items = _items
+          }
+        }
       default:
         break
       }

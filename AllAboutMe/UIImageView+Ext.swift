@@ -13,14 +13,13 @@ extension UIImageView {
     let session = NSURLSession.sharedSession()
     
     let downloadTask = session.downloadTaskWithURL(url, completionHandler: {
-      [weak self] url, response, error in
-      
+      [weak self] url, response, error in      
       if error == nil && url != nil {
         if let data = NSData(contentsOfURL: url!) {
           if let image = UIImage(data: data) {
             dispatch_async(dispatch_get_main_queue()) {
               if let strongSelf = self {
-                strongSelf.image = image.resizedImageWithBounds(bounds)
+                strongSelf.image = image
                 if let _item = item {
                   _item.thumbnailImage = strongSelf.image
                 }

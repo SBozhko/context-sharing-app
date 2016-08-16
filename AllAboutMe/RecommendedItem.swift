@@ -12,6 +12,8 @@ import UIKit
 class RecommendedItem : NSObject {
   var type : ItemType?
   var url : String?
+  var embedUrl : String?
+  var streamUrl : String?
   var title : String?
   var duration : String?
   var id : Int?
