@@ -46,7 +46,7 @@ class Images {
       case .Dinner:
         imageName =  "Time_Dinner"
       case .BeforeLunch:
-        imageName =  "Time_BeforeLunch"
+        imageName =  "Time_Lunch"
       case .Evening:
         imageName =  "Time_Evening"
       case .EarlyHours:
@@ -58,7 +58,7 @@ class Images {
       case .Morning:
         imageName =  "Time_Morning"
       default:
-        imageName =  "Unknown"
+        imageName =  "Time_Evening"
       }
     case .Place:
       switch contextName {
@@ -77,7 +77,7 @@ class Images {
       case .Beach:
         imageName =  "Place_Beach"
       default:
-        imageName =  "Unknown"
+        imageName =  "Place_Home"
       }
     case .Mood:
       switch contextName {
@@ -111,7 +111,7 @@ class Images {
       case .Bedtime:
         imageName =  "Situation_Bedtime"
       default:
-        imageName =  "Unknown"
+        imageName =  "Situation_Relaxing"
       }
     case .Weather:
       switch contextName {

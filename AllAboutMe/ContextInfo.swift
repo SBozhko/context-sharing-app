@@ -145,24 +145,24 @@ class ContextInfo {
     case .Bedtime:
       return "BEDTIME"
     default:
-      return ""
+      return "RELAXING"
     }
   }
   
   func getContextGroupStatement(contextGroup : NEContextGroup) -> String {
     switch (contextGroup) {
     case .Situation:
-      return "I am currently ... "
+      return "I am currently"
     case .IndoorOutdoor:
-      return "I am "
+      return "I am"
     case .Mood:
-      return "I am feeling "
+      return "I am feeling"
     case .Place:
-      return "I am at "
+      return "I am at"
     case .Activity:
-      return "I am "
+      return "I am"
     case .Weather:
-      return "The weather is "
+      return "It is"
     default:
       return ""
     }
