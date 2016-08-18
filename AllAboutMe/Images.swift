@@ -95,9 +95,9 @@ class Images {
     case .Situation:
       switch contextName {
       case .WakeUp:
-        imageName =  "Situation_WakeUp"
+        imageName =  "Situation_Wakeup"
       case .OnTheGo:
-        imageName =  "Situation_OnTheGo"
+        imageName =  "Situation_Commuting"
       case .Working:
         imageName =  "Situation_Working"
       case .Workout:
@@ -135,7 +135,9 @@ class Images {
     default:
       break
     }
-    imageName = mainContext ? "\(imageName)_75" : (shadow ? "\(imageName)_60" : "\(imageName)_60_no_shadow")
+    if contextGroup != NEContextGroup.Situation {
+      imageName = mainContext ? "\(imageName)_75" : (shadow ? "\(imageName)_60" : "\(imageName)_60_no_shadow")
+    }
     return imageName
   }
 }

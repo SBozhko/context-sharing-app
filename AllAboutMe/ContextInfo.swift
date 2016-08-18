@@ -163,6 +163,8 @@ class ContextInfo {
       return "I am"
     case .Weather:
       return "It is"
+    case .TimeOfDay:
+      return "It is"
     default:
       return ""
     }

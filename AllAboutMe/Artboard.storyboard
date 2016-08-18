@@ -69,7 +69,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="working" translatesAutoresizingMaskIntoConstraints="NO" id="rlA-2N-zJ1">
+                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Situation_Working" translatesAutoresizingMaskIntoConstraints="NO" id="rlA-2N-zJ1">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1UO-Pn-Fbq">
@@ -78,7 +78,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="dark"/>
+                                <vibrancyEffect>
+                                    <blurEffect style="dark"/>
+                                </vibrancyEffect>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osm-eY-P6T">
                                 <rect key="frame" x="168" y="60" width="264" height="60"/>
@@ -108,7 +110,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OtJ-pn-YSx" userLabel="Surprise Me">
                                 <rect key="frame" x="200" y="469" width="200" height="50"/>
                                 <subviews>
-                                    <imageView tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Surprise Me" translatesAutoresizingMaskIntoConstraints="NO" id="YBB-1X-7t3">
+                                    <imageView tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Surprise Me Green" translatesAutoresizingMaskIntoConstraints="NO" id="YBB-1X-7t3">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                                     </imageView>
                                 </subviews>
@@ -251,6 +253,7 @@
                         <outlet property="indoorOutdoorImageView" destination="JLf-rW-4sV" id="NVH-3H-Mg8"/>
                         <outlet property="moodImageView" destination="LbN-5o-MtQ" id="BJ6-9v-W7Z"/>
                         <outlet property="placeImageView" destination="ngt-ki-tDl" id="VmX-Ao-u3e"/>
+                        <outlet property="situationImageView" destination="rlA-2N-zJ1" id="vS6-gb-m1q"/>
                         <outlet property="surpriseMeImageView" destination="YBB-1X-7t3" id="aWo-eN-Tiz"/>
                         <outlet property="timeImageView" destination="tfw-kD-xdC" id="J4z-n7-apC"/>
                         <outlet property="weatherImageView" destination="fJG-3W-WDX" id="cV8-xb-Gs6"/>
@@ -521,8 +524,6 @@
                     <connections>
                         <segue destination="hO3-sM-pKM" kind="relationship" relationship="viewControllers" id="kvu-n9-StG"/>
                         <segue destination="U4x-sI-xzu" kind="relationship" relationship="viewControllers" id="iDj-Zw-dSh"/>
-                        <segue destination="QaI-ec-722" kind="relationship" relationship="viewControllers" id="iA8-Te-c33"/>
-                        <segue destination="VvU-lP-VuK" kind="relationship" relationship="viewControllers" id="86O-uM-oRW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXZ-SS-Aq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -764,7 +765,8 @@
         <image name="Mood_Happy_60" width="68" height="68"/>
         <image name="Place_Office_60" width="68" height="68"/>
         <image name="Situation" width="250" height="50"/>
-        <image name="Surprise Me" width="200" height="50"/>
+        <image name="Situation_Working" width="749" height="749"/>
+        <image name="Surprise Me Green" width="200" height="50"/>
         <image name="Time_Lunch_60" width="68" height="68"/>
         <image name="Weather_Cloudy_60" width="68" height="68"/>
         <image name="close" width="40" height="40"/>
@@ -773,6 +775,5 @@
         <image name="profile" width="25" height="30"/>
         <image name="settings" width="32" height="31"/>
         <image name="share" width="33" height="40"/>
-        <image name="working" width="749" height="749"/>
     </resources>
 </document>

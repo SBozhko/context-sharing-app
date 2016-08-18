@@ -24,7 +24,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(context.group).filter({ $0 != NEContextName.Unknown && $0 != NEContextName.Other })
+    listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(context.group).filter({ $0 != NEContextName.Unknown && $0 != NEContextName.Other && $0 != NEContextName.Normal && $0 != NEContextName.BeforeLunch })
     addImageViewModifications(closeImageView)
     contextGroup = context.group
     contextGroupLabel.text = contextGroup?.name.uppercaseString
@@ -58,7 +58,6 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
 
 extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ContextUpdateCollectionViewCell
     if let
       savedIndexPath = selectedContext[listOfContextNames[indexPath.row]]
       where savedIndexPath == indexPath {
@@ -75,7 +74,6 @@ extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionVi
   }
   
   func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-    let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ContextUpdateCollectionViewCell
     if let
       savedIndexPath = selectedContext[listOfContextNames[indexPath.row]]
       where savedIndexPath == indexPath {
