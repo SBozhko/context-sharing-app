@@ -19,6 +19,8 @@
 		3851F4041D62673700DEFFD7 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3851F4011D62673400DEFFD7 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3851F4061D62AB4500DEFFD7 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */; };
 		3851F4081D62AC6400DEFFD7 /* AVPlayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */; };
+		3851F40E1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F40D1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift */; };
+		3851F4101D647A5700DEFFD7 /* ContextUpdateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F40F1D647A5700DEFFD7 /* ContextUpdateCollectionViewCell.swift */; };
 		3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBB1D3BB1B9006B894C /* Logger.swift */; };
 		3853FEBE1D3BB226006B894C /* VendorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEBD1D3BB226006B894C /* VendorInfo.swift */; };
 		3853FEC91D3CD5F2006B894C /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853FEC81D3CD5F2006B894C /* Array+Ext.swift */; };
@@ -89,6 +91,8 @@
 		3851F4011D62673400DEFFD7 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ext.swift"; sourceTree = "<group>"; };
+		3851F40D1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextUpdateViewController.swift; sourceTree = "<group>"; };
+		3851F40F1D647A5700DEFFD7 /* ContextUpdateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextUpdateCollectionViewCell.swift; sourceTree = "<group>"; };
 		3853FEBB1D3BB1B9006B894C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3853FEBD1D3BB226006B894C /* VendorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendorInfo.swift; sourceTree = "<group>"; };
 		3853FEC81D3CD5F2006B894C /* Array+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
@@ -152,6 +156,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3851F40B1D63EB7100DEFFD7 /* ContextFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				38DAE35F1D2B3ECC005F26B0 /* ContextPopoverViewController.swift */,
+				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
+				3851F40D1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift */,
+				3851F40F1D647A5700DEFFD7 /* ContextUpdateCollectionViewCell.swift */,
+			);
+			name = ContextFeedback;
+			sourceTree = "<group>";
+		};
+		3851F40C1D63EB8400DEFFD7 /* ContentRecommendation */ = {
+			isa = PBXGroup;
+			children = (
+				385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */,
+				385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */,
+				38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */,
+				38663DEE1D5F89B200F01E2C /* WebViewController.swift */,
+				38663E211D621B2D00F01E2C /* ItemListViewController.swift */,
+				38663E181D61F4E400F01E2C /* MusicTableViewCell.swift */,
+				38663E1E1D62199300F01E2C /* VideoTableViewCell.swift */,
+				3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */,
+			);
+			name = ContentRecommendation;
+			sourceTree = "<group>";
+		};
 		3853FEB71D3BA384006B894C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,19 +270,11 @@
 		38663E141D60C38F00F01E2C /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				3851F40C1D63EB8400DEFFD7 /* ContentRecommendation */,
+				3851F40B1D63EB7100DEFFD7 /* ContextFeedback */,
 				387DE6871D2545BD006543D4 /* MeViewController.swift */,
-				38DAE35F1D2B3ECC005F26B0 /* ContextPopoverViewController.swift */,
-				38DAE3651D2C1850005F26B0 /* ContextFeedbackViewController.swift */,
 				387DE6A01D254918006543D4 /* MeCollectionViewCell.swift */,
-				385D024A1D4FA186007C1C4A /* RecommendationsViewController.swift */,
-				385D024E1D4FBDDB007C1C4A /* RecommendationWebViewController.swift */,
-				38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */,
 				38663DC81D5E702800F01E2C /* DashboardViewController.swift */,
-				38663DEE1D5F89B200F01E2C /* WebViewController.swift */,
-				38663E211D621B2D00F01E2C /* ItemListViewController.swift */,
-				38663E181D61F4E400F01E2C /* MusicTableViewCell.swift */,
-				38663E1E1D62199300F01E2C /* VideoTableViewCell.swift */,
-				3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -511,6 +533,8 @@
 				387DE6A51D255092006543D4 /* AWS.swift in Sources */,
 				38DAE3601D2B3ECC005F26B0 /* ContextPopoverViewController.swift in Sources */,
 				3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */,
+				3851F4101D647A5700DEFFD7 /* ContextUpdateCollectionViewCell.swift in Sources */,
+				3851F40E1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift in Sources */,
 				387DE6881D2545BD006543D4 /* MeViewController.swift in Sources */,
 				38663E1F1D62199300F01E2C /* VideoTableViewCell.swift in Sources */,
 				3851F4081D62AC6400DEFFD7 /* AVPlayer+Ext.swift in Sources */,

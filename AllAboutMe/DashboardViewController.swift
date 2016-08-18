@@ -56,7 +56,16 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       disposables.append(NEContextManager.sharedInstance.subscribe { context in
         self.log.info("Received context update: \(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
         dispatch_async(dispatch_get_main_queue(), {
-          self.updateDashboardImage(context)
+          switch context.group {
+          case .Activity:
+            self.activityImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+          case .IndoorOutdoor:
+            self.indoorOutdoorImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+          case .TimeOfDay:
+            self.timeImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+          default:
+            break
+          }
         })
         self.postContextInfo([context])
         })
@@ -70,6 +79,18 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  func addImageViewModifications(imgView : UIImageView) {
+    let recognizer = UITapGestureRecognizer(target: self, action:#selector(DashboardViewController.handleImageTapGesture(_:)))
+    recognizer.delegate = self
+    imgView.addGestureRecognizer(recognizer)
+    imgView.layer.cornerRadius = imgView.frame.width / 2.0
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
   }
   
   func handleProfileIdReceivedNotification(notification : NSNotification) {
@@ -112,26 +133,14 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  func addImageViewModifications(imgView : UIImageView) {
-    let recognizer = UITapGestureRecognizer(target: self, action:#selector(DashboardViewController.handleImageTapGesture(_:)))
-    recognizer.delegate = self
-    imgView.addGestureRecognizer(recognizer)
-    imgView.layer.cornerRadius = imgView.frame.width / 2.0
-  }
-
-  override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
-  }
-  
   func updateDashboardImage(context : NEContext) {
     switch context.group {
     case .Activity:
-      activityImageView.image = UIImage(named: Images.getImageName(context))
+      activityImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
     case .IndoorOutdoor:
-      indoorOutdoorImageView.image = UIImage(named: Images.getImageName(context))
+      indoorOutdoorImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
     case .TimeOfDay:
-      timeImageView.image = UIImage(named: Images.getImageName(context))
+      timeImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
     default:
       break
     }
@@ -147,6 +156,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
         break
       case .Mood:
         /* Mood image */
+        performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.Mood).context)
         break
       case .Time:
         /* Time image */
@@ -195,6 +205,13 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
           destController = segue.destinationViewController as? ItemListViewController {
           if let _items = sender as? [RecommendedItem] {
             destController.items = _items
+          }
+        }
+      case "showContextUpdateSegue":
+        if let
+          destController = segue.destinationViewController as? ContextUpdateViewController {
+          if let localContext = sender as? NEContext {
+            destController.context = localContext
           }
         }
       default:

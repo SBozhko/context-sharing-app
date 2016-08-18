@@ -67,6 +67,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="music" width="30" height="29"/>
+        <image name="music" width="35" height="35"/>
     </resources>
 </document>
