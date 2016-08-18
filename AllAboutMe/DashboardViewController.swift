@@ -56,16 +56,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       disposables.append(NEContextManager.sharedInstance.subscribe { context in
         self.log.info("Received context update: \(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
         dispatch_async(dispatch_get_main_queue(), {
-          switch context.group {
-          case .Activity:
-            self.activityImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
-          case .IndoorOutdoor:
-            self.indoorOutdoorImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
-          case .TimeOfDay:
-            self.timeImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
-          default:
-            break
-          }
+          self.updateDashboardImage(context)
         })
         self.postContextInfo([context])
         })
@@ -141,18 +132,23 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       indoorOutdoorImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
     case .TimeOfDay:
       timeImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+    case .Weather:
+      weatherImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+    case .Place:
+      placeImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+    case .Mood:
+      moodImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
     default:
       break
     }
   }
   
   func handleImageTapGesture(gestureRecognizer: UITapGestureRecognizer) {
-    if let _imageView = gestureRecognizer.view as? UIImageView {
-      print("Tag \(_imageView.tag)")
-      
+    if let _imageView = gestureRecognizer.view as? UIImageView {      
       switch (ContextType(rawValue: _imageView.tag)!) {
       case .Place:
         /* Place image */
+        performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.Place).context)
         break
       case .Mood:
         /* Mood image */
@@ -160,6 +156,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
         break
       case .Time:
         /* Time image */
+        performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.TimeOfDay).context)
         break
       case .SurpriseMe:
         /* Surprise Me image */
@@ -168,12 +165,15 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
         break
       case .Weather:
         /* Weather image */
+        performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.Weather).context)
         break
       case .IndoorOutdoor:
         /* Indoor/Outdoor image */
+        performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.IndoorOutdoor).context)
         break
       case .Activity:
         /* Activity image */
+        performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.Activity).context)
         break
       case .Situation:
         /* Situation image */

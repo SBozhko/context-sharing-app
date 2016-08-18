@@ -27,6 +27,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
     listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(context.group).filter({ $0 != NEContextName.Unknown && $0 != NEContextName.Other })
     addImageViewModifications(closeImageView)
     contextGroup = context.group
+    contextGroupLabel.text = contextGroup?.name.uppercaseString
     currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(contextGroup!)
     currentContextStatementSuffixLabel.text = context.name.name.lowercaseString
     currentContextImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: contextGroup!, mainContext: true))
@@ -68,7 +69,7 @@ extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionVi
       selectedContext[listOfContextNames[indexPath.row]] = indexPath
 //      cell!.contextOptionImageView.layer.borderWidth = 3.0
 //      cell!.contextOptionImageView.layer.borderColor = UIColor.blueColor().CGColor
-      currentContextImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row], contextGroup: contextGroup!, mainContext: true, shadow: false))
+      currentContextImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row], contextGroup: contextGroup!, mainContext: true))
       currentContextStatementSuffixLabel.text = listOfContextNames[indexPath.row].name.lowercaseString
     }
   }
@@ -88,7 +89,7 @@ extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionVi
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ContextUpdateCollectionViewCell
     if !listOfContextNames.isEmpty {
       //      Send request for image
-      cell.contextOptionImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row], contextGroup: contextGroup!))
+      cell.contextOptionImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row], contextGroup: contextGroup!, shadow: false))
     }
     return cell
   }

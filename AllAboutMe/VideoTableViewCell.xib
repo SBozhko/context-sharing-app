@@ -41,9 +41,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2V-Ay-qUb">
-                        <rect key="frame" x="8" y="191" width="514" height="40"/>
+                        <rect key="frame" x="8" y="211" width="514" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="XGd-aI-5I7"/>
+                            <constraint firstAttribute="height" constant="20" id="XGd-aI-5I7"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                         <color key="textColor" red="0.94117647059999998" green="0.58823529409999997" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,6 +66,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="May-si-l9P" secondAttribute="bottom" constant="-8" id="QZi-Qk-szC"/>
                     <constraint firstAttribute="bottomMargin" secondItem="6IP-MC-kuZ" secondAttribute="bottom" id="VQe-bN-A85"/>
                     <constraint firstAttribute="trailing" secondItem="6IP-MC-kuZ" secondAttribute="trailing" constant="8" id="cxs-0a-BZ9"/>
+                    <constraint firstItem="6IP-MC-kuZ" firstAttribute="bottom" secondItem="L2V-Ay-qUb" secondAttribute="bottom" id="eDq-4e-aBx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="zU7-Gh-e33" secondAttribute="trailing" id="uer-Py-eee"/>
                     <constraint firstAttribute="bottomMargin" secondItem="L2V-Ay-qUb" secondAttribute="bottom" id="wU6-uR-rY7"/>
                     <constraint firstItem="May-si-l9P" firstAttribute="leading" secondItem="FKc-6X-WUm" secondAttribute="leadingMargin" constant="-8" id="x9M-w1-d60"/>

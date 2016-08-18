@@ -41,9 +41,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oY-Xv-OMj">
-                        <rect key="frame" x="15" y="191" width="506" height="40"/>
+                        <rect key="frame" x="15" y="211" width="506" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="a8a-hP-dQs"/>
+                            <constraint firstAttribute="height" constant="20" id="a8a-hP-dQs"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                         <color key="textColor" red="0.94117647059999998" green="0.58823529409999997" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,6 +68,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="lm1-hB-EwL" secondAttribute="bottom" constant="-8" id="m1G-Jk-hXJ"/>
                     <constraint firstItem="lm1-hB-EwL" firstAttribute="leading" secondItem="DCC-gK-Cnd" secondAttribute="leadingMargin" constant="-8" id="n7t-7w-0nu"/>
                     <constraint firstAttribute="topMargin" secondItem="LQS-vC-FUU" secondAttribute="top" id="oFj-bk-GUA"/>
+                    <constraint firstItem="xyU-P7-Cba" firstAttribute="bottom" secondItem="7oY-Xv-OMj" secondAttribute="bottom" id="t4U-m1-T1k"/>
                     <constraint firstAttribute="trailingMargin" secondItem="LQS-vC-FUU" secondAttribute="trailing" id="tGz-Hg-3NP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lm1-hB-EwL" secondAttribute="trailing" constant="-8" id="ubI-Gk-Yqz"/>
                     <constraint firstItem="xyU-P7-Cba" firstAttribute="bottom" secondItem="7oY-Xv-OMj" secondAttribute="bottom" id="uhB-gY-OPg"/>

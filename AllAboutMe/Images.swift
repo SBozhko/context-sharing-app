@@ -113,10 +113,29 @@ class Images {
       default:
         imageName =  "Unknown"
       }
+    case .Weather:
+      switch contextName {
+      case .Sunny:
+        imageName =  "Weather_Sunny"
+      case .Cloudy:
+        imageName =  "Weather_Cloudy"
+      case .Windy:
+        imageName =  "Weather_Windy"
+      case .Snow:
+        imageName =  "Weather_Snowy"
+      case .Rain:
+        imageName =  "Weather_Rainy"
+      case .Drizzle:
+        imageName =  "Weather_Drizzle"
+      case .Thunderstorm:
+        imageName =  "Weather_Thunder"
+      default:
+        imageName =  "Unknown"
+      }
     default:
       break
     }
-    imageName = mainContext ? "\(imageName)_75" : (shadow ? "\(imageName)_60" : "\(imageName)_no_shadow")
+    imageName = mainContext ? "\(imageName)_75" : (shadow ? "\(imageName)_60" : "\(imageName)_60_no_shadow")
     return imageName
   }
 }
