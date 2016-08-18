@@ -9,6 +9,10 @@
 import UIKit
 import NEContextSDK
 
+protocol ContextUpdateDelegate {
+  func backFromContextUpdate(contextGroup : NEContextGroup, selectedContext : NEContextName)
+}
+
 class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet weak var contextGroupLabel: UILabel!
   @IBOutlet weak var currentContextStatementPrefixLabel: UILabel!
@@ -21,6 +25,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
   var listOfContextNames : [NEContextName] = []
   var selectedContext : [NEContextName : NSIndexPath] = [:]
   var contextGroup : NEContextGroup?
+  var updateDelegate : ContextUpdateDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,6 +57,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
   }
 
   func closeButtonPressed() {
+    updateDelegate?.backFromContextUpdate(contextGroup!, selectedContext : (selectedContext.first?.0)!)
     self.dismissViewControllerAnimated(true, completion: nil)
   }
 }

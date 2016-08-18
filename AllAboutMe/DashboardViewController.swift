@@ -57,7 +57,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       disposables.append(NEContextManager.sharedInstance.subscribe { context in
         self.log.info("Received context update: \(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
         dispatch_async(dispatch_get_main_queue(), {
-          self.updateDashboardImage(context)
+          self.updateDashboardImage(context.name, contextGroup: context.group)
         })
         self.postContextInfo([context])
         })
@@ -125,22 +125,22 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  func updateDashboardImage(context : NEContext) {
-    switch context.group {
+  func updateDashboardImage(contextName : NEContextName, contextGroup : NEContextGroup) {
+    switch contextGroup {
     case .Activity:
-      activityImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+      activityImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case .IndoorOutdoor:
-      indoorOutdoorImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+      indoorOutdoorImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case .TimeOfDay:
-      timeImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+      timeImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case .Weather:
-      weatherImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+      weatherImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case .Place:
-      placeImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+      placeImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case .Mood:
-      moodImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+      moodImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case .Situation:
-      situationImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: context.group))
+      situationImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     default:
       break
     }
@@ -214,6 +214,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
         if let
           destController = segue.destinationViewController as? ContextUpdateViewController {
           if let localContext = sender as? NEContext {
+            destController.updateDelegate = self
             destController.context = localContext
           }
         }
@@ -222,59 +223,12 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       }
     }
   }
-//  
-//  @IBAction func unwindToDashboard(segue : UIStoryboardSegue) {
-//    if let identifier = segue.identifier {
-//      switch identifier {
-//      case "unwindToDashboard":
-//        if let
-//          sourceController = segue.sourceViewController as? ContextUpdateViewController {
-//          if let
-//            _context = sourceController.context {
-//            var contextName = NEContextName.Other
-//            var userEnteredContextString = ""
-//            if let _userSelectedContextName = sourceController.selectedContextName {
-//              contextName = _userSelectedContextName
-//            }
-//            if let _userEnteredContext = sourceController.otherSelectedContextName {
-//              userEnteredContextString = _userEnteredContext
-//            }
-//            if contextName != NEContextName.Other || userEnteredContextString != "" {
-//              ContextInfo.sharedInstance.overrideCurrentContextSettings(_context.group, userSelectedContextName: contextName, userEnteredContextString: userEnteredContextString)
-//            }
-//            dispatch_async(dispatch_get_main_queue(), {
-//              if _context.group == NEContextGroup.Situation {
-//                self.updateSituationView()
-//              } else {
-//                self.otherContextCollectionView.reloadData()
-//              }
-//            })
-//          } else if let
-//            _contextGroup = sourceController.overriddenContextGroup {
-//            var contextName = NEContextName.Other
-//            var userEnteredContextString = ""
-//            if let _userSelectedContextName = sourceController.selectedContextName {
-//              contextName = _userSelectedContextName
-//            }
-//            if let _userEnteredContext = sourceController.otherSelectedContextName {
-//              userEnteredContextString = _userEnteredContext
-//            }
-//            if contextName != NEContextName.Other || userEnteredContextString != "" {
-//              ContextInfo.sharedInstance.overrideCurrentContextSettings(_contextGroup, userSelectedContextName: contextName, userEnteredContextString: userEnteredContextString)
-//            }
-//            dispatch_async(dispatch_get_main_queue(), {
-//              if _contextGroup == NEContextGroup.Situation {
-//                self.updateSituationView()
-//              } else {
-//                self.otherContextCollectionView.reloadData()
-//              }
-//            })
-//          }
-//        }
-//      default:
-//        break
-//      }
-//    }
-//  }
+}
 
+extension DashboardViewController : ContextUpdateDelegate {
+  func backFromContextUpdate(contextGroup : NEContextGroup, selectedContext : NEContextName) {
+    dispatch_async(dispatch_get_main_queue()) { 
+      self.updateDashboardImage(selectedContext, contextGroup: contextGroup)
+    }
+  }
 }
