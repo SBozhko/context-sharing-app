@@ -80,7 +80,7 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osm-eY-P6T">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osm-eY-P6T">
                                 <rect key="frame" x="168" y="60" width="264" height="60"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Situation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ox-bb-O49">
@@ -252,6 +252,8 @@
                         <outlet property="moodImageView" destination="LbN-5o-MtQ" id="BJ6-9v-W7Z"/>
                         <outlet property="placeImageView" destination="ngt-ki-tDl" id="VmX-Ao-u3e"/>
                         <outlet property="situationImageView" destination="rlA-2N-zJ1" id="vS6-gb-m1q"/>
+                        <outlet property="situationLabel" destination="SHz-T9-dkU" id="R61-Gz-arh"/>
+                        <outlet property="situationView" destination="Osm-eY-P6T" id="A1Y-iP-yZp"/>
                         <outlet property="surpriseMeImageView" destination="YBB-1X-7t3" id="aWo-eN-Tiz"/>
                         <outlet property="timeImageView" destination="tfw-kD-xdC" id="J4z-n7-apC"/>
                         <outlet property="weatherImageView" destination="fJG-3W-WDX" id="cV8-xb-Gs6"/>
@@ -514,10 +516,13 @@
         <scene sceneID="51H-Io-26F">
             <objects>
                 <tabBarController storyboardIdentifier="ArtboardTabBarController" id="eWu-3k-w1Z" customClass="ArtboardTabBarController" customModule="Jarvis" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="q7n-2z-A9U">
+                    <tabBar key="tabBar" alpha="0.69999999999999996" contentMode="scaleToFill" id="q7n-2z-A9U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="hO3-sM-pKM" kind="relationship" relationship="viewControllers" id="kvu-n9-StG"/>

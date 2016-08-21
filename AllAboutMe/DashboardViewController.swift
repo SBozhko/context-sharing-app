@@ -10,11 +10,13 @@ import UIKit
 import RxSwift
 import NEContextSDK
 import Alamofire
-import AdSupport
+import SwiftyJSON
 
 class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
 
+  @IBOutlet weak var situationView: UIView!
   @IBOutlet weak var situationImageView: UIImageView!
+  @IBOutlet weak var situationLabel: UILabel!
   @IBOutlet weak var placeImageView: UIImageView!
   @IBOutlet weak var moodImageView: UIImageView!
   @IBOutlet weak var timeImageView: UIImageView!
@@ -22,7 +24,6 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet weak var indoorOutdoorImageView: UIImageView!
   @IBOutlet weak var activityImageView: UIImageView!
   @IBOutlet weak var surpriseMeImageView: UIImageView!
-  @IBOutlet weak var situationButton: UIButton!
   var disposables : [Disposable] = []
   let log = Logger(loggerName: String(DashboardViewController))
   let contextGroups : [NEContextGroup] = [NEContextGroup.Situation, NEContextGroup.Mood, NEContextGroup.Place, NEContextGroup.Weather, NEContextGroup.Activity, NEContextGroup.Lightness, NEContextGroup.TimeOfDay, NEContextGroup.DayCategory, NEContextGroup.IndoorOutdoor]
@@ -55,12 +56,13 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     super.viewWillAppear(animated)
     if disposables.isEmpty {
       disposables.append(NEContextManager.sharedInstance.subscribe { context in
-        self.log.info("Received context update: \(NEDayCategory.get()!.name.name): \(context.name)-\(context.group.name)")
-        dispatch_async(dispatch_get_main_queue(), {
-          self.updateDashboardImage(context.name, contextGroup: context.group)
-        })
-        self.postContextInfo([context])
-        })
+        self.log.info("Received context update: \(context.group.name): \(context.name)")
+        if context.name != NEContextName.VeryHot && context.name != NEContextName.Cold &&
+            context.name != NEContextName.Warm && context.name != NEContextName.Hot &&
+          context.name != NEContextName.Freezing {
+          self.postContextInfo([context])
+        }
+      })
       initializeContexts()
     } else {
 //      self.updateSituationView()
@@ -102,12 +104,12 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  func postContextInfo(contextsToPost : [NEContext], manual : Bool = false) {
+  func postContextInfo(contextsToPost : [NEContext]) {
     if let _profileId = Credentials.sharedInstance.profileId {
       var contextDataParameters : [[String : AnyObject]] = [[:]]
-      contextDataParameters.removeLast()
+      contextDataParameters.removeAll()
       for context in contextsToPost {
-        contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name, "manual" : manual])
+        contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name, "manual" : false])
       }
       
       let parameters : [String : AnyObject] = [
@@ -118,29 +120,63 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       log.debug("Sending parameters: \(contextDataParameters)")
       Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
         .responseJSON { response in
-          if let JSON = response.result.value {
-            self.log.info("Received JSON POST response: \(JSON)")
-          }
+            dispatch_async(dispatch_get_main_queue(), {
+            if let unwrappedResult = response.data {
+              let json = JSON(data: unwrappedResult)
+              let contexts = json["contextData"]
+              for (_, subJson):(String, JSON) in contexts {
+                print(subJson)
+                self.updateDashboardImage(subJson["ctxName"].string!, contextGroup: subJson["ctxGroup"].string!)
+              }
+            }
+          })
       }
     }
   }
   
-  func updateDashboardImage(contextName : NEContextName, contextGroup : NEContextGroup) {
+  func postManualContextInfo(contextInfo : (contextName : String, contextGroup : String)) {
+    if let _profileId = Credentials.sharedInstance.profileId {
+      let contextDataParameters : [[String : AnyObject]] = [["ctxGroup" : contextInfo.contextGroup, "ctxName" : contextInfo.contextName, "manual" : true]]
+      let parameters : [String : AnyObject] = [
+        "contextData": contextDataParameters,
+        "profileId": _profileId
+      ]
+      
+      log.debug("Sending manual parameters: \(contextDataParameters)")
+      Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
+        .responseJSON { response in
+          dispatch_async(dispatch_get_main_queue(), {
+            if let unwrappedResult = response.data {
+              let json = JSON(data: unwrappedResult)
+              let contexts = json["contextData"]
+              for (_, subJson):(String, JSON) in contexts {
+                print(subJson)
+                self.updateDashboardImage(subJson["ctxName"].string!, contextGroup: subJson["ctxGroup"].string!)
+              }
+            }
+          })
+      }
+    }
+  }
+    
+  func updateDashboardImage(contextName : String, contextGroup : String) {
     switch contextGroup {
-    case .Activity:
+    case NEContextGroup.Activity.name:
       activityImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
-    case .IndoorOutdoor:
+    case NEContextGroup.IndoorOutdoor.name:
       indoorOutdoorImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
-    case .TimeOfDay:
+    case NEContextGroup.TimeOfDay.name:
       timeImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
-    case .Weather:
+    case NEContextGroup.Weather.name:
       weatherImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
-    case .Place:
+    case NEContextGroup.Place.name:
       placeImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
-    case .Mood:
+    case NEContextGroup.Mood.name:
       moodImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
-    case .Situation:
+    case NEContextGroup.Situation.name:
       situationImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
+      situationLabel.text = "\(ContextInfo.sharedInstance.getSituationDisplayMessage(contextName))"
+      situationView.hidden = false
     default:
       break
     }
@@ -228,7 +264,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
 extension DashboardViewController : ContextUpdateDelegate {
   func backFromContextUpdate(contextGroup : NEContextGroup, selectedContext : NEContextName) {
     dispatch_async(dispatch_get_main_queue()) { 
-      self.updateDashboardImage(selectedContext, contextGroup: contextGroup)
+      self.postManualContextInfo((selectedContext.name, contextGroup.name))
     }
   }
 }

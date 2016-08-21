@@ -35,7 +35,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
     contextGroupLabel.text = contextGroup?.name.uppercaseString
     currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(contextGroup!)
     currentContextStatementSuffixLabel.text = context.name.name.lowercaseString
-    currentContextImageView.image = UIImage(named: Images.getImageName(context.name, contextGroup: contextGroup!, mainContext: true))
+    currentContextImageView.image = UIImage(named: Images.getImageName(context.name.name, contextGroup: contextGroup!.name, mainContext: true))
   }
 
   func addImageViewModifications(imgView : UIImageView) {
@@ -57,7 +57,9 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
   }
 
   func closeButtonPressed() {
-    updateDelegate?.backFromContextUpdate(contextGroup!, selectedContext : (selectedContext.first?.0)!)
+    if selectedContext.count > 0 {
+      updateDelegate?.backFromContextUpdate(contextGroup!, selectedContext : (selectedContext.first?.0)!)
+    }
     self.dismissViewControllerAnimated(true, completion: nil)
   }
 }
@@ -74,7 +76,7 @@ extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionVi
       selectedContext[listOfContextNames[indexPath.row]] = indexPath
 //      cell!.contextOptionImageView.layer.borderWidth = 3.0
 //      cell!.contextOptionImageView.layer.borderColor = UIColor.blueColor().CGColor
-      currentContextImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row], contextGroup: contextGroup!, mainContext: true))
+      currentContextImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row].name, contextGroup: contextGroup!.name, mainContext: true))
       currentContextStatementSuffixLabel.text = listOfContextNames[indexPath.row].name.lowercaseString
     }
   }
@@ -93,7 +95,7 @@ extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionVi
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ContextUpdateCollectionViewCell
     if !listOfContextNames.isEmpty {
       //      Send request for image
-      cell.contextOptionImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row], contextGroup: contextGroup!, shadow: false))
+      cell.contextOptionImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row].name, contextGroup: contextGroup!.name, shadow: false))
     }
     return cell
   }

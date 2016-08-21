@@ -22,7 +22,6 @@ class Recommendations {
   
   private func _populateRecommendedItemsList(itemType : ItemType, json : JSON) -> [Int : RecommendedItem] {
     var items : [Int : RecommendedItem] = [:]
-    print(json)
     for (_, subJson) : (String, JSON) in json {
       if let itemId = subJson["id"].int {
         let newItem = RecommendedItem(type: itemType)

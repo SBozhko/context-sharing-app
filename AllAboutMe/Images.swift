@@ -10,124 +10,124 @@ import Foundation
 import NEContextSDK
 
 class Images {
-  static func getImageName(contextName : NEContextName, contextGroup : NEContextGroup, mainContext : Bool = false, shadow : Bool = true) -> String {
+  static func getImageName(contextName : String, contextGroup : String, mainContext : Bool = false, shadow : Bool = true) -> String {
     var imageName = "Unknown"
     switch (contextGroup) {
-    case .Activity:
+    case NEContextGroup.Activity.name:
       switch contextName {
-      case .Stationary:
+      case NEContextName.Stationary.name:
         imageName =  "Activity_Stationary"
-      case .Walking:
+      case NEContextName.Walking.name:
         imageName =  "Activity_Walking"
-      case .Running:
+      case NEContextName.Running.name:
         imageName =  "Activity_Running"
-      case .Cycling:
+      case NEContextName.Cycling.name:
         imageName =  "Activity_Cycling"
-      case .Driving:
+      case NEContextName.Driving.name:
         imageName =  "Activity_Driving"
       default:
         imageName =  "Activity_Stationary"
       }
-    case .IndoorOutdoor:
+    case NEContextGroup.IndoorOutdoor.name:
       switch contextName {
-      case .Indoor:
+      case NEContextName.Indoor.name:
         imageName =  "IndoorOutdoor_Indoor"
-      case .Outdoor:
+      case NEContextName.Outdoor.name:
         imageName =  "IndoorOutdoor_Outdoor"
       default:
         imageName =  "IndoorOutdoor_Indoor"
       }
-    case .TimeOfDay:
+    case NEContextGroup.TimeOfDay.name:
       switch contextName {
-      case .Breakfast:
+      case NEContextName.Breakfast.name:
         imageName =  "Time_Breakfast"
-      case .Lunch:
+      case NEContextName.Lunch.name:
         imageName =  "Time_Lunch"
-      case .Dinner:
+      case NEContextName.Dinner.name:
         imageName =  "Time_Dinner"
-      case .BeforeLunch:
+      case NEContextName.BeforeLunch.name:
         imageName =  "Time_Lunch"
-      case .Evening:
+      case NEContextName.Evening.name:
         imageName =  "Time_Evening"
-      case .EarlyHours:
+      case NEContextName.EarlyHours.name:
         imageName =  "Time_EarlyHours"
-      case .Night:
+      case NEContextName.Night.name:
         imageName =  "Time_Night"
-      case .Afternoon:
+      case NEContextName.Afternoon.name:
         imageName =  "Time_Afternoon"
-      case .Morning:
+      case NEContextName.Morning.name:
         imageName =  "Time_Morning"
       default:
         imageName =  "Time_Evening"
       }
-    case .Place:
+    case NEContextGroup.Place.name:
       switch contextName {
-      case .Home:
+      case NEContextName.Home.name:
         imageName =  "Place_Home"
-      case .Office:
+      case NEContextName.Office.name:
         imageName =  "Place_Office"
-      case .Library:
+      case NEContextName.Library.name:
         imageName =  "Place_Library"
-      case .Gym:
+      case NEContextName.Gym.name:
         imageName =  "Place_Gym"
-      case .Restaurant:
+      case NEContextName.Restaurant.name:
         imageName =  "Place_Restaurant"
-      case .Shop:
+      case NEContextName.Shop.name:
         imageName =  "Place_Shop"
-      case .Beach:
+      case NEContextName.Beach.name:
         imageName =  "Place_Beach"
       default:
         imageName =  "Place_Home"
       }
-    case .Mood:
+    case NEContextGroup.Mood.name:
       switch contextName {
-      case .Happy:
+      case NEContextName.Happy.name:
         imageName =  "Mood_Happy"
-      case .Angry:
+      case NEContextName.Angry.name:
         imageName =  "Mood_Angry"
-      case .Sad:
+      case NEContextName.Sad.name:
         imageName =  "Mood_Sad"
-      case .Calm:
+      case NEContextName.Calm.name:
         imageName =  "Mood_Calm"
       default:
         imageName =  "Mood_Happy"
       }
-    case .Situation:
+    case NEContextGroup.Situation.name:
       switch contextName {
-      case .WakeUp:
+      case NEContextName.WakeUp.name:
         imageName =  "Situation_Wakeup"
-      case .OnTheGo:
+      case NEContextName.OnTheGo.name:
         imageName =  "Situation_Commuting"
-      case .Working:
+      case NEContextName.Working.name:
         imageName =  "Situation_Working"
-      case .Workout:
+      case NEContextName.Workout.name:
         imageName =  "Situation_Workout"
-      case .Relaxing:
+      case NEContextName.Relaxing.name:
         imageName =  "Situation_Relaxing"
-      case .Housework:
+      case NEContextName.Housework.name:
         imageName =  "Situation_Housework"
-      case .Party:
+      case NEContextName.Party.name:
         imageName =  "Situation_Party"
-      case .Bedtime:
+      case NEContextName.Bedtime.name:
         imageName =  "Situation_Bedtime"
       default:
         imageName =  "Situation_Relaxing"
       }
-    case .Weather:
+    case NEContextGroup.Weather.name:
       switch contextName {
-      case .Sunny:
+      case NEContextName.Sunny.name:
         imageName =  "Weather_Sunny"
-      case .Cloudy:
+      case NEContextName.Cloudy.name:
         imageName =  "Weather_Cloudy"
-      case .Windy:
+      case NEContextName.Windy.name:
         imageName =  "Weather_Windy"
-      case .Snow:
+      case NEContextName.Snow.name:
         imageName =  "Weather_Snowy"
-      case .Rain:
+      case NEContextName.Rain.name:
         imageName =  "Weather_Rainy"
-      case .Drizzle:
+      case NEContextName.Drizzle.name:
         imageName =  "Weather_Drizzle"
-      case .Thunderstorm:
+      case NEContextName.Thunderstorm.name:
         imageName =  "Weather_Thunder"
       default:
         imageName =  "Unknown"
@@ -135,7 +135,7 @@ class Images {
     default:
       break
     }
-    if contextGroup != NEContextGroup.Situation {
+    if contextGroup != NEContextGroup.Situation.name {
       imageName = mainContext ? "\(imageName)_75" : (shadow ? "\(imageName)_60" : "\(imageName)_60_no_shadow")
     }
     return imageName
