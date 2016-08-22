@@ -34,8 +34,8 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
     contextGroup = context.group
     contextGroupLabel.text = contextGroup?.name.uppercaseString
     currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(contextGroup!)
-    currentContextStatementSuffixLabel.text = context.name.name.lowercaseString
-    currentContextImageView.image = UIImage(named: Images.getImageName(context.name.name, contextGroup: contextGroup!.name, mainContext: true))
+    currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.currentContextState[contextGroup!.name]
+    currentContextImageView.image = UIImage(named: Images.getImageName(currentContextStatementSuffixLabel.text!, contextGroup: contextGroup!.name, mainContext: true))
   }
 
   func addImageViewModifications(imgView : UIImageView) {

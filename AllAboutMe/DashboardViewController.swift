@@ -9,8 +9,6 @@
 import UIKit
 import RxSwift
 import NEContextSDK
-import Alamofire
-import SwiftyJSON
 
 class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
 
@@ -47,8 +45,15 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
                                                      selector: #selector(DashboardViewController.handleItemsAvailableNotification(_:)),
                                                      name: itemsAvailableNotification,
                                                      object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self,
+                                                     selector: #selector(DashboardViewController.handleContextUpdate(_:)),
+                                                     name: contextUpdateNotification,
+                                                     object: nil)
     if Credentials.sharedInstance.profileId != nil {
       Recommendations.sharedInstance.reloadRecommendations()
+    }
+    if let storedName = Credentials.name {
+      self.situationLabel.text = "Hi \(storedName)!"
     }
   }
   
@@ -60,7 +65,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
         if context.name != NEContextName.VeryHot && context.name != NEContextName.Cold &&
             context.name != NEContextName.Warm && context.name != NEContextName.Hot &&
           context.name != NEContextName.Freezing {
-          self.postContextInfo([context])
+          ContextInfo.sharedInstance.postContextInfo([context])
         }
       })
       initializeContexts()
@@ -70,9 +75,8 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    NSNotificationCenter.defaultCenter().removeObserver(self)
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return UIStatusBarStyle.LightContent
   }
   
   func addImageViewModifications(imgView : UIImageView) {
@@ -100,85 +104,58 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       }
     }
     if !contextsToPost.isEmpty {
-      postContextInfo(contextsToPost)
-    }
-  }
-  
-  func postContextInfo(contextsToPost : [NEContext]) {
-    if let _profileId = Credentials.sharedInstance.profileId {
-      var contextDataParameters : [[String : AnyObject]] = [[:]]
-      contextDataParameters.removeAll()
-      for context in contextsToPost {
-        contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name, "manual" : false])
-      }
-      
-      let parameters : [String : AnyObject] = [
-        "contextData": contextDataParameters,
-        "profileId": _profileId
-      ]
-      
-      log.debug("Sending parameters: \(contextDataParameters)")
-      Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
-        .responseJSON { response in
-            dispatch_async(dispatch_get_main_queue(), {
-            if let unwrappedResult = response.data {
-              let json = JSON(data: unwrappedResult)
-              let contexts = json["contextData"]
-              for (_, subJson):(String, JSON) in contexts {
-                print(subJson)
-                self.updateDashboardImage(subJson["ctxName"].string!, contextGroup: subJson["ctxGroup"].string!)
-              }
-            }
-          })
-      }
-    }
-  }
-  
-  func postManualContextInfo(contextInfo : (contextName : String, contextGroup : String)) {
-    if let _profileId = Credentials.sharedInstance.profileId {
-      let contextDataParameters : [[String : AnyObject]] = [["ctxGroup" : contextInfo.contextGroup, "ctxName" : contextInfo.contextName, "manual" : true]]
-      let parameters : [String : AnyObject] = [
-        "contextData": contextDataParameters,
-        "profileId": _profileId
-      ]
-      
-      log.debug("Sending manual parameters: \(contextDataParameters)")
-      Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
-        .responseJSON { response in
-          dispatch_async(dispatch_get_main_queue(), {
-            if let unwrappedResult = response.data {
-              let json = JSON(data: unwrappedResult)
-              let contexts = json["contextData"]
-              for (_, subJson):(String, JSON) in contexts {
-                print(subJson)
-                self.updateDashboardImage(subJson["ctxName"].string!, contextGroup: subJson["ctxGroup"].string!)
-              }
-            }
-          })
-      }
+      ContextInfo.sharedInstance.postContextInfo(contextsToPost)
     }
   }
     
   func updateDashboardImage(contextName : String, contextGroup : String) {
+    var toImageView : UIImageView?
+    var toImage : UIImage?
     switch contextGroup {
     case NEContextGroup.Activity.name:
-      activityImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
+      toImageView = activityImageView
+      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case NEContextGroup.IndoorOutdoor.name:
-      indoorOutdoorImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
+      toImageView = indoorOutdoorImageView
+      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case NEContextGroup.TimeOfDay.name:
-      timeImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
+      toImageView = timeImageView
+      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case NEContextGroup.Weather.name:
-      weatherImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
+      toImageView = weatherImageView
+      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case NEContextGroup.Place.name:
-      placeImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
+      toImageView = placeImageView
+      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case NEContextGroup.Mood.name:
-      moodImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
+      toImageView = moodImageView
+      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case NEContextGroup.Situation.name:
-      situationImageView.image = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
-      situationLabel.text = "\(ContextInfo.sharedInstance.getSituationDisplayMessage(contextName))"
-      situationView.hidden = false
+      toImageView = situationImageView
+      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     default:
       break
+    }
+
+    if let
+      localToImageView = toImageView,
+      localToImage = toImage {
+      UIView.transitionWithView(localToImageView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+        localToImageView.image = localToImage
+      }, completion: nil)
+      if contextGroup == NEContextGroup.Situation.name {
+        UIView.transitionWithView(self.situationLabel, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+          self.situationLabel.text = "\(ContextInfo.sharedInstance.getSituationDisplayMessage(contextName))"
+        }, completion: nil)
+      }
+    }
+  }
+  
+  @objc func handleContextUpdate(notification : NSNotification) {
+    if let contextUpdate : [String : String] = notification.object as? [String : String] {
+      dispatch_async(dispatch_get_main_queue(), {
+        self.updateDashboardImage(contextUpdate.first!.0, contextGroup: contextUpdate.first!.1)
+      })
     }
   }
   
@@ -259,12 +236,14 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       }
     }
   }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
 }
 
 extension DashboardViewController : ContextUpdateDelegate {
   func backFromContextUpdate(contextGroup : NEContextGroup, selectedContext : NEContextName) {
-    dispatch_async(dispatch_get_main_queue()) { 
-      self.postManualContextInfo((selectedContext.name, contextGroup.name))
-    }
+    ContextInfo.sharedInstance.postManualContextInfo((selectedContext.name, contextGroup.name))
   }
 }

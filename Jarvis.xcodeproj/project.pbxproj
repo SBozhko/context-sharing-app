@@ -16,7 +16,7 @@
 		381FEA851D5BFBB900FBB7CF /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */; };
 		381FEA871D5BFE4500FBB7CF /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */; };
 		381FEA891D5CA77400FBB7CF /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */; };
-		3851F4041D62673700DEFFD7 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3851F4011D62673400DEFFD7 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		384119B41D6AB6220014D5EC /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 384119B11D6AB5EA0014D5EC /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3851F4061D62AB4500DEFFD7 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */; };
 		3851F4081D62AC6400DEFFD7 /* AVPlayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */; };
 		3851F40E1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F40D1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift */; };
@@ -71,7 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3851F4041D62673700DEFFD7 /* NEContextSDK.framework in Embed Frameworks */,
+				384119B41D6AB6220014D5EC /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,7 +88,7 @@
 		381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
-		3851F4011D62673400DEFFD7 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
+		384119B11D6AB5EA0014D5EC /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ext.swift"; sourceTree = "<group>"; };
 		3851F40D1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextUpdateViewController.swift; sourceTree = "<group>"; };
@@ -325,12 +325,12 @@
 			children = (
 				38663E111D60C2E900F01E2C /* Controllers */,
 				38663E101D60C2DA00F01E2C /* Models */,
+				3853FEB71D3BA384006B894C /* Utilities */,
+				3853FEB81D3BA38A006B894C /* Extensions */,
 				3853FEB91D3BA3B5006B894C /* Views */,
 				3853FEBA1D3BA3EF006B894C /* UI Elements */,
 				38ADA10B1D2F193C00599E61 /* Jarvis-Bridging-Header.h */,
 				387DE6851D2545BD006543D4 /* AppDelegate.swift */,
-				3853FEB81D3BA38A006B894C /* Extensions */,
-				3853FEB71D3BA384006B894C /* Utilities */,
 				387DE68E1D2545BD006543D4 /* Assets.xcassets */,
 				387DE6931D2545BD006543D4 /* Info.plist */,
 			);
@@ -349,7 +349,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3851F4011D62673400DEFFD7 /* NEContextSDK.framework */,
+				384119B11D6AB5EA0014D5EC /* NEContextSDK.framework */,
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,

@@ -22,6 +22,7 @@ let profileIdReceivedNotification = "profileIdReceivedNotification"
 let onboardingCompleteNotification = "onboardingCompleteNotification"
 let itemsAvailableNotification = "itemsAvailableNotification"
 let imageDownloadNotification = "imageDownloadNotification"
+let contextUpdateNotification = "contextUpdateNotification"
 
 /* Server Endpoints */
 let postUserInfoInitEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/users"

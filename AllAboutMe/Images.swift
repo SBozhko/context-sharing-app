@@ -111,7 +111,7 @@ class Images {
       case NEContextName.Bedtime.name:
         imageName =  "Situation_Bedtime"
       default:
-        imageName =  "Situation_Relaxing"
+        imageName =  "Situation_Background"
       }
     case NEContextGroup.Weather.name:
       switch contextName {

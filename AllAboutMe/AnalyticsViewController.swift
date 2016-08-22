@@ -17,6 +17,10 @@ class AnalyticsViewController: UIViewController {
   var plotsToShow = [NEContextGroup.Situation, NEContextGroup.Place, NEContextGroup.Activity, NEContextGroup.IndoorOutdoor]
   let reuseIdentifier = "Cell"
 
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return UIStatusBarStyle.LightContent
+  }
+  
   override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
@@ -48,7 +52,7 @@ extension AnalyticsViewController : UICollectionViewDelegate, UICollectionViewDa
     let contextGroup = plotsToShow[indexPath.row]
     switch (contextGroup) {
     case .Situation:
-      cell.imageView.image = UIImage(named: "party")
+      cell.imageView.image = UIImage(named: "Situation_Party")
       cell.contextLabel.text = "Situations"
     case .Activity:
       cell.imageView.image = UIImage(named: "activity")

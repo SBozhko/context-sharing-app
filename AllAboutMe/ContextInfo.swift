@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 import NEContextSDK
 
 class ContextInfo {
@@ -18,6 +20,58 @@ class ContextInfo {
   var contextTimers : [String : NSTimer] = [:]
   let overrideContextTimerValue = 1800.0
   let log = Logger(loggerName: String(ContextInfo))
+  var currentContextState : [String : String] = [:]
+  
+  func postContextInfo(contextsToPost : [NEContext]) {
+    if let _profileId = Credentials.sharedInstance.profileId {
+      var contextDataParameters : [[String : AnyObject]] = [[:]]
+      contextDataParameters.removeAll()
+      for context in contextsToPost {
+        contextDataParameters.append(["ctxGroup" : context.group.name, "ctxName" : context.name.name, "manual" : false])
+      }
+      
+      let parameters : [String : AnyObject] = [
+        "contextData": contextDataParameters,
+        "profileId": _profileId
+      ]
+      
+      log.debug("Sending parameters: \(contextDataParameters)")
+      Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
+        .responseJSON { response in
+          if let unwrappedResult = response.data {
+            let json = JSON(data: unwrappedResult)
+            let contexts = json["contextData"]
+            for (_, subJson):(String, JSON) in contexts {
+              self.currentContextState[subJson["ctxGroup"].string!] = subJson["ctxName"].string!
+              NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [subJson["ctxName"].string! : subJson["ctxGroup"].string!])
+            }
+          }
+      }
+    }
+  }  
+  
+  func postManualContextInfo(contextInfo : (contextName : String, contextGroup : String)) {
+    if let _profileId = Credentials.sharedInstance.profileId {
+      let contextDataParameters : [[String : AnyObject]] = [["ctxGroup" : contextInfo.contextGroup, "ctxName" : contextInfo.contextName, "manual" : true]]
+      let parameters : [String : AnyObject] = [
+        "contextData": contextDataParameters,
+        "profileId": _profileId
+      ]
+      
+      log.debug("Sending manual parameters: \(contextDataParameters)")
+      Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
+        .responseJSON { response in
+          if let unwrappedResult = response.data {
+            let json = JSON(data: unwrappedResult)
+            let contexts = json["contextData"]
+            for (_, subJson):(String, JSON) in contexts {
+              self.currentContextState[subJson["ctxGroup"].string!] = subJson["ctxName"].string!
+              NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [subJson["ctxName"].string! : subJson["ctxGroup"].string!])
+            }
+          }
+      }
+    }
+  }
   
   func getOverriddenContext(group : NEContextGroup) -> (flag : Bool, contextName : NEContextName?, userContextString : String?) {
     if let

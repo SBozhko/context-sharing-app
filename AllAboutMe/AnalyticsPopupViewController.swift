@@ -45,6 +45,10 @@ class AnalyticsPopupViewController : UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
   }
+  
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return UIStatusBarStyle.Default
+  }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -117,5 +121,9 @@ class AnalyticsPopupViewController : UIViewController {
   
   @IBAction func closeButtonPressed(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
   }
 }

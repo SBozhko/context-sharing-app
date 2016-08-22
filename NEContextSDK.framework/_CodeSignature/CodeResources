@@ -38,7 +38,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		I8oa51AmfIyuon/qCX+1BJd2O+A=
+		aK3dkbO7t02uM7EfDJ78UPt1/Wg=
+		</data>
+		<key>Modules/NEContextSDK.swiftmodule/arm.swiftdoc</key>
+		<data>
+		6lTnZbqJ+EeqG4RWQllaQTgaEas=
+		</data>
+		<key>Modules/NEContextSDK.swiftmodule/arm.swiftmodule</key>
+		<data>
+		xkXopL0+PTkACzd7RyMFIfaDT6Y=
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -46,7 +54,7 @@
 		</data>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		eHrB2z1lZer63/jV2WPh8RT+KUM=
+		kbF6Saz8O4ZY4W3cfEy7E39cz58=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -147,6 +155,28 @@
 			VYt+v1KB0FZOa61EGAYpJ58YN307snLXWYuzyOpwm/k=
 			</data>
 		</dict>
+		<key>Modules/NEContextSDK.swiftmodule/arm.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6lTnZbqJ+EeqG4RWQllaQTgaEas=
+			</data>
+			<key>hash2</key>
+			<data>
+			fnI/0+aSI+8FUJDd/i7tAqcNV+sAdu0LxzaxS2eN/gg=
+			</data>
+		</dict>
+		<key>Modules/NEContextSDK.swiftmodule/arm.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xkXopL0+PTkACzd7RyMFIfaDT6Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			Q377+rE4wRV3ExocD+NKD5Tj1s0pTuhU4PzZFkBIJHE=
+			</data>
+		</dict>
 		<key>Modules/NEContextSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
@@ -162,11 +192,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eHrB2z1lZer63/jV2WPh8RT+KUM=
+			kbF6Saz8O4ZY4W3cfEy7E39cz58=
 			</data>
 			<key>hash2</key>
 			<data>
-			g/OFlccpGiYm9Q/XkmJ2F5EhsMHAR5IIc/SCZtmguhs=
+			9WNs3Pbc4ZsgKmwEzP8HR6oxyVmz50SE2bYwMo42Mpc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
