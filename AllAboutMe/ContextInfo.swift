@@ -38,12 +38,14 @@ class ContextInfo {
       log.debug("Sending parameters: \(contextDataParameters)")
       Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
         .responseJSON { response in
-          if let unwrappedResult = response.data {
-            let json = JSON(data: unwrappedResult)
-            let contexts = json["contextData"]
-            for (_, subJson):(String, JSON) in contexts {
-              self.currentContextState[subJson["ctxGroup"].string!] = subJson["ctxName"].string!
-              NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [subJson["ctxName"].string! : subJson["ctxGroup"].string!])
+          if response.result.isSuccess {
+            if let unwrappedResult = response.data {
+              let json = JSON(data: unwrappedResult)
+              let contexts = json["contextData"]
+              for (_, subJson):(String, JSON) in contexts {
+                self.currentContextState[subJson["ctxGroup"].string!] = subJson["ctxName"].string!
+                NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [subJson["ctxName"].string! : subJson["ctxGroup"].string!])
+              }
             }
           } else {
             var contextsToUpdate : [String : String] = [:]
@@ -69,12 +71,14 @@ class ContextInfo {
       log.debug("Sending manual parameters: \(contextDataParameters)")
       Alamofire.request(.POST, postContextEndpoint, parameters: parameters, encoding: .JSON)
         .responseJSON { response in
-          if let unwrappedResult = response.data {
-            let json = JSON(data: unwrappedResult)
-            let contexts = json["contextData"]
-            for (_, subJson):(String, JSON) in contexts {
-              self.currentContextState[subJson["ctxGroup"].string!] = subJson["ctxName"].string!
-              NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [subJson["ctxName"].string! : subJson["ctxGroup"].string!])
+          if response.result.isSuccess {
+            if let unwrappedResult = response.data {
+              let json = JSON(data: unwrappedResult)
+              let contexts = json["contextData"]
+              for (_, subJson):(String, JSON) in contexts {
+                self.currentContextState[subJson["ctxGroup"].string!] = subJson["ctxName"].string!
+                NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [subJson["ctxName"].string! : subJson["ctxGroup"].string!])
+              }
             }
           } else {
             self.currentContextState[contextInfo.contextGroup] = contextInfo.contextName
