@@ -45,6 +45,14 @@ class ContextInfo {
               self.currentContextState[subJson["ctxGroup"].string!] = subJson["ctxName"].string!
               NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [subJson["ctxName"].string! : subJson["ctxGroup"].string!])
             }
+          } else {
+            var contextsToUpdate : [String : String] = [:]
+            contextsToUpdate.removeAll()
+            for context in contextsToPost {
+              self.currentContextState[context.group.name] = context.name.name
+              contextsToUpdate[context.group.name] = context.name.name
+            }
+            NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: contextsToUpdate)
           }
       }
     }
@@ -68,6 +76,9 @@ class ContextInfo {
               self.currentContextState[subJson["ctxGroup"].string!] = subJson["ctxName"].string!
               NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [subJson["ctxName"].string! : subJson["ctxGroup"].string!])
             }
+          } else {
+            self.currentContextState[contextInfo.contextGroup] = contextInfo.contextName
+            NSNotificationCenter.defaultCenter().postNotificationName(contextUpdateNotification, object: [contextInfo.contextGroup : contextInfo.contextName])
           }
       }
     }

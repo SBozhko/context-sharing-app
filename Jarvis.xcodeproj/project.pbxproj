@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11068D3945AD10DD6D609B48 /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557CEF5628C0C79E68DC1074 /* Pods_Jarvis.framework */; };
+		380034231D6CA1B500974C54 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 380034201D6CA1A500974C54 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
 		381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381001481D590C5E00D43A00 /* Onboarding.storyboard */; };
 		381FEA7D1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */; };
@@ -16,7 +17,6 @@
 		381FEA851D5BFBB900FBB7CF /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA841D5BFBB900FBB7CF /* OnboardPageViewController.swift */; };
 		381FEA871D5BFE4500FBB7CF /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */; };
 		381FEA891D5CA77400FBB7CF /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */; };
-		384119B41D6AB6220014D5EC /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 384119B11D6AB5EA0014D5EC /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3851F4061D62AB4500DEFFD7 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */; };
 		3851F4081D62AC6400DEFFD7 /* AVPlayer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */; };
 		3851F40E1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3851F40D1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift */; };
@@ -71,7 +71,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				384119B41D6AB6220014D5EC /* NEContextSDK.framework in Embed Frameworks */,
+				380034231D6CA1B500974C54 /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		380034201D6CA1A500974C54 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		381001481D590C5E00D43A00 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGetNameViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		381FEA861D5BFE4500FBB7CF /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		381FEA881D5CA77400FBB7CF /* UIApplication+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		383A4BD15ED65E5B49AD4C09 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
-		384119B11D6AB5EA0014D5EC /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		3851F4071D62AC6400DEFFD7 /* AVPlayer+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ext.swift"; sourceTree = "<group>"; };
 		3851F40D1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextUpdateViewController.swift; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				384119B11D6AB5EA0014D5EC /* NEContextSDK.framework */,
+				380034201D6CA1A500974C54 /* NEContextSDK.framework */,
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,

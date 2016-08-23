@@ -29,13 +29,15 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(context.group).filter({ $0 != NEContextName.Unknown && $0 != NEContextName.Other && $0 != NEContextName.Normal && $0 != NEContextName.BeforeLunch })
-    addImageViewModifications(closeImageView)
     contextGroup = context.group
-    contextGroupLabel.text = contextGroup?.name.uppercaseString
-    currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(contextGroup!)
-    currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.currentContextState[contextGroup!.name]
-    currentContextImageView.image = UIImage(named: Images.getImageName(currentContextStatementSuffixLabel.text!, contextGroup: contextGroup!.name, mainContext: true))
+    if let localContextGroup = contextGroup {
+      listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(localContextGroup).filter({ $0 != NEContextName.Unknown && $0 != NEContextName.Other && $0 != NEContextName.Normal && $0 != NEContextName.BeforeLunch })
+      addImageViewModifications(closeImageView)
+      contextGroupLabel.text = localContextGroup.name.uppercaseString
+      currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(localContextGroup)
+      currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.currentContextState[localContextGroup.name]?.lowercaseString
+      currentContextImageView.image = UIImage(named: Images.getImageName(ContextInfo.sharedInstance.currentContextState[localContextGroup.name]!, contextGroup: localContextGroup.name, mainContext: true))
+    }
   }
 
   func addImageViewModifications(imgView : UIImageView) {
