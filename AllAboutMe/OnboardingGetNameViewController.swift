@@ -41,9 +41,9 @@ class OnboardingGetNameViewController: UIViewController {
 }
 
 extension OnboardingGetNameViewController : UITextFieldDelegate {
-  func textFieldDidBeginEditing(textField: UITextField) {
-    textField.placeholder = nil
-  }
+//  func textFieldDidBeginEditing(textField: UITextField) {
+//    textField.placeholder = nil
+//  }
   
   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
     if let _text = textField.text {

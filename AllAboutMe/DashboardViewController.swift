@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import NEContextSDK
+import Mixpanel
 
 class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
 
@@ -37,6 +38,10 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     addImageViewModifications(indoorOutdoorImageView)
     addImageViewModifications(activityImageView)
     addImageViewModifications(surpriseMeImageView)
+    addImageViewModifications(situationImageView)
+    let recognizer = UITapGestureRecognizer(target: self, action:#selector(DashboardViewController.handleImageTapGesture(_:)))
+    recognizer.delegate = self
+    situationLabel.addGestureRecognizer(recognizer)
     NSNotificationCenter.defaultCenter().addObserver(self,
                                                      selector: #selector(DashboardViewController.handleProfileIdReceivedNotification(_:)),
                                                      name: profileIdReceivedNotification,
@@ -79,11 +84,13 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     return UIStatusBarStyle.LightContent
   }
   
-  func addImageViewModifications(imgView : UIImageView) {
+  func addImageViewModifications(imgView : UIImageView, roundedCornerRadius : Bool = true) {
     let recognizer = UITapGestureRecognizer(target: self, action:#selector(DashboardViewController.handleImageTapGesture(_:)))
     recognizer.delegate = self
     imgView.addGestureRecognizer(recognizer)
-    imgView.layer.cornerRadius = imgView.frame.width / 2.0
+    if roundedCornerRadius {
+      imgView.layer.cornerRadius = imgView.frame.width / 2.0
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -145,7 +152,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       }, completion: nil)
       if contextGroup == NEContextGroup.Situation.name {
         UIView.transitionWithView(self.situationLabel, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
-          self.situationLabel.text = "\(ContextInfo.sharedInstance.getSituationDisplayMessage(contextName))"
+          self.situationLabel.text = "\(ContextInfo.sharedInstance.getDashboardSituationDisplayMessage(contextName))"
         }, completion: nil)
       }
     }
@@ -191,8 +198,17 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
         /* Activity image */
         performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.Activity).context)
         break
+      default:
+        break
+      }
+    } else if let localLabelView = gestureRecognizer.view as? UILabel {
+      switch (ContextType(rawValue: localLabelView.tag)!) {
       case .Situation:
         /* Situation image */
+        /* Activity image */
+        performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.Situation).context)
+        break
+      default:
         break
       }
     }
@@ -207,6 +223,8 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   func handleSurpriseMe() {
     if userRequested {
       if let _items = Recommendations.sharedInstance.getItems(2) {
+        Mixpanel.sharedInstance().track("SurpriseMePressed", properties: [
+          "SituationName" : situationLabel.text ?? "Unknown"])
         userRequested = false
         performSegueWithIdentifier("hitMeSegue", sender: _items)
       }

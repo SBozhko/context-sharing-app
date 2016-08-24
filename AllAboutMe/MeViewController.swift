@@ -126,7 +126,7 @@ class MeViewController: UIViewController {
     if overriddenContext.flag {
       if let contextName = overriddenContext.contextName {
         situationImageView.image = UIImage(named: contextName.name.lowercaseString)
-        situationLabel.text = ContextInfo.sharedInstance.getSituationDisplayMessage(contextName.name)
+        situationLabel.text = ContextInfo.sharedInstance.getDashboardSituationDisplayMessage(contextName.name)
       } else if let userContextString = overriddenContext.userContextString {
         situationImageView.image = UIImage(named: "unknown")
         situationLabel.text = userContextString
@@ -142,7 +142,7 @@ class MeViewController: UIViewController {
         validContextImageName = currentContext.imageName {
         //      Send request for image
         situationImageView.image = UIImage(named: validContextImageName)
-        situationLabel.text = ContextInfo.sharedInstance.getSituationDisplayMessage(validContext.name.name)
+        situationLabel.text = ContextInfo.sharedInstance.getDashboardSituationDisplayMessage(validContext.name.name)
       } else {
         //      Show loading image
         situationImageView.image = UIImage(named: "unknown")
@@ -354,7 +354,7 @@ extension MeViewController : UICollectionViewDelegate, UICollectionViewDataSourc
         //      Send request for image
         cell.imageView.image = UIImage(named: validContextImageName)
         cell.contextLabel.text = contextGroup == NEContextGroup.Situation ?
-          ContextInfo.sharedInstance.getSituationDisplayMessage(validContextName.name.name) :
+          ContextInfo.sharedInstance.getDashboardSituationDisplayMessage(validContextName.name.name) :
           validContextName.name.name
       } else {
         //      Show loading image

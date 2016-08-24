@@ -8,6 +8,7 @@
 
 import UIKit
 import NEContextSDK
+import Mixpanel
 
 protocol ContextUpdateDelegate {
   func backFromContextUpdate(contextGroup : NEContextGroup, selectedContext : NEContextName)
@@ -26,6 +27,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
   var selectedContext : [NEContextName : NSIndexPath] = [:]
   var contextGroup : NEContextGroup?
   var updateDelegate : ContextUpdateDelegate?
+  let log = Logger(loggerName: String(ContextUpdateViewController))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,8 +37,13 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
       addImageViewModifications(closeImageView)
       contextGroupLabel.text = localContextGroup.name.uppercaseString
       currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(localContextGroup)
-      currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.currentContextState[localContextGroup.name]?.lowercaseString
+      currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.getUpdateSituationDisplayMessage((ContextInfo.sharedInstance.currentContextState[localContextGroup.name]?.lowercaseString)!)
       currentContextImageView.image = UIImage(named: Images.getImageName(ContextInfo.sharedInstance.currentContextState[localContextGroup.name]!, contextGroup: localContextGroup.name, mainContext: true))
+      currentContextImageView.layer.borderWidth = 2.0
+      currentContextImageView.layer.borderColor = globalTint.CGColor
+      currentContextImageView.layer.cornerRadius = currentContextImageView.frame.width / 2
+      Mixpanel.sharedInstance().track("ContextUpdateButtonPressed", properties: [
+        "ContextGroup" : localContextGroup.name ?? "Unknown"])
     }
   }
 
@@ -60,6 +67,25 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
 
   func closeButtonPressed() {
     if selectedContext.count > 0 {
+      if let
+        localContextGroup = contextGroup,
+        updatedContext = selectedContext.first {
+        if updatedContext.0 != context.name {
+          self.log.info("Previous context info: \(localContextGroup), \(context.name.name)")
+          self.log.info("Corrected context info: \(selectedContext.first?.0.name)")
+          Mixpanel.sharedInstance().track("IncorrectContext", properties: [
+            "ContextGroup" : localContextGroup.name ?? "Unknown",
+            "ContextNameBefore" : context.name.name ?? "Unknown",
+            "ContextNameAfter" : updatedContext.0.name,
+            "ManuallyTyped" : false])
+        } else {
+          Mixpanel.sharedInstance().track("CorrectContext", properties: [
+            "ContextGroup" : localContextGroup.name ?? "Unknown",
+            "ContextNameBefore" : context.name.name ?? "Unknown",
+            "ContextNameAfter" : updatedContext.0.name,
+            "ManuallyTyped" : false])
+        }
+      }
       updateDelegate?.backFromContextUpdate(contextGroup!, selectedContext : (selectedContext.first?.0)!)
     }
     self.dismissViewControllerAnimated(true, completion: nil)
@@ -79,7 +105,7 @@ extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionVi
 //      cell!.contextOptionImageView.layer.borderWidth = 3.0
 //      cell!.contextOptionImageView.layer.borderColor = UIColor.blueColor().CGColor
       currentContextImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row].name, contextGroup: contextGroup!.name, mainContext: true))
-      currentContextStatementSuffixLabel.text = listOfContextNames[indexPath.row].name.lowercaseString
+      currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.getUpdateSituationDisplayMessage(listOfContextNames[indexPath.row].name.lowercaseString)
     }
   }
   

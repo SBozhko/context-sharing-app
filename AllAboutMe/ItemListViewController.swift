@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mixpanel
 
 class ItemListViewController: UIViewController {
 
@@ -82,6 +83,8 @@ extension ItemListViewController : UITableViewDelegate, UITableViewDataSource {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if let _items = items {
       let _item = _items[indexPath.row]
+      Mixpanel.sharedInstance().track("SelectedContentType", properties: [
+        "Type" : _item.type!.rawValue])
       if _item.type! == .Music {
         performSegueWithIdentifier("showMusicVCSegue", sender: _item)
       } else {

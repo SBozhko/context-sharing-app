@@ -195,7 +195,7 @@ class ContextInfo {
     }
   }
   
-  func getSituationDisplayMessage(situation : String) -> String {
+  func getDashboardSituationDisplayMessage(situation : String) -> String {
     switch (situation) {
     case NEContextName.WakeUp.name:
       return "GOOD MORNING"
@@ -215,6 +215,29 @@ class ContextInfo {
       return "GOOD NIGHT"
     default:
       return "RELAXING"
+    }
+  }
+  
+  func getUpdateSituationDisplayMessage(situation : String) -> String {
+    switch (situation) {
+    case NEContextName.WakeUp.name:
+      return "waking up"
+    case NEContextName.Working.name:
+      return situation.lowercaseString
+    case NEContextName.Workout.name:
+      return "exercising"
+    case NEContextName.Party.name:
+      return "partying"
+    case NEContextName.Housework.name:
+      return "doing housework"
+    case NEContextName.Relaxing.name:
+      return situation.lowercaseString
+    case NEContextName.OnTheGo.name:
+      return "commuting"
+    case NEContextName.Bedtime.name:
+      return "going to bed"
+    default:
+      return "relaxing"
     }
   }
   

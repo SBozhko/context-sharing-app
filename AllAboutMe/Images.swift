@@ -135,7 +135,9 @@ class Images {
     default:
       break
     }
-    if contextGroup != NEContextGroup.Situation.name {
+    if contextGroup == NEContextGroup.Situation.name {
+      imageName = mainContext ? "\(imageName)_75" : (shadow ? "\(imageName)" : "\(imageName)_60_no_shadow")
+    } else {
       imageName = mainContext ? "\(imageName)_75" : (shadow ? "\(imageName)_60" : "\(imageName)_60_no_shadow")
     }
     return imageName

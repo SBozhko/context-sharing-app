@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 import Social
+import Mixpanel
 
 var downloadTask: NSURLSessionDownloadTask?
 
@@ -247,6 +248,10 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
     self.likeImageView.image = UIImage(named: "liked")
     }
     liked = !liked
+    Mixpanel.sharedInstance().track("MusicTrackFavorited", properties: [
+      "ProfileID" : Credentials.sharedInstance.profileId!,
+      "Type" : ItemType.Music.rawValue,
+      "ItemID" : item!.id!])
   }
   
   func handlePlayPausePressed() {
