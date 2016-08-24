@@ -241,6 +241,19 @@ class ContextInfo {
     }
   }
   
+  func getUpdateContextGroupTitle(contextGroup : NEContextGroup) -> String {
+    switch (contextGroup) {
+    case .Situation, .Mood, .Place, .Activity, .Weather:
+      return contextGroup.name.uppercaseString
+    case .IndoorOutdoor:
+      return "IN - OUT"
+    case .TimeOfDay:
+      return "TIME OF DAY"
+    default:
+      return ""
+    }
+  }
+
   func getContextGroupStatement(contextGroup : NEContextGroup) -> String {
     switch (contextGroup) {
     case .Situation:
