@@ -37,7 +37,15 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
       addImageViewModifications(closeImageView)
       contextGroupLabel.text = localContextGroup.name.uppercaseString
       currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(localContextGroup)
-      currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.getUpdateSituationDisplayMessage((ContextInfo.sharedInstance.currentContextState[localContextGroup.name]?.lowercaseString)!)
+      if let currentContext = ContextInfo.sharedInstance.currentContextState[localContextGroup.name] {
+        if contextGroup == NEContextGroup.Situation {
+          currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.getUpdateSituationDisplayMessage(currentContext.lowercaseString)
+        } else {
+          currentContextStatementSuffixLabel.text = "\((currentContext.lowercaseString))"
+        }
+      } else {
+        currentContextStatementSuffixLabel.text = "unsure!"
+      }
       currentContextImageView.image = UIImage(named: Images.getImageName(ContextInfo.sharedInstance.currentContextState[localContextGroup.name]!, contextGroup: localContextGroup.name, mainContext: true))
       currentContextImageView.layer.borderWidth = 2.0
       currentContextImageView.layer.borderColor = globalTint.CGColor

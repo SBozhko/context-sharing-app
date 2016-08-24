@@ -244,7 +244,7 @@ class ContextInfo {
   func getContextGroupStatement(contextGroup : NEContextGroup) -> String {
     switch (contextGroup) {
     case .Situation:
-      return "I am currently"
+      return "I am"
     case .IndoorOutdoor:
       return "I am"
     case .Mood:
