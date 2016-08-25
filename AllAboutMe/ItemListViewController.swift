@@ -13,6 +13,12 @@ class ItemListViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
   var items : [RecommendedItem]?
+  lazy var refreshControl: UIRefreshControl = {
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(ItemListViewController.handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
+    
+    return refreshControl
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,6 +26,12 @@ class ItemListViewController: UIViewController {
     tableView.registerNib(UINib(nibName: "MusicTableViewCell", bundle: nil), forCellReuseIdentifier: "MusicTableViewCell")
     tableView.estimatedRowHeight = tableView.rowHeight
     tableView.rowHeight = UITableViewAutomaticDimension
+    refreshControl = UIRefreshControl()
+    refreshControl.backgroundColor = UIColor.clearColor()
+    refreshControl.tintColor = UIColor.whiteColor()
+    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    refreshControl.addTarget(self, action: #selector(ItemListViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+    self.tableView.addSubview(refreshControl)
     NSNotificationCenter.defaultCenter().addObserver(self,
                                                      selector: #selector(ItemListViewController.handleImageDownloadNotification(_:)),
                                                      name: imageDownloadNotification,
@@ -30,13 +42,21 @@ class ItemListViewController: UIViewController {
     super.viewWillDisappear(animated)
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
+  
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return UIStatusBarStyle.Default
+  }
 
   func handleImageDownloadNotification(notification : NSNotification) {
     if let indexPath: NSIndexPath = notification.object as? NSIndexPath {
-      tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+      dispatch_async(dispatch_get_main_queue(), {
+        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+      })
     }
     else {
-      tableView.reloadData()
+      dispatch_async(dispatch_get_main_queue(), {
+        self.tableView.reloadData()
+      })
     }
   }
   
@@ -45,6 +65,21 @@ class ItemListViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  func handleRefresh(refreshControl: UIRefreshControl) {
+    if let _items = Recommendations.sharedInstance.getItems(2) {
+      self.refreshControl.endRefreshing()
+      items?.removeAll(keepCapacity: true)
+      _items.forEach({ (item) in
+        items?.append(item)
+      })
+      Mixpanel.sharedInstance().track("RefreshedItems")
+      dispatch_async(dispatch_get_main_queue(), {
+        self.tableView.reloadData()
+      })
+      
+    }
+  }
+
   @IBAction func closeButtonPressed(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
   }

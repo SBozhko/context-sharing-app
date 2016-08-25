@@ -370,77 +370,75 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSp-2k-bOo">
-                                <rect key="frame" x="20" y="80" width="560" height="25"/>
+                                <rect key="frame" x="20" y="40" width="560" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="EdD-Bt-lUd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" red="0.98431372549999996" green="0.2470588235" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.92156862745098034" green="0.28627450980392155" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQu-OU-Cdp" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="80" width="560" height="404"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ERU-sZ-Sb7">
-                                <rect key="frame" x="20" y="125" width="560" height="29"/>
+                                <rect key="frame" x="20" y="492" width="560" height="29"/>
                                 <segments>
                                     <segment title="Daily"/>
                                     <segment title="Last 7 days"/>
                                     <segment title="Monthly"/>
                                 </segments>
-                                <color key="tintColor" red="0.98431372549999996" green="0.2470588235" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.92156862750000001" green="0.28627450980000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="segmentSelected:" destination="8l2-OR-ggh" eventType="valueChanged" id="rbA-hE-Bx2"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQu-OU-Cdp" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="161" width="560" height="431"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBM-xj-Xgb">
-                                <rect key="frame" x="20" y="30" width="40" height="40"/>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hi-NJ-sN2">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhm-kc-V1a">
+                                        <rect key="frame" x="280" y="10" width="40" height="40"/>
+                                        <state key="normal" image="Cancel"/>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="8l2-OR-ggh" eventType="touchUpInside" id="SLC-Gn-32q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="2b7-ZX-SBg"/>
-                                    <constraint firstAttribute="height" constant="45" id="Zge-vd-LGl"/>
-                                    <constraint firstAttribute="width" constant="45" id="eFR-9O-KzK"/>
-                                    <constraint firstAttribute="height" constant="45" id="zKu-yz-3o6"/>
+                                    <constraint firstItem="Nhm-kc-V1a" firstAttribute="centerY" secondItem="2hi-NJ-sN2" secondAttribute="centerY" id="1ty-kU-EEh"/>
+                                    <constraint firstAttribute="height" constant="60" id="Bx1-eR-Eod"/>
+                                    <constraint firstItem="Nhm-kc-V1a" firstAttribute="centerX" secondItem="2hi-NJ-sN2" secondAttribute="centerX" id="XKO-PV-wPM"/>
                                 </constraints>
-                                <state key="normal" image="close"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2b7-ZX-SBg"/>
-                                        <exclude reference="Zge-vd-LGl"/>
-                                        <exclude reference="eFR-9O-KzK"/>
-                                        <exclude reference="zKu-yz-3o6"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="closeButtonPressed:" destination="8l2-OR-ggh" eventType="touchUpInside" id="yqB-HH-Y3Y"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nSp-2k-bOo" firstAttribute="top" secondItem="m5s-VB-b1s" secondAttribute="bottom" constant="60" id="3dE-F3-FkK"/>
-                            <constraint firstItem="ERU-sZ-Sb7" firstAttribute="top" secondItem="nSp-2k-bOo" secondAttribute="bottom" constant="20" id="4cA-a1-H05"/>
+                            <constraint firstItem="2hi-NJ-sN2" firstAttribute="top" secondItem="ERU-sZ-Sb7" secondAttribute="bottom" constant="20" id="0kb-cc-tZY"/>
+                            <constraint firstItem="nSp-2k-bOo" firstAttribute="top" secondItem="m5s-VB-b1s" secondAttribute="bottom" constant="20" id="3dE-F3-FkK"/>
                             <constraint firstItem="nSp-2k-bOo" firstAttribute="width" secondItem="ERU-sZ-Sb7" secondAttribute="width" id="84N-a1-2b5"/>
-                            <constraint firstItem="h4h-xP-Puq" firstAttribute="top" secondItem="SQu-OU-Cdp" secondAttribute="bottom" constant="8" id="AxA-2Y-pgV"/>
+                            <constraint firstItem="ERU-sZ-Sb7" firstAttribute="top" secondItem="SQu-OU-Cdp" secondAttribute="bottom" constant="8" id="Ahh-75-dWn"/>
+                            <constraint firstItem="2hi-NJ-sN2" firstAttribute="leading" secondItem="zZm-8t-PD5" secondAttribute="leadingMargin" constant="-20" id="Fgv-1x-ple"/>
+                            <constraint firstAttribute="trailing" secondItem="ERU-sZ-Sb7" secondAttribute="trailing" constant="20" id="JTU-Cu-Pqx"/>
                             <constraint firstItem="nSp-2k-bOo" firstAttribute="centerX" secondItem="ERU-sZ-Sb7" secondAttribute="centerX" id="PWx-Lm-Bec"/>
                             <constraint firstItem="SQu-OU-Cdp" firstAttribute="leading" secondItem="zZm-8t-PD5" secondAttribute="leading" constant="20" id="Qwr-bo-Xrt"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ERU-sZ-Sb7" secondAttribute="leading" id="RdA-mR-lZr"/>
-                            <constraint firstItem="rBM-xj-Xgb" firstAttribute="leading" secondItem="zZm-8t-PD5" secondAttribute="leading" constant="20" id="YSI-hf-9Iy"/>
                             <constraint firstItem="SQu-OU-Cdp" firstAttribute="top" secondItem="ERU-sZ-Sb7" secondAttribute="bottom" constant="8" id="ckz-DM-eeY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2hi-NJ-sN2" secondAttribute="trailing" constant="-20" id="gru-kF-rGd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ERU-sZ-Sb7" secondAttribute="trailing" id="gwY-C4-6a2"/>
-                            <constraint firstAttribute="trailing" secondItem="rBM-xj-Xgb" secondAttribute="trailing" constant="8" id="jsb-80-xEd"/>
-                            <constraint firstItem="rBM-xj-Xgb" firstAttribute="top" secondItem="m5s-VB-b1s" secondAttribute="bottom" constant="8" id="lLm-6y-lFD"/>
-                            <constraint firstItem="rBM-xj-Xgb" firstAttribute="leading" secondItem="nSp-2k-bOo" secondAttribute="trailing" constant="8" id="n1h-nU-aMH"/>
+                            <constraint firstItem="ERU-sZ-Sb7" firstAttribute="leading" secondItem="zZm-8t-PD5" secondAttribute="leading" constant="20" id="hSy-bY-GTl"/>
+                            <constraint firstItem="h4h-xP-Puq" firstAttribute="top" secondItem="2hi-NJ-sN2" secondAttribute="bottom" id="iHJ-aL-aIr"/>
+                            <constraint firstItem="ERU-sZ-Sb7" firstAttribute="top" secondItem="SQu-OU-Cdp" secondAttribute="bottom" constant="8" id="mjT-IJ-97W"/>
                             <constraint firstItem="nSp-2k-bOo" firstAttribute="leading" secondItem="zZm-8t-PD5" secondAttribute="leading" constant="20" id="o6p-zP-4Qd"/>
-                            <constraint firstItem="rBM-xj-Xgb" firstAttribute="top" secondItem="m5s-VB-b1s" secondAttribute="bottom" constant="10" id="txc-Tm-fnV"/>
                             <constraint firstAttribute="trailing" secondItem="SQu-OU-Cdp" secondAttribute="trailing" constant="20" id="u0e-6E-ySn"/>
+                            <constraint firstItem="SQu-OU-Cdp" firstAttribute="top" secondItem="nSp-2k-bOo" secondAttribute="bottom" constant="15" id="yts-rA-KkD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="jsb-80-xEd"/>
-                                <exclude reference="lLm-6y-lFD"/>
-                                <exclude reference="n1h-nU-aMH"/>
                                 <exclude reference="PWx-Lm-Bec"/>
+                                <exclude reference="ckz-DM-eeY"/>
+                                <exclude reference="mjT-IJ-97W"/>
                             </mask>
                         </variation>
                     </view>
@@ -904,6 +902,7 @@
     </scenes>
     <resources>
         <image name="Analytics_Background" width="1920" height="1200"/>
+        <image name="Cancel" width="40" height="40"/>
         <image name="close" width="40" height="40"/>
         <image name="dashboard" width="30" height="30"/>
         <image name="history" width="30" height="30"/>

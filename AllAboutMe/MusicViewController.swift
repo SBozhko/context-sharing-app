@@ -21,10 +21,9 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet weak var durationLabel: UILabel!
   @IBOutlet weak var timeElapsedLabel: UILabel!
   @IBOutlet weak var currentTimeSlider: UISlider!
-  @IBOutlet weak var playImageView: UIImageView!
   @IBOutlet weak var shareImageView: UIImageView!
   @IBOutlet weak var likeImageView: UIImageView!
-  @IBOutlet weak var closeImageView: UIImageView!
+  @IBOutlet weak var playButton: UIButton!
   
   var avPlayer: AVPlayerExt?
   var scrubbing = false
@@ -69,9 +68,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
     super.viewDidLoad()
     self.updateUI()
     addImageViewModifications(likeImageView)
-    addImageViewModifications(playImageView)
     addImageViewModifications(shareImageView)
-    addImageViewModifications(closeImageView)
     self.currentTimeSlider.setThumbImage(UIImage(named: "SliderThumb"), forState: UIControlState.Normal)
   }
   
@@ -92,14 +89,8 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
       case 0:
         handleSharePressed()
         break
-      case 1:
-        handlePlayPausePressed()
-        break
       case 2:
         handleLikeButtonPressed()
-        break
-      case 3:
-        handleClosePressed()
         break
       default:
         break
@@ -177,7 +168,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
     }
   }
   
-  func handleClosePressed() {
+  @IBAction func handleClosePressed() {
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -254,7 +245,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
       "ItemID" : item!.id!])
   }
   
-  func handlePlayPausePressed() {
+  @IBAction func handlePlayPausePressed() {
     if isPlaying {
       handlePause()
     } else {
@@ -263,7 +254,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   func handlePlay(subType : UIEventSubtype = .RemoteControlPlay) {
-    self.playImageView.image = UIImage(named: "pause")
+    self.playButton.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
     self.setOutputAudioPort()
     self.avPlayer?.play()
     self.isPlaying = true
@@ -271,7 +262,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
   
   func handlePause(subType : UIEventSubtype = .RemoteControlPause) {
     /* We will only come here if the headphone was removed - hence we pause the stream and update the UI accordingly */
-    self.playImageView.image = UIImage(named: "play")
+    self.playButton.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
     self.avPlayer?.pause()
     self.isPlaying = false
   }

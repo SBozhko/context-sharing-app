@@ -20,7 +20,6 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
   @IBOutlet weak var currentContextStatementSuffixLabel: UILabel!
   @IBOutlet weak var currentContextImageView: UIImageView!
   @IBOutlet weak var contextChoicesCollectionView: UICollectionView!
-  @IBOutlet weak var closeImageView: UIImageView!
   
   var context : NEContext!
   var listOfContextNames : [NEContextName] = []
@@ -34,7 +33,6 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
     contextGroup = context.group
     if let localContextGroup = contextGroup {
       listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(localContextGroup).filter({ $0 != NEContextName.Unknown && $0 != NEContextName.Other && $0 != NEContextName.Normal && $0 != NEContextName.BeforeLunch })
-      addImageViewModifications(closeImageView)
       contextGroupLabel.text = ContextInfo.sharedInstance.getUpdateContextGroupTitle(localContextGroup)
       currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(localContextGroup)
       if let currentContext = ContextInfo.sharedInstance.currentContextState[localContextGroup.name] {
@@ -55,25 +53,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
     }
   }
 
-  func addImageViewModifications(imgView : UIImageView) {
-    let recognizer = UITapGestureRecognizer(target: self, action:#selector(ContextUpdateViewController.handleImageTapGesture(_:)))
-    recognizer.delegate = self
-    imgView.addGestureRecognizer(recognizer)
-  }
-  
-  func handleImageTapGesture(gestureRecognizer: UITapGestureRecognizer) {
-    if let _imageView = gestureRecognizer.view as? UIImageView {
-      switch _imageView.tag {
-      case 0:
-        closeButtonPressed()
-        break
-      default:
-        break
-      }
-    }
-  }
-
-  func closeButtonPressed() {
+  @IBAction func closeButtonPressed() {
     if selectedContext.count > 0 {
       if let
         localContextGroup = contextGroup,

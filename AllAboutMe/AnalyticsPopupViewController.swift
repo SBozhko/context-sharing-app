@@ -29,13 +29,15 @@ class AnalyticsPopupViewController : UIViewController {
                                                      object: nil)
     switch (contextGroup!) {
     case .Situation:
-      analyticsPopupTitleLabel.text = "Your Situations History"
+      analyticsPopupTitleLabel.text = contextGroup?.name.uppercaseString
     case .Activity:
-      analyticsPopupTitleLabel.text = "Your Activities History"
+      analyticsPopupTitleLabel.text = contextGroup?.name.uppercaseString
     case .Place:
-      analyticsPopupTitleLabel.text = "Your Places History"
+      analyticsPopupTitleLabel.text = contextGroup?.name.uppercaseString
     case .IndoorOutdoor:
-      analyticsPopupTitleLabel.text = "Your Indoor/Outdoor History"
+      analyticsPopupTitleLabel.text = "IN - OUT"
+    case .Mood:
+      analyticsPopupTitleLabel.text = contextGroup?.name.uppercaseString
     default:
       analyticsPopupTitleLabel.text = "Your History"
     }

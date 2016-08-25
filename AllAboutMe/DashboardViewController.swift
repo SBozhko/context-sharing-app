@@ -215,7 +215,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   func handleItemsAvailableNotification(notification : NSNotification) {
-    if userRequested {
+    if userRequested && UIApplication.sharedApplication().applicationState == UIApplicationState.Active && self.isViewVisible() {
       handleSurpriseMe()
     }
   }
