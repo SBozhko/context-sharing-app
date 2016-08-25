@@ -20,6 +20,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
   @IBOutlet weak var currentContextStatementSuffixLabel: UILabel!
   @IBOutlet weak var currentContextImageView: UIImageView!
   @IBOutlet weak var contextChoicesCollectionView: UICollectionView!
+  @IBOutlet weak var topPanelBackGroundView: UIView!
   
   var context : NEContext!
   var listOfContextNames : [NEContextName] = []
@@ -33,6 +34,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
     contextGroup = context.group
     if let localContextGroup = contextGroup {
       listOfContextNames = ContextInfo.sharedInstance.getContextListForContextGroup(localContextGroup).filter({ $0 != NEContextName.Unknown && $0 != NEContextName.Other && $0 != NEContextName.Normal && $0 != NEContextName.BeforeLunch })
+      topPanelBackGroundView.backgroundColor = ContextInfo.sharedInstance.getContextColor(localContextGroup)
       contextGroupLabel.text = ContextInfo.sharedInstance.getUpdateContextGroupTitle(localContextGroup)
       currentContextStatementPrefixLabel.text = ContextInfo.sharedInstance.getContextGroupStatement(localContextGroup)
       if let currentContext = ContextInfo.sharedInstance.currentContextState[localContextGroup.name] {
@@ -46,7 +48,7 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
       }
       currentContextImageView.image = UIImage(named: Images.getImageName(ContextInfo.sharedInstance.currentContextState[localContextGroup.name]!, contextGroup: localContextGroup.name, mainContext: true))
       currentContextImageView.layer.borderWidth = 2.0
-      currentContextImageView.layer.borderColor = globalTint.CGColor
+      currentContextImageView.layer.borderColor = topPanelBackGroundView.backgroundColor?.CGColor
       currentContextImageView.layer.cornerRadius = currentContextImageView.frame.width / 2
       Mixpanel.sharedInstance().track("ContextUpdateButtonPressed", properties: [
         "ContextGroup" : localContextGroup.name ?? "Unknown"])

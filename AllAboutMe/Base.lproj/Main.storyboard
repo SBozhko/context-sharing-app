@@ -637,7 +637,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Analytics_Background" translatesAutoresizingMaskIntoConstraints="NO" id="qnY-Ye-yGd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Analytics_Background" translatesAutoresizingMaskIntoConstraints="NO" id="qnY-Ye-yGd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="601"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdk-fu-Zhk">
@@ -646,7 +646,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="601"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="dark"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GSy-oK-KC5">
                                 <rect key="frame" x="20" y="83" width="560" height="460"/>
@@ -901,7 +901,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Analytics_Background" width="1920" height="1200"/>
+        <image name="Analytics_Background" width="1334" height="2368"/>
         <image name="Cancel" width="40" height="40"/>
         <image name="close" width="40" height="40"/>
         <image name="dashboard" width="30" height="30"/>

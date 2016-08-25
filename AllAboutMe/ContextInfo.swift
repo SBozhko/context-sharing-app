@@ -275,6 +275,27 @@ class ContextInfo {
     }
   }
   
+  func getContextColor(contextGroup : NEContextGroup) -> UIColor {
+    switch (contextGroup) {
+    case .Situation:
+      return situationColor
+    case .IndoorOutdoor:
+      return inOutColor
+    case .Mood:
+      return moodColor
+    case .Place:
+      return placeColor
+    case .Activity:
+      return activityColor
+    case .Weather:
+      return weatherColor
+    case .TimeOfDay:
+      return timeOfDayColor
+    default:
+      return globalTint
+    }
+  }
+  
   // MARK: - Timers
   
   func stopOverrideTimer(contextGroupName : String) {

@@ -11,6 +11,13 @@ import UIKit
 
 /* Colors */
 let globalTint = UIColor(red:0.96, green:0.65, blue:0.14, alpha:1.0)
+let situationColor = UIColor(red:0.36, green:0.76, blue:0.67, alpha:1.0)
+let inOutColor = UIColor.darkGrayColor()
+let weatherColor = UIColor(red:0.38, green:0.72, blue:0.90, alpha:1.0)
+let placeColor = UIColor(red:0.45, green:0.08, blue:0.44, alpha:1.0)
+let activityColor = UIColor(red:0.95, green:0.39, blue:0.47, alpha:1.0)
+let timeOfDayColor = UIColor(red:0.23, green:0.42, blue:0.60, alpha:1.0)
+let moodColor = UIColor(red:0.98, green:0.64, blue:0.10, alpha:1.0)
 
 /* Settings Keys */
 let userHasOnboardedKey = "userHasOnboardedKey"
