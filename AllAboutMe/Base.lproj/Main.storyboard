@@ -640,14 +640,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Analytics_Background" translatesAutoresizingMaskIntoConstraints="NO" id="qnY-Ye-yGd">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="601"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdk-fu-Zhk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="601"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Vd-yp-RtD">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="601"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GSy-oK-KC5">
                                 <rect key="frame" x="20" y="83" width="560" height="460"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -710,16 +702,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KUi-ky-9Gw" firstAttribute="top" secondItem="Vdk-fu-Zhk" secondAttribute="bottom" constant="-50" id="4lG-rT-gac"/>
                             <constraint firstItem="qnY-Ye-yGd" firstAttribute="top" secondItem="m9a-78-o75" secondAttribute="bottom" constant="-20" id="AbA-i7-ESI"/>
                             <constraint firstAttribute="trailing" secondItem="GSy-oK-KC5" secondAttribute="trailing" constant="20" id="HYl-su-Cfw"/>
                             <constraint firstItem="GSy-oK-KC5" firstAttribute="leading" secondItem="8nN-X6-XvQ" secondAttribute="leading" constant="20" id="MKG-XY-IKh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qnY-Ye-yGd" secondAttribute="trailing" constant="-20" id="QwP-DX-Gko"/>
                             <constraint firstItem="u8d-7c-kfF" firstAttribute="top" secondItem="m9a-78-o75" secondAttribute="bottom" constant="20" id="XBk-cV-qAo"/>
-                            <constraint firstItem="Vdk-fu-Zhk" firstAttribute="top" secondItem="m9a-78-o75" secondAttribute="bottom" constant="-20" id="Xro-JG-tGJ"/>
                             <constraint firstItem="qnY-Ye-yGd" firstAttribute="leading" secondItem="8nN-X6-XvQ" secondAttribute="leadingMargin" constant="-20" id="YaQ-mJ-707"/>
-                            <constraint firstItem="Vdk-fu-Zhk" firstAttribute="leading" secondItem="8nN-X6-XvQ" secondAttribute="leadingMargin" constant="-20" id="ap3-vE-ZAj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vdk-fu-Zhk" secondAttribute="trailing" constant="-20" id="c1V-xU-6LA"/>
                             <constraint firstAttribute="trailing" secondItem="u8d-7c-kfF" secondAttribute="trailing" constant="20" id="d9W-pk-cvX"/>
                             <constraint firstItem="KUi-ky-9Gw" firstAttribute="top" secondItem="qnY-Ye-yGd" secondAttribute="bottom" constant="-50" id="fIE-2X-W3A"/>
                             <constraint firstItem="u8d-7c-kfF" firstAttribute="leading" secondItem="8nN-X6-XvQ" secondAttribute="leading" constant="20" id="hHJ-gE-y29"/>
