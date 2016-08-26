@@ -9,13 +9,13 @@
     <customFonts key="customFonts">
         <mutableArray key="AvenirNext.ttc">
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
             <string>AvenirNext-Regular</string>
-            <string>AvenirNext-DemiBold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -70,7 +70,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Situation_Background" translatesAutoresizingMaskIntoConstraints="NO" id="rlA-2N-zJ1">
+                            <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Situation_Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="rlA-2N-zJ1">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osm-eY-P6T">
@@ -794,7 +794,7 @@
         <image name="IndoorOutdoor_Indoor_60" width="68" height="68"/>
         <image name="Mood_Happy_60" width="68" height="68"/>
         <image name="Place_Office_60" width="68" height="68"/>
-        <image name="Situation_Background" width="1800" height="1125"/>
+        <image name="Situation_Welcome" width="1242" height="2208"/>
         <image name="Time_Lunch_60" width="68" height="68"/>
         <image name="Weather_Cloudy_60" width="68" height="68"/>
         <image name="like" width="40" height="38"/>
