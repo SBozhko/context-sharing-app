@@ -125,12 +125,10 @@ class Images {
         imageName =  "Weather_Snowy"
       case NEContextName.Rain.name:
         imageName =  "Weather_Rainy"
-      case NEContextName.Drizzle.name:
-        imageName =  "Weather_Drizzle"
       case NEContextName.Thunderstorm.name:
         imageName =  "Weather_Thunder"
       default:
-        imageName =  "Unknown"
+        imageName =  "Weather_Sunny"
       }
     default:
       break
