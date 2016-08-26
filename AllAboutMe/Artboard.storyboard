@@ -543,11 +543,11 @@
         <scene sceneID="51H-Io-26F">
             <objects>
                 <tabBarController storyboardIdentifier="ArtboardTabBarController" id="eWu-3k-w1Z" customClass="ArtboardTabBarController" customModule="Jarvis" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="q7n-2z-A9U">
+                    <tabBar key="tabBar" alpha="0.80000000000000004" contentMode="scaleToFill" barStyle="black" id="q7n-2z-A9U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>

@@ -384,7 +384,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQu-OU-Cdp" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="80" width="560" height="404"/>
+                                <rect key="frame" x="20" y="80" width="560" height="412"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ERU-sZ-Sb7">
@@ -423,7 +423,7 @@
                             <constraint firstItem="2hi-NJ-sN2" firstAttribute="top" secondItem="ERU-sZ-Sb7" secondAttribute="bottom" constant="20" id="0kb-cc-tZY"/>
                             <constraint firstItem="nSp-2k-bOo" firstAttribute="top" secondItem="m5s-VB-b1s" secondAttribute="bottom" constant="20" id="3dE-F3-FkK"/>
                             <constraint firstItem="nSp-2k-bOo" firstAttribute="width" secondItem="ERU-sZ-Sb7" secondAttribute="width" id="84N-a1-2b5"/>
-                            <constraint firstItem="ERU-sZ-Sb7" firstAttribute="top" secondItem="SQu-OU-Cdp" secondAttribute="bottom" constant="8" id="Ahh-75-dWn"/>
+                            <constraint firstItem="ERU-sZ-Sb7" firstAttribute="top" secondItem="SQu-OU-Cdp" secondAttribute="bottom" id="Ahh-75-dWn"/>
                             <constraint firstItem="2hi-NJ-sN2" firstAttribute="leading" secondItem="zZm-8t-PD5" secondAttribute="leadingMargin" constant="-20" id="Fgv-1x-ple"/>
                             <constraint firstAttribute="trailing" secondItem="ERU-sZ-Sb7" secondAttribute="trailing" constant="20" id="JTU-Cu-Pqx"/>
                             <constraint firstItem="nSp-2k-bOo" firstAttribute="centerX" secondItem="ERU-sZ-Sb7" secondAttribute="centerX" id="PWx-Lm-Bec"/>
@@ -443,6 +443,8 @@
                             <mask key="constraints">
                                 <exclude reference="PWx-Lm-Bec"/>
                                 <exclude reference="ckz-DM-eeY"/>
+                                <exclude reference="RdA-mR-lZr"/>
+                                <exclude reference="gwY-C4-6a2"/>
                                 <exclude reference="mjT-IJ-97W"/>
                             </mask>
                         </variation>
@@ -657,6 +659,11 @@
                                                 <state key="normal" title="SITUATIONS">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleButtonPressed:" destination="Ez6-Ej-iAV" eventType="touchUpInside" id="5ci-ga-8hU"/>
                                                 </connections>
@@ -687,6 +694,11 @@
                                                 <state key="normal" title="PLACES">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleButtonPressed:" destination="Ez6-Ej-iAV" eventType="touchUpInside" id="I66-js-tUb"/>
                                                 </connections>
@@ -716,6 +728,11 @@
                                                 <state key="normal" title="ACTIVITIES">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleButtonPressed:" destination="Ez6-Ej-iAV" eventType="touchUpInside" id="zQX-u5-XQj"/>
                                                 </connections>
@@ -746,7 +763,9 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleButtonPressed:" destination="Ez6-Ej-iAV" eventType="touchUpInside" id="nOJ-dH-l4F"/>
@@ -777,6 +796,11 @@
                                                 <state key="normal" title="IN - OUTDOORS">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleButtonPressed:" destination="Ez6-Ej-iAV" eventType="touchUpInside" id="kJe-is-lA4"/>
                                                 </connections>
