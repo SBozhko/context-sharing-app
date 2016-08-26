@@ -44,7 +44,7 @@ class ItemListViewController: UIViewController {
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return UIStatusBarStyle.Default
+    return UIStatusBarStyle.LightContent
   }
 
   func handleImageDownloadNotification(notification : NSNotification) {

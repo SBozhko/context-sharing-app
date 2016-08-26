@@ -19,7 +19,7 @@ class AnalyticsPopupViewController : UIViewController {
   @IBOutlet weak var analyticsPopupTitleLabel: UILabel!
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   
-  var contextGroup : NEContextGroup?
+  var contextGroup : String!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,17 +27,17 @@ class AnalyticsPopupViewController : UIViewController {
                                                      selector: #selector(AnalyticsPopupViewController.handleProfileIdReceivedNotification(_:)),
                                                      name: profileIdReceivedNotification,
                                                      object: nil)
-    switch (contextGroup!) {
-    case .Situation:
-      analyticsPopupTitleLabel.text = contextGroup?.name.uppercaseString
-    case .Activity:
-      analyticsPopupTitleLabel.text = contextGroup?.name.uppercaseString
-    case .Place:
-      analyticsPopupTitleLabel.text = contextGroup?.name.uppercaseString
-    case .IndoorOutdoor:
+    switch (contextGroup) {
+    case NEContextGroup.Situation.name:
+      analyticsPopupTitleLabel.text = contextGroup.uppercaseString
+    case NEContextGroup.Activity.name:
+      analyticsPopupTitleLabel.text = contextGroup.uppercaseString
+    case NEContextGroup.Place.name:
+      analyticsPopupTitleLabel.text = contextGroup.uppercaseString
+    case NEContextGroup.IndoorOutdoor.name:
       analyticsPopupTitleLabel.text = "IN - OUT"
-    case .Mood:
-      analyticsPopupTitleLabel.text = contextGroup?.name.uppercaseString
+    case NEContextGroup.Mood.name:
+      analyticsPopupTitleLabel.text = contextGroup.uppercaseString
     default:
       analyticsPopupTitleLabel.text = "Your History"
     }
@@ -65,9 +65,9 @@ class AnalyticsPopupViewController : UIViewController {
     
   func loadCharts(analyticsPeriod : AnalyticsPeriod) {
     if let _profileId = Credentials.sharedInstance.profileId {
-      let historyEndpoint = "\(getContextHistoryEndpoint)/\(_profileId)?ctx=\(contextGroup!.name)&period=\(analyticsPeriod.name)"
+      let historyEndpoint = "\(getContextHistoryEndpoint)/\(_profileId)?ctx=\(contextGroup)&period=\(analyticsPeriod.name)"
       //    ctx=DayCategory,TimeOfDay,IndoorOutdoor,Activity,Situation,Mood,Weather,Lightness,Loudness,Place"
-      Mixpanel.sharedInstance().track("LoadCharts", properties: ["ContextGroup" : contextGroup!.name, "Period" : analyticsPeriod.name])
+      Mixpanel.sharedInstance().track("LoadCharts", properties: ["ContextGroup" : contextGroup, "Period" : analyticsPeriod.name])
       
       Alamofire.request(.GET, historyEndpoint, encoding: .JSON)
         .responseJSON { response in
@@ -92,7 +92,7 @@ class AnalyticsPopupViewController : UIViewController {
                 colors.append(color)
               }
               
-              let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "\(self.contextGroup!.name)")
+              let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "\(self.contextGroup)")
               let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
               pieChartDataSet.colors = colors
               self.pieChartView.data = pieChartData
