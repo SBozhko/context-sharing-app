@@ -672,6 +672,11 @@
                                             <constraint firstItem="91o-L8-nqf" firstAttribute="leading" secondItem="p9s-Zg-BnC" secondAttribute="leading" id="bKk-Oe-d6F"/>
                                             <constraint firstAttribute="bottom" secondItem="91o-L8-nqf" secondAttribute="bottom" id="kng-h8-dIU"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VsD-jP-7vj">
                                         <rect key="frame" x="0.0" y="70" width="560" height="50"/>
@@ -696,6 +701,11 @@
                                             <constraint firstAttribute="bottom" secondItem="Anh-xj-0lQ" secondAttribute="bottom" id="n4H-CF-AND"/>
                                             <constraint firstItem="Anh-xj-0lQ" firstAttribute="top" secondItem="VsD-jP-7vj" secondAttribute="top" id="sRu-wq-hcK"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ymj-Vy-Mey">
                                         <rect key="frame" x="0.0" y="140" width="560" height="50"/>
@@ -720,6 +730,11 @@
                                             <constraint firstAttribute="trailing" secondItem="rdf-sK-Sq5" secondAttribute="trailing" id="plw-ok-DAV"/>
                                             <constraint firstItem="rdf-sK-Sq5" firstAttribute="height" secondItem="Ymj-Vy-Mey" secondAttribute="height" id="vRr-cu-rMR"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnR-ol-Qlu">
                                         <rect key="frame" x="0.0" y="210" width="560" height="50"/>
@@ -730,6 +745,9 @@
                                                 <state key="normal" title="MOODS">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="handleButtonPressed:" destination="Ez6-Ej-iAV" eventType="touchUpInside" id="nOJ-dH-l4F"/>
                                                 </connections>
@@ -744,6 +762,11 @@
                                             <constraint firstItem="OBR-Yx-YUv" firstAttribute="top" secondItem="fnR-ol-Qlu" secondAttribute="top" id="rIR-FA-8b0"/>
                                             <constraint firstItem="OBR-Yx-YUv" firstAttribute="width" secondItem="fnR-ol-Qlu" secondAttribute="width" id="zpE-8A-XDg"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2j-38-7md">
                                         <rect key="frame" x="0.0" y="280" width="560" height="50"/>
@@ -768,6 +791,11 @@
                                             <constraint firstItem="ZqE-rU-mxB" firstAttribute="top" secondItem="S2j-38-7md" secondAttribute="top" id="fjo-aR-Lmw"/>
                                             <constraint firstAttribute="trailing" secondItem="ZqE-rU-mxB" secondAttribute="trailing" id="sR3-R6-CgV"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
