@@ -88,14 +88,14 @@ extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionVi
       savedIndexPath = selectedContext[listOfContextNames[indexPath.row]]
       where savedIndexPath == indexPath {
       selectedContext.removeValueForKey(listOfContextNames[savedIndexPath.row])
-//      cell!.contextOptionImageView.layer.borderWidth = 0.0
-//      cell!.contextOptionImageView.layer.borderColor = UIColor.clearColor().CGColor
     } else {
       selectedContext[listOfContextNames[indexPath.row]] = indexPath
-//      cell!.contextOptionImageView.layer.borderWidth = 3.0
-//      cell!.contextOptionImageView.layer.borderColor = UIColor.blueColor().CGColor
       currentContextImageView.image = UIImage(named: Images.getImageName(listOfContextNames[indexPath.row].name, contextGroup: contextGroup!.name, mainContext: true))
-      currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.getUpdateSituationDisplayMessage(listOfContextNames[indexPath.row].name.lowercaseString)
+      if contextGroup! == NEContextGroup.Situation {
+        currentContextStatementSuffixLabel.text = ContextInfo.sharedInstance.getUpdateSituationDisplayMessage(listOfContextNames[indexPath.row].name)
+      } else {
+        currentContextStatementSuffixLabel.text = "\(listOfContextNames[indexPath.row].name.lowercaseString)"
+      }
     }
   }
   
@@ -105,8 +105,6 @@ extension ContextUpdateViewController : UICollectionViewDelegate, UICollectionVi
       where savedIndexPath == indexPath {
       selectedContext.removeValueForKey(listOfContextNames[savedIndexPath.row])
     }
-//    cell!.contextOptionImageView.layer.borderWidth = 0.0
-//    cell!.contextOptionImageView.layer.borderColor = UIColor.clearColor().CGColor
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
