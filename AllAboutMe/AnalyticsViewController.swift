@@ -36,7 +36,7 @@ class AnalyticsViewController: UIViewController {
           contextGroup = NEContextGroup.Place
         case "MOODS":
           contextGroup = NEContextGroup.Mood
-        case "IN - OUT":
+        case "IN - OUTDOORS":
           contextGroup = NEContextGroup.IndoorOutdoor
         default:
           contextGroup = NEContextGroup.Situation

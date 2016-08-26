@@ -220,21 +220,21 @@ class ContextInfo {
   
   func getUpdateSituationDisplayMessage(situation : String) -> String {
     switch (situation) {
-    case NEContextName.WakeUp.name:
+    case NEContextName.WakeUp.name.lowercaseString:
       return "waking up"
-    case NEContextName.Working.name:
+    case NEContextName.Working.name.lowercaseString:
       return situation.lowercaseString
-    case NEContextName.Workout.name:
+    case NEContextName.Workout.name.lowercaseString:
       return "exercising"
-    case NEContextName.Party.name:
+    case NEContextName.Party.name.lowercaseString:
       return "partying"
-    case NEContextName.Housework.name:
+    case NEContextName.Housework.name.lowercaseString:
       return "doing housework"
-    case NEContextName.Relaxing.name:
+    case NEContextName.Relaxing.name.lowercaseString:
       return situation.lowercaseString
-    case NEContextName.OnTheGo.name:
+    case NEContextName.OnTheGo.name.lowercaseString:
       return "commuting"
-    case NEContextName.Bedtime.name:
+    case NEContextName.Bedtime.name.lowercaseString:
       return "going to bed"
     default:
       return "relaxing"
@@ -246,7 +246,7 @@ class ContextInfo {
     case .Situation, .Mood, .Place, .Activity, .Weather:
       return contextGroup.name.uppercaseString
     case .IndoorOutdoor:
-      return "IN - OUT"
+      return "IN - OUTDOOR"
     case .TimeOfDay:
       return "TIME OF DAY"
     default:
