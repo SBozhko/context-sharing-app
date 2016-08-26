@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet weak var weatherImageView: UIImageView!
   @IBOutlet weak var indoorOutdoorImageView: UIImageView!
   @IBOutlet weak var activityImageView: UIImageView!
+  @IBOutlet weak var situationImageView: UIImageView!
   
   var disposables : [Disposable] = []
   let log = Logger(loggerName: String(DashboardViewController))
@@ -134,10 +135,8 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       toImageView = moodImageView
       toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case NEContextGroup.Situation.name:
-      UIView.transitionWithView(self.situationLabel, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
-        self.situationLabel.text = "\(ContextInfo.sharedInstance.getDashboardSituationDisplayMessage(contextName))"
-        }, completion: nil)
-      return
+      toImageView = situationImageView
+      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     default:
       break
     }
@@ -145,9 +144,14 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     if let
       localToImageView = toImageView,
       localToImage = toImage {
-      UIView.transitionWithView(localToImageView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+      UIView.transitionWithView(localToImageView, duration: 0.4, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
         localToImageView.image = localToImage
       }, completion: nil)
+      if contextGroup == NEContextGroup.Situation.name {
+        UIView.transitionWithView(self.situationLabel, duration: 0.4, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+          self.situationLabel.text = "\(ContextInfo.sharedInstance.getDashboardSituationDisplayMessage(contextName))"
+          }, completion: nil)
+      }
     }
   }
   

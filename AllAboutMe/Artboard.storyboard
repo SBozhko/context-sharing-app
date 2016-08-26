@@ -257,6 +257,7 @@
                         <outlet property="indoorOutdoorImageView" destination="JLf-rW-4sV" id="NVH-3H-Mg8"/>
                         <outlet property="moodImageView" destination="LbN-5o-MtQ" id="BJ6-9v-W7Z"/>
                         <outlet property="placeImageView" destination="ngt-ki-tDl" id="VmX-Ao-u3e"/>
+                        <outlet property="situationImageView" destination="rlA-2N-zJ1" id="7GY-pR-w6R"/>
                         <outlet property="situationLabel" destination="SHz-T9-dkU" id="R61-Gz-arh"/>
                         <outlet property="timeImageView" destination="tfw-kD-xdC" id="J4z-n7-apC"/>
                         <outlet property="weatherImageView" destination="fJG-3W-WDX" id="cV8-xb-Gs6"/>
