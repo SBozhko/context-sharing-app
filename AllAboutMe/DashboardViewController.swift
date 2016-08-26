@@ -13,8 +13,6 @@ import Mixpanel
 
 class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
 
-  @IBOutlet weak var situationView: UIView!
-  @IBOutlet weak var situationImageView: UIImageView!
   @IBOutlet weak var situationLabel: UILabel!
   @IBOutlet weak var placeImageView: UIImageView!
   @IBOutlet weak var moodImageView: UIImageView!
@@ -22,7 +20,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet weak var weatherImageView: UIImageView!
   @IBOutlet weak var indoorOutdoorImageView: UIImageView!
   @IBOutlet weak var activityImageView: UIImageView!
-  @IBOutlet weak var surpriseMeImageView: UIImageView!
+  
   var disposables : [Disposable] = []
   let log = Logger(loggerName: String(DashboardViewController))
   let contextGroups : [NEContextGroup] = [NEContextGroup.Situation, NEContextGroup.Mood, NEContextGroup.Place, NEContextGroup.Weather, NEContextGroup.Activity, NEContextGroup.Lightness, NEContextGroup.TimeOfDay, NEContextGroup.DayCategory, NEContextGroup.IndoorOutdoor]
@@ -37,8 +35,6 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     addImageViewModifications(weatherImageView)
     addImageViewModifications(indoorOutdoorImageView)
     addImageViewModifications(activityImageView)
-    addImageViewModifications(surpriseMeImageView)
-    addImageViewModifications(situationImageView)
     let recognizer = UITapGestureRecognizer(target: self, action:#selector(DashboardViewController.handleImageTapGesture(_:)))
     recognizer.delegate = self
     situationLabel.addGestureRecognizer(recognizer)
@@ -138,8 +134,10 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       toImageView = moodImageView
       toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
     case NEContextGroup.Situation.name:
-      toImageView = situationImageView
-      toImage = UIImage(named: Images.getImageName(contextName, contextGroup: contextGroup))
+      UIView.transitionWithView(self.situationLabel, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+        self.situationLabel.text = "\(ContextInfo.sharedInstance.getDashboardSituationDisplayMessage(contextName))"
+        }, completion: nil)
+      return
     default:
       break
     }
@@ -150,11 +148,6 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       UIView.transitionWithView(localToImageView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
         localToImageView.image = localToImage
       }, completion: nil)
-      if contextGroup == NEContextGroup.Situation.name {
-        UIView.transitionWithView(self.situationLabel, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
-          self.situationLabel.text = "\(ContextInfo.sharedInstance.getDashboardSituationDisplayMessage(contextName))"
-        }, completion: nil)
-      }
     }
   }
   
@@ -180,11 +173,6 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       case .Time:
         /* Time image */
         performSegueWithIdentifier("showContextUpdateSegue", sender: ContextInfo.sharedInstance.getCurrentContext(NEContextGroup.TimeOfDay).context)
-        break
-      case .SurpriseMe:
-        /* Surprise Me image */
-        userRequested = true
-        handleSurpriseMe()
         break
       case .Weather:
         /* Weather image */
@@ -218,6 +206,11 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
     if userRequested && UIApplication.sharedApplication().applicationState == UIApplicationState.Active && self.isViewVisible() {
       handleSurpriseMe()
     }
+  }
+  
+  @IBAction func handleGoButtonPressed(sender : UIButton) {
+    userRequested = true
+    handleSurpriseMe()
   }
   
   func handleSurpriseMe() {
