@@ -28,6 +28,7 @@ class WebViewController: UIViewController {
     let progressButton = UIBarButtonItem(customView: progressView)
     let spacer = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
     let refresh = UIBarButtonItem(barButtonSystemItem: .Refresh, target: webView, action: #selector(webView.reload))
+    refresh.tintColor = UIColor.darkGrayColor()
     toolbarItems = [progressButton, spacer, refresh]
     navigationController?.toolbarHidden = false
     self.title = item.title
