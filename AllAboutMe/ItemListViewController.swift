@@ -61,7 +61,7 @@ class ItemListViewController: UIViewController {
     if let
       localToImageView = toImageView,
       localToImage = toImage {
-      UIView.transitionWithView(localToImageView, duration: 0.25, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+      UIView.transitionWithView(localToImageView, duration: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: {
         localToImageView.image = localToImage
         }, completion: nil)
     }
