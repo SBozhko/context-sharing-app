@@ -133,7 +133,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
       if let
         _thumbnailUrl = item!.thumbnailImageUrl,
         url = NSURL(string: _thumbnailUrl) {
-        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item, indexPath: nil)
+//        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item, indexPath: nil)
       }
     }
     

@@ -26,6 +26,8 @@ class VideoTableViewCell: UITableViewCell {
   }
 
   func configure(item : RecommendedItem, indexPath : NSIndexPath) {
+    self.contentView.layer.cornerRadius = 5.0
+    self.contentView.layer.masksToBounds = true
     self.item = item
     if let _title = item.title {
       self.titleLabel.text = _title
@@ -39,7 +41,7 @@ class VideoTableViewCell: UITableViewCell {
       if let
         thumbnailUrl = item.thumbnailImageUrl,
         url = NSURL(string: thumbnailUrl) {
-        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item, indexPath: indexPath)
+//        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item, indexPath: indexPath)
       }
     }
   }

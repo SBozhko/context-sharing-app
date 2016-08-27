@@ -60,7 +60,7 @@
                             <constraint firstItem="ctf-YS-hSw" firstAttribute="top" secondItem="bHi-qn-kRH" secondAttribute="bottom" constant="40" id="k8E-Du-s4N"/>
                             <constraint firstItem="Ygo-vE-dOP" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="p7H-6q-R5E"/>
                             <constraint firstItem="Ygo-vE-dOP" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qVa-FS-8O1"/>
-                            <constraint firstItem="bHi-qn-kRH" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="100" id="qop-hx-PNF"/>
+                            <constraint firstItem="bHi-qn-kRH" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="120" id="qop-hx-PNF"/>
                             <constraint firstItem="bHi-qn-kRH" firstAttribute="centerX" secondItem="Ygo-vE-dOP" secondAttribute="centerX" id="wdr-HB-Miq"/>
                         </constraints>
                         <variation key="default">
@@ -73,6 +73,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

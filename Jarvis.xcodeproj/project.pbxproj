@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		11068D3945AD10DD6D609B48 /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557CEF5628C0C79E68DC1074 /* Pods_Jarvis.framework */; };
 		380034231D6CA1B500974C54 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 380034201D6CA1A500974C54 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		380034251D70B35700974C54 /* ItemListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380034241D70B35700974C54 /* ItemListView.xib */; };
+		380034271D710CBA00974C54 /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380034261D710CBA00974C54 /* ItemListView.swift */; };
 		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
 		381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381001481D590C5E00D43A00 /* Onboarding.storyboard */; };
 		381FEA7D1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */; };
@@ -80,6 +82,8 @@
 
 /* Begin PBXFileReference section */
 		380034201D6CA1A500974C54 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
+		380034241D70B35700974C54 /* ItemListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemListView.xib; sourceTree = "<group>"; };
+		380034261D710CBA00974C54 /* ItemListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		381001481D590C5E00D43A00 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		381FEA7C1D5AA54B00FBB7CF /* OnboardingGetNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingGetNameViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				38663E181D61F4E400F01E2C /* MusicTableViewCell.swift */,
 				38663E1E1D62199300F01E2C /* VideoTableViewCell.swift */,
 				3851F4051D62AB4500DEFFD7 /* MusicViewController.swift */,
+				380034261D710CBA00974C54 /* ItemListView.swift */,
 			);
 			name = ContentRecommendation;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				38663DC61D5E4C4600F01E2C /* Artboard.storyboard */,
 				38663E1A1D61F52000F01E2C /* MusicTableViewCell.xib */,
 				38663E1C1D62143B00F01E2C /* VideoTableViewCell.xib */,
+				380034241D70B35700974C54 /* ItemListView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				380034251D70B35700974C54 /* ItemListView.xib in Resources */,
 				38C1635E1D50AC5300561A50 /* RecommendedMusicTableViewCell.xib in Resources */,
 				38663E1D1D62143B00F01E2C /* VideoTableViewCell.xib in Resources */,
 				38663E1B1D61F52000F01E2C /* MusicTableViewCell.xib in Resources */,
@@ -532,6 +539,7 @@
 				381FEA7F1D5AA58700FBB7CF /* OnboardingPermissionsViewController.swift in Sources */,
 				387DE6A51D255092006543D4 /* AWS.swift in Sources */,
 				38DAE3601D2B3ECC005F26B0 /* ContextPopoverViewController.swift in Sources */,
+				380034271D710CBA00974C54 /* ItemListView.swift in Sources */,
 				3853FEBC1D3BB1B9006B894C /* Logger.swift in Sources */,
 				3851F4101D647A5700DEFFD7 /* ContextUpdateCollectionViewCell.swift in Sources */,
 				3851F40E1D63EC1A00DEFFD7 /* ContextUpdateViewController.swift in Sources */,
@@ -676,10 +684,11 @@
 				);
 				INFOPLIST_FILE = AllAboutMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				PRODUCT_BUNDLE_IDENTIFIER = me.numbereight.Jarvis;
 				PRODUCT_NAME = Jarvis;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -697,10 +706,11 @@
 				);
 				INFOPLIST_FILE = AllAboutMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
 				PRODUCT_BUNDLE_IDENTIFIER = me.numbereight.Jarvis;
 				PRODUCT_NAME = Jarvis;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

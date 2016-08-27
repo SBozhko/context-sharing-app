@@ -42,7 +42,7 @@ class MusicTableViewCell: UITableViewCell {
       if let
         thumbnailUrl = item.thumbnailImageUrl,
         url = NSURL(string: thumbnailUrl) {
-        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item, indexPath: indexPath)
+//        downloadTask = self.artworkImageView.loadImageWithURL(url, item: item, indexPath: indexPath)
       }
     }
   }

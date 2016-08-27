@@ -11,31 +11,28 @@ import Mixpanel
 
 class ItemListViewController: UIViewController {
 
-  @IBOutlet weak var tableView: UITableView!
-  var items : [RecommendedItem]?
-  lazy var refreshControl: UIRefreshControl = {
-    let refreshControl = UIRefreshControl()
-    refreshControl.addTarget(self, action: #selector(ItemListViewController.handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
-    
-    return refreshControl
-  }()
+  @IBOutlet weak var itemView1: UIView!
+  @IBOutlet weak var imageView1: UIImageView!
+  @IBOutlet weak var itemTypeImageView1: UIImageView!
+  @IBOutlet weak var titleLabel1: UILabel!
+  @IBOutlet weak var durationLabel1: UILabel!
+  @IBOutlet weak var itemView2: UIView!
+  @IBOutlet weak var imageView2: UIImageView!
+  @IBOutlet weak var itemTypeImageView2: UIImageView!
+  @IBOutlet weak var titleLabel2: UILabel!
+  @IBOutlet weak var durationLabel2: UILabel!
   
+  var items : [RecommendedItem]!
+  var downloadTask1: NSURLSessionDownloadTask?
+  var downloadTask2: NSURLSessionDownloadTask?
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.registerNib(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTableViewCell")
-    tableView.registerNib(UINib(nibName: "MusicTableViewCell", bundle: nil), forCellReuseIdentifier: "MusicTableViewCell")
-    tableView.estimatedRowHeight = tableView.rowHeight
-    tableView.rowHeight = UITableViewAutomaticDimension
-    refreshControl = UIRefreshControl()
-    refreshControl.backgroundColor = UIColor.clearColor()
-    refreshControl.tintColor = UIColor.whiteColor()
-    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-    refreshControl.addTarget(self, action: #selector(ItemListViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
-    self.tableView.addSubview(refreshControl)
     NSNotificationCenter.defaultCenter().addObserver(self,
                                                      selector: #selector(ItemListViewController.handleImageDownloadNotification(_:)),
                                                      name: imageDownloadNotification,
                                                      object: nil)
+    loadItems()
   }
   
   override func viewWillDisappear(animated: Bool) {
@@ -43,40 +40,97 @@ class ItemListViewController: UIViewController {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
   
-  override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return UIStatusBarStyle.LightContent
-  }
-
-  func handleImageDownloadNotification(notification : NSNotification) {
-    if let indexPath: NSIndexPath = notification.object as? NSIndexPath {
-      dispatch_async(dispatch_get_main_queue(), {
-        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-      })
-    }
-    else {
-      dispatch_async(dispatch_get_main_queue(), {
-        self.tableView.reloadData()
-      })
-    }
-  }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
   
-  func handleRefresh(refreshControl: UIRefreshControl) {
+  override func prefersStatusBarHidden() -> Bool {
+    return true
+  }
+  
+  func loadItems() {
+    populateView(itemView1.tag)
+    populateView(itemView2.tag)
+  }
+  
+  func loadImage(itemViewTag : Int) {
+    let toImageView : UIImageView? = itemViewTag == 0 ? imageView1 : imageView2
+    let toImage : UIImage? = items[itemViewTag].thumbnailImage
+    if let
+      localToImageView = toImageView,
+      localToImage = toImage {
+      UIView.transitionWithView(localToImageView, duration: 0.25, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+        localToImageView.image = localToImage
+        }, completion: nil)
+    }
+  }
+  
+  func populateView(itemViewTag : Int) {
+    let index = itemViewTag
+    if index == 0 {
+      itemTypeImageView1.image = items[index].type! == .Music ? UIImage(named: "music") : UIImage(named: "video")
+      if let localTitle = items[index].title {
+        titleLabel1.text = localTitle
+      }
+      if let localDuration = items[index].duration {
+        durationLabel1.text = getDurationString(localDuration)
+      }
+      if items[index].thumbnailImage != nil {
+        loadImage(index)
+      } else {
+        if let
+          thumbnailUrl = items[index].thumbnailImageUrl,
+          url = NSURL(string: thumbnailUrl) {
+          downloadTask1 = imageView1.loadImageWithURL(url, item: items[index], index: index)
+        }
+      }
+    } else {
+      itemTypeImageView2.image = items[index].type! == .Music ? UIImage(named: "music") : UIImage(named: "video")
+      if let localTitle = items[index].title {
+        titleLabel2.text = localTitle
+      }
+      if let localDuration = items[index].duration {
+        durationLabel2.text = getDurationString(localDuration)
+      }
+      if items[index].thumbnailImage != nil {
+        loadImage(index)
+      } else {
+        if let
+          thumbnailUrl = items[index].thumbnailImageUrl,
+          url = NSURL(string: thumbnailUrl) {
+          downloadTask2 = imageView2.loadImageWithURL(url, item: items[index], index: index)
+        }
+      }
+    }
+  }
+
+  func handleImageDownloadNotification(notification : NSNotification) {
+    if let index = notification.object as? Int {
+      dispatch_async(dispatch_get_main_queue(), {
+        self.loadImage(index)
+      })
+    }
+  }
+  
+  @IBAction func handleRefresh() {
     if let _items = Recommendations.sharedInstance.getItems(2) {
-      self.refreshControl.endRefreshing()
-      items?.removeAll(keepCapacity: true)
+      items.removeAll(keepCapacity: true)
       _items.forEach({ (item) in
-        items?.append(item)
+        items.append(item)
       })
       Mixpanel.sharedInstance().track("RefreshedItems")
-      dispatch_async(dispatch_get_main_queue(), {
-        self.tableView.reloadData()
-      })
-      
+      loadItems()
+    }
+  }
+  
+  @IBAction func itemButtonPressed(sender: UIButton) {
+    let index = sender.tag
+    if items[index].type! == .Music {
+      performSegueWithIdentifier("showMusicVCSegue", sender: index)
+    } else {
+      performSegueWithIdentifier("showWebViewVCSegue", sender: index)
     }
   }
 
@@ -90,8 +144,8 @@ class ItemListViewController: UIViewController {
       case "showMusicVCSegue":
         if let
           destController = segue.destinationViewController as? MusicViewController {
-          if let item = sender as? RecommendedItem {
-            destController.item = item
+          if let index = sender as? Int {
+            destController.item = self.items[index]
           }
         }
         break
@@ -99,57 +153,13 @@ class ItemListViewController: UIViewController {
         if let
           navController = segue.destinationViewController as? UINavigationController,
           destController = navController.topViewController as? WebViewController {
-            if let item = sender as? RecommendedItem {
-              destController.item = item
+            if let index = sender as? Int {
+              destController.item = self.items[index]
             }
         }
       default:
         break
       }
     }
-  }
-}
-
-extension ItemListViewController : UITableViewDelegate, UITableViewDataSource {
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return items!.count
-  }
-  
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if let _items = items {
-      let _item = _items[indexPath.row]
-      Mixpanel.sharedInstance().track("SelectedContentType", properties: [
-        "Type" : _item.type!.rawValue])
-      if _item.type! == .Music {
-        performSegueWithIdentifier("showMusicVCSegue", sender: _item)
-      } else {
-        performSegueWithIdentifier("showWebViewVCSegue", sender: _item)
-      }
-    }
-  }
-  
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if let unwrappedItems = items {
-      let localItem = unwrappedItems[indexPath.row]
-      if localItem.type! == .Music {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MusicTableViewCell", forIndexPath: indexPath) as! MusicTableViewCell
-        cell.configure(localItem, indexPath: indexPath)
-        return cell
-      } else {
-        let cell = tableView.dequeueReusableCellWithIdentifier("VideoTableViewCell", forIndexPath: indexPath) as! VideoTableViewCell
-        cell.configure(localItem, indexPath: indexPath)
-        return cell
-      }
-    }
-    
-    return UITableViewCell()
-  }
-  
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return UITableViewAutomaticDimension
-  }
-  
-  func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return UITableViewAutomaticDimension
   }
 }
