@@ -43,10 +43,11 @@ class ContextUpdateViewController: UIViewController, UIGestureRecognizerDelegate
         } else {
           currentContextStatementSuffixLabel.text = "\((currentContext.lowercaseString))"
         }
+        currentContextImageView.image = UIImage(named: Images.getImageName(currentContext, contextGroup: localContextGroup.name, mainContext: true))
       } else {
-        currentContextStatementSuffixLabel.text = "unsure!"
+        currentContextStatementSuffixLabel.text = "unsure."
+        currentContextImageView.image = UIImage(named: "Unknown_75")
       }
-      currentContextImageView.image = UIImage(named: Images.getImageName(ContextInfo.sharedInstance.currentContextState[localContextGroup.name]!, contextGroup: localContextGroup.name, mainContext: true))
       currentContextImageView.layer.borderWidth = 2.0
       currentContextImageView.layer.borderColor = topPanelBackGroundView.backgroundColor?.CGColor
       currentContextImageView.layer.cornerRadius = currentContextImageView.frame.width / 2
