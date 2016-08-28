@@ -96,7 +96,7 @@ class AnalyticsPopupViewController : UIViewController {
               let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
               pieChartDataSet.colors = colors
               self.pieChartView.data = pieChartData
-              self.pieChartView.rotationEnabled = false
+              self.pieChartView.rotationEnabled = true
               self.pieChartView.drawSliceTextEnabled = false
               self.pieChartView.usePercentValuesEnabled = true
               self.pieChartView.descriptionText = ""
