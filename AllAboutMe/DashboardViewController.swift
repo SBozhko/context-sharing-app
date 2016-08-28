@@ -55,7 +55,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
       Recommendations.sharedInstance.reloadRecommendations()
     }
     if let storedName = Credentials.name {
-      self.situationLabel.text = "Hi \(storedName)!"
+      self.situationLabel.text = "Hi \(storedName)"
     }
   }
   
