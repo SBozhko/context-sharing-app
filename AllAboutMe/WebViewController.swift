@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import Social
+import Mixpanel
 
 class WebViewController: UIViewController {
   var webView: WKWebView!
@@ -33,6 +34,9 @@ class WebViewController: UIViewController {
     navigationController?.toolbarHidden = false
     self.title = item.title
     webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+    Mixpanel.sharedInstance().track("VideoItemSelected", properties: [
+      "ProfileID" : Credentials.sharedInstance.profileId!,
+      "ItemID" : item.id!])
   }
   
   override func loadView() {

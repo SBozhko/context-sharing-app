@@ -11,6 +11,7 @@ import AVFoundation
 import MediaPlayer
 import Social
 import Mixpanel
+import Alamofire
 
 var downloadTask: NSURLSessionDownloadTask?
 
@@ -63,6 +64,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   var isPlaying = false
   var liked = false
+  var startTime : NSTimeInterval = 0.0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -70,11 +72,9 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
     addImageViewModifications(likeImageView)
     addImageViewModifications(shareImageView)
     self.currentTimeSlider.setThumbImage(UIImage(named: "SliderThumb"), forState: UIControlState.Normal)
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    /* Invalidate timer when view will disappear */
-    stopUISliderTimer()
+    Mixpanel.sharedInstance().track("MusicItemSelected", properties: [
+      "ProfileID" : Credentials.sharedInstance.profileId!,
+      "ItemID" : item!.id!])
   }
   
   func addImageViewModifications(imgView : UIImageView) {
@@ -169,6 +169,28 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
   }
   
   @IBAction func handleClosePressed() {
+    /* Invalidate timer when view will disappear */
+    if let localProfileId = Credentials.sharedInstance.profileId {
+      let parameters : [String : AnyObject] = [
+        "type": "musicItems",
+        "profileId": localProfileId,
+        "id": item!.id!,
+        "startMillis": startTime,
+        "stopMillis": NSDate().timeIntervalSince1970
+      ]
+      
+      Alamofire.request(.POST, postMediaTimings, parameters: parameters, encoding: .JSON)
+        .responseJSON { response in
+          if response.result.isSuccess {
+            print(response)
+          }
+      }
+    }
+    stopUISliderTimer()
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+    self.avPlayer!.removeObserver(self, forKeyPath: "status")
+    self.avPlayer!.pause()
+    self.avPlayer = nil
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   
@@ -288,6 +310,7 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
           break
         case .ReadyToPlay:
           handlePlay()
+          startTime = NSDate().timeIntervalSince1970
         }
       }
     }
@@ -347,10 +370,5 @@ class MusicViewController: UIViewController, UIGestureRecognizerDelegate {
 
       }
     }
-  }
-  
-  deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self)
-    self.avPlayer!.removeObserver(self, forKeyPath: "status")
   }
 }

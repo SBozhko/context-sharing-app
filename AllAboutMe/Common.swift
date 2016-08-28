@@ -36,7 +36,7 @@ let postUserInfoInitEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9
 let postContextEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/contexts"
 let getContextHistoryEndpoint = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/contexts"
 let getContextBasedRecommendations = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/recommendations"
-
+let postMediaTimings = "http://ec2-54-152-1-96.compute-1.amazonaws.com:9000/v1/mediaTimings"
 let uniqueStringCollection : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 enum AnalyticsPeriod : Int {
