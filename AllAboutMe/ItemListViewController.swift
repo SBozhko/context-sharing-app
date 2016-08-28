@@ -32,6 +32,10 @@ class ItemListViewController: UIViewController {
                                                      selector: #selector(ItemListViewController.handleImageDownloadNotification(_:)),
                                                      name: imageDownloadNotification,
                                                      object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self,
+                                                     selector: #selector(ItemListViewController.handleItemsAvailableNotification(_:)),
+                                                     name: itemsAvailableNotification,
+                                                     object: nil)
     loadItems()
   }
   
@@ -111,6 +115,12 @@ class ItemListViewController: UIViewController {
       dispatch_async(dispatch_get_main_queue(), {
         self.loadImage(index)
       })
+    }
+  }
+  
+  func handleItemsAvailableNotification(notification : NSNotification) {
+    if UIApplication.sharedApplication().applicationState == UIApplicationState.Active && self.isViewVisible() {
+      handleRefresh()
     }
   }
   

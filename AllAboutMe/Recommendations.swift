@@ -16,9 +16,9 @@ class Recommendations {
     return _recsInstance
   }
   let log = Logger(loggerName: String(Recommendations))
-  var unwatchedItems : [RecommendedItem] = []
-  var watchedItems : [RecommendedItem] = []
-  let minNumberOfItems = 2
+  var items : [RecommendedItem] = []
+  var currentItemIndex = 0
+  let minNumberOfItems = 1
   
   private func _populateRecommendedItemsList(itemType : ItemType, json : JSON) -> [Int : RecommendedItem] {
     var items : [Int : RecommendedItem] = [:]
@@ -67,9 +67,9 @@ class Recommendations {
         itemId = subJson["id"].int {
         switch ItemType(rawValue: itemType)! {
         case .Music:
-          self.unwatchedItems.append(musicItemList[itemId]!)
+          self.items.append(musicItemList[itemId]!)
         case .Video:
-          self.unwatchedItems.append(videoItemList[itemId]!)
+          self.items.append(videoItemList[itemId]!)
         default:
           break
         }
@@ -78,38 +78,33 @@ class Recommendations {
   }
   
   func reloadRecommendations() {
-    if let _profileId = Credentials.sharedInstance.profileId {
-      let newContentEndpoint = "\(getContextBasedRecommendations)/\(_profileId)"
+    if let localProfileId = Credentials.sharedInstance.profileId {
+      let newContentEndpoint = "\(getContextBasedRecommendations)/\(localProfileId)"
       Alamofire.request(.GET, newContentEndpoint, encoding: .JSON)
         .responseJSON { response in
-          if let unwrappedResult = response.data {
-            self.clearItems()
-            self.populateRecommendedItemsList(JSON(data: unwrappedResult))
-            NSNotificationCenter.defaultCenter().postNotificationName("itemsAvailableNotification", object: nil)
+          if response.result.isSuccess {
+            if let unwrappedResult = response.data {
+              self.clearItems()
+              self.populateRecommendedItemsList(JSON(data: unwrappedResult))
+              NSNotificationCenter.defaultCenter().postNotificationName("itemsAvailableNotification", object: nil)
+            }
           }
       }
     }
   }
   
   private func clearItems() {
-    unwatchedItems.removeAll()
-    watchedItems.removeAll()
+    currentItemIndex = 0
+    items.removeAll()
   }
   
   func getItems(numberOfItems : Int) -> [RecommendedItem]? {
-    if unwatchedItems.count >= minNumberOfItems {
-      var items : [RecommendedItem] = []
-      for index in 0..<minNumberOfItems {
-        let item = unwatchedItems[index]
-        watchedItems.append(item)
-        items.append(item)
-        unwatchedItems.removeAtIndex(index)
-      }
-      
-      if unwatchedItems.count <= minNumberOfItems {
-        reloadRecommendations()
-      }
-      return items
+    if items.indices.contains(currentItemIndex) && items.indices.contains(currentItemIndex+1) {
+      var newItems : [RecommendedItem] = []
+      newItems.append(items[currentItemIndex])
+      newItems.append(items[currentItemIndex+1])
+      currentItemIndex += 2
+      return newItems
     } else {
       reloadRecommendations()
     }
