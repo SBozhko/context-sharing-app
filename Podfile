@@ -19,6 +19,7 @@ target 'Jarvis' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'PermissionScope'
+  pod 'SVProgressHUD'
 end
 
 

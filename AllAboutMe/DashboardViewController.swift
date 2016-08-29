@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import NEContextSDK
 import Mixpanel
+import SVProgressHUD
 
 class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
 
@@ -21,6 +22,7 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
   @IBOutlet weak var indoorOutdoorImageView: UIImageView!
   @IBOutlet weak var activityImageView: UIImageView!
   @IBOutlet weak var situationImageView: UIImageView!
+  @IBOutlet weak var startBlurView: UIVisualEffectView!
   
   var disposables : [Disposable] = []
   let log = Logger(loggerName: String(DashboardViewController))
@@ -51,11 +53,10 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
                                                      selector: #selector(DashboardViewController.handleContextUpdate(_:)),
                                                      name: contextUpdateNotification,
                                                      object: nil)
-    if Credentials.sharedInstance.profileId != nil {
-      Recommendations.sharedInstance.reloadRecommendations()
-    }
+    SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Dark)
     if let storedName = Credentials.name {
       self.situationLabel.text = "Hi \(storedName)"
+      SVProgressHUD.showWithStatus("Using the sensors to figure out your current situation ...")
     }
   }
   
@@ -68,12 +69,18 @@ class DashboardViewController: UIViewController, UIGestureRecognizerDelegate {
             context.name != NEContextName.Warm && context.name != NEContextName.Hot &&
           context.name != NEContextName.Freezing {
           ContextInfo.sharedInstance.postContextInfo([context])
+          if context.group == NEContextGroup.Situation {
+            dispatch_async(dispatch_get_main_queue(), {
+              SVProgressHUD.dismiss()
+              self.startBlurView.hidden = true
+            })
+            Recommendations.sharedInstance.reloadRecommendations()
+          }
         }
       })
       initializeContexts()
     } else {
-//      self.updateSituationView()
-//      self.otherContextCollectionView.reloadData()
+      initializeContexts()
     }
   }
   

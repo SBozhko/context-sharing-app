@@ -64,7 +64,7 @@ class OnboardingPermissionsViewController: UIViewController {
           dispatch_async(dispatch_get_main_queue(), {
             self.buttonLabel.text = "Let's start!"
             self.imageView.image = UIImage(named: "cheers")
-            self.messageLabel.text = "Thanks \(Credentials.name!) - cheers!"
+            self.messageLabel.text = "Thanks \(Credentials.name!)! Let me know if I get anything wrong."
           })
         }
       }, cancelled: { (results) -> Void in

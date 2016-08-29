@@ -236,13 +236,23 @@
                                     <action selector="handleGoButtonPressed:" destination="hO3-sM-pKM" eventType="touchUpInside" id="3yI-P5-fZu"/>
                                 </connections>
                             </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycf-ID-vbH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lM9-rg-QfX">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tx5-lZ-j3f" firstAttribute="top" secondItem="Osm-eY-P6T" secondAttribute="bottom" constant="8" id="Hjf-pR-88b"/>
                             <constraint firstItem="Osm-eY-P6T" firstAttribute="centerX" secondItem="0Kj-FJ-fVO" secondAttribute="centerX" id="ILJ-J9-eQf"/>
+                            <constraint firstItem="Ycf-ID-vbH" firstAttribute="leading" secondItem="0Kj-FJ-fVO" secondAttribute="leadingMargin" constant="-20" id="LZ0-Ul-3eg"/>
                             <constraint firstItem="Osm-eY-P6T" firstAttribute="top" secondItem="P1T-8V-eAq" secondAttribute="bottom" constant="40" id="QKU-wP-c0h"/>
                             <constraint firstItem="rlA-2N-zJ1" firstAttribute="leading" secondItem="0Kj-FJ-fVO" secondAttribute="leading" id="S8W-Tm-UUH"/>
+                            <constraint firstItem="Ycf-ID-vbH" firstAttribute="top" secondItem="P1T-8V-eAq" secondAttribute="bottom" constant="-20" id="ULg-oq-QZz"/>
                             <constraint firstAttribute="trailing" secondItem="rlA-2N-zJ1" secondAttribute="trailing" id="VZC-Et-eI2"/>
                             <constraint firstAttribute="bottom" secondItem="rlA-2N-zJ1" secondAttribute="bottom" id="X7F-jR-cgD"/>
                             <constraint firstItem="vcc-4z-b1J" firstAttribute="centerX" secondItem="0Kj-FJ-fVO" secondAttribute="centerX" id="Ysg-ak-KAT"/>
@@ -251,6 +261,8 @@
                             <constraint firstItem="dxZ-LG-1xe" firstAttribute="top" secondItem="vcc-4z-b1J" secondAttribute="bottom" constant="21" id="ldl-cU-nL9"/>
                             <constraint firstItem="tx5-lZ-j3f" firstAttribute="centerX" secondItem="0Kj-FJ-fVO" secondAttribute="centerX" id="pE6-Qt-PEg"/>
                             <constraint firstItem="Osm-eY-P6T" firstAttribute="width" secondItem="tx5-lZ-j3f" secondAttribute="width" id="sRr-gp-e2x"/>
+                            <constraint firstItem="dxZ-LG-1xe" firstAttribute="top" secondItem="Ycf-ID-vbH" secondAttribute="bottom" constant="-49" id="v8v-pg-ues"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ycf-ID-vbH" secondAttribute="trailing" constant="-20" id="vmQ-VB-4rK"/>
                             <constraint firstItem="vcc-4z-b1J" firstAttribute="height" secondItem="Osm-eY-P6T" secondAttribute="height" multiplier="1.5" id="vrd-47-6dq"/>
                         </constraints>
                     </view>
@@ -263,6 +275,7 @@
                         <outlet property="placeImageView" destination="ngt-ki-tDl" id="VmX-Ao-u3e"/>
                         <outlet property="situationImageView" destination="rlA-2N-zJ1" id="7GY-pR-w6R"/>
                         <outlet property="situationLabel" destination="SHz-T9-dkU" id="R61-Gz-arh"/>
+                        <outlet property="startBlurView" destination="Ycf-ID-vbH" id="rx2-ot-sfT"/>
                         <outlet property="timeImageView" destination="tfw-kD-xdC" id="J4z-n7-apC"/>
                         <outlet property="weatherImageView" destination="fJG-3W-WDX" id="cV8-xb-Gs6"/>
                         <segue destination="MBN-VY-p5o" kind="presentation" identifier="hitMeSegue" id="hL2-AY-6zS"/>
