@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		11068D3945AD10DD6D609B48 /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557CEF5628C0C79E68DC1074 /* Pods_Jarvis.framework */; };
-		380034231D6CA1B500974C54 /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 380034201D6CA1A500974C54 /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		380034251D70B35700974C54 /* ItemListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380034241D70B35700974C54 /* ItemListView.xib */; };
 		380D26891D3EA8B1006518A6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380D26881D3EA8B1006518A6 /* Credentials.swift */; };
 		381001491D590C5E00D43A00 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381001481D590C5E00D43A00 /* Onboarding.storyboard */; };
@@ -53,6 +52,7 @@
 		387DE6AD1D25AA11006543D4 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */; };
 		387DE6AF1D25AA52006543D4 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */; };
 		387DE6B11D25B4CA006543D4 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387DE6B01D25B4CA006543D4 /* Common.swift */; };
+		388825631D73BEBF00326CBB /* NEContextSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 388825601D73BEBB00326CBB /* NEContextSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		38ADA10D1D33D4F700599E61 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ADA10C1D33D4F700599E61 /* MessageUI.framework */; };
 		38ADA1131D3443E200599E61 /* AnalyticsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */; };
 		38B8A15C1D51601400F82A2B /* RecommendedMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B8A15B1D51601300F82A2B /* RecommendedMusicTableViewCell.swift */; };
@@ -72,7 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				380034231D6CA1B500974C54 /* NEContextSDK.framework in Embed Frameworks */,
+				388825631D73BEBF00326CBB /* NEContextSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,7 +80,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		380034201D6CA1A500974C54 /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		380034241D70B35700974C54 /* ItemListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemListView.xib; sourceTree = "<group>"; };
 		380D26881D3EA8B1006518A6 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		381001481D590C5E00D43A00 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
@@ -128,6 +127,7 @@
 		387DE6AC1D25AA11006543D4 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		387DE6AE1D25AA52006543D4 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		387DE6B01D25B4CA006543D4 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		388825601D73BEBB00326CBB /* NEContextSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NEContextSDK.framework; sourceTree = "<group>"; };
 		38ADA10B1D2F193C00599E61 /* Jarvis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jarvis-Bridging-Header.h"; sourceTree = "<group>"; };
 		38ADA10C1D33D4F700599E61 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		38ADA1121D3443E100599E61 /* AnalyticsPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsPopupViewController.swift; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 		DF1B6159D0D86E83ACB75FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				380034201D6CA1A500974C54 /* NEContextSDK.framework */,
+				388825601D73BEBB00326CBB /* NEContextSDK.framework */,
 				38ADA10C1D33D4F700599E61 /* MessageUI.framework */,
 				38C913271D2D2C2B0037A7B9 /* Social.framework */,
 				38FA3ED71D27E616005110D2 /* AdSupport.framework */,
